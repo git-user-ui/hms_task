@@ -5,6 +5,7 @@ import Login from '../screens/auth/Login';
 import Register from '../screens/auth/Register';
 import Welcome from '../screens/auth/Welcome';
 import SetPassword from '../screens/auth/PasswordReset';
+import Home from '../screens/home/Home';
 
 const Stack = createNativeStackNavigator();
 
@@ -22,6 +23,7 @@ const AuthStack = () => {
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="Register" component={Register} />
       <Stack.Screen name="SetPassword" component={SetPassword} />
+      <Stack.Screen name="Home" component={Home} />
     </Stack.Navigator>
   );
 };

@@ -50,7 +50,7 @@ const Login = () => {
       </View>
 
       <View>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
           <Text>Log In</Text>
         </TouchableOpacity>
       </View>
@@ -107,6 +107,7 @@ const styles = StyleSheet.create({
     height: 24,
     resizeMode: 'contain',
   },
+
   label: {},
   input: {},
 });

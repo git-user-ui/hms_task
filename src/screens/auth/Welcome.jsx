@@ -6,16 +6,15 @@ import { colors } from '../../themes/colors';
 const Welcome = () => {
   const navigation = useNavigation();
   return (
-    <View>
-      <View>
+    <View style={styles.mainContainer}>
+      <View style={styles.logo}>
         <Image source={require('../../assets/welcome_screen.png')} />
-        <Text>Skin</Text>
-        <Text>Firts</Text>
+        <Text style={styles.brandName}>Skin Firts</Text>
         <Text>Dermatology center</Text>
       </View>
 
       <View>
-        <Text>
+        <Text style={styles.desc}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </Text>
@@ -26,16 +25,21 @@ const Welcome = () => {
           style={styles.loginBtn}
           onPress={() => navigation.navigate('Login')}
         >
-          <Text> Log In</Text>
+          <Text style={{ color: 'white', textAlign: 'center', padding: 15 }}>
+            {' '}
+            Log In
+          </Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Register')}>
-          <Text>Sign Up</Text>
-        </TouchableOpacity>
+
         <TouchableOpacity
-          style={styles.loginBtn}
-          onPress={() => navigation.navigate('SetPassword')}
+          style={styles.signupBtn}
+          onPress={() => navigation.navigate('Register')}
         >
-          <Text>Set Password</Text>
+          <Text
+            style={{ color: colors.primary, textAlign: 'center', padding: 15 }}
+          >
+            Sign Up
+          </Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -45,8 +49,35 @@ const Welcome = () => {
 export default Welcome;
 
 const styles = StyleSheet.create({
+  mainContainer: {
+    marginHorizontal: 30,
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  logo: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  desc: {
+    textAlign: 'center',
+    marginTop: 40,
+  },
   loginBtn: {
+    marginTop: 30,
+    marginVertical: 10,
+    width: 200,
     backgroundColor: colors.primary,
     color: '#fff',
+    borderRadius: 30,
+  },
+  signupBtn: {
+    width: 200,
+    backgroundColor: colors.secondary,
+    borderRadius: 30,
+  },
+  brandName: {
+    fontSize: 48,
   },
 });
