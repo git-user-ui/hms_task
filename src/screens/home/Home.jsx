@@ -1,7 +1,16 @@
-import { Image, StyleSheet, Text, TextInput, View } from 'react-native';
+import {
+  Image,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import React from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 const Home = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.mainContainer}>
       <View style={styles.topContainer}>
@@ -25,13 +34,17 @@ const Home = () => {
       </View>
 
       <View style={styles.searchSection}>
-        <View style={styles.doctors}>
+        {/* // Favourite Section */}
+        <TouchableOpacity
+          style={styles.doctors}
+          onPress={() => navigation.navigate('Doctors')}
+        >
           <Image
             source={require('../../assets/doctors.png')}
             style={{ height: 20 }}
           />
           <Text>Doctors</Text>
-        </View>
+        </TouchableOpacity>
         <View style={styles.doctors}>
           <Image
             source={require('../../assets/heart.png')}
@@ -39,6 +52,8 @@ const Home = () => {
           />
           <Text>Favourite</Text>
         </View>
+
+        {/* Search Section */}
         <View style={styles.search}>
           <Image
             source={require('../../assets/filter_icon.png')}
