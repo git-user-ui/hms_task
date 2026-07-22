@@ -1,12 +1,14 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import DoctorsHeading from './DoctorsHeading';
+import DoctorsProfile from './DoctorsProfile';
 
 const DoctorsComponent = () => {
   return (
-    <View>
+    <ScrollView>
       <DoctorsHeading heading={'Doctors'} />
-    </View>
+      <DoctorsProfile />
+    </ScrollView>
   );
 };
 

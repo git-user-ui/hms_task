@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
+import { moderateScale, scale } from 'react-native-size-matters';
 
 const Home = () => {
   const navigation = useNavigation();
@@ -41,17 +42,17 @@ const Home = () => {
         >
           <Image
             source={require('../../assets/doctors.png')}
-            style={{ height: 20 }}
+            style={styles.doctorIcon}
           />
           <Text>Doctors</Text>
         </TouchableOpacity>
-        <View style={styles.doctors}>
+        <TouchableOpacity style={styles.doctors}>
           <Image
             source={require('../../assets/heart.png')}
-            styles={{ height: 20 }}
+            styles={styles.heartIcon}
           />
           <Text>Favourite</Text>
-        </View>
+        </TouchableOpacity>
 
         {/* Search Section */}
         <View style={styles.search}>
@@ -75,7 +76,7 @@ export default Home;
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    marginHorizontal: 30,
+    marginHorizontal: scale(30),
   },
   topContainer: {
     flexDirection: 'row',
@@ -106,7 +107,13 @@ const styles = StyleSheet.create({
   },
   doctors: {
     alignItems: 'center',
+    justifyContent: 'space-between',
     gap: 8,
+  },
+  doctorIcon: {},
+  heartIcon: {
+    height: moderateScale(15),
+    width: moderateScale(18),
   },
   search: {
     flexDirection: 'row',
@@ -116,8 +123,8 @@ const styles = StyleSheet.create({
   searchInput: {
     borderWidth: 1,
     borderRadius: 25,
-    width: 230,
-    paddingHorizontal: 28,
-    marginLeft: 10,
+    width: moderateScale(200),
+    paddingHorizontal: scale(28),
+    marginLeft: moderateScale(10),
   },
 });

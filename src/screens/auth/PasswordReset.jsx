@@ -79,4 +79,7 @@ const styles = StyleSheet.create({
     height: 14,
     resizeMode: 'contain',
   },
+  input: {
+    backgroundColor: '#ECF1FF',
+  },
 });

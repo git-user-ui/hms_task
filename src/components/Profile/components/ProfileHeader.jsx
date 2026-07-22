@@ -2,6 +2,7 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { colors } from '../../../themes/colors';
+import { ms, vs } from '../../../utils/responsive';
 
 const ProfileHeader = ({ header }) => {
   const navigation = useNavigation();
@@ -25,8 +26,8 @@ export default ProfileHeader;
 
 const styles = StyleSheet.create({
   container: {
-    marginHorizontal: 30,
-    marginTop: 35,
+    marginHorizontal: ms(30),
+    marginTop: vs(30),
   },
 
   topHeadingContainer: {

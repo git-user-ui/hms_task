@@ -6,6 +6,8 @@ import Home from '../screens/home/Home';
 import Chat from '../screens/chat/Chat';
 import Profile from '../screens/profile/Profile';
 import Calender from '../screens/schedule/Calender';
+import { scale } from 'react-native-size-matters';
+import HomeStack from './HomeStack';
 
 const Tab = createBottomTabNavigator();
 
@@ -15,20 +17,17 @@ const BottomTab = () => {
       screenOptions={({ route }) => ({
         headerShown: false,
         padding: 20,
-
         sceneStyle: {
           backgroundColor: colors.white,
         },
-
         tabBarLabelVisibilityMode: 'unlabeled',
         tabBarActiveTintColor: colors.blue,
         tabBarInactiveTintColor: colors.white,
-
         tabBarStyle: {
           position: 'absolute',
           bottom: 20,
           height: 48,
-          marginHorizontal: 30,
+          marginHorizontal: scale(30),
           borderRadius: 35,
           backgroundColor: colors.primary,
         },
@@ -36,7 +35,6 @@ const BottomTab = () => {
           justifyContent: 'center',
           alignItems: 'center',
         },
-
         tabBarIconStyle: {
           marginTop: 4,
         },
@@ -69,7 +67,7 @@ const BottomTab = () => {
         },
       })}
     >
-      <Tab.Screen name="Home" component={Home} />
+      <Tab.Screen name="Home" component={HomeStack} />
       <Tab.Screen name="Chats" component={Chat} />
       <Tab.Screen name="Profile" component={Profile} />
       <Tab.Screen name="Calender" component={Calender} />

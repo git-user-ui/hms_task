@@ -28,8 +28,8 @@ const AppStack = () => {
       <Stack.Screen name="Tabs" component={BottomTab} />
 
       {/* Doctors Screen */}
-      <Stack.Screen name="Doctors" component={DoctorsScreen} />
-      <Stack.Screen name="Favorite" component={UpdateProfile} />
+      {/* <Stack.Screen name="Doctors" component={DoctorsScreen} />
+      <Stack.Screen name="Favorite" component={UpdateProfile} /> */}
 
       {/* Profile Screens */}
       <Stack.Screen name="UpdateProfile" component={UpdateProfile} />

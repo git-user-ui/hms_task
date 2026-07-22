@@ -2,6 +2,7 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { colors } from '../../themes/colors';
+import { scale, verticalScale } from 'react-native-size-matters';
 
 const Welcome = () => {
   const navigation = useNavigation();
@@ -9,14 +10,14 @@ const Welcome = () => {
     <View style={styles.mainContainer}>
       <View style={styles.logo}>
         <Image source={require('../../assets/welcome_screen.png')} />
-        <Text style={styles.brandName}>Skin Firts</Text>
+        <Text style={styles.brandName}>Skin{`\n`}Firts</Text>
         <Text>Dermatology center</Text>
       </View>
 
       <View>
         <Text style={styles.desc}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          eiusmod tempor incididunt ut et dolore magna aliqua.
         </Text>
       </View>
 
@@ -50,7 +51,7 @@ export default Welcome;
 
 const styles = StyleSheet.create({
   mainContainer: {
-    marginHorizontal: 30,
+    marginHorizontal: scale(30),
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
@@ -62,7 +63,7 @@ const styles = StyleSheet.create({
 
   desc: {
     textAlign: 'center',
-    marginTop: 40,
+    marginTop: verticalScale(40),
   },
   loginBtn: {
     marginTop: 30,
@@ -79,5 +80,6 @@ const styles = StyleSheet.create({
   },
   brandName: {
     fontSize: 48,
+    letterSpacing: 0,
   },
 });
