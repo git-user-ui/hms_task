@@ -1,8 +1,7 @@
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet } from 'react-native';
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { colors } from '../themes/colors';
-import Home from '../screens/home/Home';
 import Chat from '../screens/chat/Chat';
 import Profile from '../screens/profile/Profile';
 import Calender from '../screens/schedule/Calender';

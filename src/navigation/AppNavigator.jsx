@@ -5,7 +5,7 @@ import AuthStack from './AuthStack';
 import AppStack from './AppStack';
 
 const AppNavigator = () => {
-  let loggedin = true;
+  let loggedin = false;
   return (
     <NavigationContainer>
       {loggedin ? <AppStack /> : <AuthStack />}

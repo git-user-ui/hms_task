@@ -10,7 +10,6 @@ import NotificationSetting from '../screens/profile/settings/NotificationSetting
 import PasswordManager from '../screens/profile/settings/PasswordManager';
 import DeleteAccount from '../screens/profile/settings/DeleteAccount';
 import { colors } from '../themes/colors';
-import DoctorsScreen from '../screens/doctors/DoctorsScreen';
 
 const Stack = createNativeStackNavigator();
 

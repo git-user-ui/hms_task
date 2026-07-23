@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import DoctorsScreen from '../screens/doctors/DoctorsScreen';
 import Home from '../screens/home/Home';
 import { colors } from '../themes/colors';
+import DoctorsInfo from '../screens/doctors/DoctorsInfo';
 
 const Stack = createNativeStackNavigator();
 
@@ -19,7 +20,7 @@ const HomeStack = () => {
     >
       <Stack.Screen name="HomeScreen" component={Home} />
       <Stack.Screen name="Doctors" component={DoctorsScreen} />
-      <Stack.Screen name="Favorite" component={DoctorsScreen} />
+      <Stack.Screen name="Info" component={DoctorsInfo} />
     </Stack.Navigator>
   );
 };

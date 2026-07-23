@@ -93,7 +93,7 @@ export default memo(DoctorsHeading);
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: scale(30),
-    paddingTop: verticalScale(20),
+    paddingTop: verticalScale(10),
   },
 
   topContainer: {

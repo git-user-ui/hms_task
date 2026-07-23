@@ -3,20 +3,21 @@ import React from 'react';
 import { sc, vs } from '../../utils/responsive';
 import { colors } from '../../themes/colors';
 
-const Input = ({ label, placeholderName }) => {
+const PasswordInput = ({ label }) => {
   return (
     <View>
       <Text style={styles.labelName}>{label}</Text>
       <TextInput
-        placeholder={placeholderName}
-        style={styles.inputContainer}
+        placeholder="********"
         placeholderTextColor={'#809CFF'}
+        style={styles.inputContainer}
+        secureTextEntry={true}
       />
     </View>
   );
 };
 
-export default Input;
+export default PasswordInput;
 
 const styles = StyleSheet.create({
   labelName: {

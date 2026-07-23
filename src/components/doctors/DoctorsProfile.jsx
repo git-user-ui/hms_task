@@ -3,6 +3,7 @@ import React from 'react';
 import { sc } from '../../utils/responsive';
 import { colors } from '../../themes/colors';
 import { doctorsData } from '../../utils/doctorsdata';
+import { useNavigation } from '@react-navigation/native';
 
 const icons = [
   { id: 1, icon: require('../../assets/blue_calender.png') },
@@ -12,6 +13,7 @@ const icons = [
 ];
 
 const DoctorsProfile = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       {doctorsData.map(data => (
@@ -25,7 +27,10 @@ const DoctorsProfile = () => {
               <Text style={styles.desc}>{data.speaciality}</Text>
             </View>
             <View style={styles.optionsContainer}>
-              <TouchableOpacity style={styles.infoName}>
+              <TouchableOpacity
+                style={styles.infoName}
+                onPress={() => navigation.navigate('Info')}
+              >
                 <Text style={styles.info}>Info</Text>
               </TouchableOpacity>
               <View style={styles.iconContainer}>
