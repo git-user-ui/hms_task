@@ -5,11 +5,17 @@ import { moderateScale, scale, verticalScale } from 'react-native-size-matters';
 
 import { colors } from '../../themes/colors';
 
+// assets
+import StarIcon from '../../assets/svg/star_icon.svg';
+import HeartIcon from '../../assets/svg/heart.svg';
+import Female from '../../assets/svg/female_icon.svg';
+import Male from '../../assets/svg/male_icon.svg';
+
 const sortIcons = [
-  { id: 1, icon: require('../../assets/star_icon.png') },
-  { id: 2, icon: require('../../assets/heart_icon.png') },
-  { id: 3, icon: require('../../assets/female_icon.png') },
-  { id: 4, icon: require('../../assets/male_icon.png') },
+  { id: 1, icon: <StarIcon /> },
+  { id: 2, icon: <HeartIcon height={12} weight={12} /> },
+  { id: 3, icon: <Female /> },
+  { id: 4, icon: <Male /> },
 ];
 
 const IconButton = ({ icon, onPress }) => (
@@ -27,7 +33,7 @@ const SortButton = ({ icon }) => (
     hitSlop={1}
     style={({ pressed }) => [styles.sortIconButton, pressed && styles.pressed]}
   >
-    <Image source={icon} style={styles.sortImage} />
+    {icon}
   </Pressable>
 );
 

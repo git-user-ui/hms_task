@@ -1,11 +1,11 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import React, { Activity } from 'react';
+import React from 'react';
 import { colors } from '../../themes/colors';
-import { sc, vs } from '../../utils/responsive';
+import { ms, sc, vs } from '../../utils/responsive';
 
 const ButtonComp = ({ text, width }) => {
   return (
-    <TouchableOpacity style={styles.btnContainer}>
+    <TouchableOpacity style={[styles.btnContainer, (width = { width })]}>
       <Text style={styles.btnText}>{text}</Text>
     </TouchableOpacity>
   );
@@ -22,13 +22,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     fontWeight: '500',
-    marginTop: vs(30),
-    width: sc(200),
+    paddingHorizontal: ms(8),
+    width: 'auto',
     margin: 'auto',
   },
   btnText: {
     textAlign: 'center',
     color: colors.white,
-    fontSize: sc(24),
+    fontSize: sc(20),
   },
 });

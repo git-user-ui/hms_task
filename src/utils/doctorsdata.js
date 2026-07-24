@@ -6,6 +6,7 @@ export const doctorsData = [
     speaciality: 'Dermato-Genetics',
     rating: 5,
     specialization: 'Dermato-Endocrinology',
+    reviews: 60,
   },
   {
     id: 2,
@@ -14,6 +15,7 @@ export const doctorsData = [
     speaciality: 'Dermato-Genetics',
     rating: 5,
     specialization: 'Dermato-Endocrinology',
+    reviews: 60,
   },
   {
     id: 3,
@@ -22,6 +24,7 @@ export const doctorsData = [
     speaciality: 'Dermato-Genetics',
     rating: 5,
     specialization: 'Dermato-Endocrinology',
+    reviews: 60,
   },
   {
     id: 4,
@@ -30,6 +33,7 @@ export const doctorsData = [
     speaciality: 'Dermato-Genetics',
     rating: 5,
     specialization: 'Dermato-Endocrinology',
+    reviews: 60,
   },
   {
     id: 5,
@@ -38,5 +42,6 @@ export const doctorsData = [
     speaciality: 'Dermato-Genetics',
     rating: 5,
     specialization: 'Dermato-Endocrinology',
+    reviews: 60,
   },
 ];

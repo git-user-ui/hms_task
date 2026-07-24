@@ -8,6 +8,12 @@ import Calender from '../screens/schedule/Calender';
 import { scale } from 'react-native-size-matters';
 import HomeStack from './HomeStack';
 
+// Assets
+import HomeIcon from '../assets/svg/tab/bottomhome_icon.svg';
+import ChatIcon from '../assets/svg/tab/bottomchat_icon.svg';
+import ProfileIcon from '../assets/svg/tab/bottomprofile_icon.svg';
+import CalendarIcon from '../assets/svg/tab/bottomcalendar_icon.svg';
+
 const Tab = createBottomTabNavigator();
 
 const BottomTab = () => {
@@ -15,7 +21,6 @@ const BottomTab = () => {
     <Tab.Navigator
       screenOptions={({ route }) => ({
         headerShown: false,
-        padding: 20,
         sceneStyle: {
           backgroundColor: colors.white,
         },
@@ -37,32 +42,24 @@ const BottomTab = () => {
         tabBarIconStyle: {
           marginTop: 4,
         },
-
-        tabBarIcon: ({ focused, color }) => {
-          let icon;
-
+        tabBarIcon: ({ color }) => {
           if (route.name === 'Home') {
-            icon = require('../assets/icons/home_icon.png');
-          } else if (route.name === 'Chats') {
-            icon = require('../assets/icons/chat_icon.png');
-          } else if (route.name === 'Profile') {
-            icon = require('../assets/icons/profile_icon.png');
-          } else if (route.name === 'Calender') {
-            icon = require('../assets/icons/calender_icon.png');
+            return <HomeIcon width={24} height={24} />;
           }
 
-          return (
-            <Image
-              source={icon}
-              style={{
-                width: 24,
-                height: 24,
-                resizeMode: 'contain',
-                tintColor: color,
-                opacity: 1,
-              }}
-            />
-          );
+          if (route.name === 'Chats') {
+            return <ChatIcon width={24} height={24} />;
+          }
+
+          if (route.name === 'Profile') {
+            return <ProfileIcon width={24} height={24} />;
+          }
+
+          if (route.name === 'Calender') {
+            return <CalendarIcon width={24} height={24} />;
+          }
+
+          return null;
         },
       })}
     >

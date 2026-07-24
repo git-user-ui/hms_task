@@ -17,13 +17,12 @@ export default InfoSection;
 const styles = StyleSheet.create({
   title: {
     color: colors.primary,
-    fontSize: sc(12),
+    fontSize: sc(14),
     fontWeight: '700',
-    marginBottom: sc(6),
   },
 
   desc: {
     color: '#5C5C5C',
-    fontSize: sc(13),
+    fontSize: sc(12),
   },
 });

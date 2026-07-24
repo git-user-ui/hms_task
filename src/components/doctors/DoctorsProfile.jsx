@@ -1,15 +1,20 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
-import { sc } from '../../utils/responsive';
+import { sc, vs } from '../../utils/responsive';
 import { colors } from '../../themes/colors';
 import { doctorsData } from '../../utils/doctorsdata';
 import { useNavigation } from '@react-navigation/native';
 
+import CalendarIcon from '../../assets/svg/calendar_icon.svg';
+import IIcon from '../../assets/svg/calendar_icon.svg';
+import QuestionIcon from '../../assets/svg/question_icon.svg';
+import HeartIcon from '../../assets/svg/heart.svg';
+
 const icons = [
-  { id: 1, icon: require('../../assets/blue_calender.png') },
-  { id: 2, icon: require('../../assets/blue_calender.png') },
-  { id: 3, icon: require('../../assets/blue_calender.png') },
-  { id: 4, icon: require('../../assets/blue_calender.png') },
+  { id: 1, image: <CalendarIcon /> },
+  { id: 2, image: <QuestionIcon /> },
+  { id: 3, image: <QuestionIcon /> },
+  { id: 4, image: <HeartIcon width={14} height={14} /> },
 ];
 
 const DoctorsProfile = () => {
@@ -36,7 +41,7 @@ const DoctorsProfile = () => {
               <View style={styles.iconContainer}>
                 {icons.map(icon => (
                   <TouchableOpacity style={styles.icons} key={icon.id}>
-                    <Image source={icon.icon} />
+                    {icon.image}
                   </TouchableOpacity>
                 ))}
               </View>
@@ -46,7 +51,6 @@ const DoctorsProfile = () => {
       ))}
     </View>
   );
-  ('');
 };
 
 export default DoctorsProfile;
@@ -56,6 +60,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: sc(30),
     paddingTop: sc(10),
     gap: sc(15),
+    marginBottom: vs(80),
   },
   mainContainer: {
     flexDirection: 'row',

@@ -5,6 +5,7 @@ import DoctorsScreen from '../screens/doctors/DoctorsScreen';
 import Home from '../screens/home/Home';
 import { colors } from '../themes/colors';
 import DoctorsInfo from '../screens/doctors/DoctorsInfo';
+import Rating from '../components/doctors/Rating';
 
 const Stack = createNativeStackNavigator();
 
@@ -21,6 +22,7 @@ const HomeStack = () => {
       <Stack.Screen name="HomeScreen" component={Home} />
       <Stack.Screen name="Doctors" component={DoctorsScreen} />
       <Stack.Screen name="Info" component={DoctorsInfo} />
+      <Stack.Screen name="Favorite" component={Rating} />
     </Stack.Navigator>
   );
 };

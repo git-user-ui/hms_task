@@ -27,7 +27,7 @@ export default ProfileHeader;
 const styles = StyleSheet.create({
   container: {
     marginHorizontal: ms(30),
-    marginTop: vs(30),
+    marginTop: vs(12),
   },
 
   topHeadingContainer: {

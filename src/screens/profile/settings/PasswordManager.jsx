@@ -1,49 +1,56 @@
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 import ProfileHeader from '../../../components/Profile/components/ProfileHeader';
-import Input from '../../../components/common/Input';
+import PasswordInput from '../../../components/common/PasswordInput';
+import { ms, sc, vs } from '../../../utils/responsive';
+import { colors } from '../../../themes/colors';
+import ButtonComp from '../../../components/common/Button';
 
 const PasswordManager = () => {
   return (
-    <View>
+    <>
       <ProfileHeader header={'Password Manager'} />
-      <View>
-        <View>
-          <Text>Current Password</Text>
-          <View style={styles.inputField}>
-            <Input placehlderName={'current Password'} />
-            <Image source={require('../../../assets/eye_close.png')} />
-          </View>
-          <Text>forgot password?</Text>
+      <View style={styles.container}>
+        <PasswordInput label={'Current Password'} />
+        <TouchableOpacity>
+          <Text style={styles.text}>Forgot Password ?</Text>
+        </TouchableOpacity>
+        <View style={styles.newPass}>
+          <PasswordInput label={'New  Password'} />
+          <PasswordInput label={'Confirm New Password'} />
         </View>
-
-        {/* New password Section */}
-        <View>
-          <View>
-            <Text>New Password</Text>
-            <View style={styles.inputField}>
-              <Input placehlderName={'current Password'} />
-              <Image source={require('../../../assets/eye_close.png')} />
-            </View>
-          </View>
-          <View>
-            <Text>Confirm New Password</Text>
-            <View style={styles.inputField}>
-              <Input placehlderName={'current Password'} />
-              <Image source={require('../../../assets/eye_close.png')} />
-            </View>
-          </View>
+        <View style={styles.btn}>
+          <ButtonComp
+            text={'Change Password'}
+            width={'100%'}
+            style={styles.btn}
+          />
         </View>
       </View>
-    </View>
+    </>
   );
 };
 
 export default PasswordManager;
 
 const styles = StyleSheet.create({
-  inputField: {
-    flexDirection: 'row',
-    alignItems: 'center',
+  container: {
+    flex: 1,
+    marginHorizontal: sc(30),
+    marginTop: vs(30),
+  },
+  text: {
+    textAlign: 'right',
+    paddingVertical: vs(6),
+    color: colors.primary,
+    fontWeight: '500',
+    fontSize: ms(12),
+  },
+  newPass: {
+    gap: sc(20),
+  },
+  btn: {
+    marginTop: 'auto',
+    marginBottom: vs(30),
   },
 });

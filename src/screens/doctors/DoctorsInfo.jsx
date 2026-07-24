@@ -18,17 +18,17 @@ const DoctorsInfo = () => {
 
         <InfoSection
           title="Profile"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
         />
 
         <InfoSection
           title="Career Path"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
         />
 
         <InfoSection
           title="Highlights"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
         />
       </ScrollView>
     </>
@@ -40,7 +40,7 @@ export default DoctorsInfo;
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: sc(30),
-    paddingVertical: sc(20),
+    paddingVertical: sc(10),
     gap: sc(18),
   },
 });

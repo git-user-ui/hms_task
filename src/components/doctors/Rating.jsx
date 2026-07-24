@@ -1,4 +1,11 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import {
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import React from 'react';
 import { ms, sc, vs } from '../../utils/responsive';
 import { colors } from '../../themes/colors';
@@ -32,7 +39,7 @@ const options = [
 
 const Rating = () => {
   return (
-    <View>
+    <ScrollView style={styles.top}>
       {doctorsData.map(doctor => (
         <View style={styles.container} key={doctor.id}>
           <Image source={doctor.image} style={styles.avatar} />
@@ -58,7 +65,7 @@ const Rating = () => {
               </View>
             </View>
 
-            {/* White Card */}
+            {/* Card */}
 
             <View style={styles.infoCard}>
               <Text numberOfLines={1} style={styles.name}>
@@ -86,13 +93,14 @@ const Rating = () => {
           </View>
         </View>
       ))}
-    </View>
+    </ScrollView>
   );
 };
 
 export default Rating;
 
 const styles = StyleSheet.create({
+  top: { marginBottom: vs(80) },
   container: {
     marginTop: vs(10),
     marginHorizontal: sc(30),

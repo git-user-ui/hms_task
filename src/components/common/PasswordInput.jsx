@@ -25,10 +25,10 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
   inputContainer: {
-    marginTop: vs(10),
     width: '100%',
-    height: sc(45),
+    height: sc(40),
     borderRadius: sc(13),
+    marginTop: vs(4),
     backgroundColor: colors.lightblue,
     paddingHorizontal: sc(20),
   },

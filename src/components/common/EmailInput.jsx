@@ -3,7 +3,7 @@ import React from 'react';
 import { sc, vs } from '../../utils/responsive';
 import { colors } from '../../themes/colors';
 
-const Input = ({ label, placeholderName }) => {
+const EmailInput = ({ label, placeholderName }) => {
   return (
     <View>
       <Text style={styles.labelName}>{label}</Text>
@@ -16,7 +16,7 @@ const Input = ({ label, placeholderName }) => {
   );
 };
 
-export default Input;
+export default EmailInput;
 
 const styles = StyleSheet.create({
   labelName: {
@@ -24,9 +24,9 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
   inputContainer: {
-    marginTop: vs(10),
     width: '100%',
-    height: sc(45),
+    marginTop: vs(4),
+    height: sc(40),
     borderRadius: sc(13),
     backgroundColor: colors.lightblue,
     paddingHorizontal: sc(20),
