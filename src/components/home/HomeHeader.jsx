@@ -4,6 +4,7 @@ import {
   StyleSheet,
   Text,
   TextInput,
+  TouchableOpacity,
   View,
 } from 'react-native';
 import React from 'react';
@@ -38,13 +39,16 @@ const HomeHeader = () => {
         </View>
 
         <View style={styles.headerIcons}>
-          <Pressable style={styles.iconButton}>
+          <TouchableOpacity style={styles.iconButton}>
             <BellIcon />
-          </Pressable>
+          </TouchableOpacity>
 
-          <Pressable style={styles.iconButton}>
+          <TouchableOpacity
+            style={styles.iconButton}
+            onPress={() => navigation.navigate('Settings')}
+          >
             <Settings source={require('../../assets/settings_icon.png')} />
-          </Pressable>
+          </TouchableOpacity>
         </View>
       </View>
 

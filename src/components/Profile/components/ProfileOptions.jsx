@@ -21,9 +21,12 @@ const ProfileOptions = () => {
   const handleLogout = () => {
     setModalVisible(!modalVisible);
   };
+
   const confirmLogout = () => {
-    Alert.alert('Looged out');
-    setModalVisible(!modalVisible);
+    setModalVisible(false);
+
+    // logout logic here
+    Alert.alert('Logged out');
   };
   return (
     <View style={styles.container}>
@@ -54,35 +57,44 @@ const ProfileOptions = () => {
           )}
         </TouchableOpacity>
       ))}
+
       <Modal
-        animationType="slide"
-        transparent={true}
         visible={modalVisible}
-        onRequestClose={() => {
-          Alert.alert('Modal has been closed.');
-          setModalVisible(!modalVisible);
-        }}
+        transparent
+        animationType="slide"
+        statusBarTranslucent
+        onRequestClose={() => setModalVisible(false)}
       >
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <Text style={styles.modalText}>LogOut</Text>
-            <Text style={styles.modalText}>Are you sure want to logout</Text>
-            <View style={styles.btn}>
-              <Pressable
-                style={[styles.button, styles.buttonClose]}
-                onPress={() => setModalVisible(!modalVisible)}
+        <Pressable
+          style={styles.modalOverlay}
+          onPress={() => setModalVisible(false)}
+        >
+          <Pressable style={styles.bottomSheet}>
+            <Text style={styles.logoutTitle}>Logout</Text>
+
+            <Text style={styles.logoutDesc}>
+              Are you sure you want to log out?
+            </Text>
+
+            <View style={styles.buttonRow}>
+              <TouchableOpacity
+                activeOpacity={0.8}
+                style={styles.cancelBtn}
+                onPress={() => setModalVisible(false)}
               >
-                <Text style={styles.textStyle}>Cancel</Text>
-              </Pressable>
-              <Pressable
-                style={[styles.button, styles.buttonClose]}
+                <Text style={styles.cancelText}>Cancel</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                activeOpacity={0.8}
+                style={styles.logoutBtn}
                 onPress={confirmLogout}
               >
-                <Text style={styles.textStyle}>Logout</Text>
-              </Pressable>
+                <Text style={styles.logoutText}>Yes, Logout</Text>
+              </TouchableOpacity>
             </View>
-          </View>
-        </View>
+          </Pressable>
+        </Pressable>
       </Modal>
     </View>
   );
@@ -121,34 +133,69 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     paddingLeft: 20,
   },
-  modalView: {
-    width: '100%',
-    borderTopEndRadius: 20,
-    padding: 35,
+  modalOverlay: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    backgroundColor: 'rgba(34, 96, 255, 0.54)',
+  },
+
+  bottomSheet: {
+    backgroundColor: colors.white,
+    borderTopLeftRadius: 26,
+    borderTopRightRadius: 26,
+
+    paddingHorizontal: 24,
+    paddingTop: 22,
+    paddingBottom: 36,
+  },
+
+  logoutTitle: {
+    fontSize: 24,
+    fontWeight: '700',
+    color: colors.primary,
+    textAlign: 'center',
+  },
+
+  logoutDesc: {
+    fontSize: 15,
+    color: '#1F1F1F',
+    textAlign: 'center',
+    marginTop: 10,
+    marginBottom: 26,
+  },
+
+  buttonRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+
+  cancelBtn: {
+    width: '46%',
+    height: 48,
+    borderRadius: 24,
+    backgroundColor: '#C9D6FF',
+    justifyContent: 'center',
     alignItems: 'center',
   },
-  btn: {
-    flexDirection: 'row',
-    gap: 15,
+
+  logoutBtn: {
+    width: '46%',
+    height: 48,
+    borderRadius: 24,
+    backgroundColor: colors.primary,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  button: {
-    borderRadius: 20,
-    padding: 10,
-    elevation: 2,
+
+  cancelText: {
+    color: colors.primary,
+    fontSize: 16,
+    fontWeight: '600',
   },
-  buttonOpen: {
-    backgroundColor: '#F194FF',
-  },
-  buttonClose: {
-    backgroundColor: '#2196F3',
-  },
-  textStyle: {
-    color: 'white',
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
-  modalText: {
-    marginBottom: 15,
-    textAlign: 'center',
+
+  logoutText: {
+    color: colors.white,
+    fontSize: 16,
+    fontWeight: '600',
   },
 });

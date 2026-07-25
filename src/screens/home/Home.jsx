@@ -1,7 +1,7 @@
 import React from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
 
-import { ms, sc, vs } from '../../utils/responsive';
+import { sc, vs } from '../../utils/responsive';
 import HomeHeader from '../../components/home/HomeHeader';
 import HomeAppointment from '../../components/home/HomeAppointment';
 import HomeDoctorsList from '../../components/home/HomeDoctorsList';

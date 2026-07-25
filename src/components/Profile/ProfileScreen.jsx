@@ -1,4 +1,4 @@
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import React from 'react';
 import ProfileImage from './components/ProfileImage';
 import ProfileHeader from './components/ProfileHeader';
@@ -18,5 +18,3 @@ const ProfileScreen = () => {
 };
 
 export default ProfileScreen;
-
-const styles = StyleSheet.create({});
