@@ -1,7 +1,8 @@
 export const doctorsData = [
   {
     id: 1,
-    name: 'Dr. Alexander Bennett, Phd',
+    gender: 'male',
+    name: 'Dr. Blexander Bennett, Phd',
     image: require('../assets/Images/doctor_1.png'),
     speaciality: 'Dermato-Genetics',
     rating: 5,
@@ -10,6 +11,8 @@ export const doctorsData = [
   },
   {
     id: 2,
+    gender: 'female',
+
     name: 'Dr. Alexander Bennett, Phd',
     image: require('../assets/Images/doctor_1.png'),
     speaciality: 'Dermato-Genetics',
@@ -20,6 +23,8 @@ export const doctorsData = [
   {
     id: 3,
     name: 'Dr. Alexander Bennett, Phd',
+    gender: 'male',
+
     image: require('../assets/Images/doctor_1.png'),
     speaciality: 'Dermato-Genetics',
     rating: 5,
@@ -29,6 +34,8 @@ export const doctorsData = [
   {
     id: 4,
     name: 'Dr. Alexander Bennett, Phd',
+    gender: 'male',
+
     image: require('../assets/Images/doctor_1.png'),
     speaciality: 'Dermato-Genetics',
     rating: 5,
@@ -38,6 +45,19 @@ export const doctorsData = [
   {
     id: 5,
     name: 'Dr. Alexander Bennett, Phd',
+    gender: 'female',
+
+    image: require('../assets/Images/doctor_1.png'),
+    speaciality: 'Dermato-Genetics',
+    rating: 5,
+    specialization: 'Dermato-Endocrinology',
+    reviews: 60,
+  },
+  {
+    id: 6,
+    name: 'Dr. Alexander Bennett, Phd',
+    gender: 'female',
+
     image: require('../assets/Images/doctor_1.png'),
     speaciality: 'Dermato-Genetics',
     rating: 5,

@@ -1,14 +1,10 @@
-import {
-  Image,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
-import React from 'react';
+import React, { memo, useCallback } from 'react';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
 import { ms, sc, vs } from '../../utils/responsive';
 import { colors } from '../../themes/colors';
+
 import {
   CalendarRangeIcon,
   CircleQuestionMark,
@@ -16,100 +12,119 @@ import {
   Info,
   Star,
 } from 'lucide-react-native';
-import { doctorsData } from '../../utils/doctorsdata';
 
-const options = [
+const actions = [
   {
     id: 1,
-    icons: <CalendarRangeIcon size={18} />,
+    icon: <CalendarRangeIcon size={18} />,
   },
   {
     id: 2,
-    icons: <Info size={18} />,
+    icon: <Info size={18} />,
   },
   {
     id: 3,
-    icons: <CircleQuestionMark size={18} />,
+    icon: <CircleQuestionMark size={18} />,
   },
   {
     id: 4,
-    icons: <Heart size={18} />,
+    icon: <Heart size={18} />,
   },
 ];
 
-const Rating = () => {
+const Rating = ({ item }) => {
+  const navigation = useNavigation();
+
+  const handleInfo = useCallback(() => {
+    navigation.navigate('Info', {
+      doctor: item,
+    });
+  }, [navigation, item]);
+
   return (
-    <ScrollView style={styles.top}>
-      {doctorsData.map(doctor => (
-        <View style={styles.container} key={doctor.id}>
-          <Image source={doctor.image} style={styles.avatar} />
+    <View style={styles.container}>
+      <Image
+        source={{
+          uri: item.avatar,
+        }}
+        style={styles.avatar}
+      />
 
-          <View style={styles.rightContainer}>
-            {/* Top */}
+      <View style={styles.rightContainer}>
+        {/* Top */}
 
-            <View style={styles.topRow}>
-              <View style={styles.badge}>
-                <View style={styles.badgeCircle}>
-                  <Image
-                    source={require('../../assets/white_professional.png')}
-                    style={styles.badgeIcon}
-                  />
-                </View>
-
-                <Text style={styles.badgeText}>Professional Doctor</Text>
-              </View>
-
-              <View style={styles.rating}>
-                <Star style={styles.star} size={16} />
-                <Text style={styles.ratingText}>{doctor.rating}</Text>
-              </View>
+        <View style={styles.topRow}>
+          <View style={styles.badge}>
+            <View style={styles.badgeCircle}>
+              <Image
+                source={require('../../assets/white_professional.png')}
+                style={styles.badgeIcon}
+              />
             </View>
 
-            {/* Card */}
+            <Text style={styles.badgeText}>Professional Doctor</Text>
+          </View>
 
-            <View style={styles.infoCard}>
-              <Text numberOfLines={1} style={styles.name}>
-                {doctor.name}
-              </Text>
+          <View style={styles.rating}>
+            <Star size={16} fill="#F6B800" color="#F6B800" />
 
-              <Text style={styles.specialization}>{doctor.specialization}</Text>
-            </View>
-
-            {/* Bottom */}
-
-            <View style={styles.bottomRow}>
-              <TouchableOpacity style={styles.infoButton}>
-                <Text style={styles.infoText}>Info</Text>
-              </TouchableOpacity>
-
-              <View style={styles.actions}>
-                {options.map(option => (
-                  <TouchableOpacity key={option.id} style={styles.icon}>
-                    {option.icons}
-                  </TouchableOpacity>
-                ))}
-              </View>
-            </View>
+            <Text style={styles.ratingText}>{item.rating}</Text>
           </View>
         </View>
-      ))}
-    </ScrollView>
+
+        {/* Middle */}
+
+        <View style={styles.infoCard}>
+          <Text numberOfLines={1} style={styles.name}>
+            {item.name}
+          </Text>
+
+          <Text style={styles.specialization}>{item.speciality}</Text>
+
+          {!!item.qualification && (
+            <Text style={styles.qualification}>{item.qualification}</Text>
+          )}
+        </View>
+
+        {/* Bottom */}
+
+        <View style={styles.bottomRow}>
+          <TouchableOpacity
+            activeOpacity={0.8}
+            style={styles.infoButton}
+            onPress={handleInfo}
+          >
+            <Text style={styles.infoText}>Info</Text>
+          </TouchableOpacity>
+
+          <View style={styles.actions}>
+            {actions.map(action => (
+              <TouchableOpacity
+                key={action.id}
+                activeOpacity={0.8}
+                style={styles.icon}
+              >
+                {action.icon}
+              </TouchableOpacity>
+            ))}
+          </View>
+        </View>
+      </View>
+    </View>
   );
 };
 
-export default Rating;
+export default memo(Rating);
 
 const styles = StyleSheet.create({
-  top: { marginBottom: vs(80) },
   container: {
-    marginTop: vs(10),
     marginHorizontal: sc(30),
+    marginBottom: vs(14),
     flexDirection: 'row',
     backgroundColor: colors.secondary,
     borderRadius: sc(22),
     padding: sc(10),
     alignItems: 'center',
-    marginBottom: vs(14),
   },
 
   avatar: {
@@ -143,6 +158,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: ms(6),
+  },
+
+  badgeIcon: {
+    width: sc(15),
+    height: sc(15),
+    resizeMode: 'contain',
   },
 
   badgeText: {
@@ -184,6 +205,12 @@ const styles = StyleSheet.create({
     fontSize: ms(12),
   },
 
+  qualification: {
+    marginTop: 2,
+    fontSize: ms(11),
+    color: '#666',
+  },
+
   bottomRow: {
     marginTop: vs(10),
     flexDirection: 'row',
@@ -208,6 +235,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: ms(4),
   },
+
   icon: {
     borderRadius: sc(13),
     backgroundColor: colors.white,

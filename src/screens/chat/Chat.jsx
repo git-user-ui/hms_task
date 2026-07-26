@@ -3,12 +3,18 @@ import React from 'react';
 
 const Chat = () => {
   return (
-    <View>
-      <Text>Chat</Text>
+    <View style={styles.container}>
+      <Text>Chat Section</Text>
     </View>
   );
 };
 
 export default Chat;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});

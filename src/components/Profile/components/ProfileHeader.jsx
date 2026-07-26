@@ -3,6 +3,7 @@ import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { colors } from '../../../themes/colors';
 import { ms, vs } from '../../../utils/responsive';
+import { Fonts } from '../../../themes/font';
 
 const ProfileHeader = ({ header }) => {
   const navigation = useNavigation();
@@ -40,9 +41,10 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   topText: {
+    fontFamily: Fonts.SemiBold,
+    fontWeight: '600',
     color: colors.primary,
     fontSize: 24,
-    fontWeight: '600',
     textAlign: 'center',
     flex: 1,
   },

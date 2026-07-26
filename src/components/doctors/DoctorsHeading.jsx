@@ -4,40 +4,50 @@ import { useNavigation } from '@react-navigation/native';
 import { moderateScale, scale, verticalScale } from 'react-native-size-matters';
 
 import { colors } from '../../themes/colors';
+import { Fonts } from '../../themes/font';
 
-// assets
 import StarIcon from '../../assets/svg/star_icon.svg';
 import HeartIcon from '../../assets/svg/heart.svg';
 import Female from '../../assets/svg/female_icon.svg';
 import Male from '../../assets/svg/male_icon.svg';
 
-const sortIcons = [
-  { id: 1, icon: <StarIcon /> },
-  { id: 2, icon: <HeartIcon height={12} weight={12} /> },
-  { id: 3, icon: <Female /> },
-  { id: 4, icon: <Male /> },
+import SearchIcon from '../../assets/svg/search_icon.svg';
+import FilterIcon from '../../assets/svg/filter_icon.svg';
+
+const filters = [
+  {
+    key: 'A-Z',
+    label: 'A-Z',
+  },
+  {
+    key: 'Rating',
+    icon: <StarIcon />,
+  },
+  {
+    key: 'Favorite',
+    icon: <HeartIcon width={12} height={12} />,
+  },
+  {
+    key: 'Female',
+    icon: <Female />,
+  },
+  {
+    key: 'Male',
+    icon: <Male />,
+  },
 ];
 
 const IconButton = ({ icon, onPress }) => (
   <Pressable
     onPress={onPress}
-    hitSlop={1}
+    hitSlop={5}
     style={({ pressed }) => [styles.iconButton, pressed && styles.pressed]}
-  >
-    <Image source={icon} style={styles.icon} />
-  </Pressable>
-);
-
-const SortButton = ({ icon }) => (
-  <Pressable
-    hitSlop={1}
-    style={({ pressed }) => [styles.sortIconButton, pressed && styles.pressed]}
   >
     {icon}
   </Pressable>
 );
 
-const DoctorsHeading = ({ heading }) => {
+const DoctorsHeading = ({ heading, selectedFilter, onFilterChange }) => {
   const navigation = useNavigation();
 
   const handleBackButton = useCallback(() => {
@@ -47,10 +57,11 @@ const DoctorsHeading = ({ heading }) => {
   return (
     <View style={styles.container}>
       {/* Header */}
+
       <View style={styles.topContainer}>
         <Pressable
           onPress={handleBackButton}
-          hitSlop={4}
+          hitSlop={5}
           style={({ pressed }) => [
             styles.backButton,
             pressed && styles.pressed,
@@ -62,33 +73,44 @@ const DoctorsHeading = ({ heading }) => {
           />
         </Pressable>
 
-        <Text numberOfLines={1} ellipsizeMode="tail" style={styles.headingText}>
-          {heading}
-        </Text>
+        <Text style={styles.headingText}>{heading}</Text>
 
         <View style={styles.filters}>
-          <IconButton icon={require('../../assets/search_icon.png')} />
-
-          <IconButton icon={require('../../assets/blue_filter_icon.png')} />
+          <IconButton icon={<SearchIcon />} />
+          <IconButton icon={<FilterIcon />} />
         </View>
       </View>
 
-      {/* Sort Section */}
+      {/* Sort */}
+
       <View style={styles.sortContainer}>
         <Text style={styles.sortByText}>Sort By</Text>
 
-        <Pressable
-          style={({ pressed }) => [
-            styles.charFilter,
-            pressed && styles.pressed,
-          ]}
-        >
-          <Text style={styles.char}>A-Z</Text>
-        </Pressable>
+        {filters.map(filter => {
+          const active = selectedFilter === filter.key;
 
-        {sortIcons.map(({ id, icon }) => (
-          <SortButton key={id} icon={icon} />
-        ))}
+          return (
+            <Pressable
+              key={filter.key}
+              onPress={() => onFilterChange(filter.key)}
+              style={[
+                filter.key === 'A-Z'
+                  ? styles.charFilter
+                  : styles.sortIconButton,
+
+                active && styles.activeButton,
+              ]}
+            >
+              {filter.label ? (
+                <Text style={[styles.char, !active && styles.inactiveText]}>
+                  {filter.label}
+                </Text>
+              ) : (
+                filter.icon
+              )}
+            </Pressable>
+          );
+        })}
       </View>
     </View>
   );
@@ -111,7 +133,6 @@ const styles = StyleSheet.create({
     width: scale(12),
     height: scale(22),
     justifyContent: 'center',
-    alignItems: 'flex-start',
   },
 
   backIcon: {
@@ -124,14 +145,13 @@ const styles = StyleSheet.create({
     flex: 1,
     textAlign: 'center',
     fontSize: moderateScale(22),
-    fontWeight: '600',
     color: colors.primary,
+    fontFamily: Fonts.SemiBold,
     marginHorizontal: scale(10),
   },
 
   filters: {
     flexDirection: 'row',
-    alignItems: 'center',
     gap: scale(8),
   },
 
@@ -139,44 +159,40 @@ const styles = StyleSheet.create({
     width: scale(22),
     height: scale(22),
     borderRadius: scale(17),
+    backgroundColor: colors.secondary,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: colors.secondary,
-  },
-
-  icon: {
-    width: scale(12),
-    height: scale(10),
-    resizeMode: 'contain',
   },
 
   sortContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    flexWrap: 'wrap',
     marginTop: verticalScale(20),
-    gap: scale(4),
+    gap: scale(5),
   },
 
   sortByText: {
     fontSize: moderateScale(13),
-    fontWeight: '300',
   },
 
   charFilter: {
     minWidth: scale(47),
     height: verticalScale(21),
-    paddingHorizontal: scale(12),
     borderRadius: scale(20),
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: colors.primary,
+    paddingHorizontal: scale(12),
+    backgroundColor: colors.secondary,
   },
 
   char: {
-    fontSize: moderateScale(11),
     color: colors.white,
-    fontWeight: '600',
+    fontSize: moderateScale(11),
+    fontFamily: Fonts.SemiBold,
+  },
+
+  inactiveText: {
+    color: colors.primary,
   },
 
   sortIconButton: {
@@ -188,10 +204,8 @@ const styles = StyleSheet.create({
     backgroundColor: colors.secondary,
   },
 
-  sortImage: {
-    width: scale(12),
-    height: scale(10),
-    resizeMode: 'contain',
+  activeButton: {
+    backgroundColor: colors.primary,
   },
 
   pressed: {

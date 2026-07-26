@@ -1,11 +1,9 @@
 import React, { memo, useState } from 'react';
 import {
   LayoutAnimation,
-  Platform,
   StyleSheet,
   Text,
   TouchableOpacity,
-  UIManager,
   View,
 } from 'react-native';
 
@@ -13,13 +11,6 @@ import ArrowDownIcon from '../../assets/svg/ArrowDown.svg';
 
 import { ms, sc, vs } from '../../utils/responsive';
 import { colors } from '../../themes/colors';
-
-if (
-  Platform.OS === 'android' &&
-  UIManager.setLayoutAnimationEnabledExperimental
-) {
-  UIManager.setLayoutAnimationEnabledExperimental(true);
-}
 
 const FaqItems = ({ item }) => {
   const [expanded, setExpanded] = useState(false);

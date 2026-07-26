@@ -13,6 +13,7 @@ import { colors } from '../../../themes/colors';
 
 import { useNavigation } from '@react-navigation/native';
 import { profileScreenOptions } from '../../../constants/profileOptions';
+import { Fonts } from '../../../themes/font';
 
 const ProfileOptions = () => {
   const navigation = useNavigation();
@@ -130,6 +131,7 @@ const styles = StyleSheet.create({
   },
   mainName: {
     fontSize: 20,
+    fontFamily: Fonts.Regular,
     fontWeight: '400',
     paddingLeft: 20,
   },

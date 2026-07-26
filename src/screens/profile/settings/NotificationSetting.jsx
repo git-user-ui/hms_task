@@ -1,9 +1,11 @@
-import { StyleSheet, Switch, Text, View } from 'react-native';
 import React, { useState } from 'react';
+import { StyleSheet, Switch, Text, View } from 'react-native';
 import ProfileHeader from '../../../components/Profile/components/ProfileHeader';
 import { colors } from '../../../themes/colors';
+import CustomSwitch from '../../../components/common/CustomSwitch';
+import { Fonts } from '../../../themes/font';
 
-const notificationsOptions = [
+const initialNotifications = [
   { id: 1, label: 'General Notification', isEnabled: false },
   { id: 2, label: 'Sound', isEnabled: false },
   { id: 3, label: 'Sound Call', isEnabled: true },
@@ -11,29 +13,33 @@ const notificationsOptions = [
   { id: 5, label: 'Special Offers', isEnabled: true },
   { id: 6, label: 'Payments', isEnabled: false },
   { id: 7, label: 'Promo and discount', isEnabled: false },
-  { id: 8, label: 'Casback', isEnabled: true },
+  { id: 8, label: 'Cashback', isEnabled: true },
 ];
+
 const NotificationSetting = () => {
-  const [isEnabled, setIsEnabled] = useState(false);
-  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+  const [notifications, setNotifications] = useState(initialNotifications);
+
+  const toggleSwitch = id => {
+    setNotifications(prev =>
+      prev.map(item =>
+        item.id === id ? { ...item, isEnabled: !item.isEnabled } : item,
+      ),
+    );
+  };
+
   return (
-    <View>
-      <ProfileHeader header={'Notification Settings'} />
-      <View style={styles.container}>
-        {notificationsOptions.map(options => (
-          <View key={options.id} style={styles.options}>
-            <View>
-              <Text style={styles.labelName}>{options.label}</Text>
-            </View>
-            <View>
-              <Switch
-                style={styles.togglebtn}
-                trackColor={{ false: colors.secondary, true: colors.primary }}
-                thumbColor={isEnabled ? colors.white : colors.white}
-                onValueChange={toggleSwitch}
-                value={isEnabled}
-              />
-            </View>
+    <View style={styles.container}>
+      <ProfileHeader header="Notification Settings" />
+
+      <View style={styles.content}>
+        {notifications.map(item => (
+          <View key={item.id} style={styles.option}>
+            <Text style={styles.label}>{item.label}</Text>
+
+            <CustomSwitch
+              value={item.isEnabled}
+              onValueChange={() => toggleSwitch(item.id)}
+            />
           </View>
         ))}
       </View>
@@ -45,16 +51,22 @@ export default NotificationSetting;
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+  },
+  content: {
     marginTop: 20,
     marginHorizontal: 30,
   },
-  options: {
-    marginVertical: 16,
+  option: {
+    paddingVertical: 16,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
   },
-  labelName: {
-    fontSize: 20,
+  label: {
+    fontSize: 18,
+    fontFamily: Fonts.Regular,
+    color: colors.black,
+    fontWeight: '400',
   },
 });
