@@ -19,7 +19,7 @@ import BellIcon from '../../assets/svg/bell_icon.svg';
 import Settings from '../../assets/svg/setting_icon.svg';
 import { Fonts } from '../../themes/font';
 
-const HomeHeader = () => {
+const HomeHeader = ({ search, onSearch }) => {
   const navigation = useNavigation();
 
   return (
@@ -76,8 +76,12 @@ const HomeHeader = () => {
             <Filter width={ms(18)} height={ms(18)} />
           </View>
 
-          <TextInput style={styles.searchInput} />
-
+          <TextInput
+            style={styles.searchInput}
+            placeholder="Search..."
+            value={search}
+            onChangeText={onSearch}
+          />
           <SearchIcon width={ms(18)} height={ms(18)} />
         </View>
       </View>

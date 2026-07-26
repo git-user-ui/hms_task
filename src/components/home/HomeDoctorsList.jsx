@@ -1,122 +1,158 @@
-import { Image, StyleSheet, Text, View } from 'react-native';
-import React from 'react';
-import { doctorsData } from '../../utils/doctorsdata';
+import React, { memo } from 'react';
+import { FlatList, Image, StyleSheet, Text, View } from 'react-native';
+
 import { ms, sc, vs } from '../../utils/responsive';
 import { colors } from '../../themes/colors';
 
-// assests
 import StarIcon from '../../assets/svg/star_icon.svg';
 import ChatIcon from '../../assets/svg/chat_home_icon.svg';
 import QuestionIcon from '../../assets/svg/question_icon.svg';
 import HeartIcon from '../../assets/svg/heart.svg';
 
-const HomeDoctorsList = () => {
+const HomeDoctorsList = ({ doctors }) => {
   return (
     <View style={styles.container}>
-      {doctorsData.map(item => (
-        <View style={styles.innerContainer} key={item.id}>
-          <Image source={item.image} style={styles.image} />
-          <View>
-            <View style={styles.infoCard}>
-              <Text numberOfLines={1} style={styles.name}>
-                {item.name}
-              </Text>
+      <FlatList
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={styles.container}
+        data={doctors}
+        keyExtractor={item => item.id}
+        renderItem={({ item }) => (
+          <View key={item.id} style={styles.card}>
+            <Image source={{ uri: item.avatar }} style={styles.image} />
 
-              <Text style={styles.specialization}>{item.specialization}</Text>
-            </View>
-            <View style={styles.optionContainer}>
-              {/* Reviews */}
-              <View style={styles.reviewContainer}>
-                <View style={styles.star}>
-                  <StarIcon />
-                  <Text>{item.rating}</Text>
-                </View>
-                <View style={styles.star}>
-                  <ChatIcon />
-                  <Text>{item.reviews}</Text>
-                </View>
+            <View style={styles.rightContainer}>
+              <View style={styles.infoCard}>
+                <Text numberOfLines={1} style={styles.name}>
+                  {item.name}
+                </Text>
+
+                <Text style={styles.specialization}>{item.speciality}</Text>
               </View>
 
-              {/* Favourite and Question */}
-              <View style={styles.questionContainer}>
-                <View style={styles.question}>
-                  <QuestionIcon />
+              <View style={styles.optionContainer}>
+                <View style={styles.reviewContainer}>
+                  <View style={styles.badge}>
+                    <StarIcon width={11} height={11} />
+
+                    <Text style={styles.badgeText}>{item.rating}</Text>
+                  </View>
+
+                  <View style={styles.badge}>
+                    <ChatIcon width={11} height={11} />
+
+                    <Text style={styles.badgeText}>{item.reviews}</Text>
+                  </View>
                 </View>
-                <View style={styles.question}>
-                  <HeartIcon width={12} height={12} />
+
+                <View style={styles.iconContainer}>
+                  <View style={styles.iconCircle}>
+                    <QuestionIcon width={10} height={10} />
+                  </View>
+
+                  <View style={styles.iconCircle}>
+                    <HeartIcon width={11} height={11} />
+                  </View>
                 </View>
               </View>
             </View>
           </View>
-        </View>
-      ))}
+        )}
+      />
     </View>
   );
 };
 
-export default HomeDoctorsList;
+export default memo(HomeDoctorsList);
 
 const styles = StyleSheet.create({
   container: {
-    marginHorizontal: sc(30),
+    marginHorizontal: sc(14),
+    marginTop: vs(16),
+    marginBottom: vs(40),
     gap: vs(14),
-    marginTop: vs(14),
-    marginBottom: vs(80),
   },
-  innerContainer: {
-    backgroundColor: colors.secondary,
+
+  card: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
-    borderRadius: ms(17),
-    padding: ms(14),
+    backgroundColor: colors.secondary,
+    borderRadius: sc(20),
+    paddingVertical: vs(8),
+    paddingHorizontal: sc(12),
   },
+
   image: {
-    width: ms(80),
-    height: ms(80),
-    borderRadius: 300,
+    width: ms(62),
+    height: ms(62),
+    borderRadius: ms(31),
   },
+
+  rightContainer: {
+    flex: 1,
+    marginLeft: sc(12),
+  },
+
   infoCard: {
-    backgroundColor: '#FFF',
-    borderRadius: sc(13),
-    padding: sc(8),
+    backgroundColor: colors.white,
+    borderRadius: sc(14),
+    paddingHorizontal: sc(12),
+    paddingVertical: vs(4),
   },
 
   name: {
     color: colors.primary,
-    fontSize: ms(14),
+    fontSize: ms(15),
     fontWeight: '700',
   },
 
   specialization: {
     marginTop: 2,
     fontSize: ms(12),
+    color: '#555',
   },
+
   optionContainer: {
+    marginTop: vs(8),
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: vs(8),
+    alignItems: 'center',
   },
+
   reviewContainer: {
     flexDirection: 'row',
-    gap: ms(4),
+    alignItems: 'center',
+    gap: sc(6),
   },
-  star: {
-    width: ms(44),
+
+  badge: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-evenly',
-    borderRadius: ms(18),
     backgroundColor: colors.white,
+    borderRadius: sc(20),
+    paddingHorizontal: sc(8),
+    height: vs(22),
   },
-  questionContainer: { flexDirection: 'row', gap: ms(4) },
-  question: {
-    width: ms(18),
-    height: ms(18),
+
+  badgeText: {
+    marginLeft: sc(4),
+    fontSize: ms(11),
+    color: colors.primary,
+    fontWeight: '600',
+  },
+
+  iconContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-evenly',
-    borderRadius: ms(18),
+    gap: sc(6),
+  },
+
+  iconCircle: {
+    width: ms(22),
+    height: ms(22),
+    borderRadius: ms(11),
     backgroundColor: colors.white,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
