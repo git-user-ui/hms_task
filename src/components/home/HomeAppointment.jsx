@@ -6,32 +6,16 @@ import { Fonts } from '../../themes/font';
 import RightIcon from '../../assets/svg/right_icon.svg';
 import WrongIcon from '../../assets/svg/wrong_icon.svg';
 
+const dates = [
+  { id: 1, day: '21', week: 'MON' },
+  { id: 2, day: '22', week: 'TUE' },
+  { id: 3, day: '23', week: 'WED' },
+  { id: 4, day: '24', week: 'THU' },
+  { id: 5, day: '25', week: 'FRI' },
+  { id: 6, day: '26', week: 'SAT' },
+];
+
 const HomeAppointment = () => {
-  // Function For Dates
-  const getWeekDates = () => {
-    const today = new Date();
-    const start = new Date(today);
-
-    const day = today.getDay();
-    const diff = day === 0 ? -6 : 1 - day;
-    start.setDate(today.getDate() + diff);
-
-    return Array.from({ length: 6 }, (_, index) => {
-      const date = new Date(start);
-      date.setDate(start.getDate() + index);
-
-      return {
-        id: index.toString(),
-        day: date.getDate().toString(),
-        week: date
-          .toLocaleDateString('en-US', { weekday: 'short' })
-          .toUpperCase(),
-        active: date.toDateString() === today.toDateString(),
-      };
-    });
-  };
-
-  const dates = getWeekDates();
   return (
     <View style={styles.container}>
       <View style={styles.wrapper}>
@@ -133,12 +117,16 @@ const styles = StyleSheet.create({
 
   dateNumber: {
     fontSize: ms(16),
-    fontWeight: '700',
+    fontFamily: Fonts.Medium,
+    fontWeight: '500',
   },
 
   dayText: {
+    fontFamily: Fonts.Light,
+    fontWeight: '300',
     fontSize: ms(10),
     marginTop: vs(2),
+    color: colors.black,
   },
 
   card: {
@@ -207,6 +195,9 @@ const styles = StyleSheet.create({
   },
 
   desc: {
+    fontFamily: Fonts.Light,
+    color: colors.black,
+    fontWeight: '300',
     fontSize: ms(10),
     lineHeight: ms(14),
     marginTop: vs(2),
@@ -214,6 +205,7 @@ const styles = StyleSheet.create({
   appointmentTime: {
     marginTop: vs(6),
     fontFamily: Fonts.Bold,
+    color: colors.primary,
   },
 
   check: {

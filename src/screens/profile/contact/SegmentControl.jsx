@@ -37,17 +37,18 @@ export default SegmentControl;
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    backgroundColor: colors.secondary,
     borderRadius: sc(50),
     marginTop: vs(24),
+    gap: ms(4),
   },
 
   tab: {
     flex: 1,
-    height: vs(40),
+    height: vs(41),
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: sc(50),
+    backgroundColor: colors.secondary,
+    borderRadius: ms(30),
   },
 
   activeTab: {

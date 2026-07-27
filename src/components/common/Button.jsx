@@ -1,13 +1,16 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import React from 'react';
 import { colors } from '../../themes/colors';
 import { ms, sc, vs } from '../../utils/responsive';
+import { Fonts } from '../../themes/font';
 
 const ButtonComp = ({ text, width }) => {
   return (
-    <TouchableOpacity style={[styles.btnContainer, (width = { width })]}>
-      <Text style={styles.btnText}>{text}</Text>
-    </TouchableOpacity>
+    <>
+      <TouchableOpacity style={[styles.btnContainer, (width = { width })]}>
+        <Text style={styles.btnText}>{text}</Text>
+      </TouchableOpacity>
+    </>
   );
 };
 
@@ -27,6 +30,8 @@ const styles = StyleSheet.create({
     margin: 'auto',
   },
   btnText: {
+    fontFamily: Fonts.Medium,
+    fontWeight: '500',
     textAlign: 'center',
     color: colors.white,
     fontSize: sc(20),

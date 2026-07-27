@@ -8,6 +8,7 @@ import StarIcon from '../../assets/svg/star_icon.svg';
 import ChatIcon from '../../assets/svg/chat_home_icon.svg';
 import QuestionIcon from '../../assets/svg/question_icon.svg';
 import HeartIcon from '../../assets/svg/heart.svg';
+import { Fonts } from '../../themes/font';
 
 const HomeDoctorsList = ({ doctors }) => {
   return (
@@ -83,9 +84,9 @@ const styles = StyleSheet.create({
   },
 
   image: {
-    width: ms(62),
-    height: ms(62),
-    borderRadius: ms(31),
+    width: ms(80),
+    height: ms(80),
+    borderRadius: ms(100),
   },
 
   rightContainer: {
@@ -103,7 +104,8 @@ const styles = StyleSheet.create({
   name: {
     color: colors.primary,
     fontSize: ms(15),
-    fontWeight: '700',
+    fontWeight: '500',
+    fontFamily: Fonts.Medium,
   },
 
   specialization: {
@@ -132,6 +134,7 @@ const styles = StyleSheet.create({
     borderRadius: sc(20),
     paddingHorizontal: sc(8),
     height: vs(22),
+    width: sc(50),
   },
 
   badgeText: {

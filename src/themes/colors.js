@@ -4,5 +4,6 @@ export const colors = {
   lightblue: '#ECF1FF',
   blue: '#00278C',
   white: '#fff',
-  black: '#000',
+  black: '#000000',
+  designBlack: '#070707',
 };

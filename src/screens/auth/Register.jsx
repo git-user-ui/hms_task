@@ -16,6 +16,7 @@ import ButtonComp from '../../components/common/Button';
 
 import { colors } from '../../themes/colors';
 import { ms, sc, vs } from '../../utils/responsive';
+import { Fonts } from '../../themes/font';
 
 const Register = () => {
   const navigation = useNavigation();
@@ -110,19 +111,23 @@ const styles = StyleSheet.create({
   },
 
   termsText: {
+    fontFamily: Fonts.Thin,
+    fontWeight: '300',
     fontSize: ms(12),
-    color: colors.gray,
     textAlign: 'center',
+    color: colors.designBlack,
   },
 
   termsOfUse: {
+    fontFamily: Fonts.Medium,
+    fontWeight: '500',
     color: colors.primary,
     fontSize: ms(12),
     textAlign: 'center',
   },
 
   normalText: {
-    color: colors.black,
+    color: colors.designBlack,
   },
 
   buttonContainer: {
@@ -136,8 +141,10 @@ const styles = StyleSheet.create({
   },
 
   orText: {
+    fontFamily: Fonts.Thin,
+    fontWeight: '300',
     fontSize: ms(12),
-    color: colors.black,
+    color: colors.designBlack,
     marginBottom: vs(8),
   },
 
@@ -172,13 +179,16 @@ const styles = StyleSheet.create({
   },
 
   accountText: {
+    fontFamily: Fonts.Thin,
+    fontWeight: '300',
     fontSize: ms(13),
-    color: colors.black,
+    color: colors.designBlack,
   },
 
   signupText: {
+    fontFamily: Fonts.Medium,
+    fontWeight: '500',
     fontSize: ms(13),
     color: colors.primary,
-    fontWeight: '600',
   },
 });

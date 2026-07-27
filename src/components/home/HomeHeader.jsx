@@ -11,6 +11,8 @@ import React from 'react';
 import { ms, sc, vs } from '../../utils/responsive';
 import { useNavigation } from '@react-navigation/native';
 import { colors } from '../../themes/colors';
+
+// assets
 import Filter from '../../assets/filter.svg';
 import SearchIcon from '../../assets/svg/SearchIcon.svg';
 import DoctorHome from '../../assets/svg/doctorhome_icon.svg';
@@ -41,14 +43,14 @@ const HomeHeader = ({ search, onSearch }) => {
 
         <View style={styles.headerIcons}>
           <TouchableOpacity style={styles.iconButton}>
-            <BellIcon />
+            <BellIcon style={{ padding: 10 }} />
           </TouchableOpacity>
 
           <TouchableOpacity
             style={styles.iconButton}
             onPress={() => navigation.navigate('Settings')}
           >
-            <Settings source={require('../../assets/settings_icon.png')} />
+            <Settings />
           </TouchableOpacity>
         </View>
       </View>
@@ -60,12 +62,12 @@ const HomeHeader = ({ search, onSearch }) => {
           onPress={() => navigation.navigate('Doctors')}
         >
           <DoctorHome style={styles.doctorIcon} />
-          <Text>{HomeStrings.doctorstext}</Text>
+          <Text style={styles.doctorsText}>{HomeStrings.doctorstext}</Text>
         </Pressable>
 
         <Pressable style={styles.actionButton}>
           <Heart style={styles.heartIcon} />
-          <Text>{HomeStrings.favouriteText}</Text>
+          <Text style={styles.doctorsText}>{HomeStrings.favouriteText}</Text>
         </Pressable>
 
         {/* Search */}
@@ -118,7 +120,8 @@ const styles = StyleSheet.create({
   nameText: {
     color: colors.black,
     fontSize: ms(16),
-    fontWeight: '600',
+    fontFamily: Fonts.Regular,
+    fontWeight: '400',
   },
 
   headerIcons: {
@@ -129,7 +132,7 @@ const styles = StyleSheet.create({
   iconButton: {
     backgroundColor: colors.secondary,
     padding: ms(8),
-    borderRadius: ms(10),
+    borderRadius: ms(80),
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -137,7 +140,7 @@ const styles = StyleSheet.create({
   quickActions: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginVertical: vs(18),
+    marginVertical: vs(12),
     gap: ms(20),
   },
 
@@ -151,7 +154,11 @@ const styles = StyleSheet.create({
     width: ms(20),
     height: ms(20),
   },
-
+  doctorsText: {
+    fontFamily: Fonts.Light,
+    fontWeight: '300',
+    color: colors.primary,
+  },
   heartIcon: {
     width: ms(20),
     height: ms(20),
@@ -171,13 +178,13 @@ const styles = StyleSheet.create({
     marginRight: ms(10),
     backgroundColor: colors.white,
     borderRadius: sc(20),
-    padding: ms(10),
+    padding: ms(6),
     justifyContent: 'center',
     alignItems: 'center',
   },
   searchInput: {
     flex: 1,
-    height: ms(45),
+    height: ms(40),
     color: colors.black,
   },
 

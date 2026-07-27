@@ -2,8 +2,8 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 import ProfileHeader from '../../../components/Profile/components/ProfileHeader';
 import { settingsScreenOptions } from '../../../constants/profileOptions';
-import { colors } from '../../../themes/colors';
 import { useNavigation } from '@react-navigation/native';
+import { Fonts } from '../../../themes/font';
 
 const Settings = () => {
   const navigation = useNavigation();
@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   mainName: {
+    fontFamily: Fonts.Regular,
     fontSize: 20,
     fontWeight: '400',
     paddingLeft: 20,

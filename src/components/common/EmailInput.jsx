@@ -2,6 +2,7 @@ import { StyleSheet, Text, TextInput, View } from 'react-native';
 import React from 'react';
 import { sc, vs } from '../../utils/responsive';
 import { colors } from '../../themes/colors';
+import { Fonts } from '../../themes/font';
 
 const EmailInput = ({ label, placeholderName }) => {
   return (
@@ -20,8 +21,9 @@ export default EmailInput;
 
 const styles = StyleSheet.create({
   labelName: {
-    fontSize: sc(20),
+    fontFamily: Fonts.Medium,
     fontWeight: '500',
+    fontSize: sc(20),
   },
   inputContainer: {
     width: '100%',

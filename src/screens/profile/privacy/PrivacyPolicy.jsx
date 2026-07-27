@@ -22,13 +22,13 @@ const PrivacyPolicy = () => {
       <View style={styles.container}>
         <Text style={styles.updatetext}>last update: 24/06/2024</Text>
         <View style={styles.privacyDesc}>
-          <Text>
+          <Text style={styles.privacyText}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
             pellentesque congue lorem, vel tincidunt tortor placerat a. Proin ac
             diam quam. Aenean in sagittis magna, ut feugiat diam. Fusce a
             scelerisque neque, sed accumsan metus.
           </Text>
-          <Text>
+          <Text style={styles.privacyText}>
             Nunc auctor tortor in dolor luctus, quis euismod urna tincidunt.
             Aenean arcu metus, bibendum at rhoncus at, volutpat ut lacus. Morbi
             pellentesque malesuada eros semper ultrices. Vestibulum lobortis
@@ -70,12 +70,19 @@ const styles = StyleSheet.create({
     paddingTop: vs(5),
     gap: sc(10),
   },
+  privacyText: {
+    fontSize: ms(14),
+    fontFamily: Fonts.ExtraLight,
+    fontWeight: '200',
+    color: colors.black,
+  },
   terms: {
     gap: sc(6),
   },
   termsHeading: {
     color: colors.primary,
     fontSize: sc(20),
+    fontFamily: Fonts.Medium,
     fontWeight: '500',
     paddingTop: vs(16),
   },
@@ -90,5 +97,8 @@ const styles = StyleSheet.create({
 
   termContent: {
     flex: 1,
+    fontSize: ms(14),
+    fontFamily: Fonts.ExtraLight,
+    fontWeight: '200',
   },
 });

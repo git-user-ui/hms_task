@@ -16,20 +16,10 @@ const Home = () => {
   const [debouncedSearch, setDebouncedSearch] = useState('');
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setDebouncedSearch(search);
-    }, 500);
-
-    return () => clearTimeout(timer);
-  }, [search]);
-
-  useEffect(() => {
     const fetchDoctors = async () => {
       try {
         setLoading(true);
-
         const { data } = await api.get('/');
-
         setDoctors(data);
       } catch (error) {
         console.log(error);
@@ -40,6 +30,14 @@ const Home = () => {
 
     fetchDoctors();
   }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearch(search);
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [search]);
 
   const filteredDoctors = () => {
     if (!debouncedSearch.trim()) {
@@ -71,7 +69,7 @@ const Home = () => {
       <ScrollView showsVerticalScrollIndicator={false}>
         <HomeAppointment />
 
-        <HomeDoctorsList doctors={filteredDoctors} />
+        <HomeDoctorsList doctors={filteredDoctors()} />
       </ScrollView>
     </View>
   );
@@ -82,7 +80,7 @@ export default Home;
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: sc(30),
-    paddingTop: vs(10),
+    paddingTop: vs(4),
   },
 
   loader: {

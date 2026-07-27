@@ -28,21 +28,14 @@ const Welcome = () => {
           style={styles.loginBtn}
           onPress={() => navigation.navigate('Login')}
         >
-          <Text style={{ color: 'white', textAlign: 'center', padding: 15 }}>
-            {' '}
-            Log In
-          </Text>
+          <Text style={styles.loginText}>Log In</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={styles.signupBtn}
           onPress={() => navigation.navigate('Register')}
         >
-          <Text
-            style={{ color: colors.primary, textAlign: 'center', padding: 15 }}
-          >
-            Sign Up
-          </Text>
+          <Text style={styles.signupText}>Sign Up</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -64,13 +57,16 @@ const styles = StyleSheet.create({
   },
   brandName: {
     fontFamily: Fonts.Thin,
-    color: colors.primary,
     fontWeight: '100',
+    color: colors.primary,
     fontSize: 48,
     letterSpacing: 0,
   },
   subText: {
     color: colors.primary,
+    fontSize: ms(12),
+    fontFamily: Fonts.SemiBold,
+    fontWeight: '600',
   },
   desc: {
     textAlign: 'center',
@@ -86,6 +82,22 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primary,
     color: '#fff',
     borderRadius: 30,
+  },
+  loginText: {
+    fontFamily: Fonts.Medium,
+    fontWeight: '500',
+    fontSize: ms(24),
+    color: 'white',
+    textAlign: 'center',
+    padding: 15,
+  },
+  signupText: {
+    fontFamily: Fonts.Medium,
+    fontWeight: '500',
+    fontSize: ms(24),
+    color: colors.primary,
+    textAlign: 'center',
+    padding: 15,
   },
   signupBtn: {
     width: 200,

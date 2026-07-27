@@ -16,6 +16,7 @@ import ButtonComp from '../../components/common/Button';
 
 import { colors } from '../../themes/colors';
 import { ms, sc, vs } from '../../utils/responsive';
+import { Fonts } from '../../themes/font';
 
 const Login = () => {
   const navigation = useNavigation();
@@ -23,10 +24,7 @@ const Login = () => {
   return (
     <>
       <ProfileHeader header="Log In" />
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.scrollContainer}
-      >
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.container}>
           {/* Header */}
           <View style={styles.topSection}>
@@ -110,13 +108,17 @@ const styles = StyleSheet.create({
 
   title: {
     fontSize: ms(24),
-    fontWeight: '700',
+    fontFamily: Fonts.SemiBold,
+    fontWeight: '600',
     color: colors.primary,
   },
 
   description: {
+    color: colors.designBlack,
+    fontFamily: Fonts.Light,
+    fontWeight: '300',
     marginTop: vs(8),
-    fontSize: sc(12),
+    fontSize: ms(12),
   },
 
   inputContainer: {
@@ -130,9 +132,10 @@ const styles = StyleSheet.create({
   },
 
   forgotPass: {
+    fontFamily: Fonts.Medium,
+    fontWeight: '500',
     fontSize: ms(12),
     color: colors.primary,
-    fontWeight: '500',
   },
 
   buttonContainer: {
@@ -146,8 +149,10 @@ const styles = StyleSheet.create({
   },
 
   orText: {
+    fontFamily: Fonts.Light,
+    fontWeight: '300',
     fontSize: ms(12),
-    color: colors.black,
+    color: colors.designBlack,
     marginBottom: vs(8),
   },
 
@@ -182,13 +187,16 @@ const styles = StyleSheet.create({
   },
 
   footerText: {
+    fontFamily: Fonts.Light,
+    fontWeight: '300',
     fontSize: ms(12),
-    color: colors.black,
+    color: colors.designBlack,
   },
 
   signupText: {
+    fontFamily: Fonts.Medium,
+    fontWeight: '500',
     fontSize: ms(12),
     color: colors.primary,
-    fontWeight: '500',
   },
 });

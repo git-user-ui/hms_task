@@ -6,6 +6,7 @@ import { ms, sc, vs } from '../../utils/responsive';
 import PasswordInput from '../../components/common/PasswordInput';
 import ButtonComp from '../../components/common/Button';
 import { Fonts } from '../../themes/font';
+import { colors } from '../../themes/colors';
 
 const SetPassword = () => {
   return (
@@ -47,6 +48,7 @@ const styles = StyleSheet.create({
     fontFamily: Fonts.Light,
     fontWeight: '300',
     fontSize: ms(12),
+    color: colors.designBlack,
   },
   input: {
     backgroundColor: '#ECF1FF',

@@ -15,9 +15,6 @@ const DoctorsComponent = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  console.log('selectedFilter', selectedFilter);
-  console.log('filteredDoctors', filteredDoctors);
-
   useEffect(() => {
     const fetchDoctors = async () => {
       try {
@@ -37,33 +34,29 @@ const DoctorsComponent = () => {
     fetchDoctors();
   }, []);
 
-  const filteredDoctors =
-    (() => {
-      let data = [...doctors];
+  let filteredDoctors = [...doctors];
 
-      switch (selectedFilter) {
-        case 'Rating':
-          return data.sort((a, b) => b.rating - a.rating);
-
-        case 'Female':
-          return data.filter(item =>
-            item.gender?.toLowerCase().includes('woman'),
-          );
-
-        case 'Male':
-          return data.filter(item =>
-            item.gender?.toLowerCase().includes('man'),
-          );
-
-        case 'Favorite':
-          return data.filter(item => item.isFavorite);
-
-        case 'A-Z':
-        default:
-          return data.sort((a, b) => a.name.localeCompare(b.name));
-      }
-    },
-    [doctors, selectedFilter]);
+  switch (selectedFilter) {
+    case 'Rating':
+      filteredDoctors.sort((a, b) => b.rating - a.rating);
+      break;
+    case 'Female':
+      filteredDoctors = filteredDoctors.filter(item =>
+        item.gender?.toLowerCase().includes('woman'),
+      );
+      break;
+    case 'Male':
+      filteredDoctors = filteredDoctors.filter(item =>
+        item.gender?.toLowerCase().includes('male'),
+      );
+      break;
+    case 'Favorite':
+      filteredDoctors = filteredDoctors.filter(item => item.isFavorite);
+      break;
+    case 'A-Z':
+    default:
+      filteredDoctors.sort((a, b) => a.name.localeCompare(b.name));
+  }
 
   const renderDoctor = ({ item }) => {
     switch (selectedFilter) {
@@ -74,14 +67,14 @@ const DoctorsComponent = () => {
         return <Favorite item={item} />;
 
       case 'Male':
+        return <DoctorsProfile item={item} />;
       case 'Female':
+        return <DoctorsProfile item={item} />;
       case 'A-Z':
       default:
         return <DoctorsProfile item={item} />;
     }
   };
-
-  const keyExtractor = (item => item.id.toString(), []);
 
   if (loading) {
     return (
@@ -101,7 +94,7 @@ const DoctorsComponent = () => {
 
       <FlatList
         data={filteredDoctors}
-        keyExtractor={keyExtractor}
+        keyExtractor={item => item.id.toString()}
         renderItem={renderDoctor}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.listContainer}
@@ -115,7 +108,7 @@ export default DoctorsComponent;
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: vs(150),
+    marginBottom: vs(110),
   },
   loader: {
     flex: 1,

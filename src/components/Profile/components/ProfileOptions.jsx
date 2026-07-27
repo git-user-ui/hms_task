@@ -63,7 +63,6 @@ const ProfileOptions = () => {
         visible={modalVisible}
         transparent
         animationType="slide"
-        statusBarTranslucent
         onRequestClose={() => setModalVisible(false)}
       >
         <Pressable
