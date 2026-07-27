@@ -1,4 +1,4 @@
-import React, { memo, useCallback } from 'react';
+import React from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
@@ -31,11 +31,11 @@ const icons = [
 const DoctorsProfile = ({ item }) => {
   const navigation = useNavigation();
 
-  const handleInfo = useCallback(() => {
+  const handleInfo = () => {
     navigation.navigate('Info', {
       doctor: item,
     });
-  }, [navigation, item]);
+  };
 
   return (
     <View style={styles.mainContainer}>
@@ -93,7 +93,7 @@ const DoctorsProfile = ({ item }) => {
   );
 };
 
-export default memo(DoctorsProfile);
+export default DoctorsProfile;
 
 const styles = StyleSheet.create({
   mainContainer: {

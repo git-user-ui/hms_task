@@ -1,18 +1,18 @@
-import React, { memo, useCallback } from 'react';
+import React from 'react';
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { moderateScale, scale, verticalScale } from 'react-native-size-matters';
 
 import { colors } from '../../themes/colors';
 import { Fonts } from '../../themes/font';
 
-import StarIcon from '../../assets/svg/star_icon.svg';
+import StarIcon from '../../assets/svg/blue_star.svg';
 import HeartIcon from '../../assets/svg/heart.svg';
 import Female from '../../assets/svg/female_icon.svg';
 import Male from '../../assets/svg/male_icon.svg';
 
 import SearchIcon from '../../assets/svg/search_icon.svg';
 import FilterIcon from '../../assets/svg/filter_icon.svg';
+import { ms, sc, vs } from '../../utils/responsive';
 
 const filters = [
   {
@@ -50,9 +50,9 @@ const IconButton = ({ icon, onPress }) => (
 const DoctorsHeading = ({ heading, selectedFilter, onFilterChange }) => {
   const navigation = useNavigation();
 
-  const handleBackButton = useCallback(() => {
+  const handleBackButton = () => {
     navigation.goBack();
-  }, [navigation]);
+  };
 
   return (
     <View style={styles.container}>
@@ -116,12 +116,12 @@ const DoctorsHeading = ({ heading, selectedFilter, onFilterChange }) => {
   );
 };
 
-export default memo(DoctorsHeading);
+export default DoctorsHeading;
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: scale(30),
-    paddingTop: verticalScale(10),
+    paddingHorizontal: sc(30),
+    paddingVertical: vs(10),
   },
 
   topContainer: {
@@ -130,35 +130,35 @@ const styles = StyleSheet.create({
   },
 
   backButton: {
-    width: scale(12),
-    height: scale(22),
+    width: sc(12),
+    height: sc(22),
     justifyContent: 'center',
   },
 
   backIcon: {
-    width: scale(8),
-    height: scale(14),
+    width: sc(8),
+    height: sc(14),
     resizeMode: 'contain',
   },
 
   headingText: {
     flex: 1,
     textAlign: 'center',
-    fontSize: moderateScale(22),
+    fontSize: ms(22),
     color: colors.primary,
     fontFamily: Fonts.SemiBold,
-    marginHorizontal: scale(10),
+    marginHorizontal: sc(10),
   },
 
   filters: {
     flexDirection: 'row',
-    gap: scale(8),
+    gap: sc(8),
   },
 
   iconButton: {
-    width: scale(22),
-    height: scale(22),
-    borderRadius: scale(17),
+    width: sc(22),
+    height: sc(22),
+    borderRadius: sc(17),
     backgroundColor: colors.secondary,
     justifyContent: 'center',
     alignItems: 'center',
@@ -167,27 +167,27 @@ const styles = StyleSheet.create({
   sortContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: verticalScale(20),
-    gap: scale(5),
+    marginTop: vs(20),
+    gap: sc(5),
   },
 
   sortByText: {
-    fontSize: moderateScale(13),
+    fontSize: ms(13),
   },
 
   charFilter: {
-    minWidth: scale(47),
-    height: verticalScale(21),
-    borderRadius: scale(20),
+    minWidth: sc(47),
+    height: vs(21),
+    borderRadius: sc(20),
     justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: scale(12),
+    paddingHorizontal: sc(12),
     backgroundColor: colors.secondary,
   },
 
   char: {
     color: colors.white,
-    fontSize: moderateScale(11),
+    fontSize: ms(11),
     fontFamily: Fonts.SemiBold,
   },
 
@@ -196,9 +196,9 @@ const styles = StyleSheet.create({
   },
 
   sortIconButton: {
-    width: scale(22),
-    height: scale(21),
-    borderRadius: scale(17),
+    width: sc(22),
+    height: sc(21),
+    borderRadius: sc(17),
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: colors.secondary,

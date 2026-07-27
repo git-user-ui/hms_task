@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useMemo, useState } from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import Heart from '../../../assets/svg/white_heart.svg';
@@ -9,41 +9,38 @@ import { colors } from '../../../themes/colors';
 const ServicesList = () => {
   const [expanded, setExpanded] = useState(1);
 
-  const services = useMemo(
-    () => [
-      {
-        id: 1,
-        title: 'Dermato-Endocrinology',
-        description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent pellentesque...',
-      },
-      {
-        id: 2,
-        title: 'Cosmetic Bioengineering',
-        description: '',
-      },
-      {
-        id: 3,
-        title: 'Dermato-Genetics',
-        description: '',
-      },
-      {
-        id: 4,
-        title: 'Solar Dermatology',
-        description: '',
-      },
-      {
-        id: 5,
-        title: 'Dermato-Endocrinology',
-        description: '',
-      },
-    ],
-    [],
-  );
+  const services = [
+    {
+      id: 1,
+      title: 'Dermato-Endocrinology',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent pellentesque...',
+    },
+    {
+      id: 2,
+      title: 'Cosmetic Bioengineering',
+      description: '',
+    },
+    {
+      id: 3,
+      title: 'Dermato-Genetics',
+      description: '',
+    },
+    {
+      id: 4,
+      title: 'Solar Dermatology',
+      description: '',
+    },
+    {
+      id: 5,
+      title: 'Dermato-Endocrinology',
+      description: '',
+    },
+  ];
 
-  const toggleSection = useCallback(id => {
+  const toggleSection = id => {
     setExpanded(prev => (prev === id ? null : id));
-  }, []);
+  };
 
   return (
     <View style={styles.container}>
@@ -90,7 +87,7 @@ const ServicesList = () => {
   );
 };
 
-export default memo(ServicesList);
+export default ServicesList;
 
 const styles = StyleSheet.create({
   container: {

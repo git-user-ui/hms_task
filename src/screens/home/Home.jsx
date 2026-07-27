@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ActivityIndicator, ScrollView, StyleSheet, View } from 'react-native';
 
 import HomeHeader from '../../components/home/HomeHeader';
@@ -41,7 +41,7 @@ const Home = () => {
     fetchDoctors();
   }, []);
 
-  const filteredDoctors = useMemo(() => {
+  const filteredDoctors = () => {
     if (!debouncedSearch.trim()) {
       return doctors;
     }
@@ -49,11 +49,11 @@ const Home = () => {
     return doctors.filter(item =>
       item.name?.toLowerCase().includes(debouncedSearch.toLowerCase()),
     );
-  }, [doctors, debouncedSearch]);
+  };
 
-  const handleSearch = useCallback(text => {
+  const handleSearch = text => {
     setSearch(text);
-  }, []);
+  };
 
   if (loading) {
     return (
@@ -64,15 +64,16 @@ const Home = () => {
   }
 
   return (
-    <ScrollView showsVerticalScrollIndicator={false}>
+    <View>
       <View style={styles.container}>
         <HomeHeader search={search} onSearch={handleSearch} />
       </View>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <HomeAppointment />
 
-      <HomeAppointment />
-
-      <HomeDoctorsList doctors={filteredDoctors} />
-    </ScrollView>
+        <HomeDoctorsList doctors={filteredDoctors} />
+      </ScrollView>
+    </View>
   );
 };
 

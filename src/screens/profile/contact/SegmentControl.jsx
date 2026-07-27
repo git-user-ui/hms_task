@@ -32,7 +32,7 @@ const SegmentControl = ({ value, onChange }) => {
   );
 };
 
-export default React.memo(SegmentControl);
+export default SegmentControl;
 
 const styles = StyleSheet.create({
   container: {

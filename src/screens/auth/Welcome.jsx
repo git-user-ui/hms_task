@@ -3,6 +3,8 @@ import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { colors } from '../../themes/colors';
 import { scale, verticalScale } from 'react-native-size-matters';
+import { ms } from '../../utils/responsive';
+import { Fonts } from '../../themes/font';
 
 const Welcome = () => {
   const navigation = useNavigation();
@@ -11,7 +13,7 @@ const Welcome = () => {
       <View style={styles.logo}>
         <Image source={require('../../assets/welcome_screen.png')} />
         <Text style={styles.brandName}>Skin{`\n`}Firts</Text>
-        <Text>Dermatology center</Text>
+        <Text style={styles.subText}>Dermatology center</Text>
       </View>
 
       <View>
@@ -60,9 +62,21 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-
+  brandName: {
+    fontFamily: Fonts.Thin,
+    color: colors.primary,
+    fontWeight: '100',
+    fontSize: 48,
+    letterSpacing: 0,
+  },
+  subText: {
+    color: colors.primary,
+  },
   desc: {
     textAlign: 'center',
+    fontSize: ms(12),
+    fontFamily: Fonts.Light,
+    fontWeight: '300',
     marginTop: verticalScale(40),
   },
   loginBtn: {
@@ -77,9 +91,5 @@ const styles = StyleSheet.create({
     width: 200,
     backgroundColor: colors.secondary,
     borderRadius: 30,
-  },
-  brandName: {
-    fontSize: 48,
-    letterSpacing: 0,
   },
 });

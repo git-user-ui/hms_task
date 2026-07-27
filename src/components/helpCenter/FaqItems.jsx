@@ -1,4 +1,4 @@
-import React, { memo, useState } from 'react';
+import React, { useState } from 'react';
 import {
   LayoutAnimation,
   StyleSheet,
@@ -54,7 +54,7 @@ const FaqItems = ({ item }) => {
   );
 };
 
-export default memo(FaqItems);
+export default FaqItems;
 
 const styles = StyleSheet.create({
   wrapper: {

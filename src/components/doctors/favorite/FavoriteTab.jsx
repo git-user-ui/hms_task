@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
 import { colors } from '../../../themes/colors';
+import { ms, sc, vs } from '../../../utils/responsive';
 
 const FavoriteTabs = ({ selectedTab, onChange }) => {
   return (
@@ -37,23 +38,24 @@ export default FavoriteTabs;
 const styles = StyleSheet.create({
   wrapper: {
     flexDirection: 'row',
-    backgroundColor: colors.secondary,
     borderRadius: 30,
     padding: 4,
-    marginHorizontal: 20,
-    marginTop: 18,
+    gap: ms(4),
+    marginHorizontal: sc(30),
+    marginVertical: vs(18),
   },
 
   button: {
     flex: 1,
     height: 44,
     borderRadius: 22,
+    backgroundColor: colors.secondary,
     justifyContent: 'center',
     alignItems: 'center',
   },
 
   active: {
-    backgroundColor: colors.secondary,
+    backgroundColor: colors.primary,
   },
 
   text: {

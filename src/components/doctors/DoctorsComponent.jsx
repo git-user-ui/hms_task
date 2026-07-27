@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ActivityIndicator, FlatList, StyleSheet, View } from 'react-native';
 
 import DoctorsHeading from './DoctorsHeading';
@@ -6,14 +6,17 @@ import DoctorsProfile from './DoctorsProfile';
 import Rating from './Rating';
 
 import api from '../../services/api';
-import DoctorCard from './favorite/DoctorCard';
 import { vs } from '../../utils/responsive';
+import Favorite from './favorite/Favorite';
 
 const DoctorsComponent = () => {
   const [selectedFilter, setSelectedFilter] = useState('A-Z');
   const [doctors, setDoctors] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  console.log('selectedFilter', selectedFilter);
+  console.log('filteredDoctors', filteredDoctors);
 
   useEffect(() => {
     const fetchDoctors = async () => {
@@ -34,50 +37,51 @@ const DoctorsComponent = () => {
     fetchDoctors();
   }, []);
 
-  const filteredDoctors = useMemo(() => {
-    let data = [...doctors];
+  const filteredDoctors =
+    (() => {
+      let data = [...doctors];
 
-    switch (selectedFilter) {
-      case 'Rating':
-        return data.sort((a, b) => b.rating - a.rating);
-
-      case 'Female':
-        return data.filter(item =>
-          item.gender?.toLowerCase().includes('woman'),
-        );
-
-      case 'Male':
-        return data.filter(item => item.gender?.toLowerCase().includes('man'));
-
-      case 'Favorite':
-        return data.filter(item => item.isFavorite);
-
-      case 'A-Z':
-      default:
-        return data.sort((a, b) => a.name.localeCompare(b.name));
-    }
-  }, [doctors, selectedFilter]);
-
-  const renderDoctor = useCallback(
-    ({ item }) => {
       switch (selectedFilter) {
         case 'Rating':
-          return <Rating item={item} />;
+          return data.sort((a, b) => b.rating - a.rating);
 
-        case 'Favorite':
-          return <DoctorCard item={item} />;
+        case 'Female':
+          return data.filter(item =>
+            item.gender?.toLowerCase().includes('woman'),
+          );
 
         case 'Male':
-        case 'Female':
+          return data.filter(item =>
+            item.gender?.toLowerCase().includes('man'),
+          );
+
+        case 'Favorite':
+          return data.filter(item => item.isFavorite);
+
         case 'A-Z':
         default:
-          return <DoctorsProfile item={item} />;
+          return data.sort((a, b) => a.name.localeCompare(b.name));
       }
     },
-    [selectedFilter],
-  );
+    [doctors, selectedFilter]);
 
-  const keyExtractor = useCallback(item => item.id.toString(), []);
+  const renderDoctor = ({ item }) => {
+    switch (selectedFilter) {
+      case 'Rating':
+        return <Rating item={item} />;
+
+      case 'Favorite':
+        return <Favorite item={item} />;
+
+      case 'Male':
+      case 'Female':
+      case 'A-Z':
+      default:
+        return <DoctorsProfile item={item} />;
+    }
+  };
+
+  const keyExtractor = (item => item.id.toString(), []);
 
   if (loading) {
     return (

@@ -1,16 +1,18 @@
-import React, { memo } from 'react';
+import React from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import Heart from '../../../assets/svg/favorite_heart';
 import Badge from '../../../assets/svg/professional_badge.svg';
 
 import { colors } from '../../../themes/colors';
+import { ms, sc } from '../../../utils/responsive';
 
 const DoctorCard = ({ item, onAppointment }) => {
+  console.log('name', item.name);
   return (
     <View style={styles.card}>
       <View style={styles.row}>
-        <Image source={{ uri: item.avatar }} style={styles.image} />
+        <Image source={item.avatar} style={styles.image} />
 
         <View style={styles.info}>
           <View style={styles.badgeRow}>
@@ -52,14 +54,14 @@ const DoctorCard = ({ item, onAppointment }) => {
   );
 };
 
-export default memo(DoctorCard);
+export default DoctorCard;
 
 const styles = StyleSheet.create({
   card: {
     backgroundColor: '#CFDAFF',
-    borderRadius: 18,
-    padding: 12,
-    marginHorizontal: 20,
+    borderRadius: ms(18),
+    padding: ms(12),
+    marginHorizontal: sc(30),
     marginBottom: 18,
   },
 

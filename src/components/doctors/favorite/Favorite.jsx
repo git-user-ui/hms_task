@@ -1,4 +1,4 @@
-import React, { memo, useState } from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import FavoriteTabs from './FavoriteTab';
@@ -7,6 +7,8 @@ import DoctorCard from './DoctorCard';
 
 const Favorite = ({ item }) => {
   const [selectedTab, setSelectedTab] = useState('doctors');
+
+  console.log('name property', item);
 
   return (
     <View style={styles.container}>
@@ -21,7 +23,7 @@ const Favorite = ({ item }) => {
   );
 };
 
-export default memo(Favorite);
+export default Favorite;
 
 const styles = StyleSheet.create({
   container: {

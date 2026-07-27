@@ -1,9 +1,11 @@
-import React, { memo, useCallback } from 'react';
+import React from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import { ms, sc, vs } from '../../utils/responsive';
 import { colors } from '../../themes/colors';
+
+import Badge from '../../assets/svg/professional_badge.svg';
 
 import {
   CalendarRangeIcon,
@@ -35,11 +37,11 @@ const actions = [
 const Rating = ({ item }) => {
   const navigation = useNavigation();
 
-  const handleInfo = useCallback(() => {
+  const handleInfo = () => {
     navigation.navigate('Info', {
       doctor: item,
     });
-  }, [navigation, item]);
+  };
 
   return (
     <View style={styles.container}>
@@ -56,7 +58,7 @@ const Rating = ({ item }) => {
         <View style={styles.topRow}>
           <View style={styles.badge}>
             <View style={styles.badgeCircle}>
-              <Image
+              <Badge
                 source={require('../../assets/white_professional.png')}
                 style={styles.badgeIcon}
               />
@@ -80,10 +82,6 @@ const Rating = ({ item }) => {
           </Text>
 
           <Text style={styles.specialization}>{item.speciality}</Text>
-
-          {!!item.qualification && (
-            <Text style={styles.qualification}>{item.qualification}</Text>
-          )}
         </View>
 
         {/* Bottom */}
@@ -114,7 +112,7 @@ const Rating = ({ item }) => {
   );
 };
 
-export default memo(Rating);
+export default Rating;
 
 const styles = StyleSheet.create({
   container: {
@@ -123,7 +121,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: colors.secondary,
     borderRadius: sc(22),
-    padding: sc(10),
+    padding: sc(8),
     alignItems: 'center',
   },
 
@@ -151,8 +149,8 @@ const styles = StyleSheet.create({
   },
 
   badgeCircle: {
-    width: sc(28),
-    height: sc(28),
+    width: sc(20),
+    height: sc(20),
     borderRadius: sc(14),
     backgroundColor: colors.primary,
     justifyContent: 'center',
@@ -161,8 +159,8 @@ const styles = StyleSheet.create({
   },
 
   badgeIcon: {
-    width: sc(15),
-    height: sc(15),
+    width: sc(12),
+    height: sc(12),
     resizeMode: 'contain',
   },
 
@@ -191,7 +189,7 @@ const styles = StyleSheet.create({
     marginTop: vs(8),
     backgroundColor: '#FFF',
     borderRadius: sc(16),
-    padding: sc(10),
+    padding: sc(8),
   },
 
   name: {
@@ -221,7 +219,7 @@ const styles = StyleSheet.create({
   infoButton: {
     backgroundColor: colors.primary,
     paddingHorizontal: ms(20),
-    paddingVertical: vs(8),
+    paddingVertical: vs(4),
     borderRadius: sc(18),
   },
 

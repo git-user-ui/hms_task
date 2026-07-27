@@ -18,6 +18,7 @@ import Heart from '../../assets/svg/heart.svg';
 import BellIcon from '../../assets/svg/bell_icon.svg';
 import Settings from '../../assets/svg/setting_icon.svg';
 import { Fonts } from '../../themes/font';
+import { HomeStrings } from '../../constants/strings';
 
 const HomeHeader = ({ search, onSearch }) => {
   const navigation = useNavigation();
@@ -33,7 +34,7 @@ const HomeHeader = ({ search, onSearch }) => {
           />
 
           <View>
-            <Text style={styles.welcomeText}>Hi, Welcome back</Text>
+            <Text style={styles.welcomeText}>{HomeStrings.WelcomeText}</Text>
             <Text style={styles.nameText}>John Doe</Text>
           </View>
         </View>
@@ -59,15 +60,12 @@ const HomeHeader = ({ search, onSearch }) => {
           onPress={() => navigation.navigate('Doctors')}
         >
           <DoctorHome style={styles.doctorIcon} />
-          <Text>Doctors</Text>
+          <Text>{HomeStrings.doctorstext}</Text>
         </Pressable>
 
-        <Pressable
-          style={styles.actionButton}
-          onPress={() => navigation.navigate('Favorite')}
-        >
+        <Pressable style={styles.actionButton}>
           <Heart style={styles.heartIcon} />
-          <Text>Favourite</Text>
+          <Text>{HomeStrings.favouriteText}</Text>
         </Pressable>
 
         {/* Search */}

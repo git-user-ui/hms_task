@@ -150,8 +150,8 @@ const styles = StyleSheet.create({
 
   todayText: {
     fontSize: ms(12),
-    fontFamily: Fonts.Black,
-    fontWeight: Fonts.Regular,
+    fontFamily: Fonts.Regular,
+    fontWeight: '400',
     marginBottom: vs(8),
     color: colors.primary,
     textAlign: 'center',
@@ -201,6 +201,7 @@ const styles = StyleSheet.create({
 
   doctor: {
     fontSize: ms(13),
+    fontFamily: Fonts.Medium,
     fontWeight: '700',
     color: colors.primary,
   },

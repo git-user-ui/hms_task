@@ -7,8 +7,9 @@ import ProfileIcon from '../assets/svg/tab/bottomprofile_icon.svg';
 import CalendarIcon from '../assets/svg/tab/bottomcalendar_icon.svg';
 
 import { colors } from '../themes/colors';
+import { vs } from '../utils/responsive';
 
-export default function CustomTabBar({ state, descriptors, navigation }) {
+export default function CustomTabBar({ state, navigation }) {
   return (
     <View style={styles.wrapper}>
       <View style={styles.container}>
@@ -59,16 +60,15 @@ export default function CustomTabBar({ state, descriptors, navigation }) {
 
 const styles = StyleSheet.create({
   wrapper: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    bottom: 18,
+    justifyContent: 'center',
     alignItems: 'center',
+    height: vs(60),
+    backgroundColor: colors.white,
   },
 
   container: {
     width: '84%',
-    height: 64,
+    height: 48,
     backgroundColor: '#2F66F6',
     borderRadius: 32,
     flexDirection: 'row',

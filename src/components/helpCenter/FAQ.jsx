@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useState } from 'react';
 import {
   FlatList,
   StyleSheet,
@@ -18,9 +18,9 @@ const categories = ['PopularTopic', 'General', 'Services'];
 const FAQList = () => {
   const [selectedCategory, setSelectedCategory] = useState('PopularTopic');
 
-  const filteredData = useMemo(() => {
+  const filteredData = () => {
     return FAQ_DATA.filter(item => item.category === selectedCategory);
-  }, [selectedCategory]);
+  };
 
   return (
     <View style={styles.container}>

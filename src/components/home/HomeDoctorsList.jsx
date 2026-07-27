@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 import { FlatList, Image, StyleSheet, Text, View } from 'react-native';
 
 import { ms, sc, vs } from '../../utils/responsive';
@@ -63,14 +63,14 @@ const HomeDoctorsList = ({ doctors }) => {
   );
 };
 
-export default memo(HomeDoctorsList);
+export default HomeDoctorsList;
 
 const styles = StyleSheet.create({
   container: {
     marginHorizontal: sc(14),
-    marginTop: vs(16),
-    marginBottom: vs(40),
-    gap: vs(14),
+    marginTop: vs(8),
+    marginBottom: vs(70),
+    gap: vs(12),
   },
 
   card: {

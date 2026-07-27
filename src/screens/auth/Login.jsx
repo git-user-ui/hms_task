@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
 
   description: {
     marginTop: vs(8),
-    fontSize: ms(12),
+    fontSize: sc(12),
   },
 
   inputContainer: {
