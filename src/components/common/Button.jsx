@@ -4,10 +4,13 @@ import { colors } from '../../themes/colors';
 import { ms, sc, vs } from '../../utils/responsive';
 import { Fonts } from '../../themes/font';
 
-const ButtonComp = ({ text, width }) => {
+const ButtonComp = ({ text, width, onPress }) => {
   return (
     <>
-      <TouchableOpacity style={[styles.btnContainer, (width = { width })]}>
+      <TouchableOpacity
+        style={[styles.btnContainer, (width = { width })]}
+        onPress={onPress}
+      >
         <Text style={styles.btnText}>{text}</Text>
       </TouchableOpacity>
     </>

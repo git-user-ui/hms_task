@@ -101,8 +101,8 @@ const styles = StyleSheet.create({
   },
   dateCard: {
     width: ms(42),
-    height: vs(60),
-    borderRadius: ms(22),
+    height: vs(50),
+    borderRadius: ms(18),
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: colors.white,

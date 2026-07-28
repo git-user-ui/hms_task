@@ -3,6 +3,7 @@ import {
   Image,
   Modal,
   Pressable,
+  ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -14,6 +15,7 @@ import { colors } from '../../../themes/colors';
 import { useNavigation } from '@react-navigation/native';
 import { profileScreenOptions } from '../../../constants/profileOptions';
 import { Fonts } from '../../../themes/font';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const ProfileOptions = () => {
   const navigation = useNavigation();
@@ -23,14 +25,16 @@ const ProfileOptions = () => {
     setModalVisible(!modalVisible);
   };
 
-  const confirmLogout = () => {
+  const confirmLogout = async () => {
     setModalVisible(false);
+    AsyncStorage.removeItem('loginToken');
+    AsyncStorage.clear();
 
-    // logout logic here
     Alert.alert('Logged out');
   };
+
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       {profileScreenOptions.map(screen => (
         <TouchableOpacity
           key={screen.id}
@@ -96,7 +100,7 @@ const ProfileOptions = () => {
           </Pressable>
         </Pressable>
       </Modal>
-    </View>
+    </ScrollView>
   );
 };
 

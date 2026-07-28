@@ -4,11 +4,13 @@ import { sc, vs } from '../../utils/responsive';
 import { colors } from '../../themes/colors';
 import { Fonts } from '../../themes/font';
 
-const EmailInput = ({ label, placeholderName }) => {
+const EmailInput = ({ label, placeholderName, value, onChangeText }) => {
   return (
     <View>
       <Text style={styles.labelName}>{label}</Text>
       <TextInput
+        value={value}
+        onChangeText={onChangeText}
         placeholder={placeholderName}
         style={styles.inputContainer}
         placeholderTextColor={'#809CFF'}

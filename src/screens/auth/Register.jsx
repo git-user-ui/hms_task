@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Image,
   ScrollView,
@@ -19,6 +19,15 @@ import { ms, sc, vs } from '../../utils/responsive';
 import { Fonts } from '../../themes/font';
 
 const Register = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    password: '',
+    email: '',
+    mNumber: '',
+  });
+
+  const handleChange = () => {};
+
   const navigation = useNavigation();
 
   return (

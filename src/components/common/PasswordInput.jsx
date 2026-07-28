@@ -14,7 +14,7 @@ import { Fonts } from '../../themes/font';
 import EyeClose from '../../assets/svg/eye_close.svg';
 import { Eye } from 'lucide-react-native';
 
-const PasswordInput = ({ label }) => {
+const PasswordInput = ({ label, value, onChangeText }) => {
   const [visible, setVisible] = useState(false);
 
   const handleClick = () => {
@@ -25,6 +25,8 @@ const PasswordInput = ({ label }) => {
     <View>
       <Text style={styles.labelName}>{label}</Text>
       <TextInput
+        value={value}
+        onChangeText={onChangeText}
         placeholder="********"
         placeholderTextColor={'#809CFF'}
         style={styles.inputContainer}

@@ -10,6 +10,8 @@ import NotificationSetting from '../screens/profile/settings/NotificationSetting
 import PasswordManager from '../screens/profile/settings/PasswordManager';
 import DeleteAccount from '../screens/profile/settings/DeleteAccount';
 import { colors } from '../themes/colors';
+import Payment from '../screens/payment/Payment';
+import PaymentMethod from '../screens/payment/PaymentMethod';
 
 const Stack = createNativeStackNavigator();
 
@@ -26,10 +28,6 @@ const AppStack = () => {
       {/* Bottom Screens */}
       <Stack.Screen name="Tabs" component={BottomTab} />
 
-      {/* Doctors Screen */}
-      {/* <Stack.Screen name="Doctors" component={DoctorsScreen} />
-      <Stack.Screen name="Favorite" component={UpdateProfile} /> */}
-
       {/* Profile Screens */}
       <Stack.Screen name="UpdateProfile" component={UpdateProfile} />
       <Stack.Screen name="PrivacyPolicy" component={PrivacyPolicy} />
@@ -37,7 +35,11 @@ const AppStack = () => {
       <Stack.Screen name="HelpCenter" component={HelpCenter} />
 
       {/* Payment Screens */}
-      <Stack.Screen name="Payment" component={UpdateProfile} />
+      <Stack.Screen name="Payment" component={Payment} />
+      <Stack.Screen name="Debit" component={PaymentMethod} />
+      <Stack.Screen name="ApplePlay" component={PaymentMethod} />
+      <Stack.Screen name="PayPal" component={PaymentMethod} />
+      <Stack.Screen name="GooglePlay" component={PaymentMethod} />
 
       {/* Settings Screens */}
       <Stack.Screen
