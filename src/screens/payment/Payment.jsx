@@ -1,9 +1,11 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React, { useState } from 'react';
 import PaymentInput from '../../components/common/PaymentInput';
 import ProfileHeader from '../../components/Profile/components/ProfileHeader';
 import { ms, sc, vs } from '../../utils/responsive';
 import { Fonts } from '../../themes/font';
+
+import { useNavigation } from '@react-navigation/native';
 
 import Debit from '../../assets/svg/payment/debit_card.svg';
 import GooglePlay from '../../assets/svg/payment/google_play_logo.svg';
@@ -12,6 +14,8 @@ import Apple from '../../assets/svg/payment/apple_logo.svg';
 
 const Payment = () => {
   const [selected, setSelected] = useState('');
+
+  const navigation = useNavigation();
 
   return (
     <View>
@@ -48,6 +52,12 @@ const Payment = () => {
           setSelected={setSelected}
         />
       </View>
+      <TouchableOpacity
+        style={{ backgroundColor: 'red' }}
+        onPress={() => navigation.navigate('PaymentComplete')}
+      >
+        <Text> Paymnet complete</Text>
+      </TouchableOpacity>
     </View>
   );
 };

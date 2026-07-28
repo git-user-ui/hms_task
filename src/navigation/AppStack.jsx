@@ -12,6 +12,7 @@ import DeleteAccount from '../screens/profile/settings/DeleteAccount';
 import { colors } from '../themes/colors';
 import Payment from '../screens/payment/Payment';
 import PaymentMethod from '../screens/payment/PaymentMethod';
+import PaymentComplete from '../screens/payment/PaymentComplete';
 
 const Stack = createNativeStackNavigator();
 
@@ -40,6 +41,7 @@ const AppStack = () => {
       <Stack.Screen name="ApplePlay" component={PaymentMethod} />
       <Stack.Screen name="PayPal" component={PaymentMethod} />
       <Stack.Screen name="GooglePlay" component={PaymentMethod} />
+      <Stack.Screen name="PaymentComplete" component={PaymentComplete} />
 
       {/* Settings Screens */}
       <Stack.Screen
