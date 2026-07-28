@@ -100,7 +100,7 @@ export default DoctorsScreen;
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: vs(110),
+    marginBottom: vs(30),
   },
   loader: {
     flex: 1,

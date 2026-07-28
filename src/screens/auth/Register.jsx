@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {
+  Alert,
   Image,
   ScrollView,
   StyleSheet,
@@ -18,17 +19,48 @@ import { colors } from '../../themes/colors';
 import { ms, sc, vs } from '../../utils/responsive';
 import { Fonts } from '../../themes/font';
 
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 const Register = () => {
+  const navigation = useNavigation();
+
   const [formData, setFormData] = useState({
     name: '',
     password: '',
     email: '',
     mNumber: '',
+    dob: '',
   });
 
-  const handleChange = () => {};
+  const handleChange = (key, value) => {
+    setFormData(prev => ({ ...prev, [key]: value }));
+  };
+  const handleRegister = async () => {
+    const { name, email, password, mNumber, dob } = formData;
 
-  const navigation = useNavigation();
+    if (!name || !email || !password || !mNumber || !dob) {
+      Alert.alert('Error', 'Please fill all fields');
+      return;
+    }
+
+    try {
+      const user = {
+        name,
+        email,
+        password,
+        mNumber,
+        dob,
+      };
+
+      await AsyncStorage.setItem('USER', JSON.stringify(user));
+
+      Alert.alert('Success', 'Registration Successful');
+
+      navigation.navigate('Login');
+    } catch (error) {
+      Alert.alert('Error', 'Something went wrong');
+    }
+  };
 
   return (
     <>
@@ -37,17 +69,36 @@ const Register = () => {
         <View style={styles.container}>
           {/* Inputs */}
           <View style={styles.inputContainer}>
-            <EmailInput label="Full Name" placeholderName="John Doe" />
-            <PasswordInput label="Password" placeholder="********" />
-            <EmailInput label="Email" placeholderName="example@example.com" />
+            <EmailInput
+              label="Full Name"
+              placeholderName="John Doe"
+              value={formData.name}
+              onChangeText={text => handleChange('name', text)}
+            />
+            <PasswordInput
+              label="Password"
+              placeholder="********"
+              value={formData.password}
+              onChangeText={text => handleChange('password', text)}
+            />
+            <EmailInput
+              label="Email"
+              placeholderName="example@example.com"
+              value={formData.email}
+              onChangeText={text => handleChange('email', text)}
+            />
             <EmailInput
               label="Mobile Number"
               placeholderName="+91 9876543210"
+              value={formData.mNumber}
+              onChangeText={text => handleChange('mNumber', text)}
             />
             <EmailInput
               label="Date of Birth"
               placeholderName="DD/MM/YYYY"
               keyboardType="number-pad"
+              value={formData.dob}
+              onChangeText={text => handleChange('dob', text)}
             />
           </View>
 
@@ -63,7 +114,7 @@ const Register = () => {
 
           {/* Button */}
           <View style={styles.buttonContainer}>
-            <ButtonComp text="Sign Up" width={240} />
+            <ButtonComp text="Sign Up" width={240} onPress={handleRegister} />
           </View>
 
           {/* Divider */}

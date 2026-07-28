@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     fontSize: ms(24),
     color: 'white',
     textAlign: 'center',
-    padding: 15,
+    padding: 8,
   },
   signupText: {
     fontFamily: Fonts.Medium,
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
     fontSize: ms(24),
     color: colors.primary,
     textAlign: 'center',
-    padding: 15,
+    padding: 8,
   },
   signupBtn: {
     width: 200,

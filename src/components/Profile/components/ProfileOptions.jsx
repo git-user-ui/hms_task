@@ -16,10 +16,12 @@ import { useNavigation } from '@react-navigation/native';
 import { profileScreenOptions } from '../../../constants/profileOptions';
 import { Fonts } from '../../../themes/font';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useAuth } from '../../../configs/context';
 
 const ProfileOptions = () => {
   const navigation = useNavigation();
   const [modalVisible, setModalVisible] = useState(false);
+  const { setLoggedIn } = useAuth();
 
   const handleLogout = () => {
     setModalVisible(!modalVisible);
@@ -27,8 +29,8 @@ const ProfileOptions = () => {
 
   const confirmLogout = async () => {
     setModalVisible(false);
-    AsyncStorage.removeItem('loginToken');
-    AsyncStorage.clear();
+    AsyncStorage.setItem('LOGIN', 'false');
+    setLoggedIn(false);
 
     Alert.alert('Logged out');
   };

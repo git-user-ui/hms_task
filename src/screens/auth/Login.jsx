@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
+  Alert,
   Image,
   ScrollView,
   StyleSheet,
@@ -18,8 +19,48 @@ import { colors } from '../../themes/colors';
 import { ms, sc, vs } from '../../utils/responsive';
 import { Fonts } from '../../themes/font';
 
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useAuth } from '../../configs/context';
+
 const Login = () => {
   const navigation = useNavigation();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const { setLoggedIn } = useAuth();
+
+  const handleLogin = async () => {
+    if (!email || !password) {
+      Alert.alert('Error', 'Please enter email and password');
+      return;
+    }
+
+    try {
+      const user = await AsyncStorage.getItem('USER');
+
+      if (!user) {
+        Alert.alert('Error', 'No registered user found');
+        return;
+      }
+
+      const userData = JSON.parse(user);
+
+      if (userData.email === email && userData.password === password) {
+        await AsyncStorage.setItem('LOGIN', 'true');
+        setLoggedIn(true);
+        Alert.alert('Success', 'Login Successful');
+        navigation.reset({
+          index: 0,
+          routes: [{ name: 'Home' }],
+        });
+      } else {
+        Alert.alert('Error', 'Invalid Email or Password');
+      }
+    } catch (error) {
+      console.log(error);
+      Alert.alert('Error', 'Something went wrong');
+    }
+  };
 
   return (
     <>
@@ -41,9 +82,16 @@ const Login = () => {
             <EmailInput
               label="Email or Mobile Number"
               placeholderName="example@example.com"
+              value={email}
+              onChangeText={text => setEmail(text)}
             />
 
-            <PasswordInput label="Password" placeholder="********" />
+            <PasswordInput
+              label="Password"
+              placeholder="********"
+              value={password}
+              onChangeText={text => setPassword(text)}
+            />
           </View>
 
           {/* Forgot Password */}
@@ -56,7 +104,7 @@ const Login = () => {
 
           {/* Login Button */}
           <View style={styles.buttonContainer}>
-            <ButtonComp text="Log In" width={230} />
+            <ButtonComp text="Log In" width={230} onPress={handleLogin} />
           </View>
 
           {/* Social Login */}
