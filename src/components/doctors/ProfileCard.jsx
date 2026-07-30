@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import {
@@ -15,7 +15,7 @@ import Professional from '../../assets/professional.svg';
 import { colors } from '../../themes/colors';
 import { ms, sc, vs } from '../../utils/responsive';
 
-const ProfileCard = ({ doctorsData }) => {
+const ProfileCard = ({ doctorsData, selected, setSelected }) => {
   return (
     <View style={styles.card}>
       {/* Top */}
@@ -71,7 +71,10 @@ const ProfileCard = ({ doctorsData }) => {
       {/* Bottom */}
 
       <View style={styles.bottom}>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => setSelected(!selected)}
+        >
           <CalendarRange color="white" size={15} />
 
           <Text style={styles.buttonText}>Schedule</Text>

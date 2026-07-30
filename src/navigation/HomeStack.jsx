@@ -10,6 +10,8 @@ import Favorite from '../components/doctors/favorite/Favorite';
 import Notifications from '../screens/Notifications';
 
 import AppointmentStack from './AppointMentStack';
+import Details from '../screens/doctors/Details';
+import Schedule from '../screens/doctors/Schedule';
 
 const Stack = createNativeStackNavigator();
 
@@ -28,6 +30,9 @@ const HomeStack = () => {
       <Stack.Screen name="Info" component={DoctorsInfo} />
       <Stack.Screen name="Rating" component={Rating} />
       <Stack.Screen name="Favorite" component={Favorite} />
+
+      <Stack.Screen name="Schedule" component={Schedule} />
+      <Stack.Screen name="Details" component={Details} />
 
       {/* Notification */}
       <Stack.Screen name="Notifications" component={Notifications} />

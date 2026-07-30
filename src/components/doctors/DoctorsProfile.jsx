@@ -36,6 +36,11 @@ const DoctorsProfile = ({ item }) => {
       doctors: item,
     });
   };
+  const handleDetails = () => {
+    navigation.navigate('Details', {
+      doctors: item,
+    });
+  };
 
   return (
     <View style={styles.mainContainer}>
@@ -74,6 +79,20 @@ const DoctorsProfile = ({ item }) => {
             onPress={handleInfo}
           >
             <Text style={styles.info}>Info</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            activeOpacity={0.8}
+            style={styles.infoName}
+            onPress={() => navigation.navigate('Schedule')}
+          >
+            <Text style={styles.info}>Shedule</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            activeOpacity={0.8}
+            style={styles.infoName}
+            onPress={handleDetails}
+          >
+            <Text style={styles.info}>Details</Text>
           </TouchableOpacity>
 
           <View style={styles.iconContainer}>
