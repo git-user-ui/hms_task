@@ -4,9 +4,9 @@ import { sc, vs } from '../../utils/responsive';
 import { colors } from '../../themes/colors';
 import { Fonts } from '../../themes/font';
 
-const EmailInput = ({ label, placeholderName, value, onChangeText }) => {
+const EmailInput = ({ label, placeholderName, value, onChangeText, style }) => {
   return (
-    <View>
+    <View style={style}>
       <Text style={styles.labelName}>{label}</Text>
       <TextInput
         value={value}

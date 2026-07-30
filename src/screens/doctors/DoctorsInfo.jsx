@@ -5,7 +5,11 @@ import DoctorsHeading from '../../components/doctors/DoctorsHeading';
 import ProfileCard from '../../components/doctors/ProfileCard';
 import InfoSection from '../../components/doctors/InfoSection';
 
+import { useRoute } from '@react-navigation/native';
+
 const DoctorsInfo = () => {
+  const route = useRoute();
+  const doctorsData = route.params?.doctors;
   return (
     <>
       <DoctorsHeading heading="Doctor Info" />
@@ -14,7 +18,7 @@ const DoctorsInfo = () => {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.container}
       >
-        <ProfileCard />
+        <ProfileCard doctorsData={doctorsData} />
 
         <InfoSection
           title="Profile"

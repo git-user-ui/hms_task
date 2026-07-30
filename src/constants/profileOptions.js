@@ -14,7 +14,7 @@ export const profileScreenOptions = [
   {
     id: 3,
     label: 'Payment Method',
-    href: 'Payment',
+    href: 'PaymentScreen',
     icon: require('../assets/profile/wallet_icon.png'),
   },
   {

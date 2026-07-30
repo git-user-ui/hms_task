@@ -41,8 +41,8 @@ const PaymentMethod = () => {
       if (value) {
         setCard(JSON.parse(value));
       }
-    } catch (e) {
-      console.log(e);
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -121,8 +121,8 @@ const PaymentMethod = () => {
       });
 
       Alert.alert('Success', 'Card saved successfully.');
-    } catch (e) {
-      console.log(e);
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -279,11 +279,14 @@ const styles = StyleSheet.create({
   },
   expiryContainer: {
     flexDirection: 'row',
-    gap: ms(8),
-    justifyContent: 'space-between',
+    gap: ms(12),
   },
-  expiry: {},
-  cvv: {},
+  expiry: {
+    flex: 1.5,
+  },
+  cvv: {
+    flex: 1,
+  },
   btn: {
     marginHorizontal: sc(30),
     marginTop: 'auto',

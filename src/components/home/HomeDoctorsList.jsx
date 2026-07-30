@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
   container: {
     marginHorizontal: sc(14),
     marginTop: vs(8),
-    marginBottom: vs(70),
+    paddingBottom: vs(330),
     gap: vs(12),
   },
 

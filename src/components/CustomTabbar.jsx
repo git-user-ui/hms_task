@@ -7,7 +7,7 @@ import ProfileIcon from '../assets/svg/tab/bottomprofile_icon.svg';
 import CalendarIcon from '../assets/svg/tab/bottomcalendar_icon.svg';
 
 import { colors } from '../themes/colors';
-import { vs } from '../utils/responsive';
+import { ms, vs } from '../utils/responsive';
 
 export default function CustomTabBar({ state, navigation }) {
   return (
@@ -32,7 +32,7 @@ export default function CustomTabBar({ state, navigation }) {
             case 'Profile':
               Icon = ProfileIcon;
               break;
-            case 'Calender':
+            case 'Appointment':
               Icon = CalendarIcon;
               break;
           }
@@ -40,7 +40,7 @@ export default function CustomTabBar({ state, navigation }) {
           return (
             <TouchableOpacity
               key={route.key}
-              activeOpacity={0.8}
+              activeOpacity={0.4}
               style={styles.item}
               onPress={onPress}
             >
@@ -67,9 +67,9 @@ const styles = StyleSheet.create({
   },
 
   container: {
-    width: '84%',
+    width: '80%',
     height: 48,
-    backgroundColor: '#2F66F6',
+    backgroundColor: colors.primary,
     borderRadius: 32,
     flexDirection: 'row',
     justifyContent: 'space-around',
@@ -77,8 +77,8 @@ const styles = StyleSheet.create({
   },
 
   item: {
-    width: 60,
-    height: 64,
+    width: 50,
+    height: 45,
     justifyContent: 'center',
     alignItems: 'center',
   },

@@ -49,10 +49,6 @@ const Login = () => {
         await AsyncStorage.setItem('LOGIN', 'true');
         setLoggedIn(true);
         Alert.alert('Success', 'Login Successful');
-        navigation.reset({
-          index: 0,
-          routes: [{ name: 'Home' }],
-        });
       } else {
         Alert.alert('Error', 'Invalid Email or Password');
       }

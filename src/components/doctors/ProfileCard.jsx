@@ -15,29 +15,27 @@ import Professional from '../../assets/professional.svg';
 import { colors } from '../../themes/colors';
 import { ms, sc, vs } from '../../utils/responsive';
 
-const ProfileCard = () => {
+const ProfileCard = ({ doctorsData }) => {
   return (
     <View style={styles.card}>
       {/* Top */}
 
       <View style={styles.top}>
-        <Image
-          source={require('../../assets/Images/doctor_1.png')}
-          style={styles.image}
-        />
+        <Image source={{ uri: doctorsData.avatar }} style={styles.image} />
 
         <View style={styles.right}>
           <View style={styles.badge}>
             <Professional width={16} height={16} style={styles.pImage} />
 
-            <Text style={styles.badgeText}>15 Years{'\n'}Experience</Text>
+            <Text style={styles.badgeText}>
+              {doctorsData.experience} Years{'\n'}Experience
+            </Text>
           </View>
 
           <View style={styles.focusCard}>
             <Text style={styles.focusText}>
-              <Text style={{ fontWeight: '700' }}>Focus:</Text> Hormonal
-              imbalances on skin conditions, acne, hirsutism and other skin
-              disorders.
+              <Text style={{ fontWeight: '700' }}>Focus:</Text>{' '}
+              {doctorsData.speciality_info}
             </Text>
           </View>
         </View>
@@ -46,9 +44,9 @@ const ProfileCard = () => {
       {/* Name */}
 
       <View style={styles.nameCard}>
-        <Text style={styles.name}>Dr. Alexander Bennett, Ph.D.</Text>
+        <Text style={styles.name}>{doctorsData.name}</Text>
 
-        <Text style={styles.speciality}>Dermato-Genetics</Text>
+        <Text style={styles.speciality}>{doctorsData.speciality}</Text>
       </View>
 
       {/* Stats */}
@@ -56,12 +54,12 @@ const ProfileCard = () => {
       <View style={styles.stats}>
         <View style={styles.smallChip}>
           <Star size={11} color="#F4B400" fill="#F4B400" />
-          <Text>5</Text>
+          <Text>{doctorsData.rating}</Text>
         </View>
 
         <View style={styles.smallChip}>
           <MessageCircleMore size={11} />
-          <Text>40</Text>
+          <Text>{doctorsData.reviews}</Text>
         </View>
 
         <View style={styles.timeChip}>
@@ -81,11 +79,8 @@ const ProfileCard = () => {
 
         <View style={styles.icons}>
           <CircleHelp size={18} color={colors.primary} />
-
           <CircleHelp size={18} color={colors.primary} />
-
           <Star size={18} color={colors.primary} />
-
           <Heart size={18} color={colors.primary} />
         </View>
       </View>

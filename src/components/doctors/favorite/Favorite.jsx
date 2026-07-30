@@ -8,8 +8,6 @@ import DoctorCard from './DoctorCard';
 const Favorite = ({ item }) => {
   const [selectedTab, setSelectedTab] = useState('doctors');
 
-  console.log('name property', item);
-
   return (
     <View style={styles.container}>
       <FavoriteTabs selectedTab={selectedTab} onChange={setSelectedTab} />

@@ -5,9 +5,7 @@ import ContactItem from './ContactItem';
 import { CONTACT_DATA } from '../../utils/contactData';
 
 const ContactUs = () => {
-  const handlePress = item => {
-    console.log(item.title);
-  };
+  const handlePress = item => {};
 
   return (
     <FlatList

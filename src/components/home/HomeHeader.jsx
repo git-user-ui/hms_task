@@ -19,6 +19,7 @@ import DoctorHome from '../../assets/svg/doctorhome_icon.svg';
 import Heart from '../../assets/svg/heart.svg';
 import BellIcon from '../../assets/svg/bell_icon.svg';
 import Settings from '../../assets/svg/setting_icon.svg';
+import DotIcon from '../../assets/svg/dot_icon.svg';
 import { Fonts } from '../../themes/font';
 import { HomeStrings } from '../../constants/strings';
 
@@ -42,7 +43,11 @@ const HomeHeader = ({ search, onSearch }) => {
         </View>
 
         <View style={styles.headerIcons}>
-          <TouchableOpacity style={styles.iconButton}>
+          <DotIcon style={styles.dotIcon} />
+          <TouchableOpacity
+            style={styles.iconButton}
+            onPress={() => navigation.navigate('Notifications')}
+          >
             <BellIcon style={{ padding: 10 }} />
           </TouchableOpacity>
 
@@ -124,9 +129,16 @@ const styles = StyleSheet.create({
     fontWeight: '400',
   },
 
+  dotIcon: {
+    position: 'absolute',
+    left: ms(18),
+    top: ms(10),
+    color: colors.primary,
+  },
+
   headerIcons: {
     flexDirection: 'row',
-    gap: ms(10),
+    gap: ms(8),
   },
 
   iconButton: {

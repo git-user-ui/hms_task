@@ -31,7 +31,7 @@ const PaymentInput = ({ text, icon, selected, setSelected, value }) => {
         <SmallCircle
           style={[
             styles.smallCircle,
-            selected === value ? styles.selectedOption : styles.smallCircle,
+            selected === value ? styles.selectedDebit : styles.smallCircle,
           ]}
         />
       </View>
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     left: sc(3.5),
     top: vs(3),
   },
-  sectedDebit: {
+  selectedDebit: {
     backgroundColor: colors.primary,
     borderRadius: ms(30),
   },

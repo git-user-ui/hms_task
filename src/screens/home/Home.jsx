@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { ActivityIndicator, ScrollView, StyleSheet, View } from 'react-native';
+import {
+  ActivityIndicator,
+  ScrollView,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 
 import HomeHeader from '../../components/home/HomeHeader';
 import HomeAppointment from '../../components/home/HomeAppointment';
@@ -66,11 +72,9 @@ const Home = () => {
       <View style={styles.container}>
         <HomeHeader search={search} onSearch={handleSearch} />
       </View>
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <HomeAppointment />
+      <HomeAppointment />
 
-        <HomeDoctorsList doctors={filteredDoctors()} />
-      </ScrollView>
+      <HomeDoctorsList doctors={filteredDoctors()} />
     </View>
   );
 };

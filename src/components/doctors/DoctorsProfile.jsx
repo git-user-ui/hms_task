@@ -33,7 +33,7 @@ const DoctorsProfile = ({ item }) => {
 
   const handleInfo = () => {
     navigation.navigate('Info', {
-      doctor: item,
+      doctors: item,
     });
   };
 

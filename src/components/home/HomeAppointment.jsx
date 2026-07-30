@@ -6,6 +6,8 @@ import { Fonts } from '../../themes/font';
 import RightIcon from '../../assets/svg/right_icon.svg';
 import WrongIcon from '../../assets/svg/wrong_icon.svg';
 
+import { useNavigation } from '@react-navigation/native';
+
 const dates = [
   { id: 1, day: '21', week: 'MON' },
   { id: 2, day: '22', week: 'TUE' },
@@ -16,6 +18,7 @@ const dates = [
 ];
 
 const HomeAppointment = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <View style={styles.wrapper}>

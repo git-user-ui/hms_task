@@ -1,0 +1,25 @@
+import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { sc } from '../../utils/responsive';
+import ChatInput from '../../components/chats/ChatInput';
+import ChatHeader from '../../components/chats/ChatHeader';
+import ChatContainer from '../../components/chats/ChatContainer';
+
+const ChatScreen = () => {
+  return (
+    <>
+      <ChatHeader />
+      <ChatContainer />
+      <ChatInput />
+      <View style={styles.container}></View>
+    </>
+  );
+};
+
+export default ChatScreen;
+
+const styles = StyleSheet.create({
+  container: {
+    marginHorizontal: sc(30),
+  },
+});

@@ -11,9 +11,6 @@ import { Fonts } from '../../../themes/font';
 
 const HelpCenter = () => {
   const [selectedTab, setSelectedTab] = useState('faq');
-  useEffect(() => {
-    console.log('SearchIcon');
-  }, []);
 
   return (
     <>

@@ -78,20 +78,27 @@ const DoctorsScreen = () => {
   return (
     <View style={styles.container}>
       <DoctorsHeading
-        heading="Doctors"
+        heading={selectedFilter}
         selectedFilter={selectedFilter}
         onFilterChange={setSelectedFilter}
       />
 
-      <FlatList
-        loading={<ActivityIndicator size={'small'} />}
-        data={filteredDoctors}
-        keyExtractor={item => item.id.toString()}
-        renderItem={renderDoctor}
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.listContainer}
-        extraData={selectedFilter}
-      />
+      {loading ? (
+        <View style={styles.loader}>
+          <ActivityIndicator size={'small'} />
+        </View>
+      ) : (
+        <View>
+          <FlatList
+            data={filteredDoctors}
+            keyExtractor={item => item.id.toString()}
+            renderItem={renderDoctor}
+            showsVerticalScrollIndicator={false}
+            contentContainerStyle={styles.listContainer}
+            extraData={selectedFilter}
+          />
+        </View>
+      )}
     </View>
   );
 };

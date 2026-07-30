@@ -7,6 +7,9 @@ import { colors } from '../themes/colors';
 import DoctorsInfo from '../screens/doctors/DoctorsInfo';
 import Rating from '../components/doctors/Rating';
 import Favorite from '../components/doctors/favorite/Favorite';
+import Notifications from '../screens/Notifications';
+
+import AppointmentStack from './AppointMentStack';
 
 const Stack = createNativeStackNavigator();
 
@@ -25,6 +28,12 @@ const HomeStack = () => {
       <Stack.Screen name="Info" component={DoctorsInfo} />
       <Stack.Screen name="Rating" component={Rating} />
       <Stack.Screen name="Favorite" component={Favorite} />
+
+      {/* Notification */}
+      <Stack.Screen name="Notifications" component={Notifications} />
+
+      {/* AppointMent */}
+      <Stack.Screen name="AppointmentScreens" component={AppointmentStack} />
     </Stack.Navigator>
   );
 };

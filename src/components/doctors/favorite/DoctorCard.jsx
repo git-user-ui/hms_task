@@ -8,7 +8,6 @@ import { colors } from '../../../themes/colors';
 import { ms, sc } from '../../../utils/responsive';
 
 const DoctorCard = ({ item, onAppointment }) => {
-  console.log('name', item.name);
   return (
     <View style={styles.card}>
       <View style={styles.row}>

@@ -1,15 +1,15 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import ProfileHeader from '../../components/Profile/components/ProfileHeader';
+import DoctorName from './DoctorName';
 
-const Payment = () => {
+const Cancelled = () => {
   return (
     <View>
-      <ProfileHeader />
+      <DoctorName selected={'Cancelled'} />
     </View>
   );
 };
 
-export default Payment;
+export default Cancelled;
 
 const styles = StyleSheet.create({});

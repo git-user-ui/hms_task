@@ -10,9 +10,9 @@ import NotificationSetting from '../screens/profile/settings/NotificationSetting
 import PasswordManager from '../screens/profile/settings/PasswordManager';
 import DeleteAccount from '../screens/profile/settings/DeleteAccount';
 import { colors } from '../themes/colors';
-import Payment from '../screens/payment/Payment';
 import PaymentMethod from '../screens/payment/PaymentMethod';
 import PaymentComplete from '../screens/payment/PaymentComplete';
+import PaymentScreen from '../screens/payment/PaymentScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -36,7 +36,8 @@ const AppStack = () => {
       <Stack.Screen name="HelpCenter" component={HelpCenter} />
 
       {/* Payment Screens */}
-      <Stack.Screen name="Payment" component={Payment} />
+      <Stack.Screen name="PaymentScreen" component={PaymentScreen} />
+      <Stack.Screen name="Payment" component={PaymentScreen} />
       <Stack.Screen name="Debit" component={PaymentMethod} />
       <Stack.Screen name="ApplePlay" component={PaymentMethod} />
       <Stack.Screen name="PayPal" component={PaymentMethod} />
