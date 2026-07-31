@@ -22,6 +22,7 @@ import Settings from '../../assets/svg/setting_icon.svg';
 import DotIcon from '../../assets/svg/dot_icon.svg';
 import { Fonts } from '../../themes/font';
 import { HomeStrings } from '../../constants/strings';
+import { Screen_SIZES_ModerateScale } from '../../constants/screen';
 
 const HomeHeader = ({ search, onSearch }) => {
   const navigation = useNavigation();
@@ -112,7 +113,7 @@ const styles = StyleSheet.create({
   profileSection: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: ms(10),
+    gap: Screen_SIZES_ModerateScale.ten,
   },
 
   profile: {
@@ -130,7 +131,7 @@ const styles = StyleSheet.create({
 
   nameText: {
     color: colors.black,
-    fontSize: ms(16),
+    fontSize: Screen_SIZES_ModerateScale.sixteen,
     fontFamily: Fonts.Regular,
     fontWeight: '400',
   },
@@ -187,7 +188,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: colors.secondary,
-    borderRadius: ms(25),
+    borderRadius: ms(24),
     paddingRight: ms(12),
     paddingLeft: ms(4),
   },
