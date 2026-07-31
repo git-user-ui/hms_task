@@ -51,7 +51,7 @@ const DoctorName = ({ selected }) => {
   };
 
   return (
-    <View>
+    <View style={styles.mainContainer}>
       {loading ? (
         <View style={styles.loader}>
           <ActivityIndicator />

@@ -160,6 +160,7 @@ const styles = StyleSheet.create({
     height: sc(22),
     borderRadius: sc(17),
     backgroundColor: colors.secondary,
+    color: colors.white,
     justifyContent: 'center',
     alignItems: 'center',
   },

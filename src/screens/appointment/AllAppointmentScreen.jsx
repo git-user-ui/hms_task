@@ -21,7 +21,7 @@ const AllAppointmentScreen = () => {
   const navigation = useNavigation();
 
   return (
-    <View>
+    <View style={styles.mainContainer}>
       <ProfileHeader header={'All Appointment'} />
       <View style={styles.container}>
         <View style={styles.optionsContainer}>
@@ -60,6 +60,9 @@ const AllAppointmentScreen = () => {
 export default AllAppointmentScreen;
 
 const styles = StyleSheet.create({
+  mainContainer: {
+    flex: 1,
+  },
   container: {
     marginHorizontal: sc(30),
     marginTop: vs(16),

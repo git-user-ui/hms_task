@@ -1,3 +1,5 @@
+import { useRoute } from '@react-navigation/native';
+
 import React, { useEffect, useState } from 'react';
 import { ActivityIndicator, FlatList, StyleSheet, View } from 'react-native';
 
@@ -10,7 +12,11 @@ import api from '../../services/api';
 import { vs } from '../../utils/responsive';
 
 const DoctorsScreen = () => {
-  const [selectedFilter, setSelectedFilter] = useState('A-Z');
+  const route = useRoute();
+
+  const initialFilter = route.params?.initialFilter || 'A-Z';
+
+  const [selectedFilter, setSelectedFilter] = useState(initialFilter);
   const [doctors, setDoctors] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -107,7 +113,7 @@ export default DoctorsScreen;
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: vs(30),
+    marginBottom: vs(110),
   },
   loader: {
     flex: 1,

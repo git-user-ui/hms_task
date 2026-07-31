@@ -26,6 +26,9 @@ const ProfileOptions = () => {
   const handleLogout = () => {
     setModalVisible(!modalVisible);
   };
+  const handleFavourite = () => {
+    navigation.navigate('Doctors');
+  };
 
   const confirmLogout = async () => {
     setModalVisible(false);
@@ -44,6 +47,8 @@ const ProfileOptions = () => {
           onPress={() => {
             if (screen.label === 'Logout') {
               handleLogout();
+            } else if (screen.label === 'Favourite') {
+              handleFavourite();
             } else {
               navigation.navigate(screen.href);
             }

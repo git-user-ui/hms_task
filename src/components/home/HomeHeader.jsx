@@ -26,6 +26,12 @@ import { HomeStrings } from '../../constants/strings';
 const HomeHeader = ({ search, onSearch }) => {
   const navigation = useNavigation();
 
+  const handleFavourite = () => {
+    navigation.navigate('Doctors', {
+      initialFilter: 'Favorite',
+    });
+  };
+
   return (
     <>
       {/* Header */}
@@ -70,7 +76,7 @@ const HomeHeader = ({ search, onSearch }) => {
           <Text style={styles.doctorsText}>{HomeStrings.doctorstext}</Text>
         </Pressable>
 
-        <Pressable style={styles.actionButton}>
+        <Pressable style={styles.actionButton} onPress={handleFavourite}>
           <Heart style={styles.heartIcon} />
           <Text style={styles.doctorsText}>{HomeStrings.favouriteText}</Text>
         </Pressable>
@@ -152,7 +158,7 @@ const styles = StyleSheet.create({
   quickActions: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginVertical: vs(12),
+    marginVertical: vs(8),
     gap: ms(20),
   },
 

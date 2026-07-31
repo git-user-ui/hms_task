@@ -52,12 +52,6 @@ const PaymentScreen = () => {
           setSelected={setSelected}
         />
       </View>
-      <TouchableOpacity
-        style={{ backgroundColor: 'red' }}
-        onPress={() => navigation.navigate('PaymentComplete')}
-      >
-        <Text> Paymnet complete</Text>
-      </TouchableOpacity>
     </View>
   );
 };

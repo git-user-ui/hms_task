@@ -14,6 +14,7 @@ import Professional from '../../assets/professional.svg';
 
 import { colors } from '../../themes/colors';
 import { ms, sc, vs } from '../../utils/responsive';
+import { Screen_SIZES_ModerateScale } from '../../constants/screen';
 
 const ProfileCard = ({ doctorsData, selected, setSelected }) => {
   return (
@@ -97,7 +98,7 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: '#DCE4FF',
     borderRadius: 20,
-    padding: sc(16),
+    padding: Screen_SIZES_ModerateScale.sixteen,
   },
 
   top: {

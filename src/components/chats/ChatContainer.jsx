@@ -3,6 +3,7 @@ import React from 'react';
 import { chatData } from '../../constants/chatData';
 import { ms, vs } from '../../utils/responsive';
 import { colors } from '../../themes/colors';
+import { Fonts } from '../../themes/font';
 
 const ChatContainer = () => {
   return (
@@ -18,12 +19,16 @@ const ChatContainer = () => {
               <View style={styles.userChat}>
                 <Text>{item.recieverchatData}</Text>
               </View>
+              <Text style={styles.time}>{item.time}</Text>
             </View>
 
             {/* Sender/Doctor Message */}
             <View style={styles.doctorWrapper}>
               <View style={styles.doctorsChat}>
                 <Text>{item.senderchatData}</Text>
+              </View>
+              <View>
+                <Text style={styles.time}>{item.time}</Text>
               </View>
             </View>
           </View>
@@ -71,5 +76,10 @@ const styles = StyleSheet.create({
     borderTopRightRadius: ms(18),
     borderBottomRightRadius: ms(18),
     maxWidth: '75%',
+  },
+  time: {
+    fontFamily: Fonts.Light,
+    fontWeight: '300',
+    fontSize: 12,
   },
 });

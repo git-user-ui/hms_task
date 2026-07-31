@@ -11,7 +11,7 @@ const DoctorCard = ({ item, onAppointment }) => {
   return (
     <View style={styles.card}>
       <View style={styles.row}>
-        <Image source={item.avatar} style={styles.image} />
+        <Image source={{ uri: item.avatar }} style={styles.image} />
 
         <View style={styles.info}>
           <View style={styles.badgeRow}>

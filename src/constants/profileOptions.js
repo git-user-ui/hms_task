@@ -7,8 +7,8 @@ export const profileScreenOptions = [
   },
   {
     id: 2,
-    label: 'Favorite',
-    href: 'Favorite',
+    label: 'Favourite',
+    href: '',
     icon: require('../assets/profile/heart_icon.png'),
   },
   {
