@@ -1,13 +1,21 @@
 import React from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { useDispatch } from 'react-redux';
 
-import Heart from '../../../assets/svg/favorite_heart';
+import Heart from '../../../assets/svg/favorite_heart.svg';
 import Badge from '../../../assets/svg/professional_badge.svg';
 
 import { colors } from '../../../themes/colors';
 import { ms, sc } from '../../../utils/responsive';
+import { toggleFavoriteDoctor } from '../../../redux/slices/doctorsSlice';
 
 const DoctorCard = ({ item, onAppointment }) => {
+  const dispatch = useDispatch();
+
+  const handleToggleFavorite = () => {
+    dispatch(toggleFavoriteDoctor(item.id));
+  };
+
   return (
     <View style={styles.card}>
       <View style={styles.row}>
@@ -37,7 +45,7 @@ const DoctorCard = ({ item, onAppointment }) => {
           )}
         </View>
 
-        <TouchableOpacity activeOpacity={0.8}>
+        <TouchableOpacity activeOpacity={0.8} onPress={handleToggleFavorite}>
           <Heart width={22} height={22} />
         </TouchableOpacity>
       </View>

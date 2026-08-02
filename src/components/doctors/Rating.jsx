@@ -1,6 +1,7 @@
 import React from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { useDispatch } from 'react-redux';
 
 import { ms, sc, vs } from '../../utils/responsive';
 import { colors } from '../../themes/colors';
@@ -15,33 +16,51 @@ import {
   Star,
 } from 'lucide-react-native';
 
-const actions = [
-  {
-    id: 1,
-    icon: <CalendarRangeIcon size={18} />,
-  },
-  {
-    id: 2,
-    icon: <Info size={18} />,
-  },
-  {
-    id: 3,
-    icon: <CircleQuestionMark size={18} />,
-  },
-  {
-    id: 4,
-    icon: <Heart size={18} />,
-  },
-];
+import { ROUTES, ROUTE_PARAMS } from '../../constants/routes';
+import { toggleFavoriteDoctor } from '../../redux/slices/doctorsSlice';
 
 const Rating = ({ item }) => {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
 
   const handleInfo = () => {
-    navigation.navigate('Info', {
-      doctor: item,
+    navigation.navigate(ROUTES.DOCTOR_INFO, {
+      [ROUTE_PARAMS.DOCTORS]: item,
     });
   };
+
+  const handleToggleFavorite = () => {
+    dispatch(toggleFavoriteDoctor(item.id));
+  };
+
+  const actions = [
+    {
+      id: 1,
+      icon: <CalendarRangeIcon size={18} />,
+      onPress: undefined,
+    },
+    {
+      id: 2,
+      icon: <Info size={18} />,
+      onPress: handleInfo,
+    },
+    {
+      id: 3,
+      icon: <CircleQuestionMark size={18} />,
+      onPress: undefined,
+    },
+    {
+      id: 4,
+      icon: (
+        <Heart
+          size={18}
+          color={item.isFavorite ? '#FF4D67' : colors.primary}
+          fill={item.isFavorite ? '#FF4D67' : 'none'}
+        />
+      ),
+      onPress: handleToggleFavorite,
+    },
+  ];
 
   return (
     <View style={styles.container}>
@@ -101,6 +120,8 @@ const Rating = ({ item }) => {
                 key={action.id}
                 activeOpacity={0.8}
                 style={styles.icon}
+                onPress={action.onPress}
+                disabled={!action.onPress}
               >
                 {action.icon}
               </TouchableOpacity>

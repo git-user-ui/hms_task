@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { View } from 'react-native';
 import React from 'react';
 import DoctorName from './DoctorName';
 
@@ -11,5 +11,3 @@ const Completed = () => {
 };
 
 export default Completed;
-
-const styles = StyleSheet.create({});

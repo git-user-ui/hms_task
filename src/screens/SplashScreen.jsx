@@ -12,7 +12,7 @@ const SplashScreen = () => {
     }, 2000);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [navigation]);
   return (
     <View style={styles.mainContainer}>
       <View style={styles.logo}>

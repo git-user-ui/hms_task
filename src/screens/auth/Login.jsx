@@ -19,8 +19,10 @@ import { colors } from '../../themes/colors';
 import { ms, sc, vs } from '../../utils/responsive';
 import { Fonts } from '../../themes/font';
 
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useAuth } from '../../configs/context';
+import { getUser, loginUser } from '../../utils/storage';
+import { ERROR_MESSAGES, SUCCESS_MESSAGES } from '../../constants/messages';
+import { ROUTES } from '../../constants/routes';
 
 const Login = () => {
   const navigation = useNavigation();
@@ -31,30 +33,28 @@ const Login = () => {
 
   const handleLogin = async () => {
     if (!email || !password) {
-      Alert.alert('Error', 'Please enter email and password');
+      Alert.alert('Error', ERROR_MESSAGES.MISSING_FIELDS);
       return;
     }
 
     try {
-      const user = await AsyncStorage.getItem('USER');
+      const userData = await getUser();
 
-      if (!user) {
-        Alert.alert('Error', 'No registered user found');
+      if (!userData) {
+        Alert.alert('Error', ERROR_MESSAGES.NO_REGISTERED_USER);
         return;
       }
 
-      const userData = JSON.parse(user);
-
       if (userData.email === email && userData.password === password) {
-        await AsyncStorage.setItem('LOGIN', 'true');
+        await loginUser();
         setLoggedIn(true);
-        Alert.alert('Success', 'Login Successful');
+        Alert.alert('Success', SUCCESS_MESSAGES.LOGIN_SUCCESS);
       } else {
-        Alert.alert('Error', 'Invalid Email or Password');
+        Alert.alert('Error', ERROR_MESSAGES.INVALID_CREDENTIALS);
       }
     } catch (error) {
       console.log(error);
-      Alert.alert('Error', 'Something went wrong');
+      Alert.alert('Error', ERROR_MESSAGES.UNKNOWN_ERROR);
     }
   };
 
@@ -93,7 +93,7 @@ const Login = () => {
           {/* Forgot Password */}
           <TouchableOpacity
             style={styles.forgotContainer}
-            onPress={() => navigation.navigate('SetPassword')}
+            onPress={() => navigation.navigate(ROUTES.SET_PASSWORD)}
           >
             <Text style={styles.forgotPass}>Forgot Password?</Text>
           </TouchableOpacity>
@@ -128,7 +128,7 @@ const Login = () => {
           <View style={styles.footer}>
             <Text style={styles.footerText}>Don't have an account?</Text>
 
-            <TouchableOpacity onPress={() => navigation.navigate('Register')}>
+            <TouchableOpacity onPress={() => navigation.navigate(ROUTES.REGISTER)}>
               <Text style={styles.signupText}> Sign Up</Text>
             </TouchableOpacity>
           </View>

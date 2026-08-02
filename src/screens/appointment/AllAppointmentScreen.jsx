@@ -1,7 +1,6 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import React, { useState } from 'react';
-import { useNavigation } from '@react-navigation/native';
 import ProfileHeader from '../../components/Profile/components/ProfileHeader';
 import { ms, sc, vs } from '../../utils/responsive';
 import { colors } from '../../themes/colors';
@@ -18,7 +17,6 @@ const options = [
 
 const AllAppointmentScreen = () => {
   const [selected, setSelected] = useState('Complete');
-  const navigation = useNavigation();
 
   return (
     <View style={styles.mainContainer}>
@@ -62,6 +60,7 @@ export default AllAppointmentScreen;
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
+    backgroundColor: colors.white,
   },
   container: {
     marginHorizontal: sc(30),
@@ -86,7 +85,6 @@ const styles = StyleSheet.create({
     fontFamily: Fonts.Regular,
     fontWeight: '400',
     fontSize: ms(16),
-    color: colors.white,
     color: colors.primary,
   },
   selectedBtnName: {

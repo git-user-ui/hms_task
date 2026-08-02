@@ -1,18 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
-import { ms, sc } from '../../utils/responsive';
+import { useNavigation, useRoute } from '@react-navigation/native';
+
 import DoctorsHeading from '../../components/doctors/DoctorsHeading';
 import ProfileCard from '../../components/doctors/ProfileCard';
 import InfoSection from '../../components/doctors/InfoSection';
 
-import { useRoute } from '@react-navigation/native';
-import { Calendar } from 'react-native-calendars';
+import { sc, vs } from '../../utils/responsive';
+import { ROUTE_PARAMS } from '../../constants/routes';
 
 const DoctorsInfo = () => {
-  const [selected, setSelected] = useState('Info');
-
+  const navigation = useNavigation();
   const route = useRoute();
-  const doctorsData = route.params?.doctors;
+
+  const doctor = route.params?.[ROUTE_PARAMS.DOCTORS];
+
+  const handleSchedulePress = () => {
+    navigation.navigate('ScheduleScreen', { [ROUTE_PARAMS.DOCTORS]: doctor });
+  };
+
   return (
     <>
       <DoctorsHeading heading="Doctor Info" />
@@ -22,35 +28,24 @@ const DoctorsInfo = () => {
         contentContainerStyle={styles.container}
       >
         <ProfileCard
-          doctorsData={doctorsData}
-          selected={selected}
-          setSelected={setSelected}
+          doctorsData={doctor}
+          onSchedulePress={handleSchedulePress}
         />
 
         <InfoSection
           title="Profile"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         />
 
-        {selected && (
-          <>
-            <InfoSection
-              title="Career Path"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-            />
+        <InfoSection
+          title="Career Path"
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        />
 
-            <InfoSection
-              title="Highlights"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-            />
-          </>
-        )}
-
-        {!selected && (
-          <>
-            <Calendar style={styles.calendarComponent} />
-          </>
-        )}
+        <InfoSection
+          title="Highlights"
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        />
       </ScrollView>
     </>
   );
@@ -61,8 +56,7 @@ export default DoctorsInfo;
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: sc(30),
-    paddingVertical: sc(10),
-    gap: sc(18),
+    paddingVertical: vs(10),
+    paddingBottom: vs(50),
   },
-  calendarComponent: {},
 });

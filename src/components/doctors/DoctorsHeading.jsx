@@ -13,26 +13,27 @@ import Male from '../../assets/svg/male_icon.svg';
 import SearchIcon from '../../assets/svg/search_icon.svg';
 import FilterIcon from '../../assets/svg/filter_icon.svg';
 import { ms, sc, vs } from '../../utils/responsive';
+import { DOCTOR_FILTERS } from '../../constants/filters';
 
 const filters = [
   {
-    key: 'A-Z',
-    label: 'A-Z',
+    key: DOCTOR_FILTERS.AZ,
+    label: DOCTOR_FILTERS.AZ,
   },
   {
-    key: 'Rating',
+    key: DOCTOR_FILTERS.RATING,
     icon: <StarIcon />,
   },
   {
-    key: 'Favorite',
+    key: DOCTOR_FILTERS.FAVORITE,
     icon: <HeartIcon width={12} height={12} />,
   },
   {
-    key: 'Female',
+    key: DOCTOR_FILTERS.FEMALE,
     icon: <Female />,
   },
   {
-    key: 'Male',
+    key: DOCTOR_FILTERS.MALE,
     icon: <Male />,
   },
 ];

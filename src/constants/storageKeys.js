@@ -1,0 +1,5 @@
+export const STORAGE_KEYS = {
+  USER: 'USER',
+  LOGIN: 'LOGIN',
+  FAVORITE_DOCTOR_IDS: 'FAVORITE_DOCTOR_IDS',
+};

@@ -15,7 +15,7 @@ const HelpCenter = () => {
   return (
     <>
       <View style={styles.headerContainer}>
-        <ProfileHeader header={'Help Center'} />
+        <ProfileHeader header={'Help Center'} whiteArrow={true} />
         <Text style={styles.txt}>how can we help you?</Text>
         <TextInput placeholder="Search..." style={styles.inputContainer} />
       </View>

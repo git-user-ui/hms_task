@@ -1,5 +1,7 @@
 import React from 'react';
-import { FlatList, Image, StyleSheet, Text, View } from 'react-native';
+import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { useDispatch } from 'react-redux';
+import { useNavigation } from '@react-navigation/native';
 
 import { ms, sc, vs } from '../../utils/responsive';
 import { colors } from '../../themes/colors';
@@ -8,18 +10,38 @@ import StarIcon from '../../assets/svg/star_icon.svg';
 import ChatIcon from '../../assets/svg/chat_home_icon.svg';
 import QuestionIcon from '../../assets/svg/question_icon.svg';
 import HeartIcon from '../../assets/svg/heart.svg';
+import FavoriteHeartIcon from '../../assets/svg/favorite_heart.svg';
 import { Fonts } from '../../themes/font';
+import { ROUTES, ROUTE_PARAMS } from '../../constants/routes';
+import { toggleFavoriteDoctor } from '../../redux/slices/doctorsSlice';
 
 const HomeDoctorsList = ({ doctors }) => {
+  const dispatch = useDispatch();
+  const navigation = useNavigation();
+
+  const handleToggleFavorite = item => {
+    dispatch(toggleFavoriteDoctor(item.id));
+  };
+
+  const handleInfo = item => {
+    navigation.navigate(ROUTES.DOCTOR_INFO, {
+      [ROUTE_PARAMS.DOCTORS]: item,
+    });
+  };
+
   return (
     <View style={styles.container}>
       <FlatList
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.container}
         data={doctors}
-        keyExtractor={item => item.id}
+        keyExtractor={item => item.id.toString()}
         renderItem={({ item }) => (
-          <View key={item.id} style={styles.card}>
+          <TouchableOpacity
+            activeOpacity={0.9}
+            style={styles.card}
+            onPress={() => handleInfo(item)}
+          >
             <Image source={{ uri: item.avatar }} style={styles.image} />
 
             <View style={styles.rightContainer}>
@@ -51,13 +73,21 @@ const HomeDoctorsList = ({ doctors }) => {
                     <QuestionIcon width={10} height={10} />
                   </View>
 
-                  <View style={styles.iconCircle}>
-                    <HeartIcon width={11} height={11} />
-                  </View>
+                  <TouchableOpacity
+                    style={styles.iconCircle}
+                    activeOpacity={0.8}
+                    onPress={() => handleToggleFavorite(item)}
+                  >
+                    {item.isFavorite ? (
+                      <FavoriteHeartIcon width={11} height={11} />
+                    ) : (
+                      <HeartIcon width={11} height={11} />
+                    )}
+                  </TouchableOpacity>
                 </View>
               </View>
             </View>
-          </View>
+          </TouchableOpacity>
         )}
       />
     </View>

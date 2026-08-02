@@ -19,7 +19,9 @@ import { colors } from '../../themes/colors';
 import { ms, sc, vs } from '../../utils/responsive';
 import { Fonts } from '../../themes/font';
 
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { saveUser } from '../../utils/storage';
+import { ERROR_MESSAGES, SUCCESS_MESSAGES } from '../../constants/messages';
+import { ROUTES } from '../../constants/routes';
 
 const Register = () => {
   const navigation = useNavigation();
@@ -39,7 +41,7 @@ const Register = () => {
     const { name, email, password, mNumber, dob } = formData;
 
     if (!name || !email || !password || !mNumber || !dob) {
-      Alert.alert('Error', 'Please fill all fields');
+      Alert.alert('Error', ERROR_MESSAGES.MISSING_REGISTER_FIELDS);
       return;
     }
 
@@ -52,13 +54,14 @@ const Register = () => {
         dob,
       };
 
-      await AsyncStorage.setItem('USER', JSON.stringify(user));
+      await saveUser(user);
 
-      Alert.alert('Success', 'Registration Successful');
+      Alert.alert('Success', SUCCESS_MESSAGES.REGISTER_SUCCESS);
 
-      navigation.navigate('Login');
+      navigation.navigate(ROUTES.LOGIN);
     } catch (error) {
-      Alert.alert('Error', 'Something went wrong');
+      console.log(error);
+      Alert.alert('Error', ERROR_MESSAGES.UNKNOWN_ERROR);
     }
   };
 
@@ -142,7 +145,7 @@ const Register = () => {
           <View style={styles.createAcc}>
             <Text style={styles.accountText}>Already have an account?</Text>
 
-            <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+            <TouchableOpacity onPress={() => navigation.navigate(ROUTES.LOGIN)}>
               <Text style={styles.signupText}> Log In</Text>
             </TouchableOpacity>
           </View>

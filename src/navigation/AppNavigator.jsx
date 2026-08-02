@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { ActivityIndicator, StyleSheet, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import AuthStack from './AuthStack';
 import AppStack from './AppStack';
 import { AuthContext } from '../configs/context';
+import { isLoggedIn as checkIsLoggedIn } from '../utils/storage';
 
 const AppNavigator = () => {
   const [loggedIn, setLoggedIn] = useState(null);
@@ -16,8 +16,8 @@ const AppNavigator = () => {
 
   const checkLogin = async () => {
     try {
-      const value = await AsyncStorage.getItem('LOGIN');
-      setLoggedIn(value === 'true');
+      const value = await checkIsLoggedIn();
+      setLoggedIn(value);
     } catch (error) {
       console.log(error);
       setLoggedIn(false);

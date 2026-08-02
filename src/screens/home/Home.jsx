@@ -1,41 +1,56 @@
+// React Imports
 import React, { useEffect, useState } from 'react';
 import {
   ActivityIndicator,
-  ScrollView,
   StyleSheet,
+  Text,
   TouchableOpacity,
   View,
 } from 'react-native';
 
+// Redux Imports
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  fetchDoctors,
+  loadFavorites,
+  selectDoctors,
+  selectDoctorsError,
+  selectDoctorsLoading,
+} from '../../redux/slices/doctorsSlice';
+
+//Components Import
 import HomeHeader from '../../components/home/HomeHeader';
 import HomeAppointment from '../../components/home/HomeAppointment';
 import HomeDoctorsList from '../../components/home/HomeDoctorsList';
 
-import api from '../../services/api';
-import { sc, vs } from '../../utils/responsive';
+// Themes
+import { sc } from '../../utils/responsive';
+import { colors } from '../../themes/colors';
+
+// Constants
+import { EMPTY_STATE_MESSAGES } from '../../constants/messages';
+import {
+  Screen_SIZES_ModerateScale,
+  Screen_SIZES_Scale,
+  Screen_SIZES_VerticalScale,
+} from '../../constants/screen';
 
 const Home = () => {
-  const [doctors, setDoctors] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const dispatch = useDispatch();
+
+  const doctors = useSelector(selectDoctors);
+  const loading = useSelector(selectDoctorsLoading);
+  const error = useSelector(selectDoctorsError);
 
   const [search, setSearch] = useState('');
   const [debouncedSearch, setDebouncedSearch] = useState('');
 
   useEffect(() => {
-    const fetchDoctors = async () => {
-      try {
-        setLoading(true);
-        const { data } = await api.get('/');
-        setDoctors(data);
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchDoctors();
-  }, []);
+    (async () => {
+      dispatch(loadFavorites());
+      dispatch(fetchDoctors());
+    })();
+  }, [dispatch]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -59,10 +74,26 @@ const Home = () => {
     setSearch(text);
   };
 
+  const handleRetry = () => {
+    dispatch(fetchDoctors());
+  };
+
   if (loading) {
     return (
       <View style={styles.loader}>
-        <ActivityIndicator size="large" />
+        <ActivityIndicator size="large" color={colors.primary} />
+      </View>
+    );
+  }
+
+  if (error) {
+    return (
+      <View style={styles.loader}>
+        <Text style={styles.errorText}>{error}</Text>
+
+        <TouchableOpacity style={styles.retryButton} onPress={handleRetry}>
+          <Text style={styles.retryText}>Retry</Text>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -74,7 +105,15 @@ const Home = () => {
       </View>
       <HomeAppointment />
 
-      <HomeDoctorsList doctors={filteredDoctors()} />
+      {filteredDoctors().length === 0 ? (
+        <View style={styles.loader}>
+          <Text style={styles.emptyText}>
+            {EMPTY_STATE_MESSAGES.NO_DOCTORS}
+          </Text>
+        </View>
+      ) : (
+        <HomeDoctorsList doctors={filteredDoctors()} />
+      )}
     </View>
   );
 };
@@ -84,12 +123,35 @@ export default Home;
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: sc(30),
-    paddingTop: vs(4),
+    paddingTop: Screen_SIZES_VerticalScale.ten,
   },
 
   loader: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    paddingHorizontal: sc(30),
+    gap: Screen_SIZES_ModerateScale.twelve,
+  },
+
+  errorText: {
+    textAlign: 'center',
+    color: colors.designBlack,
+  },
+
+  emptyText: {
+    textAlign: 'center',
+  },
+
+  retryButton: {
+    backgroundColor: colors.primary,
+    paddingHorizontal: sc(24),
+    paddingVertical: Screen_SIZES_VerticalScale.ten,
+    borderRadius: Screen_SIZES_Scale.twenty,
+  },
+
+  retryText: {
+    color: colors.white,
+    fontWeight: '600',
   },
 });

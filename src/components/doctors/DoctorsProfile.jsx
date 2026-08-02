@@ -1,6 +1,7 @@
 import React from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { useDispatch } from 'react-redux';
 
 import { sc, vs } from '../../utils/responsive';
 import { colors } from '../../themes/colors';
@@ -8,39 +9,59 @@ import { colors } from '../../themes/colors';
 import CalendarIcon from '../../assets/svg/calendar_icon.svg';
 import QuestionIcon from '../../assets/svg/question_icon.svg';
 import HeartIcon from '../../assets/svg/heart.svg';
+import FavoriteHeartIcon from '../../assets/svg/favorite_heart.svg';
 
-const icons = [
-  {
-    id: 1,
-    icon: <CalendarIcon />,
-  },
-  {
-    id: 2,
-    icon: <QuestionIcon />,
-  },
-  {
-    id: 3,
-    icon: <QuestionIcon />,
-  },
-  {
-    id: 4,
-    icon: <HeartIcon width={14} height={14} />,
-  },
-];
+import { ROUTES, ROUTE_PARAMS } from '../../constants/routes';
+import { toggleFavoriteDoctor } from '../../redux/slices/doctorsSlice';
 
 const DoctorsProfile = ({ item }) => {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
 
   const handleInfo = () => {
-    navigation.navigate('Info', {
-      doctors: item,
+    navigation.navigate(ROUTES.DOCTOR_INFO, {
+      [ROUTE_PARAMS.DOCTORS]: item,
     });
   };
   const handleDetails = () => {
-    navigation.navigate('Details', {
-      doctors: item,
+    navigation.navigate(ROUTES.DETAILS, {
+      [ROUTE_PARAMS.DOCTORS]: item,
     });
   };
+  const handleSchedule = () => {
+    navigation.navigate(ROUTES.SCHEDULE);
+  };
+  const handleToggleFavorite = () => {
+    dispatch(toggleFavoriteDoctor(item.id));
+  };
+
+  const icons = [
+    {
+      id: 1,
+      icon: <CalendarIcon />,
+      onPress: handleSchedule,
+    },
+    {
+      id: 2,
+      icon: <QuestionIcon />,
+      onPress: undefined,
+    },
+    {
+      id: 3,
+      icon: <QuestionIcon />,
+      onPress: undefined,
+    },
+    {
+      id: 4,
+
+      icon: item.isFavorite ? (
+        <FavoriteHeartIcon width={14} height={14} />
+      ) : (
+        <HeartIcon width={14} height={14} />
+      ),
+      onPress: handleToggleFavorite,
+    },
+  ];
 
   return (
     <View style={styles.mainContainer}>
@@ -80,20 +101,6 @@ const DoctorsProfile = ({ item }) => {
           >
             <Text style={styles.info}>Info</Text>
           </TouchableOpacity>
-          <TouchableOpacity
-            activeOpacity={0.8}
-            style={styles.infoName}
-            onPress={() => navigation.navigate('Schedule')}
-          >
-            <Text style={styles.info}>Shedule</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            activeOpacity={0.8}
-            style={styles.infoName}
-            onPress={handleDetails}
-          >
-            <Text style={styles.info}>Details</Text>
-          </TouchableOpacity>
 
           <View style={styles.iconContainer}>
             {icons.map(icon => (
@@ -101,6 +108,8 @@ const DoctorsProfile = ({ item }) => {
                 key={icon.id}
                 activeOpacity={0.8}
                 style={styles.icons}
+                onPress={icon.onPress}
+                disabled={!icon.onPress}
               >
                 {icon.icon}
               </TouchableOpacity>

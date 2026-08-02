@@ -51,7 +51,7 @@ const DoctorName = ({ selected }) => {
   };
 
   return (
-    <View style={styles.mainContainer}>
+    <>
       {loading ? (
         <View style={styles.loader}>
           <ActivityIndicator />
@@ -129,7 +129,7 @@ const DoctorName = ({ selected }) => {
           )}
         />
       )}
-    </View>
+    </>
   );
 };
 
@@ -149,9 +149,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: sc(12),
   },
   loader: {
-    flex: 1,
+    height: vs(400),
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: 'transparent',
   },
 
   image: {

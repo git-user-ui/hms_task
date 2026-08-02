@@ -18,9 +18,9 @@ const categories = ['PopularTopic', 'General', 'Services'];
 const FAQList = () => {
   const [selectedCategory, setSelectedCategory] = useState('PopularTopic');
 
-  const filteredData = () => {
-    return FAQ_DATA.filter(item => item.category === selectedCategory);
-  };
+  const filteredData = FAQ_DATA.filter(
+    item => item.category === selectedCategory,
+  );
 
   return (
     <View style={styles.container}>
@@ -51,7 +51,7 @@ const FAQList = () => {
       <FlatList
         showsVerticalScrollIndicator={false}
         data={filteredData}
-        keyExtractor={item => item.id}
+        keyExtractor={item => item.id.toString()}
         renderItem={({ item }) => <FaqItems item={item} />}
         contentContainerStyle={styles.list}
       />

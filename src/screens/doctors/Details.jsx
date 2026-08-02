@@ -14,11 +14,17 @@ import ProfileHeader from '../../components/Profile/components/ProfileHeader';
 
 import CrossIocn from '../../assets/svg/cross_icon.svg';
 import CorrectIcon from '../../assets/svg/correct_icon.svg';
+import { ROUTE_PARAMS } from '../../constants/routes';
 
 const Details = () => {
   const route = useRoute();
 
-  const item = route.params?.doctors;
+  const item = route.params?.[ROUTE_PARAMS.DOCTORS];
+
+  if (!item) {
+    return null;
+  }
+
   return (
     <>
       <ProfileHeader header={'All Appointment'} />
@@ -70,12 +76,12 @@ const Details = () => {
             <Text>Month 24, Year</Text>
           </View>
 
-          <View style={styles.iconContainer}>
-            <TouchableOpacity style={styles.iconCircle}>
+          <View style={styles.dateIconContainer}>
+            <TouchableOpacity style={styles.dateIconCircle}>
               <CorrectIcon width={10} height={10} />
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.iconCircle}>
+            <TouchableOpacity style={styles.dateIconCircle}>
               <CrossIocn width={11} height={11} />
             </TouchableOpacity>
           </View>
@@ -229,13 +235,17 @@ const styles = StyleSheet.create({
     paddingHorizontal: ms(14),
     borderRadius: ms(18),
   },
-  iconContainer: {
+  // Bug fix: this used to reuse the `iconContainer`/`iconCircle` keys above,
+  // which silently overwrote them (JS object literals keep only the last
+  // key) — so both the badges above *and* these date-row buttons ended up
+  // sharing whichever style was defined last instead of their own look.
+  dateIconContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: sc(6),
   },
 
-  iconCircle: {
+  dateIconCircle: {
     width: ms(22),
     height: ms(22),
     borderRadius: ms(11),
