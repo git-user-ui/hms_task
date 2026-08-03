@@ -26,6 +26,7 @@ import {
   Screen_SIZES_Scale,
   Screen_SIZES_VerticalScale,
 } from '../../constants/screen';
+import HomeAppointment from './HomeAppointment';
 
 const HomeDoctorsList = ({ doctors }) => {
   const dispatch = useDispatch();
@@ -45,6 +46,7 @@ const HomeDoctorsList = ({ doctors }) => {
     <View style={styles.container}>
       <FlatList
         showsVerticalScrollIndicator={false}
+        ListHeaderComponent={HomeAppointment}
         contentContainerStyle={styles.container}
         data={doctors}
         keyExtractor={item => item.id.toString()}
@@ -112,7 +114,7 @@ const styles = StyleSheet.create({
   container: {
     marginHorizontal: Screen_SIZES_Scale.fourteen,
     marginTop: Screen_SIZES_VerticalScale.eight,
-    paddingBottom: vs(330),
+    paddingBottom: vs(130),
     gap: Screen_SIZES_VerticalScale.twelve,
   },
 
