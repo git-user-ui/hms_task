@@ -13,6 +13,11 @@ import api from '../../services/api';
 
 import CrossIocn from '../../assets/svg/cross_icon.svg';
 import CorrectIcon from '../../assets/svg/correct_icon.svg';
+
+import CalenderIcon from '../../assets/svg/calendar_icon.svg';
+import ClockIcon from '../../assets/svg/clock.svg';
+import HeartIcon from '../../assets/svg/heart.svg';
+import StarIconFilled from '../../assets/svg/filled_star.svg';
 import { ms, sc, vs } from '../../utils/responsive';
 import { Fonts } from '../../themes/font';
 import { useNavigation } from '@react-navigation/native';
@@ -78,6 +83,19 @@ const DoctorName = ({ selected }) => {
                   </Text>
 
                   <Text style={styles.specialization}>{item.speciality}</Text>
+
+                  {selected === 'Complete' && (
+                    <View style={styles.actionContainer}>
+                      <TouchableOpacity style={styles.ratingBtn}>
+                        <StarIconFilled width={18} height={18} />
+                        <Text style={styles.ratingText}>5</Text>
+                      </TouchableOpacity>
+
+                      <TouchableOpacity style={styles.favoriteBtn}>
+                        <HeartIcon width={18} height={18} />
+                      </TouchableOpacity>
+                    </View>
+                  )}
                 </View>
               </View>
 
@@ -97,23 +115,36 @@ const DoctorName = ({ selected }) => {
                 )}
 
                 {selected === 'Upcoming' && (
-                  <View style={styles.optionContainer}>
-                    <View style={styles.reviewContainer}>
-                      <TouchableOpacity style={styles.detailsBtn}>
-                        <Text style={styles.addReviewText}>Deatails</Text>
-                      </TouchableOpacity>
-                    </View>
-                    <View style={styles.iconContainer}>
-                      <View style={styles.iconCircle}>
-                        <CorrectIcon width={10} height={10} />
+                  <View>
+                    <View style={styles.infoRow}>
+                      <View style={styles.infoCardClock}>
+                        <CalenderIcon width={12} height={12} />
+                        <Text style={styles.infoText}>Sunday, 12 June</Text>
                       </View>
 
-                      <TouchableOpacity
-                        style={styles.iconCircle}
-                        onPress={() => handleCancel(item)}
-                      >
-                        <CrossIocn width={11} height={11} />
-                      </TouchableOpacity>
+                      <View style={styles.infoCardClock}>
+                        <ClockIcon width={12} height={12} />
+                        <Text style={styles.infoText}>9:30 AM - 10:00 AM</Text>
+                      </View>
+                    </View>
+                    <View style={styles.optionContainer}>
+                      <View style={styles.reviewContainer}>
+                        <TouchableOpacity style={styles.detailsBtn}>
+                          <Text style={styles.addReviewText}>Deatails</Text>
+                        </TouchableOpacity>
+                      </View>
+                      <View style={styles.iconContainer}>
+                        <View style={styles.iconCircle}>
+                          <CorrectIcon width={10} height={10} />
+                        </View>
+
+                        <TouchableOpacity
+                          style={styles.iconCircle}
+                          onPress={() => handleCancel(item)}
+                        >
+                          <CrossIocn width={11} height={11} />
+                        </TouchableOpacity>
+                      </View>
                     </View>
                   </View>
                 )}
@@ -146,6 +177,31 @@ const styles = StyleSheet.create({
     paddingBottom: vs(240),
     gap: Screen_SIZES_VerticalScale.twelve,
   },
+  actionContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: vs(4),
+    gap: ms(6),
+  },
+
+  ratingBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#FFFFFF',
+    borderRadius: 30,
+    paddingVertical: ms(4),
+    paddingHorizontal: 18,
+  },
+  favoriteBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#FFFFFF',
+    borderRadius: 30,
+    paddingVertical: ms(4),
+    paddingHorizontal: sc(4),
+  },
 
   card: {
     backgroundColor: colors.secondary,
@@ -174,6 +230,31 @@ const styles = StyleSheet.create({
     borderRadius: Screen_SIZES_Scale.fourteen,
     paddingHorizontal: Screen_SIZES_Scale.twelve,
     paddingVertical: Screen_SIZES_VerticalScale.four,
+  },
+
+  infoRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+
+  infoCardClock: {
+    gap: ms(8),
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+
+    backgroundColor: '#FFFFFF',
+
+    borderRadius: 30,
+    paddingVertical: vs(8),
+    paddingHorizontal: sc(14),
+  },
+
+  infoText: {
+    color: '#2F63FF',
+    fontSize: 12,
+    fontWeight: '500',
   },
 
   name: {

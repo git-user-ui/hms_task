@@ -20,11 +20,9 @@ import {
 
 //Components Import
 import HomeHeader from '../../components/home/HomeHeader';
-import HomeAppointment from '../../components/home/HomeAppointment';
 import HomeDoctorsList from '../../components/home/HomeDoctorsList';
 
 // Themes
-import { sc } from '../../utils/responsive';
 import { colors } from '../../themes/colors';
 
 // Constants

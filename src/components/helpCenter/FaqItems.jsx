@@ -35,8 +35,8 @@ const FaqItems = ({ item }) => {
         <Text style={styles.question}>{item.question}</Text>
 
         <ArrowDownIcon
-          width={Screen_SIZES_Scale.eighteen}
-          height={Screen_SIZES_Scale.eighteen}
+          width={Screen_SIZES_Scale.twelve}
+          height={Screen_SIZES_Scale.twelve}
           style={[
             styles.icon,
             {

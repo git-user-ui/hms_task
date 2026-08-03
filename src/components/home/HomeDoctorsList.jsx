@@ -112,13 +112,13 @@ export default HomeDoctorsList;
 
 const styles = StyleSheet.create({
   container: {
-    marginHorizontal: Screen_SIZES_Scale.fourteen,
-    marginTop: Screen_SIZES_VerticalScale.eight,
+    marginTop: Screen_SIZES_VerticalScale.two,
     paddingBottom: vs(130),
     gap: Screen_SIZES_VerticalScale.twelve,
   },
 
   card: {
+    marginHorizontal: Screen_SIZES_Scale.thirty,
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: colors.secondary,

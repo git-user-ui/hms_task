@@ -7,7 +7,7 @@ import {
   View,
 } from 'react-native';
 
-import { ms, sc, vs } from '../../utils/responsive';
+import { sc, vs } from '../../utils/responsive';
 import { colors } from '../../themes/colors';
 
 import FaqItems from './FaqItems';

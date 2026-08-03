@@ -31,8 +31,8 @@ const ContactItem = ({ item, onPress }) => {
       </View>
 
       <ArrowDownIcon
-        width={Screen_SIZES_Scale.eighteen}
-        height={Screen_SIZES_Scale.eighteen}
+        width={Screen_SIZES_Scale.twelve}
+        height={Screen_SIZES_Scale.twelve}
       />
     </TouchableOpacity>
   );

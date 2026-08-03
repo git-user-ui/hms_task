@@ -10,6 +10,8 @@ import UpperCard from '../../assets/svg/payment/card_upper.svg';
 import ChipIcon from '../../assets/svg/payment/chip_icon.svg';
 import RectangleIcon from '../../assets/svg/payment/rectangle.svg';
 
+import { useNavigation } from '@react-navigation/native';
+
 import { colors } from '../../themes/colors';
 import { Fonts } from '../../themes/font';
 import { ms, sc, vs } from '../../utils/responsive';
@@ -26,6 +28,7 @@ const DEFAULT_CARD = {
 };
 
 const PaymentMethod = () => {
+  const navigation = useNavigation();
   const [form, setForm] = useState({
     cardHolderName: '',
     cardNumber: '',
@@ -126,13 +129,14 @@ const PaymentMethod = () => {
       });
 
       Alert.alert('Success', 'Card saved successfully.');
+      navigation.navigate('Payment');
     } catch (error) {
       console.log(error);
     }
   };
 
   return (
-    <>
+    <View style={styles.container}>
       <ProfileHeader header="Add Card" />
 
       <View style={styles.card}>
@@ -222,18 +226,20 @@ const PaymentMethod = () => {
       <View style={styles.btn}>
         <ButtonComp text="Save Card" width="100%" onPress={handleSave} />
       </View>
-    </>
+    </View>
   );
 };
 
 export default PaymentMethod;
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    flex: 1,
+  },
   card: {
     marginHorizontal: Screen_SIZES_Scale.thirty,
     marginTop: Screen_SIZES_VerticalScale.twenty,
     borderRadius: Screen_SIZES_ModerateScale.eighteen,
-    height: Screen_SIZES_VerticalScale.thirty,
+    height: vs(160),
     backgroundColor: colors.primary,
   },
   cardNumberContainer: {

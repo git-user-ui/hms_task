@@ -147,6 +147,7 @@ const styles = StyleSheet.create({
   },
 
   dotIcon: {
+    zIndex: 1,
     position: 'absolute',
     left: Screen_SIZES_ModerateScale.eighteen,
     top: Screen_SIZES_ModerateScale.ten,

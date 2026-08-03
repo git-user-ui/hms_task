@@ -13,6 +13,7 @@ import { colors } from '../themes/colors';
 import PaymentMethod from '../screens/payment/PaymentMethod';
 import PaymentComplete from '../screens/payment/PaymentComplete';
 import PaymentScreen from '../screens/payment/PaymentScreen';
+import Payment from '../screens/payment/Payment';
 
 const Stack = createNativeStackNavigator();
 
@@ -37,7 +38,7 @@ const AppStack = () => {
 
       {/* Payment Screens */}
       <Stack.Screen name="PaymentScreen" component={PaymentScreen} />
-      <Stack.Screen name="Payment" component={PaymentScreen} />
+      <Stack.Screen name="Payment" component={Payment} />
       <Stack.Screen name="Debit" component={PaymentMethod} />
       <Stack.Screen name="ApplePlay" component={PaymentMethod} />
       <Stack.Screen name="PayPal" component={PaymentMethod} />

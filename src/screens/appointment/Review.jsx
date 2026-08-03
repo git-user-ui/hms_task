@@ -1,5 +1,12 @@
-import { Image, StyleSheet, Text, TextInput, View } from 'react-native';
-import React from 'react';
+import {
+  Image,
+  Pressable,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from 'react-native';
+import React, { useState } from 'react';
 import ProfileHeader from '../../components/Profile/components/ProfileHeader';
 import { ms, sc, vs } from '../../utils/responsive';
 import ButtonComp from '../../components/common/Button';
@@ -12,9 +19,13 @@ import {
   Screen_SIZES_VerticalScale,
 } from '../../constants/screen';
 
+import HeartIcon from '../../assets/svg/heart.svg';
+import StarIconFilled from '../../assets/svg/filled_star.svg';
+import StarIcon from '../../assets/svg/starunfilled.svg';
+
 const Review = () => {
   const route = useRoute();
-
+  const [rating, setRating] = useState(4);
   const item = route.params?.doctor;
 
   return (
@@ -31,6 +42,24 @@ const Review = () => {
         <View style={styles.nameContainer}>
           <Text style={styles.name}>{item.name}</Text>
           <Text style={styles.speciality}>{item.speciality}</Text>
+        </View>
+
+        <View style={styles.ratingContainer}>
+          <View style={styles.heartContainer}>
+            <HeartIcon width={20} height={20} />
+          </View>
+
+          <View style={styles.starContainer}>
+            {[1, 2, 3, 4, 5].map(item => (
+              <Pressable key={item} onPress={() => setRating(item)}>
+                {item <= rating ? (
+                  <StarIconFilled width={24} height={24} style={styles.star} />
+                ) : (
+                  <StarIcon width={24} height={24} style={styles.star} />
+                )}
+              </Pressable>
+            ))}
+          </View>
         </View>
         <TextInput
           multiline={true}
@@ -82,6 +111,38 @@ const styles = StyleSheet.create({
     color: colors.primary,
   },
   speciality: {},
+  ratingContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    alignSelf: 'center',
+    borderRadius: ms(50),
+    paddingHorizontal: sc(10),
+    paddingVertical: vs(8),
+  },
+
+  heartContainer: {
+    width: ms(40),
+    height: ms(40),
+    borderRadius: ms(20),
+    backgroundColor: colors.secondary,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: sc(12),
+  },
+
+  starContainer: {
+    borderRadius: ms(20),
+    paddingVertical: vs(8),
+    backgroundColor: colors.secondary,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: sc(12),
+    flexDirection: 'row',
+  },
+
+  star: {
+    marginHorizontal: sc(5),
+  },
   input: {
     marginTop: Screen_SIZES_VerticalScale.twenty,
     backgroundColor: colors.lightblue,
