@@ -10,6 +10,7 @@ import { Fonts } from '../../../themes/font';
 import {
   Screen_SIZES_ModerateScale,
   Screen_SIZES_VerticalScale,
+  Screen_SIZES_Scale,
 } from '../../../constants/screen';
 
 const ProfileHeader = ({ header, whiteArrow = false }) => {

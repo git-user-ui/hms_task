@@ -168,7 +168,7 @@ const styles = StyleSheet.create({
   nameContainer: {
     textAlign: 'center',
     alignItems: 'center',
-    paddingVertical: Screen_SIZES_VerticalScale(20),
+    paddingVertical: Screen_SIZES_VerticalScale.twenty,
   },
   name: {
     fontFamily: Fonts.Light,
@@ -183,7 +183,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: Screen_SIZES_ModerateScale.eighteen,
     paddingVertical: Screen_SIZES_VerticalScale.twelve,
     borderRadius: Screen_SIZES_ModerateScale.eighteen,
-    height: Screen_SIZES_ModerateScale(150),
+    height: Screen_SIZES_ModerateScale.oneFifty,
   },
   btnContainer: {
     marginTop: Screen_SIZES_VerticalScale.thirty,

@@ -7,6 +7,7 @@ import { Fonts } from '../../themes/font';
 import {
   Screen_SIZES_ModerateScale,
   Screen_SIZES_VerticalScale,
+  
 } from '../../constants/screen';
 
 const ChatContainer = () => {

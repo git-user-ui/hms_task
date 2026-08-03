@@ -6,6 +6,7 @@ import { ms, sc, vs } from '../../../utils/responsive';
 import {
   Screen_SIZES_ModerateScale,
   Screen_SIZES_VerticalScale,
+  Screen_SIZES_Scale,
 } from '../../../constants/screen';
 
 const SegmentControl = ({ value, onChange }) => {

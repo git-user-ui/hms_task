@@ -94,11 +94,11 @@ const styles = StyleSheet.create({
   container: {
     fontFamily: Fonts.Regular,
     backgroundColor: colors.secondary,
-    paddingVertical: Screen_SIZES_VerticalScale(12),
+    paddingVertical: Screen_SIZES_VerticalScale.twelve,
   },
 
   wrapper: {
-    paddingHorizontal: Screen_SIZES_Scale(24),
+    paddingHorizontal: Screen_SIZES_Scale.twentyFour,
   },
 
   dateList: {

@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { sc } from '../../utils/responsive';
 import { colors } from '../../themes/colors';
+import { Screen_SIZES_Scale } from '../../constants/screen';
 
 export default StyleSheet.create({
   logoComp: {

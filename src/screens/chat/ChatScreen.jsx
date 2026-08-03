@@ -1,6 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import { sc } from '../../utils/responsive';
 import ChatInput from '../../components/chats/ChatInput';
 import ChatHeader from '../../components/chats/ChatHeader';
 import ChatContainer from '../../components/chats/ChatContainer';
