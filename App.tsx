@@ -3,6 +3,7 @@ import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { Provider } from 'react-redux';
 import AppNavigator from './src/navigation/AppNavigator';
 import { store } from './src/redux/store';
+import { colors } from './src/themes/colors';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -24,6 +25,6 @@ export default App;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ffffff',
+    backgroundColor: colors.white,
   },
 });

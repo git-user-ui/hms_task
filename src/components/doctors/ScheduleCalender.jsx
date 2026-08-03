@@ -187,49 +187,49 @@ export default ScheduleCalendar;
 const styles = StyleSheet.create({
   wrapper: {
     backgroundColor: '#DCE4FF',
-    borderRadius: ms(22),
-    padding: ms(16),
+    borderRadius: Screen_SIZES_ModerateScale.twentyTwo,
+    padding: Screen_SIZES_ModerateScale.sixteen,
   },
 
   monthNav: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: vs(14),
+    marginBottom: Screen_SIZES_VerticalScale.fourteen,
   },
 
   monthLabel: {
     color: colors.primary,
     fontWeight: '700',
-    fontSize: ms(14),
+    fontSize: Screen_SIZES_ModerateScale.fourteen,
     letterSpacing: 1,
-    marginHorizontal: sc(14),
+    marginHorizontal: Screen_SIZES_Scale.fourteen,
   },
 
   weekdayRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: vs(12),
+    marginBottom: Screen_SIZES_VerticalScale.twelve,
   },
 
   weekdayPill: {
     backgroundColor: colors.primary,
-    borderRadius: ms(14),
+    borderRadius: Screen_SIZES_ModerateScale.fourteen,
     paddingVertical: vs(5),
-    paddingHorizontal: sc(8),
+    paddingHorizontal: Screen_SIZES_Scale.eight,
   },
 
   weekdayText: {
     color: colors.white,
-    fontSize: ms(10),
+    fontSize: Screen_SIZES_ModerateScale.ten,
     fontWeight: '700',
   },
 
   daysCard: {
     backgroundColor: colors.white,
-    borderRadius: ms(18),
-    paddingVertical: vs(10),
-    paddingHorizontal: sc(4),
+    borderRadius: Screen_SIZES_ModerateScale.eighteen,
+    paddingVertical: Screen_SIZES_VerticalScale.ten,
+    paddingHorizontal: Screen_SIZES_Scale.four,
   },
 
   weekRow: {
@@ -241,12 +241,12 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: vs(8),
+    paddingVertical: Screen_SIZES_VerticalScale.eight,
   },
 
   dayCircle: {
-    width: ms(30),
-    height: ms(30),
+    width: Screen_SIZES_ModerateScale.thirty,
+    height: Screen_SIZES_ModerateScale.thirty,
     borderRadius: ms(15),
     alignItems: 'center',
     justifyContent: 'center',

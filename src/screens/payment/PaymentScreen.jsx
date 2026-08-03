@@ -62,11 +62,11 @@ const styles = StyleSheet.create({
   selectedText: {
     fontFamily: Fonts.Regular,
     fontWeight: '400',
-    fontSize: ms(20),
-    marginHorizontal: sc(30),
-    marginTop: vs(20),
+    fontSize: Screen_SIZES_ModerateScale.twenty,
+    marginHorizontal: Screen_SIZES_Scale.thirty,
+    marginTop: Screen_SIZES_VerticalScale.twenty,
   },
   optionContainer: {
-    marginTop: vs(20),
+    marginTop: Screen_SIZES_VerticalScale.twenty,
   },
 });

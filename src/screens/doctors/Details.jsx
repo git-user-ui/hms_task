@@ -130,37 +130,37 @@ export default Details;
 
 const styles = StyleSheet.create({
   container: {
-    marginHorizontal: sc(30),
-    marginTop: vs(8),
+    marginHorizontal: Screen_SIZES_Scale.thirty,
+    marginTop: Screen_SIZES_VerticalScale.eight,
     paddingBottom: vs(330),
-    gap: vs(12),
+    gap: Screen_SIZES_VerticalScale.twelve,
   },
 
   card: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: colors.secondary,
-    borderRadius: sc(20),
-    paddingVertical: vs(8),
-    paddingHorizontal: sc(12),
+    borderRadius: Screen_SIZES_Scale.twenty,
+    paddingVertical: Screen_SIZES_VerticalScale.eight,
+    paddingHorizontal: Screen_SIZES_Scale.twelve,
   },
 
   image: {
     width: ms(80),
     height: ms(80),
-    borderRadius: ms(100),
+    borderRadius: Screen_SIZES_ModerateScale.hundered,
   },
 
   rightContainer: {
     flex: 1,
-    marginLeft: sc(12),
+    marginLeft: Screen_SIZES_Scale.twelve,
   },
 
   infoCard: {
     backgroundColor: colors.white,
-    borderRadius: sc(14),
-    paddingHorizontal: sc(12),
-    paddingVertical: vs(4),
+    borderRadius: Screen_SIZES_Scale.fourteen,
+    paddingHorizontal: Screen_SIZES_Scale.twelve,
+    paddingVertical: Screen_SIZES_VerticalScale.four,
   },
 
   name: {
@@ -172,12 +172,12 @@ const styles = StyleSheet.create({
 
   specialization: {
     marginTop: 2,
-    fontSize: ms(12),
+    fontSize: Screen_SIZES_ModerateScale.twelve,
     color: '#555',
   },
 
   optionContainer: {
-    marginTop: vs(8),
+    marginTop: Screen_SIZES_VerticalScale.eight,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -186,21 +186,21 @@ const styles = StyleSheet.create({
   reviewContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: sc(6),
+    gap: Screen_SIZES_Scale.six,
   },
 
   badge: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: colors.white,
-    borderRadius: sc(20),
-    paddingHorizontal: sc(8),
-    height: vs(22),
+    borderRadius: Screen_SIZES_Scale.twenty,
+    paddingHorizontal: Screen_SIZES_Scale.eight,
+    height: Screen_SIZES_VerticalScale.twentyTwo,
     width: sc(50),
   },
 
   badgeText: {
-    marginLeft: sc(4),
+    marginLeft: Screen_SIZES_Scale.four,
     fontSize: ms(11),
     color: colors.primary,
     fontWeight: '600',
@@ -209,12 +209,12 @@ const styles = StyleSheet.create({
   iconContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: sc(6),
+    gap: Screen_SIZES_Scale.six,
   },
 
   iconCircle: {
-    width: ms(22),
-    height: ms(22),
+    width: Screen_SIZES_ModerateScale.twentyTwo,
+    height: Screen_SIZES_ModerateScale.twentyTwo,
     borderRadius: ms(11),
     backgroundColor: colors.primary,
     justifyContent: 'center',
@@ -223,7 +223,7 @@ const styles = StyleSheet.create({
   line: {
     borderWidth: 1,
     backgroundColor: colors.primary,
-    borderRadius: ms(18),
+    borderRadius: Screen_SIZES_ModerateScale.eighteen,
   },
   dateContainer: {
     flexDirection: 'row',
@@ -231,9 +231,9 @@ const styles = StyleSheet.create({
   },
   date: {
     backgroundColor: colors.primary,
-    paddingVertical: ms(4),
-    paddingHorizontal: ms(14),
-    borderRadius: ms(18),
+    paddingVertical: Screen_SIZES_ModerateScale.four,
+    paddingHorizontal: Screen_SIZES_ModerateScale.fourteen,
+    borderRadius: Screen_SIZES_ModerateScale.eighteen,
   },
   // Bug fix: this used to reuse the `iconContainer`/`iconCircle` keys above,
   // which silently overwrote them (JS object literals keep only the last
@@ -242,19 +242,19 @@ const styles = StyleSheet.create({
   dateIconContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: sc(6),
+    gap: Screen_SIZES_Scale.six,
   },
 
   dateIconCircle: {
-    width: ms(22),
-    height: ms(22),
+    width: Screen_SIZES_ModerateScale.twentyTwo,
+    height: Screen_SIZES_ModerateScale.twentyTwo,
     borderRadius: ms(11),
     backgroundColor: colors.white,
     justifyContent: 'center',
     alignItems: 'center',
   },
   details: {
-    gap: ms(10),
+    gap: Screen_SIZES_ModerateScale.ten,
   },
   nameDetails: {
     flexDirection: 'row',

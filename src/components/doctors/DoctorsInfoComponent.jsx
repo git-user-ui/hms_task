@@ -57,11 +57,11 @@ const styles = StyleSheet.create({
     gap: sc(15),
   },
   infoHeadings: {
-    fontSize: sc(14),
+    fontSize: Screen_SIZES_Scale.fourteen,
     fontWeight: '500',
     color: colors.primary,
   },
   infoDesc: {
-    fontSize: sc(12),
+    fontSize: Screen_SIZES_Scale.twelve,
   },
 });

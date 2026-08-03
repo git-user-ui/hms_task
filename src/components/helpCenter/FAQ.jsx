@@ -64,7 +64,7 @@ export default FAQList;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: vs(20),
+    marginTop: Screen_SIZES_VerticalScale.twenty,
   },
 
   categoryContainer: {
@@ -75,8 +75,8 @@ const styles = StyleSheet.create({
   categoryButton: {
     backgroundColor: '#DCE5FF',
     borderRadius: sc(50),
-    paddingHorizontal: sc(18),
-    height: vs(26),
+    paddingHorizontal: Screen_SIZES_Scale.eighteen,
+    height: Screen_SIZES_VerticalScale.twentySix,
     justifyContent: 'center',
   },
 
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
   categoryText: {
     color: colors.primary,
 
-    fontSize: ms(12),
+    fontSize: Screen_SIZES_ModerateScale.twelve,
 
     fontWeight: '500',
   },
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
   },
 
   list: {
-    paddingTop: vs(20),
+    paddingTop: Screen_SIZES_VerticalScale.twenty,
     paddingBottom: vs(40),
   },
 });

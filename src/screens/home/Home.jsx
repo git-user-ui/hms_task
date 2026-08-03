@@ -122,7 +122,7 @@ export default Home;
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: sc(30),
+    paddingHorizontal: Screen_SIZES_Scale.thirty,
     paddingTop: Screen_SIZES_VerticalScale.ten,
   },
 
@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: sc(30),
+    paddingHorizontal: Screen_SIZES_Scale.thirty,
     gap: Screen_SIZES_ModerateScale.twelve,
   },
 
@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
 
   retryButton: {
     backgroundColor: colors.primary,
-    paddingHorizontal: sc(24),
+    paddingHorizontal: Screen_SIZES_Scale.twentyFour,
     paddingVertical: Screen_SIZES_VerticalScale.ten,
     borderRadius: Screen_SIZES_Scale.twenty,
   },

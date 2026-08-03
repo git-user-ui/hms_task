@@ -16,13 +16,19 @@ const ContactItem = ({ item, onPress }) => {
     >
       <View style={styles.leftContainer}>
         <View style={styles.iconContainer}>
-          <Icon width={sc(22)} height={sc(22)} />
+          <Icon
+            width={Screen_SIZES_Scale.twentyTwo}
+            height={Screen_SIZES_Scale.twentyTwo}
+          />
         </View>
 
         <Text style={styles.title}>{item.title}</Text>
       </View>
 
-      <ArrowDownIcon width={sc(18)} height={sc(18)} />
+      <ArrowDownIcon
+        width={Screen_SIZES_Scale.eighteen}
+        height={Screen_SIZES_Scale.eighteen}
+      />
     </TouchableOpacity>
   );
 };
@@ -34,8 +40,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingVertical: vs(12),
-    marginBottom: vs(10),
+    paddingVertical: Screen_SIZES_VerticalScale.twelve,
+    marginBottom: Screen_SIZES_VerticalScale.ten,
   },
 
   leftContainer: {
@@ -53,8 +59,8 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    marginLeft: sc(18),
-    fontSize: ms(18),
+    marginLeft: Screen_SIZES_Scale.eighteen,
+    fontSize: Screen_SIZES_ModerateScale.eighteen,
     color: colors.text,
     fontWeight: '500',
   },

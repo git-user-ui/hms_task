@@ -43,7 +43,7 @@ export default PasswordInput;
 
 const styles = StyleSheet.create({
   labelName: {
-    fontSize: sc(20),
+    fontSize: Screen_SIZES_Scale.twenty,
     fontFamily: Fonts.Medium,
     fontWeight: '500',
   },
@@ -51,13 +51,13 @@ const styles = StyleSheet.create({
     width: '100%',
     height: sc(40),
     borderRadius: sc(13),
-    marginTop: vs(4),
+    marginTop: Screen_SIZES_VerticalScale.four,
     backgroundColor: colors.lightblue,
-    paddingHorizontal: sc(20),
+    paddingHorizontal: Screen_SIZES_Scale.twenty,
   },
   btn: {
     position: 'absolute',
     top: vs(40),
-    right: sc(10),
+    right: Screen_SIZES_Scale.ten,
   },
 });

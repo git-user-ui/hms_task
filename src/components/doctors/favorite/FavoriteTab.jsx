@@ -40,8 +40,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     borderRadius: 30,
     padding: 4,
-    gap: ms(4),
-    marginHorizontal: sc(30),
+    gap: Screen_SIZES_ModerateScale.four,
+    marginHorizontal: Screen_SIZES_Scale.thirty,
     marginVertical: vs(18),
   },
 

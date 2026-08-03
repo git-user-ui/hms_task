@@ -66,9 +66,9 @@ export default DoctorCard;
 const styles = StyleSheet.create({
   card: {
     backgroundColor: '#CFDAFF',
-    borderRadius: ms(18),
-    padding: ms(12),
-    marginHorizontal: sc(30),
+    borderRadius: Screen_SIZES_ModerateScale.eighteen,
+    padding: Screen_SIZES_ModerateScale.twelve,
+    marginHorizontal: Screen_SIZES_Scale.thirty,
     marginBottom: 18,
   },
 

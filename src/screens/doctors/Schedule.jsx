@@ -272,10 +272,10 @@ export default Schedule;
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: sc(30),
+    paddingHorizontal: Screen_SIZES_Scale.thirty,
   },
   mainContainer: {
-    paddingHorizontal: sc(30),
+    paddingHorizontal: Screen_SIZES_Scale.thirty,
     marginTop: 10,
     flexDirection: 'row',
     alignItems: 'center',
@@ -326,7 +326,7 @@ const styles = StyleSheet.create({
   dateSection: {
     backgroundColor: '#DCE4FF',
     marginTop: 20,
-    paddingHorizontal: sc(30),
+    paddingHorizontal: Screen_SIZES_Scale.thirty,
     paddingVertical: 18,
   },
 
@@ -384,7 +384,7 @@ const styles = StyleSheet.create({
   rightArrow: {},
   timeContainer: {
     marginTop: 18,
-    paddingHorizontal: sc(30),
+    paddingHorizontal: Screen_SIZES_Scale.thirty,
   },
 
   sectionTitle: {
@@ -425,7 +425,7 @@ const styles = StyleSheet.create({
   },
   patientContainer: {
     marginTop: 20,
-    paddingHorizontal: sc(30),
+    paddingHorizontal: Screen_SIZES_Scale.thirty,
   },
 
   segmentContainer: {
@@ -503,7 +503,7 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
   inputContainer: {
-    paddingHorizontal: sc(30),
+    paddingHorizontal: Screen_SIZES_Scale.thirty,
 
     marginTop: 10,
     gap: 10,

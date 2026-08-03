@@ -6,6 +6,11 @@ import ButtonComp from '../../components/common/Button';
 import { colors } from '../../themes/colors';
 import { Fonts } from '../../themes/font';
 import { useRoute } from '@react-navigation/native';
+import {
+  Screen_SIZES_ModerateScale,
+  Screen_SIZES_Scale,
+  Screen_SIZES_VerticalScale,
+} from '../../constants/screen';
 
 const Review = () => {
   const route = useRoute();
@@ -47,45 +52,45 @@ export default Review;
 
 const styles = StyleSheet.create({
   container: {
-    marginHorizontal: sc(30),
+    marginHorizontal: Screen_SIZES_Scale.thirty,
   },
 
   text: {
-    paddingTop: vs(18),
+    paddingTop: Screen_SIZES_VerticalScale.eighteen,
   },
   image: {
-    width: ms(130),
-    height: ms(130),
-    borderRadius: ms(100),
+    width: Screen_SIZES_ModerateScale.oneThirty,
+    height: Screen_SIZES_ModerateScale.oneThirty,
+    borderRadius: Screen_SIZES_ModerateScale.hundered,
     resizeMode: '',
     alignItems: 'center',
     justifyContent: 'center',
   },
   imageContainer: {
-    paddingTop: vs(20),
+    paddingTop: Screen_SIZES_VerticalScale.twenty,
     alignItems: 'center',
   },
   nameContainer: {
     textAlign: 'center',
     alignItems: 'center',
-    paddingVertical: vs(20),
+    paddingVertical: Screen_SIZES_VerticalScale.twenty,
   },
   name: {
     fontFamily: Fonts.Medium,
     fontWeight: '500',
-    fontSize: ms(24),
+    fontSize: Screen_SIZES_ModerateScale.twentyFour,
     color: colors.primary,
   },
   speciality: {},
   input: {
-    marginTop: vs(20),
+    marginTop: Screen_SIZES_VerticalScale.twenty,
     backgroundColor: colors.lightblue,
-    paddingHorizontal: ms(18),
-    paddingVertical: vs(12),
-    borderRadius: ms(18),
-    height: ms(150),
+    paddingHorizontal: Screen_SIZES_ModerateScale.eighteen,
+    paddingVertical: Screen_SIZES_VerticalScale.twelve,
+    borderRadius: Screen_SIZES_ModerateScale.eighteen,
+    height: Screen_SIZES_ModerateScale.oneFifty,
   },
   btnContainer: {
-    marginTop: vs(30),
+    marginTop: Screen_SIZES_VerticalScale.thirty,
   },
 });

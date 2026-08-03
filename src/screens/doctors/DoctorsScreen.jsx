@@ -155,7 +155,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: sc(30),
+    paddingHorizontal: Screen_SIZES_Scale.thirty,
     gap: Screen_SIZES_VerticalScale.twelve,
     paddingTop: vs(40),
   },
@@ -172,9 +172,9 @@ const styles = StyleSheet.create({
 
   retryButton: {
     backgroundColor: colors.primary,
-    paddingHorizontal: sc(24),
-    paddingVertical: vs(10),
-    borderRadius: sc(20),
+    paddingHorizontal: Screen_SIZES_Scale.twentyFour,
+    paddingVertical: Screen_SIZES_VerticalScale.ten,
+    borderRadius: Screen_SIZES_Scale.twenty,
   },
 
   retryText: {

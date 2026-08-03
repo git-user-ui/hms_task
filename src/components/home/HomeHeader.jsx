@@ -85,7 +85,10 @@ const HomeHeader = ({ search, onSearch }) => {
         {/* Search */}
         <View style={styles.searchContainer}>
           <View style={styles.leftIconContainer}>
-            <Filter width={ms(18)} height={ms(18)} />
+            <Filter
+              width={Screen_SIZES_ModerateScale.eighteen}
+              height={Screen_SIZES_ModerateScale.eighteen}
+            />
           </View>
 
           <TextInput
@@ -94,7 +97,10 @@ const HomeHeader = ({ search, onSearch }) => {
             value={search}
             onChangeText={onSearch}
           />
-          <SearchIcon width={ms(18)} height={ms(18)} />
+          <SearchIcon
+            width={Screen_SIZES_ModerateScale.eighteen}
+            height={Screen_SIZES_ModerateScale.eighteen}
+          />
         </View>
       </View>
     </>
@@ -126,7 +132,7 @@ const styles = StyleSheet.create({
     color: colors.primary,
     fontFamily: Fonts.Light,
     fontWeight: '300',
-    fontSize: ms(12),
+    fontSize: Screen_SIZES_ModerateScale.twelve,
   },
 
   nameText: {
@@ -138,19 +144,19 @@ const styles = StyleSheet.create({
 
   dotIcon: {
     position: 'absolute',
-    left: ms(18),
-    top: ms(10),
+    left: Screen_SIZES_ModerateScale.eighteen,
+    top: Screen_SIZES_ModerateScale.ten,
     color: colors.primary,
   },
 
   headerIcons: {
     flexDirection: 'row',
-    gap: ms(8),
+    gap: Screen_SIZES_ModerateScale.eight,
   },
 
   iconButton: {
     backgroundColor: colors.secondary,
-    padding: ms(8),
+    padding: Screen_SIZES_ModerateScale.eight,
     borderRadius: ms(80),
     justifyContent: 'center',
     alignItems: 'center',
@@ -159,19 +165,19 @@ const styles = StyleSheet.create({
   quickActions: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginVertical: vs(8),
-    gap: ms(20),
+    marginVertical: Screen_SIZES_VerticalScale.eight,
+    gap: Screen_SIZES_ModerateScale.twenty,
   },
 
   actionButton: {
     alignItems: 'center',
     justifyContent: 'space-between',
-    gap: ms(8),
+    gap: Screen_SIZES_ModerateScale.eight,
   },
 
   doctorIcon: {
-    width: ms(20),
-    height: ms(20),
+    width: Screen_SIZES_ModerateScale.twenty,
+    height: Screen_SIZES_ModerateScale.twenty,
   },
   doctorsText: {
     fontFamily: Fonts.Light,
@@ -179,8 +185,8 @@ const styles = StyleSheet.create({
     color: colors.primary,
   },
   heartIcon: {
-    width: ms(20),
-    height: ms(20),
+    width: Screen_SIZES_ModerateScale.twenty,
+    height: Screen_SIZES_ModerateScale.twenty,
   },
 
   searchContainer: {
@@ -188,16 +194,16 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: colors.secondary,
-    borderRadius: ms(24),
-    paddingRight: ms(12),
-    paddingLeft: ms(4),
+    borderRadius: Screen_SIZES_ModerateScale.twentyFour,
+    paddingRight: Screen_SIZES_ModerateScale.twelve,
+    paddingLeft: Screen_SIZES_ModerateScale.four,
   },
 
   leftIconContainer: {
-    marginRight: ms(10),
+    marginRight: Screen_SIZES_ModerateScale.ten,
     backgroundColor: colors.white,
-    borderRadius: sc(20),
-    padding: ms(6),
+    borderRadius: Screen_SIZES_Scale.twenty,
+    padding: Screen_SIZES_ModerateScale.six,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -208,6 +214,6 @@ const styles = StyleSheet.create({
   },
 
   rightIcon: {
-    marginLeft: ms(10),
+    marginLeft: Screen_SIZES_ModerateScale.ten,
   },
 });

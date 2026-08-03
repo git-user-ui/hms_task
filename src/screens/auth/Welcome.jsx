@@ -64,13 +64,13 @@ const styles = StyleSheet.create({
   },
   subText: {
     color: colors.primary,
-    fontSize: ms(12),
+    fontSize: Screen_SIZES_ModerateScale.twelve,
     fontFamily: Fonts.SemiBold,
     fontWeight: '600',
   },
   desc: {
     textAlign: 'center',
-    fontSize: ms(12),
+    fontSize: Screen_SIZES_ModerateScale.twelve,
     fontFamily: Fonts.Light,
     fontWeight: '300',
     marginTop: verticalScale(40),
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
   loginText: {
     fontFamily: Fonts.Medium,
     fontWeight: '500',
-    fontSize: ms(24),
+    fontSize: Screen_SIZES_ModerateScale.twentyFour,
     color: 'white',
     textAlign: 'center',
     padding: 8,
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
   signupText: {
     fontFamily: Fonts.Medium,
     fontWeight: '500',
-    fontSize: ms(24),
+    fontSize: Screen_SIZES_ModerateScale.twentyFour,
     color: colors.primary,
     textAlign: 'center',
     padding: 8,

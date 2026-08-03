@@ -1,5 +1,12 @@
 import React from 'react';
-import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import {
+  FlatList,
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 
@@ -98,37 +105,37 @@ export default HomeDoctorsList;
 
 const styles = StyleSheet.create({
   container: {
-    marginHorizontal: sc(14),
-    marginTop: vs(8),
+    marginHorizontal: Screen_SIZES_Scale.fourteen,
+    marginTop: Screen_SIZES_VerticalScale.eight,
     paddingBottom: vs(330),
-    gap: vs(12),
+    gap: Screen_SIZES_VerticalScale.twelve,
   },
 
   card: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: colors.secondary,
-    borderRadius: sc(20),
-    paddingVertical: vs(8),
-    paddingHorizontal: sc(12),
+    borderRadius: Screen_SIZES_Scale.twenty,
+    paddingVertical: Screen_SIZES_VerticalScale.eight,
+    paddingHorizontal: Screen_SIZES_Scale.twelve,
   },
 
   image: {
     width: ms(80),
     height: ms(80),
-    borderRadius: ms(100),
+    borderRadius: Screen_SIZES_ModerateScale.hundered,
   },
 
   rightContainer: {
     flex: 1,
-    marginLeft: sc(12),
+    marginLeft: Screen_SIZES_Scale.twelve,
   },
 
   infoCard: {
     backgroundColor: colors.white,
-    borderRadius: sc(14),
-    paddingHorizontal: sc(12),
-    paddingVertical: vs(4),
+    borderRadius: Screen_SIZES_Scale.fourteen,
+    paddingHorizontal: Screen_SIZES_Scale.twelve,
+    paddingVertical: Screen_SIZES_VerticalScale.four,
   },
 
   name: {
@@ -140,12 +147,12 @@ const styles = StyleSheet.create({
 
   specialization: {
     marginTop: 2,
-    fontSize: ms(12),
+    fontSize: Screen_SIZES_ModerateScale.twelve,
     color: '#555',
   },
 
   optionContainer: {
-    marginTop: vs(8),
+    marginTop: Screen_SIZES_VerticalScale.eight,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -154,21 +161,21 @@ const styles = StyleSheet.create({
   reviewContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: sc(6),
+    gap: Screen_SIZES_Scale.six,
   },
 
   badge: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: colors.white,
-    borderRadius: sc(20),
-    paddingHorizontal: sc(8),
-    height: vs(22),
+    borderRadius: Screen_SIZES_Scale.twenty,
+    paddingHorizontal: Screen_SIZES_Scale.eight,
+    height: Screen_SIZES_VerticalScale.twentyTwo,
     width: sc(50),
   },
 
   badgeText: {
-    marginLeft: sc(4),
+    marginLeft: Screen_SIZES_Scale.four,
     fontSize: ms(11),
     color: colors.primary,
     fontWeight: '600',
@@ -177,12 +184,12 @@ const styles = StyleSheet.create({
   iconContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: sc(6),
+    gap: Screen_SIZES_Scale.six,
   },
 
   iconCircle: {
-    width: ms(22),
-    height: ms(22),
+    width: Screen_SIZES_ModerateScale.twentyTwo,
+    height: Screen_SIZES_ModerateScale.twentyTwo,
     borderRadius: ms(11),
     backgroundColor: colors.white,
     justifyContent: 'center',

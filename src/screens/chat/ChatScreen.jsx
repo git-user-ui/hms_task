@@ -20,6 +20,6 @@ export default ChatScreen;
 
 const styles = StyleSheet.create({
   container: {
-    marginHorizontal: sc(30),
+    marginHorizontal: Screen_SIZES_Scale.thirty,
   },
 });

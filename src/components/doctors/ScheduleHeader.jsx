@@ -68,9 +68,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#EEF1FF',
-    paddingHorizontal: sc(20),
-    paddingVertical: vs(14),
-    gap: sc(10),
+    paddingHorizontal: Screen_SIZES_Scale.twenty,
+    paddingVertical: Screen_SIZES_VerticalScale.fourteen,
+    gap: Screen_SIZES_Scale.ten,
   },
 
   iconCircle: {
@@ -83,8 +83,8 @@ const styles = StyleSheet.create({
   },
 
   iconCircleFilled: {
-    width: ms(30),
-    height: ms(30),
+    width: Screen_SIZES_ModerateScale.thirty,
+    height: Screen_SIZES_ModerateScale.thirty,
     borderRadius: ms(15),
     backgroundColor: colors.primary,
     alignItems: 'center',
@@ -95,21 +95,21 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: colors.primary,
-    borderRadius: ms(20),
-    paddingVertical: vs(8),
-    paddingHorizontal: sc(14),
-    gap: sc(6),
+    borderRadius: Screen_SIZES_ModerateScale.twenty,
+    paddingVertical: Screen_SIZES_VerticalScale.eight,
+    paddingHorizontal: Screen_SIZES_Scale.fourteen,
+    gap: Screen_SIZES_Scale.six,
   },
 
   pillText: {
     color: colors.white,
     fontWeight: '600',
-    fontSize: ms(12),
+    fontSize: Screen_SIZES_ModerateScale.twelve,
   },
 
   rightIcons: {
     marginLeft: 'auto',
     flexDirection: 'row',
-    gap: sc(14),
+    gap: Screen_SIZES_Scale.fourteen,
   },
 });

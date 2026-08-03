@@ -28,11 +28,11 @@ export default UpdateProfile;
 
 const styles = StyleSheet.create({
   container: {
-    marginHorizontal: sc(30),
-    marginTop: vs(24),
-    gap: sc(12),
+    marginHorizontal: Screen_SIZES_Scale.thirty,
+    marginTop: Screen_SIZES_VerticalScale.twentyFour,
+    gap: Screen_SIZES_Scale.twelve,
   },
   btn: {
-    marginTop: vs(28),
+    marginTop: Screen_SIZES_VerticalScale.twentyEight,
   },
 });

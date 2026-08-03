@@ -30,8 +30,8 @@ const FaqItems = ({ item }) => {
         <Text style={styles.question}>{item.question}</Text>
 
         <ArrowDownIcon
-          width={sc(18)}
-          height={sc(18)}
+          width={Screen_SIZES_Scale.eighteen}
+          height={Screen_SIZES_Scale.eighteen}
           style={[
             styles.icon,
             {
@@ -58,14 +58,14 @@ export default FaqItems;
 
 const styles = StyleSheet.create({
   wrapper: {
-    marginBottom: vs(14),
+    marginBottom: Screen_SIZES_VerticalScale.fourteen,
   },
 
   header: {
     minHeight: vs(46),
     backgroundColor: '#EEF3FF',
     borderRadius: sc(50),
-    paddingHorizontal: sc(18),
+    paddingHorizontal: Screen_SIZES_Scale.eighteen,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -73,20 +73,20 @@ const styles = StyleSheet.create({
 
   question: {
     flex: 1,
-    fontSize: ms(14),
+    fontSize: Screen_SIZES_ModerateScale.fourteen,
     color: colors.primary,
     fontWeight: '500',
   },
 
   answerContainer: {
     paddingHorizontal: sc(15),
-    paddingTop: vs(10),
+    paddingTop: Screen_SIZES_VerticalScale.ten,
   },
 
   answer: {
     color: '#808080',
     fontSize: ms(13),
-    lineHeight: ms(20),
+    lineHeight: Screen_SIZES_ModerateScale.twenty,
   },
 
   icon: {},

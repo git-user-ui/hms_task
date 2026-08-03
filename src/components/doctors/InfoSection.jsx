@@ -17,12 +17,12 @@ export default InfoSection;
 const styles = StyleSheet.create({
   title: {
     color: colors.primary,
-    fontSize: sc(14),
+    fontSize: Screen_SIZES_Scale.fourteen,
     fontWeight: '700',
   },
 
   desc: {
     color: '#5C5C5C',
-    fontSize: sc(12),
+    fontSize: Screen_SIZES_Scale.twelve,
   },
 });

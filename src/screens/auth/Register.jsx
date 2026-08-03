@@ -160,23 +160,23 @@ export default Register;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: sc(30),
-    marginTop: vs(8),
+    paddingHorizontal: Screen_SIZES_Scale.thirty,
+    marginTop: Screen_SIZES_VerticalScale.eight,
   },
 
   inputContainer: {
-    gap: vs(8),
+    gap: Screen_SIZES_VerticalScale.eight,
   },
 
   termsView: {
-    marginTop: vs(20),
+    marginTop: Screen_SIZES_VerticalScale.twenty,
     alignItems: 'center',
   },
 
   termsText: {
     fontFamily: Fonts.Thin,
     fontWeight: '300',
-    fontSize: ms(12),
+    fontSize: Screen_SIZES_ModerateScale.twelve,
     textAlign: 'center',
     color: colors.designBlack,
   },
@@ -185,7 +185,7 @@ const styles = StyleSheet.create({
     fontFamily: Fonts.Medium,
     fontWeight: '500',
     color: colors.primary,
-    fontSize: ms(12),
+    fontSize: Screen_SIZES_ModerateScale.twelve,
     textAlign: 'center',
   },
 
@@ -194,28 +194,28 @@ const styles = StyleSheet.create({
   },
 
   buttonContainer: {
-    marginTop: vs(10),
+    marginTop: Screen_SIZES_VerticalScale.ten,
     alignItems: 'center',
   },
 
   socialSection: {
-    marginTop: vs(8),
+    marginTop: Screen_SIZES_VerticalScale.eight,
     alignItems: 'center',
   },
 
   orText: {
     fontFamily: Fonts.Thin,
     fontWeight: '300',
-    fontSize: ms(12),
+    fontSize: Screen_SIZES_ModerateScale.twelve,
     color: colors.designBlack,
-    marginBottom: vs(8),
+    marginBottom: Screen_SIZES_VerticalScale.eight,
   },
 
   socialContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    gap: sc(16),
+    gap: Screen_SIZES_Scale.sixteen,
   },
 
   socialButton: {
@@ -228,8 +228,8 @@ const styles = StyleSheet.create({
   },
 
   logo: {
-    width: sc(18),
-    height: sc(18),
+    width: Screen_SIZES_Scale.eighteen,
+    height: Screen_SIZES_Scale.eighteen,
     resizeMode: 'contain',
   },
 
@@ -237,8 +237,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: vs(12),
-    marginBottom: vs(20),
+    marginTop: Screen_SIZES_VerticalScale.twelve,
+    marginBottom: Screen_SIZES_VerticalScale.twenty,
   },
 
   accountText: {

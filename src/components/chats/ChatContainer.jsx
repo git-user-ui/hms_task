@@ -43,17 +43,17 @@ export default ChatContainer;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginHorizontal: ms(30),
-    paddingTop: vs(10),
+    marginHorizontal: Screen_SIZES_ModerateScale.thirty,
+    paddingTop: Screen_SIZES_VerticalScale.ten,
   },
 
   chatContainer: {
-    marginBottom: vs(20),
+    marginBottom: Screen_SIZES_VerticalScale.twenty,
   },
 
   userWrapper: {
     alignItems: 'flex-end',
-    marginBottom: vs(12),
+    marginBottom: Screen_SIZES_VerticalScale.twelve,
   },
 
   doctorWrapper: {
@@ -62,19 +62,19 @@ const styles = StyleSheet.create({
 
   userChat: {
     backgroundColor: colors.secondary,
-    padding: ms(18),
-    borderTopLeftRadius: ms(18),
-    borderTopRightRadius: ms(18),
-    borderBottomLeftRadius: ms(18),
+    padding: Screen_SIZES_ModerateScale.eighteen,
+    borderTopLeftRadius: Screen_SIZES_ModerateScale.eighteen,
+    borderTopRightRadius: Screen_SIZES_ModerateScale.eighteen,
+    borderBottomLeftRadius: Screen_SIZES_ModerateScale.eighteen,
     maxWidth: '75%',
   },
 
   doctorsChat: {
     backgroundColor: colors.secondary,
-    padding: ms(18),
-    borderTopLeftRadius: ms(18),
-    borderTopRightRadius: ms(18),
-    borderBottomRightRadius: ms(18),
+    padding: Screen_SIZES_ModerateScale.eighteen,
+    borderTopLeftRadius: Screen_SIZES_ModerateScale.eighteen,
+    borderTopRightRadius: Screen_SIZES_ModerateScale.eighteen,
+    borderBottomRightRadius: Screen_SIZES_ModerateScale.eighteen,
     maxWidth: '75%',
   },
   time: {

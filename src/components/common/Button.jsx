@@ -23,12 +23,12 @@ const styles = StyleSheet.create({
   btnContainer: {
     backgroundColor: colors.primary,
     color: colors.white,
-    borderRadius: sc(30),
+    borderRadius: Screen_SIZES_Scale.thirty,
     height: sc(45),
     alignItems: 'center',
     justifyContent: 'center',
     fontWeight: '500',
-    paddingHorizontal: ms(8),
+    paddingHorizontal: Screen_SIZES_ModerateScale.eight,
     width: 'auto',
     margin: 'auto',
   },
@@ -37,6 +37,6 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     textAlign: 'center',
     color: colors.white,
-    fontSize: sc(20),
+    fontSize: Screen_SIZES_Scale.twenty,
   },
 });

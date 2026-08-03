@@ -36,21 +36,21 @@ export default PasswordManager;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginHorizontal: sc(30),
-    marginTop: vs(30),
+    marginHorizontal: Screen_SIZES_Scale.thirty,
+    marginTop: Screen_SIZES_VerticalScale.thirty,
   },
   text: {
     textAlign: 'right',
-    paddingVertical: vs(6),
+    paddingVertical: Screen_SIZES_VerticalScale.six,
     color: colors.primary,
     fontWeight: '500',
-    fontSize: ms(12),
+    fontSize: Screen_SIZES_ModerateScale.twelve,
   },
   newPass: {
-    gap: sc(20),
+    gap: Screen_SIZES_Scale.twenty,
   },
   btn: {
     marginTop: 'auto',
-    marginBottom: vs(30),
+    marginBottom: Screen_SIZES_VerticalScale.thirty,
   },
 });

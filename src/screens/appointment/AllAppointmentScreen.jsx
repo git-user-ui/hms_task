@@ -8,6 +8,11 @@ import { Fonts } from '../../themes/font';
 import Completed from '../../components/Appointment/Completed';
 import Upcoming from '../../components/Appointment/Upcoming';
 import Cancelled from '../../components/Appointment/Cancelled';
+import {
+  Screen_SIZES_ModerateScale,
+  Screen_SIZES_Scale,
+  Screen_SIZES_VerticalScale,
+} from '../../constants/screen';
 
 const options = [
   { id: 1, name: 'Complete' },
@@ -63,8 +68,8 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
   },
   container: {
-    marginHorizontal: sc(30),
-    marginTop: vs(16),
+    marginHorizontal: Screen_SIZES_Scale.thirty,
+    marginTop: Screen_SIZES_VerticalScale.sixteen,
   },
   optionsContainer: {
     flexDirection: 'row',
@@ -73,10 +78,10 @@ const styles = StyleSheet.create({
   },
   btn: {
     backgroundColor: colors.secondary,
-    paddingVertical: ms(8),
-    paddingHorizontal: ms(14),
-    borderRadius: ms(30),
-    marginBottom: vs(8),
+    paddingVertical: Screen_SIZES_ModerateScale.eight,
+    paddingHorizontal: Screen_SIZES_ModerateScale.fourteen,
+    borderRadius: Screen_SIZES_ModerateScale.thirty,
+    marginBottom: Screen_SIZES_VerticalScale.eight,
   },
   selectedBtn: {
     backgroundColor: colors.primary,
@@ -84,7 +89,7 @@ const styles = StyleSheet.create({
   btnName: {
     fontFamily: Fonts.Regular,
     fontWeight: '400',
-    fontSize: ms(16),
+    fontSize: Screen_SIZES_ModerateScale.sixteen,
     color: colors.primary,
   },
   selectedBtnName: {

@@ -121,8 +121,8 @@ export default DoctorsHeading;
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: sc(30),
-    paddingVertical: vs(10),
+    paddingHorizontal: Screen_SIZES_Scale.thirty,
+    paddingVertical: Screen_SIZES_VerticalScale.ten,
   },
 
   topContainer: {
@@ -131,34 +131,34 @@ const styles = StyleSheet.create({
   },
 
   backButton: {
-    width: sc(12),
-    height: sc(22),
+    width: Screen_SIZES_Scale.twelve,
+    height: Screen_SIZES_Scale.twentyTwo,
     justifyContent: 'center',
   },
 
   backIcon: {
-    width: sc(8),
-    height: sc(14),
+    width: Screen_SIZES_Scale.eight,
+    height: Screen_SIZES_Scale.fourteen,
     resizeMode: 'contain',
   },
 
   headingText: {
     flex: 1,
     textAlign: 'center',
-    fontSize: ms(22),
+    fontSize: Screen_SIZES_ModerateScale.twentyTwo,
     color: colors.primary,
     fontFamily: Fonts.SemiBold,
-    marginHorizontal: sc(10),
+    marginHorizontal: Screen_SIZES_Scale.ten,
   },
 
   filters: {
     flexDirection: 'row',
-    gap: sc(8),
+    gap: Screen_SIZES_Scale.eight,
   },
 
   iconButton: {
-    width: sc(22),
-    height: sc(22),
+    width: Screen_SIZES_Scale.twentyTwo,
+    height: Screen_SIZES_Scale.twentyTwo,
     borderRadius: sc(17),
     backgroundColor: colors.secondary,
     color: colors.white,
@@ -169,7 +169,7 @@ const styles = StyleSheet.create({
   sortContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: vs(20),
+    marginTop: Screen_SIZES_VerticalScale.twenty,
     gap: sc(5),
   },
 
@@ -180,10 +180,10 @@ const styles = StyleSheet.create({
   charFilter: {
     minWidth: sc(47),
     height: vs(21),
-    borderRadius: sc(20),
+    borderRadius: Screen_SIZES_Scale.twenty,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: sc(12),
+    paddingHorizontal: Screen_SIZES_Scale.twelve,
     backgroundColor: colors.secondary,
   },
 
@@ -198,7 +198,7 @@ const styles = StyleSheet.create({
   },
 
   sortIconButton: {
-    width: sc(22),
+    width: Screen_SIZES_Scale.twentyTwo,
     height: sc(21),
     borderRadius: sc(17),
     justifyContent: 'center',

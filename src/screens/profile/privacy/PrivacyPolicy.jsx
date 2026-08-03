@@ -58,33 +58,33 @@ export default PrivacyPolicy;
 const styles = StyleSheet.create({
   container: {
     fontFamily: Fonts.ExtraLight,
-    paddingTop: vs(20),
-    paddingHorizontal: ms(30),
+    paddingTop: Screen_SIZES_VerticalScale.twenty,
+    paddingHorizontal: Screen_SIZES_ModerateScale.thirty,
   },
   updatetext: {
     color: colors.secondary,
-    fontSize: sc(12),
+    fontSize: Screen_SIZES_Scale.twelve,
     fontWeight: '500',
   },
   privacyDesc: {
     paddingTop: vs(5),
-    gap: sc(10),
+    gap: Screen_SIZES_Scale.ten,
   },
   privacyText: {
-    fontSize: ms(14),
+    fontSize: Screen_SIZES_ModerateScale.fourteen,
     fontFamily: Fonts.ExtraLight,
     fontWeight: '200',
     color: colors.black,
   },
   terms: {
-    gap: sc(6),
+    gap: Screen_SIZES_Scale.six,
   },
   termsHeading: {
     color: colors.primary,
-    fontSize: sc(20),
+    fontSize: Screen_SIZES_Scale.twenty,
     fontFamily: Fonts.Medium,
     fontWeight: '500',
-    paddingTop: vs(16),
+    paddingTop: Screen_SIZES_VerticalScale.sixteen,
   },
   termRow: {
     flexDirection: 'row',
@@ -92,12 +92,12 @@ const styles = StyleSheet.create({
   },
 
   termNumber: {
-    width: ms(18),
+    width: Screen_SIZES_ModerateScale.eighteen,
   },
 
   termContent: {
     flex: 1,
-    fontSize: ms(14),
+    fontSize: Screen_SIZES_ModerateScale.fourteen,
     fontFamily: Fonts.ExtraLight,
     fontWeight: '200',
   },

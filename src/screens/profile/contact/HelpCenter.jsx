@@ -36,25 +36,25 @@ const styles = StyleSheet.create({
     gap: 10,
     backgroundColor: colors.primary,
     colors: colors.white,
-    paddingBottom: vs(20),
+    paddingBottom: Screen_SIZES_VerticalScale.twenty,
   },
   txt: {
     fontFamily: Fonts.Regular,
-    fontSize: ms(14),
+    fontSize: Screen_SIZES_ModerateScale.fourteen,
     fontWeight: '400',
     textAlign: 'center',
     color: colors.white,
   },
   inputContainer: {
     backgroundColor: colors.white,
-    marginHorizontal: sc(30),
-    borderRadius: ms(30),
-    paddingHorizontal: ms(30),
+    marginHorizontal: Screen_SIZES_Scale.thirty,
+    borderRadius: Screen_SIZES_ModerateScale.thirty,
+    paddingHorizontal: Screen_SIZES_ModerateScale.thirty,
   },
   container: {
     flex: 1,
-    paddingHorizontal: sc(30),
-    marginTop: vs(10),
+    paddingHorizontal: Screen_SIZES_Scale.thirty,
+    marginTop: Screen_SIZES_VerticalScale.ten,
   },
   text: {
     textAlign: 'center',
@@ -62,12 +62,12 @@ const styles = StyleSheet.create({
   searchIcon: {
     position: 'absolute',
     top: sc(45),
-    left: sc(12),
+    left: Screen_SIZES_Scale.twelve,
   },
   textInput: {
     borderWidth: 1,
     borderRadius: sc(50),
-    paddingHorizontal: sc(30),
-    marginTop: sc(20),
+    paddingHorizontal: Screen_SIZES_Scale.thirty,
+    marginTop: Screen_SIZES_Scale.twenty,
   },
 });

@@ -42,20 +42,20 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginHorizontal: 30,
-    marginTop: vs(16),
+    marginTop: Screen_SIZES_VerticalScale.sixteen,
   },
   desc: {
     fontFamily: Fonts.Light,
     fontWeight: '300',
-    fontSize: ms(12),
+    fontSize: Screen_SIZES_ModerateScale.twelve,
     color: colors.designBlack,
   },
   input: {
     backgroundColor: '#ECF1FF',
   },
   inputContainer: {
-    marginTop: vs(24),
-    gap: sc(18),
+    marginTop: Screen_SIZES_VerticalScale.twentyFour,
+    gap: Screen_SIZES_Scale.eighteen,
   },
   btn: {
     marginTop: vs(18),

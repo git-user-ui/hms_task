@@ -23,6 +23,11 @@ import { useAuth } from '../../configs/context';
 import { getUser, loginUser } from '../../utils/storage';
 import { ERROR_MESSAGES, SUCCESS_MESSAGES } from '../../constants/messages';
 import { ROUTES } from '../../constants/routes';
+import {
+  Screen_SIZES_ModerateScale,
+  Screen_SIZES_Scale,
+  Screen_SIZES_VerticalScale,
+} from '../../constants/screen';
 
 const Login = () => {
   const navigation = useNavigation();
@@ -128,7 +133,9 @@ const Login = () => {
           <View style={styles.footer}>
             <Text style={styles.footerText}>Don't have an account?</Text>
 
-            <TouchableOpacity onPress={() => navigation.navigate(ROUTES.REGISTER)}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate(ROUTES.REGISTER)}
+            >
               <Text style={styles.signupText}> Sign Up</Text>
             </TouchableOpacity>
           </View>
@@ -143,15 +150,15 @@ export default Login;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: sc(24),
+    paddingHorizontal: Screen_SIZES_ModerateScale.twentyFour,
   },
 
   topSection: {
-    marginTop: vs(20),
+    marginTop: Screen_SIZES_VerticalScale.twenty,
   },
 
   title: {
-    fontSize: ms(24),
+    fontSize: Screen_SIZES_ModerateScale.twentyFour,
     fontFamily: Fonts.SemiBold,
     fontWeight: '600',
     color: colors.primary,
@@ -161,50 +168,50 @@ const styles = StyleSheet.create({
     color: colors.designBlack,
     fontFamily: Fonts.Light,
     fontWeight: '300',
-    marginTop: vs(8),
-    fontSize: ms(12),
+    marginTop: Screen_SIZES_VerticalScale.eight,
+    fontSize: Screen_SIZES_ModerateScale.twelve,
   },
 
   inputContainer: {
-    marginTop: vs(30),
+    marginTop: Screen_SIZES_VerticalScale.thirty,
     gap: vs(18),
   },
 
   forgotContainer: {
-    marginTop: vs(8),
+    marginTop: Screen_SIZES_VerticalScale.eight,
     alignItems: 'flex-end',
   },
 
   forgotPass: {
     fontFamily: Fonts.Medium,
     fontWeight: '500',
-    fontSize: ms(12),
+    fontSize: Screen_SIZES_ModerateScale.twelve,
     color: colors.primary,
   },
 
   buttonContainer: {
-    marginTop: vs(24),
+    marginTop: Screen_SIZES_VerticalScale.twentyFour,
     alignItems: 'center',
   },
 
   socialSection: {
-    marginTop: vs(12),
+    marginTop: Screen_SIZES_VerticalScale.twelve,
     alignItems: 'center',
   },
 
   orText: {
     fontFamily: Fonts.Light,
     fontWeight: '300',
-    fontSize: ms(12),
+    fontSize: Screen_SIZES_ModerateScale.twelve,
     color: colors.designBlack,
-    marginBottom: vs(8),
+    marginBottom: Screen_SIZES_VerticalScale.eight,
   },
 
   socialContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    gap: sc(16),
+    gap: Screen_SIZES_Scale.sixteen,
   },
 
   socialButton: {
@@ -217,8 +224,8 @@ const styles = StyleSheet.create({
   },
 
   logo: {
-    width: sc(18),
-    height: sc(18),
+    width: Screen_SIZES_Scale.eighteen,
+    height: Screen_SIZES_Scale.eighteen,
     resizeMode: 'contain',
   },
 
@@ -226,21 +233,21 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: vs(24),
-    marginBottom: vs(20),
+    marginTop: Screen_SIZES_VerticalScale.twentyFour,
+    marginBottom: Screen_SIZES_VerticalScale.twenty,
   },
 
   footerText: {
     fontFamily: Fonts.Light,
     fontWeight: '300',
-    fontSize: ms(12),
+    fontSize: Screen_SIZES_ModerateScale.twelve,
     color: colors.designBlack,
   },
 
   signupText: {
     fontFamily: Fonts.Medium,
     fontWeight: '500',
-    fontSize: ms(12),
+    fontSize: Screen_SIZES_ModerateScale.twelve,
     color: colors.primary,
   },
 });

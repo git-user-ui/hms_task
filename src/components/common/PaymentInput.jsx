@@ -43,30 +43,30 @@ export default PaymentInput;
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: vs(12),
-    marginHorizontal: sc(30),
+    marginTop: Screen_SIZES_VerticalScale.twelve,
+    marginHorizontal: Screen_SIZES_Scale.thirty,
     flexDirection: 'row',
     backgroundColor: colors.lightblue,
     alignItems: 'center',
     justifyContent: 'space-between',
-    borderRadius: ms(20),
-    padding: ms(6),
+    borderRadius: Screen_SIZES_ModerateScale.twenty,
+    padding: Screen_SIZES_ModerateScale.six,
   },
   textContainer: {
     flexDirection: 'row',
-    paddingLeft: ms(10),
+    paddingLeft: Screen_SIZES_ModerateScale.ten,
     alignItems: 'center',
     width: '70%',
   },
   textName: {
     fontFamily: Fonts.Regular,
     fontWeight: '400',
-    fontSize: ms(20),
+    fontSize: Screen_SIZES_ModerateScale.twenty,
     color: colors.lightbluetext,
-    paddingLeft: ms(10),
+    paddingLeft: Screen_SIZES_ModerateScale.ten,
   },
   iconContainer: {
-    paddingRight: ms(10),
+    paddingRight: Screen_SIZES_ModerateScale.ten,
   },
   smallCircle: {
     position: 'absolute',
@@ -75,6 +75,6 @@ const styles = StyleSheet.create({
   },
   selectedDebit: {
     backgroundColor: colors.primary,
-    borderRadius: ms(30),
+    borderRadius: Screen_SIZES_ModerateScale.thirty,
   },
 });

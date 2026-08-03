@@ -7,6 +7,10 @@ import RightIcon from '../../assets/svg/right_icon.svg';
 import WrongIcon from '../../assets/svg/wrong_icon.svg';
 
 import { useNavigation } from '@react-navigation/native';
+import {
+  Screen_SIZES_Scale,
+  Screen_SIZES_VerticalScale,
+} from '../../constants/screen';
 
 const dates = [
   { id: 1, day: '21', week: 'MON' },
@@ -89,23 +93,23 @@ const styles = StyleSheet.create({
   container: {
     fontFamily: Fonts.Regular,
     backgroundColor: colors.secondary,
-    paddingVertical: vs(12),
+    paddingVertical: Screen_SIZES_VerticalScale(12),
   },
 
   wrapper: {
-    paddingHorizontal: sc(24),
+    paddingHorizontal: Screen_SIZES_Scale(24),
   },
 
   dateList: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingBottom: vs(12),
+    paddingBottom: Screen_SIZES_VerticalScale.twelve,
   },
   dateCard: {
     width: ms(42),
     height: vs(50),
-    borderRadius: ms(18),
+    borderRadius: Screen_SIZES_ModerateScale.eighteen,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: colors.white,
@@ -119,7 +123,7 @@ const styles = StyleSheet.create({
   },
 
   dateNumber: {
-    fontSize: ms(16),
+    fontSize: Screen_SIZES_ModerateScale.sixteen,
     fontFamily: Fonts.Medium,
     fontWeight: '500',
   },
@@ -127,23 +131,23 @@ const styles = StyleSheet.create({
   dayText: {
     fontFamily: Fonts.Light,
     fontWeight: '300',
-    fontSize: ms(10),
-    marginTop: vs(2),
+    fontSize: Screen_SIZES_ModerateScale.ten,
+    marginTop: Screen_SIZES_VerticalScale.two,
     color: colors.black,
   },
 
   card: {
     backgroundColor: colors.white,
-    borderRadius: ms(20),
-    paddingHorizontal: sc(18),
-    paddingVertical: vs(12),
+    borderRadius: Screen_SIZES_ModerateScale.twenty,
+    paddingHorizontal: Screen_SIZES_Scale.eighteen,
+    paddingVertical: Screen_SIZES_VerticalScale.twelve,
   },
 
   todayText: {
-    fontSize: ms(12),
+    fontSize: Screen_SIZES_ModerateScale.twelve,
     fontFamily: Fonts.Regular,
     fontWeight: '400',
-    marginBottom: vs(8),
+    marginBottom: Screen_SIZES_VerticalScale.eight,
     color: colors.primary,
     textAlign: 'center',
   },
@@ -155,25 +159,25 @@ const styles = StyleSheet.create({
   time: {
     fontSize: ms(11),
     color: colors.primary,
-    marginBottom: vs(8),
+    marginBottom: Screen_SIZES_VerticalScale.eight,
   },
 
   dottedLine: {
     borderTopWidth: 1,
     borderStyle: 'dashed',
     borderColor: colors.primary,
-    marginBottom: vs(8),
+    marginBottom: Screen_SIZES_VerticalScale.eight,
   },
 
   appointment: {
-    marginTop: vs(6),
+    marginTop: Screen_SIZES_VerticalScale.six,
   },
 
   appointmentContent: {
     backgroundColor: colors.secondary,
-    borderRadius: ms(14),
-    paddingHorizontal: sc(14),
-    paddingVertical: vs(12),
+    borderRadius: Screen_SIZES_ModerateScale.fourteen,
+    paddingHorizontal: Screen_SIZES_Scale.fourteen,
+    paddingVertical: Screen_SIZES_VerticalScale.twelve,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
@@ -201,29 +205,29 @@ const styles = StyleSheet.create({
     fontFamily: Fonts.Light,
     color: colors.black,
     fontWeight: '300',
-    fontSize: ms(10),
-    lineHeight: ms(14),
-    marginTop: vs(2),
+    fontSize: Screen_SIZES_ModerateScale.ten,
+    lineHeight: Screen_SIZES_ModerateScale.fourteen,
+    marginTop: Screen_SIZES_VerticalScale.two,
   },
   appointmentTime: {
-    marginTop: vs(6),
+    marginTop: Screen_SIZES_VerticalScale.six,
     fontFamily: Fonts.Bold,
     color: colors.primary,
   },
 
   check: {
-    width: ms(20),
-    height: ms(20),
-    borderRadius: ms(10),
+    width: Screen_SIZES_ModerateScale.twenty,
+    height: Screen_SIZES_ModerateScale.twenty,
+    borderRadius: Screen_SIZES_ModerateScale.ten,
     backgroundColor: colors.white,
     justifyContent: 'center',
     alignItems: 'center',
   },
 
   close: {
-    width: ms(20),
-    height: ms(20),
-    borderRadius: ms(10),
+    width: Screen_SIZES_ModerateScale.twenty,
+    height: Screen_SIZES_ModerateScale.twenty,
+    borderRadius: Screen_SIZES_ModerateScale.ten,
     backgroundColor: colors.white,
     justifyContent: 'center',
     alignItems: 'center',
@@ -231,12 +235,12 @@ const styles = StyleSheet.create({
   icon: {
     color: colors.primary,
     fontWeight: '700',
-    fontSize: ms(12),
+    fontSize: Screen_SIZES_ModerateScale.twelve,
   },
 
   closeText: {
     color: colors.primary,
     fontWeight: '700',
-    fontSize: ms(14),
+    fontSize: Screen_SIZES_ModerateScale.fourteen,
   },
 });

@@ -38,8 +38,8 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     borderRadius: sc(50),
-    marginTop: vs(24),
-    gap: ms(4),
+    marginTop: Screen_SIZES_VerticalScale.twentyFour,
+    gap: Screen_SIZES_ModerateScale.four,
   },
 
   tab: {
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: colors.secondary,
-    borderRadius: ms(30),
+    borderRadius: Screen_SIZES_ModerateScale.thirty,
   },
 
   activeTab: {

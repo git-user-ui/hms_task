@@ -42,8 +42,8 @@ export default ProfileHeader;
 
 const styles = StyleSheet.create({
   container: {
-    marginHorizontal: ms(30),
-    marginTop: vs(12),
+    marginHorizontal: Screen_SIZES_ModerateScale.thirty,
+    marginTop: Screen_SIZES_VerticalScale.twelve,
   },
 
   topHeadingContainer: {

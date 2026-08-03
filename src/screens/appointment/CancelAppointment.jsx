@@ -17,6 +17,11 @@ import BigCircle from '../../assets/svg/payment/circle_big.svg';
 import SmallCircle from '../../assets/svg/payment/circle_small.svg';
 
 import { useRoute } from '@react-navigation/native';
+import {
+  Screen_SIZES_ModerateScale,
+  Screen_SIZES_Scale,
+  Screen_SIZES_VerticalScale,
+} from '../../constants/screen';
 const options = [
   { id: 1, name: 'Rescheduling' },
   { id: 2, name: 'Weather Conditions' },
@@ -99,88 +104,88 @@ export default CancelAppointment;
 
 const styles = StyleSheet.create({
   container: {
-    marginHorizontal: sc(30),
+    marginHorizontal: Screen_SIZES_Scale.thirty,
   },
 
   text: {
-    paddingTop: vs(18),
+    paddingTop: Screen_SIZES_VerticalScale.eighteen,
   },
   image: {
-    width: ms(130),
-    height: ms(130),
-    borderRadius: ms(100),
+    width: Screen_SIZES_ModerateScale.oneThirty,
+    height: Screen_SIZES_ModerateScale.oneThirty,
+    borderRadius: Screen_SIZES_ModerateScale.hundered,
     resizeMode: '',
     alignItems: 'center',
     justifyContent: 'center',
   },
   imageContainer: {
-    paddingTop: vs(20),
+    paddingTop: Screen_SIZES_VerticalScale.twenty,
     alignItems: 'center',
   },
   textContainer: {
     flexDirection: 'row',
-    paddingLeft: ms(10),
+    paddingLeft: Screen_SIZES_ModerateScale.ten,
     alignItems: 'center',
     width: '70%',
   },
   textName: {
     fontFamily: Fonts.Regular,
     fontWeight: '400',
-    fontSize: ms(20),
+    fontSize: Screen_SIZES_ModerateScale.twenty,
     color: colors.lightbluetext,
-    paddingLeft: ms(10),
+    paddingLeft: Screen_SIZES_ModerateScale.ten,
   },
   optionContainer: {
-    marginVertical: vs(20),
+    marginVertical: Screen_SIZES_VerticalScale.twenty,
   },
   innerOptionContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingLeft: ms(5),
-    paddingVertical: vs(5),
+    paddingLeft: Screen_SIZES_ModerateScale.five,
+    paddingVertical: Screen_SIZES_ModerateScale.five,
   },
   selectedinnerOptionContainer: {
     backgroundColor: colors.secondary,
-    borderRadius: ms(18),
+    borderRadius: Screen_SIZES_ModerateScale.eighteen,
   },
   optionName: {
     fontFamily: Fonts.Light,
     fontWeight: '300',
-    fontSize: ms(16),
+    fontSize: Screen_SIZES_ModerateScale.sixteen,
   },
   iconContainer: {
-    paddingRight: ms(10),
+    paddingRight: Screen_SIZES_ModerateScale.ten,
   },
   smallCircle: {
     position: 'absolute',
     left: sc(3.4),
-    top: vs(3),
+    top: Screen_SIZES_VerticalScale.three,
   },
   selectedDebit: {
     backgroundColor: colors.primary,
-    borderRadius: ms(30),
+    borderRadius: Screen_SIZES_ModerateScale.thirty,
   },
   nameContainer: {
     textAlign: 'center',
     alignItems: 'center',
-    paddingVertical: vs(20),
+    paddingVertical: Screen_SIZES_VerticalScale(20),
   },
   name: {
     fontFamily: Fonts.Light,
     fontWeight: '300',
-    fontSize: ms(14),
+    fontSize: Screen_SIZES_ModerateScale.fourteen,
     color: colors.primary,
   },
   speciality: {},
   input: {
-    marginTop: vs(20),
+    marginTop: Screen_SIZES_VerticalScale.twenty,
     backgroundColor: colors.lightblue,
-    paddingHorizontal: ms(18),
-    paddingVertical: vs(12),
-    borderRadius: ms(18),
-    height: ms(150),
+    paddingHorizontal: Screen_SIZES_ModerateScale.eighteen,
+    paddingVertical: Screen_SIZES_VerticalScale.twelve,
+    borderRadius: Screen_SIZES_ModerateScale.eighteen,
+    height: Screen_SIZES_ModerateScale(150),
   },
   btnContainer: {
-    marginTop: vs(30),
+    marginTop: Screen_SIZES_VerticalScale.thirty,
   },
 });

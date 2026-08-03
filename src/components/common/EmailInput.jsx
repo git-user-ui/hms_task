@@ -25,14 +25,14 @@ const styles = StyleSheet.create({
   labelName: {
     fontFamily: Fonts.Medium,
     fontWeight: '500',
-    fontSize: sc(20),
+    fontSize: Screen_SIZES_Scale.twenty,
   },
   inputContainer: {
     width: '100%',
-    marginTop: vs(4),
+    marginTop: Screen_SIZES_VerticalScale.four,
     height: sc(40),
     borderRadius: sc(13),
     backgroundColor: colors.lightblue,
-    paddingHorizontal: sc(20),
+    paddingHorizontal: Screen_SIZES_Scale.twenty,
   },
 });

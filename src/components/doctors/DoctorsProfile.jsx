@@ -127,12 +127,12 @@ const styles = StyleSheet.create({
   mainContainer: {
     flexDirection: 'row',
     backgroundColor: colors.secondary,
-    marginHorizontal: sc(30),
+    marginHorizontal: Screen_SIZES_Scale.thirty,
     marginBottom: sc(15),
     borderRadius: sc(17),
     alignItems: 'center',
-    paddingHorizontal: sc(10),
-    paddingVertical: sc(10),
+    paddingHorizontal: Screen_SIZES_Scale.ten,
+    paddingVertical: Screen_SIZES_Scale.ten,
   },
 
   imageContainer: {},
@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
 
   nameContainer: {
     flex: 1,
-    marginLeft: sc(10),
+    marginLeft: Screen_SIZES_Scale.ten,
   },
 
   dName: {
@@ -161,30 +161,30 @@ const styles = StyleSheet.create({
   },
 
   qualification: {
-    marginTop: vs(2),
-    fontSize: sc(12),
+    marginTop: Screen_SIZES_VerticalScale.two,
+    fontSize: Screen_SIZES_Scale.twelve,
     color: '#666',
   },
 
   experience: {
-    marginTop: vs(2),
-    fontSize: sc(12),
+    marginTop: Screen_SIZES_VerticalScale.two,
+    fontSize: Screen_SIZES_Scale.twelve,
     color: '#666',
   },
 
   optionsContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: sc(12),
+    marginTop: Screen_SIZES_Scale.twelve,
   },
 
   infoName: {
     backgroundColor: colors.primary,
     width: sc(52),
-    height: sc(24),
+    height: Screen_SIZES_Scale.twentyFour,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: sc(18),
+    borderRadius: Screen_SIZES_Scale.eighteen,
   },
 
   info: {
@@ -194,16 +194,16 @@ const styles = StyleSheet.create({
 
   iconContainer: {
     flexDirection: 'row',
-    marginLeft: sc(8),
+    marginLeft: Screen_SIZES_Scale.eight,
   },
 
   icons: {
-    width: sc(22),
-    height: sc(22),
-    borderRadius: sc(12),
+    width: Screen_SIZES_Scale.twentyTwo,
+    height: Screen_SIZES_Scale.twentyTwo,
+    borderRadius: Screen_SIZES_Scale.twelve,
     backgroundColor: colors.white,
     justifyContent: 'center',
     alignItems: 'center',
-    marginLeft: sc(4),
+    marginLeft: Screen_SIZES_Scale.four,
   },
 });

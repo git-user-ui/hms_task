@@ -55,13 +55,13 @@ const styles = StyleSheet.create({
   news: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: ms(6),
+    gap: Screen_SIZES_ModerateScale.six,
     position: 'absolute',
-    right: ms(30),
-    top: ms(24),
-    borderRadius: ms(12),
+    right: Screen_SIZES_ModerateScale.thirty,
+    top: Screen_SIZES_ModerateScale.twentyFour,
+    borderRadius: Screen_SIZES_ModerateScale.twelve,
     backgroundColor: colors.secondary,
-    paddingHorizontal: ms(8),
+    paddingHorizontal: Screen_SIZES_ModerateScale.eight,
   },
   innerContainer: {
     backgroundColor: colors.secondary,
@@ -70,16 +70,16 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
-    paddingVertical: ms(14),
-    marginHorizontal: ms(30),
+    paddingVertical: Screen_SIZES_ModerateScale.fourteen,
+    marginHorizontal: Screen_SIZES_ModerateScale.thirty,
   },
   seen: {
     backgroundColor: colors.secondary,
   },
   icon: {
-    borderRadius: ms(24),
+    borderRadius: Screen_SIZES_ModerateScale.twentyFour,
     backgroundColor: colors.primary,
-    padding: ms(12),
+    padding: Screen_SIZES_ModerateScale.twelve,
   },
   msgContainer: {
     maxWidth: '70%',
@@ -87,29 +87,29 @@ const styles = StyleSheet.create({
   titletext: {
     fontFamily: Fonts.Medium,
     fontWeight: '500',
-    fontSize: ms(20),
+    fontSize: Screen_SIZES_ModerateScale.twenty,
   },
 
   descText: {
     fontFamily: Fonts.ExtraLight,
     fontWeight: '200',
-    fontSize: ms(12),
+    fontSize: Screen_SIZES_ModerateScale.twelve,
   },
   dateContainer: {
-    marginHorizontal: ms(30),
+    marginHorizontal: Screen_SIZES_ModerateScale.thirty,
     flexDirection: 'row',
     alignItems: 'center',
-    marginVertical: ms(10),
+    marginVertical: Screen_SIZES_ModerateScale.ten,
     justifyContent: 'space-between',
   },
   header: {
     fontFamily: Fonts.Regular,
     fontWeight: '400',
-    fontSize: ms(20),
+    fontSize: Screen_SIZES_ModerateScale.twenty,
     backgroundColor: colors.secondary,
     borderRadius: ms(23),
-    paddingHorizontal: ms(18),
-    paddingVertical: vs(4),
+    paddingHorizontal: Screen_SIZES_ModerateScale.eighteen,
+    paddingVertical: Screen_SIZES_VerticalScale.four,
     textAlign: 'center',
   },
   title: {
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
   mark: {
     fontFamily: Fonts.SemiBold,
     fontWeight: '700',
-    fontSize: ms(14),
+    fontSize: Screen_SIZES_ModerateScale.fourteen,
     color: colors.primary,
   },
 });

@@ -51,8 +51,8 @@ export default ScheduleScreen;
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: sc(20),
-    paddingVertical: vs(10),
+    paddingHorizontal: Screen_SIZES_Scale.twenty,
+    paddingVertical: Screen_SIZES_VerticalScale.ten,
     paddingBottom: vs(50),
   },
 

@@ -55,8 +55,8 @@ export default DoctorsInfo;
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: sc(30),
-    paddingVertical: vs(10),
+    paddingHorizontal: Screen_SIZES_Scale.thirty,
+    paddingVertical: Screen_SIZES_VerticalScale.ten,
     paddingBottom: vs(50),
   },
 });

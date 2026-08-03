@@ -11,10 +11,19 @@ const Screen_SIZES_Scale = {
   sixteen: sc(16),
   eighteen: sc(18),
   twenty: sc(20),
+  twentyTwo: sc(22),
+  twentyFour: sc(24),
+  twentySix: sc(26),
+  twentyEight: sc(28),
+  thirty: sc(30),
+  hundered: sc(100),
+  oneThirty: sc(130),
+  oneFifty: sc(150),
 };
 const Screen_SIZES_ModerateScale = {
   two: ms(2),
   four: ms(4),
+  five: ms(5),
   six: ms(6),
   eight: ms(8),
   ten: ms(10),
@@ -23,9 +32,18 @@ const Screen_SIZES_ModerateScale = {
   sixteen: ms(16),
   eighteen: ms(18),
   twenty: ms(20),
+  twentyTwo: ms(22),
+  twentyFour: ms(24),
+  twentySix: ms(26),
+  twentyEight: ms(28),
+  thirty: ms(30),
+  hundered: ms(100),
+  oneThirty: ms(130),
+  oneFifty: ms(150),
 };
 const Screen_SIZES_VerticalScale = {
   two: vs(2),
+  three: vs(3),
   four: vs(4),
   six: vs(6),
   eight: vs(8),
@@ -35,6 +53,14 @@ const Screen_SIZES_VerticalScale = {
   sixteen: vs(16),
   eighteen: vs(18),
   twenty: vs(20),
+  twentyTwo: vs(22),
+  twentyFour: vs(24),
+  twentySix: vs(26),
+  twentyEight: vs(28),
+  thirty: vs(30),
+  hundered: vs(100),
+  oneThirty: vs(130),
+  oneFifty: vs(150),
 };
 
 export {

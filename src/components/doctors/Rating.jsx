@@ -137,12 +137,12 @@ export default Rating;
 
 const styles = StyleSheet.create({
   container: {
-    marginHorizontal: sc(30),
-    marginBottom: vs(14),
+    marginHorizontal: Screen_SIZES_Scale.thirty,
+    marginBottom: Screen_SIZES_VerticalScale.fourteen,
     flexDirection: 'row',
     backgroundColor: colors.secondary,
-    borderRadius: sc(22),
-    padding: sc(8),
+    borderRadius: Screen_SIZES_Scale.twentyTwo,
+    padding: Screen_SIZES_Scale.eight,
     alignItems: 'center',
   },
 
@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
 
   rightContainer: {
     flex: 1,
-    marginLeft: ms(12),
+    marginLeft: Screen_SIZES_ModerateScale.twelve,
   },
 
   topRow: {
@@ -170,34 +170,34 @@ const styles = StyleSheet.create({
   },
 
   badgeCircle: {
-    width: sc(20),
-    height: sc(20),
-    borderRadius: sc(14),
+    width: Screen_SIZES_Scale.twenty,
+    height: Screen_SIZES_Scale.twenty,
+    borderRadius: Screen_SIZES_Scale.fourteen,
     backgroundColor: colors.primary,
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: ms(6),
+    marginRight: Screen_SIZES_ModerateScale.six,
   },
 
   badgeIcon: {
-    width: sc(12),
-    height: sc(12),
+    width: Screen_SIZES_Scale.twelve,
+    height: Screen_SIZES_Scale.twelve,
     resizeMode: 'contain',
   },
 
   badgeText: {
     color: colors.primary,
     fontWeight: '600',
-    fontSize: ms(12),
+    fontSize: Screen_SIZES_ModerateScale.twelve,
   },
 
   rating: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#FFF',
-    paddingHorizontal: ms(10),
-    paddingVertical: vs(4),
-    borderRadius: sc(20),
+    paddingHorizontal: Screen_SIZES_ModerateScale.ten,
+    paddingVertical: Screen_SIZES_VerticalScale.four,
+    borderRadius: Screen_SIZES_Scale.twenty,
   },
 
   ratingText: {
@@ -207,21 +207,21 @@ const styles = StyleSheet.create({
   },
 
   infoCard: {
-    marginTop: vs(8),
+    marginTop: Screen_SIZES_VerticalScale.eight,
     backgroundColor: '#FFF',
-    borderRadius: sc(16),
-    padding: sc(8),
+    borderRadius: Screen_SIZES_Scale.sixteen,
+    padding: Screen_SIZES_Scale.eight,
   },
 
   name: {
     color: colors.primary,
-    fontSize: ms(14),
+    fontSize: Screen_SIZES_ModerateScale.fourteen,
     fontWeight: '700',
   },
 
   specialization: {
     marginTop: 2,
-    fontSize: ms(12),
+    fontSize: Screen_SIZES_ModerateScale.twelve,
   },
 
   qualification: {
@@ -231,7 +231,7 @@ const styles = StyleSheet.create({
   },
 
   bottomRow: {
-    marginTop: vs(10),
+    marginTop: Screen_SIZES_VerticalScale.ten,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -239,9 +239,9 @@ const styles = StyleSheet.create({
 
   infoButton: {
     backgroundColor: colors.primary,
-    paddingHorizontal: ms(20),
-    paddingVertical: vs(4),
-    borderRadius: sc(18),
+    paddingHorizontal: Screen_SIZES_ModerateScale.twenty,
+    paddingVertical: Screen_SIZES_VerticalScale.four,
+    borderRadius: Screen_SIZES_Scale.eighteen,
   },
 
   infoText: {
@@ -252,12 +252,12 @@ const styles = StyleSheet.create({
   actions: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: ms(4),
+    gap: Screen_SIZES_ModerateScale.four,
   },
 
   icon: {
     borderRadius: sc(13),
     backgroundColor: colors.white,
-    padding: sc(4),
+    padding: Screen_SIZES_Scale.four,
   },
 });

@@ -137,16 +137,16 @@ export default DoctorName;
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: vs(8),
+    marginTop: Screen_SIZES_VerticalScale.eight,
     paddingBottom: vs(240),
-    gap: vs(12),
+    gap: Screen_SIZES_VerticalScale.twelve,
   },
 
   card: {
     backgroundColor: colors.secondary,
-    borderRadius: sc(20),
-    paddingVertical: vs(8),
-    paddingHorizontal: sc(12),
+    borderRadius: Screen_SIZES_Scale.twenty,
+    paddingVertical: Screen_SIZES_VerticalScale.eight,
+    paddingHorizontal: Screen_SIZES_Scale.twelve,
   },
   loader: {
     height: vs(400),
@@ -158,17 +158,17 @@ const styles = StyleSheet.create({
   image: {
     width: ms(60),
     height: ms(60),
-    borderRadius: ms(100),
+    borderRadius: Screen_SIZES_ModerateScale.hundered,
   },
   imageContainer: {
     flexDirection: 'row',
-    marginBottom: vs(14),
+    marginBottom: Screen_SIZES_VerticalScale.fourteen,
   },
 
   infoCard: {
-    borderRadius: sc(14),
-    paddingHorizontal: sc(12),
-    paddingVertical: vs(4),
+    borderRadius: Screen_SIZES_Scale.fourteen,
+    paddingHorizontal: Screen_SIZES_Scale.twelve,
+    paddingVertical: Screen_SIZES_VerticalScale.four,
   },
 
   name: {
@@ -180,12 +180,12 @@ const styles = StyleSheet.create({
 
   specialization: {
     marginTop: 2,
-    fontSize: ms(12),
+    fontSize: Screen_SIZES_ModerateScale.twelve,
     color: '#555',
   },
 
   optionContainer: {
-    marginTop: vs(8),
+    marginTop: Screen_SIZES_VerticalScale.eight,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -194,21 +194,21 @@ const styles = StyleSheet.create({
   reviewContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: sc(6),
+    gap: Screen_SIZES_Scale.six,
   },
 
   badge: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: colors.white,
-    borderRadius: sc(20),
-    paddingHorizontal: sc(8),
-    height: vs(22),
+    borderRadius: Screen_SIZES_Scale.twenty,
+    paddingHorizontal: Screen_SIZES_Scale.eight,
+    height: Screen_SIZES_VerticalScale.twentyTwo,
     width: sc(50),
   },
 
   badgeText: {
-    marginLeft: sc(4),
+    marginLeft: Screen_SIZES_Scale.four,
     fontSize: ms(11),
     color: colors.primary,
     fontWeight: '600',
@@ -217,12 +217,12 @@ const styles = StyleSheet.create({
   iconContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: sc(6),
+    gap: Screen_SIZES_Scale.six,
   },
 
   iconCircle: {
-    width: ms(22),
-    height: ms(22),
+    width: Screen_SIZES_ModerateScale.twentyTwo,
+    height: Screen_SIZES_ModerateScale.twentyTwo,
     borderRadius: ms(11),
     backgroundColor: colors.white,
     justifyContent: 'center',
@@ -236,25 +236,25 @@ const styles = StyleSheet.create({
     width: '80%',
     alignItems: 'center',
     backgroundColor: colors.primary,
-    paddingVertical: vs(6),
-    borderRadius: ms(18),
-    paddingHorizontal: ms(18),
+    paddingVertical: Screen_SIZES_VerticalScale.six,
+    borderRadius: Screen_SIZES_ModerateScale.eighteen,
+    paddingHorizontal: Screen_SIZES_ModerateScale.eighteen,
   },
   rebookBtn: {
     flex: 1,
     backgroundColor: colors.primary,
-    paddingVertical: vs(6),
+    paddingVertical: Screen_SIZES_VerticalScale.six,
     alignItems: 'center',
-    borderRadius: ms(18),
-    paddingHorizontal: ms(18),
+    borderRadius: Screen_SIZES_ModerateScale.eighteen,
+    paddingHorizontal: Screen_SIZES_ModerateScale.eighteen,
     marginHorizontal: ms(5),
   },
   addReviewBtn: {
     backgroundColor: colors.primary,
-    paddingVertical: vs(6),
+    paddingVertical: Screen_SIZES_VerticalScale.six,
     alignItems: 'center',
-    borderRadius: ms(18),
-    paddingHorizontal: ms(18),
+    borderRadius: Screen_SIZES_ModerateScale.eighteen,
+    paddingHorizontal: Screen_SIZES_ModerateScale.eighteen,
   },
   addReviewText: {
     color: colors.white,

@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
 
   right: {
     flex: 1,
-    marginLeft: sc(12),
+    marginLeft: Screen_SIZES_Scale.twelve,
   },
 
   badge: {
