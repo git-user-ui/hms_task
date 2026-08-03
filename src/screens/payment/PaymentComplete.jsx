@@ -11,6 +11,11 @@ import { ms, sc, vs } from '../../utils/responsive';
 import Calender from '../../assets/svg/payment/white_calender.svg';
 import Alarm from '../../assets/svg/payment/white_alarm.svg';
 import LeftArrow from '../../assets/svg/arrow_left.svg';
+import {
+  Screen_SIZES_ModerateScale,
+  Screen_SIZES_Scale,
+  Screen_SIZES_VerticalScale,
+} from '../../constants/screen';
 
 const PaymentComplete = () => {
   const navigation = useNavigation();

@@ -18,6 +18,7 @@ import QuestionIcon from '../../assets/svg/question_icon.svg';
 
 import { colors } from '../../themes/colors';
 import { sc } from '../../utils/responsive';
+import { Screen_SIZES_Scale } from '../../constants/screen';
 
 const timeSlots = [
   '9:00 AM',

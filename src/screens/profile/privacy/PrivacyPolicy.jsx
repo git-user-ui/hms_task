@@ -4,6 +4,11 @@ import ProfileHeader from '../../../components/Profile/components/ProfileHeader'
 import { colors } from '../../../themes/colors';
 import { ms, sc, vs } from '../../../utils/responsive';
 import { Fonts } from '../../../themes/font';
+import {
+  Screen_SIZES_ModerateScale,
+  Screen_SIZES_Scale,
+  Screen_SIZES_VerticalScale,
+} from '../../../constants/screen';
 
 const terms = [
   'Ut lacinia justo sit amet lorem sodales accumsan. Proin malesuada eleifend fermentum. Donec condimentum, nunc at rhoncus faucibus, ex nisi laoreet ipsum, eu pharetra eros est vitae orci. Morbi quis rhoncus mi. Nullam lacinia ornare accumsan. Duis laoreet, ex eget rutrum pharetra, lectus nisl posuere risus, vel facilisis nisi tellus ac turpis.',

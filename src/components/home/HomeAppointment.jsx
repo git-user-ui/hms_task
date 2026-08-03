@@ -8,6 +8,7 @@ import WrongIcon from '../../assets/svg/wrong_icon.svg';
 
 import { useNavigation } from '@react-navigation/native';
 import {
+  Screen_SIZES_ModerateScale,
   Screen_SIZES_Scale,
   Screen_SIZES_VerticalScale,
 } from '../../constants/screen';

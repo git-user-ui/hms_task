@@ -4,6 +4,11 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import ArrowDownIcon from '../../assets/svg/ArrowDown.svg';
 import { colors } from '../../themes/colors';
 import { ms, sc, vs } from '../../utils/responsive';
+import {
+  Screen_SIZES_ModerateScale,
+  Screen_SIZES_Scale,
+  Screen_SIZES_VerticalScale,
+} from '../../constants/screen';
 
 const ContactItem = ({ item, onPress }) => {
   const Icon = item.icon;

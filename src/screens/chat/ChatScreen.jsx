@@ -4,6 +4,7 @@ import { sc } from '../../utils/responsive';
 import ChatInput from '../../components/chats/ChatInput';
 import ChatHeader from '../../components/chats/ChatHeader';
 import ChatContainer from '../../components/chats/ChatContainer';
+import { Screen_SIZES_Scale } from '../../constants/screen';
 
 const ChatScreen = () => {
   return (

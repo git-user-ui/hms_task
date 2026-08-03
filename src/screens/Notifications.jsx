@@ -7,6 +7,10 @@ import { Fonts } from '../themes/font';
 import ProfileHeader from '../components/Profile/components/ProfileHeader';
 
 import DotIcon from '../assets/svg/dot_icon.svg';
+import {
+  Screen_SIZES_ModerateScale,
+  Screen_SIZES_VerticalScale,
+} from '../constants/screen';
 
 const Notifications = () => {
   return (

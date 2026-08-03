@@ -5,6 +5,7 @@ import { colors } from '../../themes/colors';
 import { scale, verticalScale } from 'react-native-size-matters';
 import { ms } from '../../utils/responsive';
 import { Fonts } from '../../themes/font';
+import { Screen_SIZES_ModerateScale } from '../../constants/screen';
 
 const Welcome = () => {
   const navigation = useNavigation();

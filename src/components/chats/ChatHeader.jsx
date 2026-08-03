@@ -9,6 +9,10 @@ import { useNavigation } from '@react-navigation/native';
 
 import { ms, sc } from '../../utils/responsive';
 import { Fonts } from '../../themes/font';
+import {
+  Screen_SIZES_ModerateScale,
+  Screen_SIZES_Scale,
+} from '../../constants/screen';
 
 const ChatHeader = () => {
   const navigation = useNavigation();

@@ -8,6 +8,10 @@ import Badge from '../../../assets/svg/professional_badge.svg';
 import { colors } from '../../../themes/colors';
 import { ms, sc } from '../../../utils/responsive';
 import { toggleFavoriteDoctor } from '../../../redux/slices/doctorsSlice';
+import {
+  Screen_SIZES_ModerateScale,
+  Screen_SIZES_Scale,
+} from '../../../constants/screen';
 
 const DoctorCard = ({ item, onAppointment }) => {
   const dispatch = useDispatch();

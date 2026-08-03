@@ -18,6 +18,11 @@ import {
 
 import { ROUTES, ROUTE_PARAMS } from '../../constants/routes';
 import { toggleFavoriteDoctor } from '../../redux/slices/doctorsSlice';
+import {
+  Screen_SIZES_ModerateScale,
+  Screen_SIZES_Scale,
+  Screen_SIZES_VerticalScale,
+} from '../../constants/screen';
 
 const Rating = ({ item }) => {
   const navigation = useNavigation();

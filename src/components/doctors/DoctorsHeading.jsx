@@ -14,6 +14,11 @@ import SearchIcon from '../../assets/svg/search_icon.svg';
 import FilterIcon from '../../assets/svg/filter_icon.svg';
 import { ms, sc, vs } from '../../utils/responsive';
 import { DOCTOR_FILTERS } from '../../constants/filters';
+import {
+  Screen_SIZES_ModerateScale,
+  Screen_SIZES_Scale,
+  Screen_SIZES_VerticalScale,
+} from '../../constants/screen';
 
 const filters = [
   {

@@ -5,6 +5,11 @@ import PasswordInput from '../../../components/common/PasswordInput';
 import { ms, sc, vs } from '../../../utils/responsive';
 import { colors } from '../../../themes/colors';
 import ButtonComp from '../../../components/common/Button';
+import {
+  Screen_SIZES_ModerateScale,
+  Screen_SIZES_Scale,
+  Screen_SIZES_VerticalScale,
+} from '../../../constants/screen';
 
 const PasswordManager = () => {
   return (

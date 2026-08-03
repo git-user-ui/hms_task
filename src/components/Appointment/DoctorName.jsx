@@ -16,6 +16,11 @@ import CorrectIcon from '../../assets/svg/correct_icon.svg';
 import { ms, sc, vs } from '../../utils/responsive';
 import { Fonts } from '../../themes/font';
 import { useNavigation } from '@react-navigation/native';
+import {
+  Screen_SIZES_ModerateScale,
+  Screen_SIZES_Scale,
+  Screen_SIZES_VerticalScale,
+} from '../../constants/screen';
 
 const DoctorName = ({ selected }) => {
   const [doctors, setDoctors] = useState([]);

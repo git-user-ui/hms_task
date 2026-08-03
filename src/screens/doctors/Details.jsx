@@ -15,6 +15,11 @@ import ProfileHeader from '../../components/Profile/components/ProfileHeader';
 import CrossIocn from '../../assets/svg/cross_icon.svg';
 import CorrectIcon from '../../assets/svg/correct_icon.svg';
 import { ROUTE_PARAMS } from '../../constants/routes';
+import {
+  Screen_SIZES_ModerateScale,
+  Screen_SIZES_Scale,
+  Screen_SIZES_VerticalScale,
+} from '../../constants/screen';
 
 const Details = () => {
   const route = useRoute();
@@ -235,10 +240,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: Screen_SIZES_ModerateScale.fourteen,
     borderRadius: Screen_SIZES_ModerateScale.eighteen,
   },
-  // Bug fix: this used to reuse the `iconContainer`/`iconCircle` keys above,
-  // which silently overwrote them (JS object literals keep only the last
-  // key) — so both the badges above *and* these date-row buttons ended up
-  // sharing whichever style was defined last instead of their own look.
+
   dateIconContainer: {
     flexDirection: 'row',
     alignItems: 'center',

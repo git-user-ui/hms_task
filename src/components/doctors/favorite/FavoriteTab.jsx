@@ -2,6 +2,10 @@ import React from 'react';
 import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
 import { colors } from '../../../themes/colors';
 import { ms, sc, vs } from '../../../utils/responsive';
+import {
+  Screen_SIZES_ModerateScale,
+  Screen_SIZES_Scale,
+} from '../../../constants/screen';
 
 const FavoriteTabs = ({ selectedTab, onChange }) => {
   return (

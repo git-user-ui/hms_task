@@ -8,6 +8,11 @@ import SegmentControl from './SegmentControl';
 import ProfileHeader from '../../../components/Profile/components/ProfileHeader';
 import { colors } from '../../../themes/colors';
 import { Fonts } from '../../../themes/font';
+import {
+  Screen_SIZES_ModerateScale,
+  Screen_SIZES_Scale,
+  Screen_SIZES_VerticalScale,
+} from '../../../constants/screen';
 
 const HelpCenter = () => {
   const [selectedTab, setSelectedTab] = useState('faq');

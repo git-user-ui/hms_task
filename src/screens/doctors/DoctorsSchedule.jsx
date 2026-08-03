@@ -9,6 +9,10 @@ import { sc, vs } from '../../utils/responsive';
 import { ROUTE_PARAMS } from '../../constants/routes';
 import ScheduleHeader from '../../components/doctors/ScheduleHeader';
 import ScheduleCalendar from '../../components/doctors/ScheduleCalender';
+import {
+  Screen_SIZES_Scale,
+  Screen_SIZES_VerticalScale,
+} from '../../constants/screen';
 
 const ScheduleScreen = () => {
   const route = useRoute();

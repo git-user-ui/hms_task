@@ -3,6 +3,10 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import { colors } from '../../../themes/colors';
 import { ms, sc, vs } from '../../../utils/responsive';
+import {
+  Screen_SIZES_ModerateScale,
+  Screen_SIZES_VerticalScale,
+} from '../../../constants/screen';
 
 const SegmentControl = ({ value, onChange }) => {
   return (

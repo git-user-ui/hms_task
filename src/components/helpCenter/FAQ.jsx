@@ -12,6 +12,11 @@ import { colors } from '../../themes/colors';
 
 import FaqItems from './FaqItems';
 import { FAQ_DATA } from '../../utils/faqData';
+import {
+  Screen_SIZES_ModerateScale,
+  Screen_SIZES_Scale,
+  Screen_SIZES_VerticalScale,
+} from '../../constants/screen';
 
 const categories = ['PopularTopic', 'General', 'Services'];
 

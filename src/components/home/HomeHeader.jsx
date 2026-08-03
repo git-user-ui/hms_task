@@ -22,7 +22,11 @@ import Settings from '../../assets/svg/setting_icon.svg';
 import DotIcon from '../../assets/svg/dot_icon.svg';
 import { Fonts } from '../../themes/font';
 import { HomeStrings } from '../../constants/strings';
-import { Screen_SIZES_ModerateScale } from '../../constants/screen';
+import {
+  Screen_SIZES_ModerateScale,
+  Screen_SIZES_Scale,
+  Screen_SIZES_VerticalScale,
+} from '../../constants/screen';
 
 const HomeHeader = ({ search, onSearch }) => {
   const navigation = useNavigation();

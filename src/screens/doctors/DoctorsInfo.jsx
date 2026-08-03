@@ -8,6 +8,10 @@ import InfoSection from '../../components/doctors/InfoSection';
 
 import { sc, vs } from '../../utils/responsive';
 import { ROUTE_PARAMS } from '../../constants/routes';
+import {
+  Screen_SIZES_Scale,
+  Screen_SIZES_VerticalScale,
+} from '../../constants/screen';
 
 const DoctorsInfo = () => {
   const navigation = useNavigation();

@@ -3,6 +3,10 @@ import React from 'react';
 import { sc, vs } from '../../utils/responsive';
 import { colors } from '../../themes/colors';
 import { Fonts } from '../../themes/font';
+import {
+  Screen_SIZES_Scale,
+  Screen_SIZES_VerticalScale,
+} from '../../constants/screen';
 
 const EmailInput = ({ label, placeholderName, value, onChangeText, style }) => {
   return (

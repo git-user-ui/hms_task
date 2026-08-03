@@ -27,7 +27,10 @@ import {
   selectDoctorsError,
   selectDoctorsLoading,
 } from '../../redux/slices/doctorsSlice';
-import { Screen_SIZES_VerticalScale } from '../../constants/screen';
+import {
+  Screen_SIZES_Scale,
+  Screen_SIZES_VerticalScale,
+} from '../../constants/screen';
 
 const DoctorsScreen = () => {
   const route = useRoute();

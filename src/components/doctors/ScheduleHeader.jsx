@@ -14,6 +14,11 @@ import {
 
 import { colors } from '../../themes/colors';
 import { ms, sc, vs } from '../../utils/responsive';
+import {
+  Screen_SIZES_ModerateScale,
+  Screen_SIZES_Scale,
+  Screen_SIZES_VerticalScale,
+} from '../../constants/screen';
 
 const ScheduleHeader = ({ isFavorite, onToggleFavorite, onHelpPress }) => {
   const navigation = useNavigation();

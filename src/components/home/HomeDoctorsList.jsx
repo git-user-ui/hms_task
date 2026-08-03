@@ -21,6 +21,11 @@ import FavoriteHeartIcon from '../../assets/svg/favorite_heart.svg';
 import { Fonts } from '../../themes/font';
 import { ROUTES, ROUTE_PARAMS } from '../../constants/routes';
 import { toggleFavoriteDoctor } from '../../redux/slices/doctorsSlice';
+import {
+  Screen_SIZES_ModerateScale,
+  Screen_SIZES_Scale,
+  Screen_SIZES_VerticalScale,
+} from '../../constants/screen';
 
 const HomeDoctorsList = ({ doctors }) => {
   const dispatch = useDispatch();

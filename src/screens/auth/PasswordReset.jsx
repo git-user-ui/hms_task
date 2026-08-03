@@ -7,6 +7,11 @@ import PasswordInput from '../../components/common/PasswordInput';
 import ButtonComp from '../../components/common/Button';
 import { Fonts } from '../../themes/font';
 import { colors } from '../../themes/colors';
+import {
+  Screen_SIZES_ModerateScale,
+  Screen_SIZES_Scale,
+  Screen_SIZES_VerticalScale,
+} from '../../constants/screen';
 
 const SetPassword = () => {
   return (

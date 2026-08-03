@@ -15,7 +15,10 @@ import Professional from '../../assets/professional.svg';
 
 import { colors } from '../../themes/colors';
 import { ms, sc } from '../../utils/responsive';
-import { Screen_SIZES_ModerateScale } from '../../constants/screen';
+import {
+  Screen_SIZES_ModerateScale,
+  Screen_SIZES_Scale,
+} from '../../constants/screen';
 import { toggleFavoriteDoctor } from '../../redux/slices/doctorsSlice';
 
 const ProfileCard = ({ doctorsData, onSchedulePress, showActions = true }) => {

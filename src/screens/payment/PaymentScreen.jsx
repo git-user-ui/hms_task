@@ -11,6 +11,11 @@ import Debit from '../../assets/svg/payment/debit_card.svg';
 import GooglePlay from '../../assets/svg/payment/google_play_logo.svg';
 import PayPal from '../../assets/svg/payment/paypal_logo.svg';
 import Apple from '../../assets/svg/payment/apple_logo.svg';
+import {
+  Screen_SIZES_ModerateScale,
+  Screen_SIZES_Scale,
+  Screen_SIZES_VerticalScale,
+} from '../../constants/screen';
 
 const PaymentScreen = () => {
   const [selected, setSelected] = useState('');

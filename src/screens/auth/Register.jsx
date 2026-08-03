@@ -22,6 +22,11 @@ import { Fonts } from '../../themes/font';
 import { saveUser } from '../../utils/storage';
 import { ERROR_MESSAGES, SUCCESS_MESSAGES } from '../../constants/messages';
 import { ROUTES } from '../../constants/routes';
+import {
+  Screen_SIZES_ModerateScale,
+  Screen_SIZES_Scale,
+  Screen_SIZES_VerticalScale,
+} from '../../constants/screen';
 
 const Register = () => {
   const navigation = useNavigation();

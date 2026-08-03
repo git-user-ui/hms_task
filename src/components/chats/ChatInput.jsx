@@ -13,6 +13,10 @@ import MicIcon from '../../assets/svg/mic_icon.svg';
 import PinIcon from '../../assets/svg/pin_icon.svg';
 import MessageSend from '../../assets/svg/send_msg.svg';
 import { ms, sc, vs } from '../../utils/responsive';
+import {
+  Screen_SIZES_ModerateScale,
+  Screen_SIZES_Scale,
+} from '../../constants/screen';
 
 const ChatInput = () => {
   return (

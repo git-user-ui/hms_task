@@ -3,6 +3,10 @@ import React from 'react';
 import { colors } from '../../themes/colors';
 import { ms, sc, vs } from '../../utils/responsive';
 import { Fonts } from '../../themes/font';
+import {
+  Screen_SIZES_ModerateScale,
+  Screen_SIZES_Scale,
+} from '../../constants/screen';
 
 const ButtonComp = ({ text, width, onPress }) => {
   return (

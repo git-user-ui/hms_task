@@ -3,6 +3,7 @@ import React from 'react';
 import { colors } from '../../themes/colors';
 import { ms, sc, vs } from '../../utils/responsive';
 import ProfileCard from './ProfileCard';
+import { Screen_SIZES_Scale } from '../../constants/screen';
 
 const DoctorsInfoComponent = () => {
   return (

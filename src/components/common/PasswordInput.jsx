@@ -13,6 +13,10 @@ import { Fonts } from '../../themes/font';
 // Assets
 import EyeClose from '../../assets/svg/eye_close.svg';
 import { Eye } from 'lucide-react-native';
+import {
+  Screen_SIZES_Scale,
+  Screen_SIZES_VerticalScale,
+} from '../../constants/screen';
 
 const PasswordInput = ({ label, value, onChangeText }) => {
   const [visible, setVisible] = useState(false);

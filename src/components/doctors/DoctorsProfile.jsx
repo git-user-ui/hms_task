@@ -13,6 +13,10 @@ import FavoriteHeartIcon from '../../assets/svg/favorite_heart.svg';
 
 import { ROUTES, ROUTE_PARAMS } from '../../constants/routes';
 import { toggleFavoriteDoctor } from '../../redux/slices/doctorsSlice';
+import {
+  Screen_SIZES_Scale,
+  Screen_SIZES_VerticalScale,
+} from '../../constants/screen';
 
 const DoctorsProfile = ({ item }) => {
   const navigation = useNavigation();
@@ -163,13 +167,13 @@ const styles = StyleSheet.create({
   qualification: {
     marginTop: Screen_SIZES_VerticalScale.two,
     fontSize: Screen_SIZES_Scale.twelve,
-    color: '#666',
+    color: colors.black,
   },
 
   experience: {
     marginTop: Screen_SIZES_VerticalScale.two,
     fontSize: Screen_SIZES_Scale.twelve,
-    color: '#666',
+    color: colors.black,
   },
 
   optionsContainer: {
