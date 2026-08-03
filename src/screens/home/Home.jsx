@@ -103,7 +103,7 @@ const Home = () => {
       <View style={styles.container}>
         <HomeHeader search={search} onSearch={handleSearch} />
       </View>
-      <HomeAppointment />
+      {/* <HomeAppointment /> */}
 
       {filteredDoctors().length === 0 ? (
         <View style={styles.loader}>

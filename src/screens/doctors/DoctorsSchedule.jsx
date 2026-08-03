@@ -7,7 +7,7 @@ import InfoSection from '../../components/doctors/InfoSection';
 
 import { sc, vs } from '../../utils/responsive';
 import { ROUTE_PARAMS } from '../../constants/routes';
-import ScheduleHeader from '../../components/doctors/scheduleHeader';
+import ScheduleHeader from '../../components/doctors/ScheduleHeader';
 import ScheduleCalendar from '../../components/doctors/ScheduleCalender';
 
 const ScheduleScreen = () => {

@@ -4,6 +4,10 @@ import { chatData } from '../../constants/chatData';
 import { ms, vs } from '../../utils/responsive';
 import { colors } from '../../themes/colors';
 import { Fonts } from '../../themes/font';
+import {
+  Screen_SIZES_ModerateScale,
+  Screen_SIZES_VerticalScale,
+} from '../../constants/screen';
 
 const ChatContainer = () => {
   return (
