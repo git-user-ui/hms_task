@@ -95,8 +95,8 @@ const ProfileCard = ({ doctorsData, onSchedulePress, showActions = true }) => {
             <TouchableOpacity onPress={handleToggleFavorite}>
               <Heart
                 size={18}
-                color={doctorsData.isFavorite ? '#FF4D67' : colors.primary}
-                fill={doctorsData.isFavorite ? '#FF4D67' : 'none'}
+                color={doctorsData.isFavorite ? colors.primary : colors.primary}
+                fill={doctorsData.isFavorite ? colors.primary : 'none'}
               />
             </TouchableOpacity>
           </View>

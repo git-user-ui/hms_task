@@ -6,7 +6,7 @@ import DoctorsHeading from '../../components/doctors/DoctorsHeading';
 import ProfileCard from '../../components/doctors/ProfileCard';
 import InfoSection from '../../components/doctors/InfoSection';
 
-import { sc, vs } from '../../utils/responsive';
+import { ms, sc, vs } from '../../utils/responsive';
 import { ROUTE_PARAMS } from '../../constants/routes';
 import {
   Screen_SIZES_Scale,
@@ -62,5 +62,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: Screen_SIZES_Scale.thirty,
     paddingVertical: Screen_SIZES_VerticalScale.ten,
     paddingBottom: vs(50),
+    gap: ms(10),
   },
 });
