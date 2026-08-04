@@ -1,5 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  Image,
+  ScrollView,
+} from 'react-native';
 import { colors } from '../../themes/colors';
 
 import BadgeIcon from '../../assets/svg/badge.svg';
@@ -8,11 +15,12 @@ import StarIcon from '../../assets/svg/filled_star.svg';
 import ArrowLeft from '../../assets/svg/blue_left_arrow.svg';
 
 import { useNavigation } from '@react-navigation/native';
+import { Screen_SIZES_VerticalScale } from '../../constants/screen';
 
 const Payment = () => {
   const navigation = useNavigation();
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity style={styles.backBtn}>
@@ -42,7 +50,7 @@ const Payment = () => {
 
             <View style={styles.ratingRow}>
               <View style={styles.badge}>
-                <StarIcon name="star" color="#3465FF" size={12} />
+                <StarIcon />
                 <Text style={styles.badgeText}>5</Text>
               </View>
 
@@ -103,7 +111,9 @@ const Payment = () => {
           <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             <Text style={styles.value}>Card</Text>
 
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('PaymentScreen')}
+            >
               <Text style={styles.change}>Change</Text>
             </TouchableOpacity>
           </View>
@@ -111,12 +121,12 @@ const Payment = () => {
 
         <TouchableOpacity
           style={styles.payButton}
-          onPress={navigation.navigate('PaymentComplete')}
+          onPress={() => navigation.navigate('PaymentComplete')}
         >
           <Text style={styles.payText}>Pay Now</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
@@ -222,14 +232,14 @@ const styles = StyleSheet.create({
 
   divider: {
     height: 1,
-    backgroundColor: '#E4E9FF',
-    marginVertical: 24,
+    backgroundColor: colors.primary,
+    marginVertical: Screen_SIZES_VerticalScale.sixteen,
   },
 
   infoRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 18,
+    marginBottom: Screen_SIZES_VerticalScale.ten,
   },
 
   label: {
@@ -267,7 +277,7 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 45,
+    marginVertical: Screen_SIZES_VerticalScale.twenty,
   },
 
   payText: {

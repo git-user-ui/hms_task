@@ -1,11 +1,11 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { colors } from '../../themes/colors';
 
 import BigCircle from '../../assets/svg/payment/circle_big.svg';
 import SmallCircle from '../../assets/svg/payment/circle_small.svg';
 
-import { ms, sc, vs } from '../../utils/responsive';
+import { sc, vs } from '../../utils/responsive';
 import { Fonts } from '../../themes/font';
 import { useNavigation } from '@react-navigation/native';
 import {
@@ -21,10 +21,10 @@ const PaymentInput = ({ text, icon, selected, setSelected, value }) => {
     <TouchableOpacity
       style={styles.container}
       onPress={() => {
-        setSelected(value),
-          setTimeout(() => {
-            navigation.navigate(value);
-          }, 500);
+        setSelected(value);
+        setTimeout(() => {
+          navigation.navigate(value);
+        }, 500);
       }}
     >
       <View style={styles.textContainer}>
@@ -75,8 +75,8 @@ const styles = StyleSheet.create({
   },
   smallCircle: {
     position: 'absolute',
-    left: sc(3.5),
-    top: vs(3),
+    left: sc(4),
+    top: vs(4),
   },
   selectedDebit: {
     backgroundColor: colors.primary,

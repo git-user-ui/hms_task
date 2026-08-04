@@ -17,8 +17,10 @@ import FavouriteHeart from '../../assets/svg/favorite_heart.svg';
 import QuestionIcon from '../../assets/svg/question_icon.svg';
 
 import { colors } from '../../themes/colors';
-import { sc } from '../../utils/responsive';
 import { Screen_SIZES_Scale } from '../../constants/screen';
+import ButtonComp from '../../components/common/Button';
+
+import { useNavigation } from '@react-navigation/native';
 
 const timeSlots = [
   '9:00 AM',
@@ -39,6 +41,7 @@ const timeSlots = [
 ];
 
 const Schedule = () => {
+  const navigation = useNavigation();
   const [selectedTime, setSelectedTime] = useState('10:00 AM');
   const [patientType, setPatientType] = useState('another');
   const [gender, setGender] = useState('female');
@@ -51,9 +54,9 @@ const Schedule = () => {
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.mainContainer}>
           <View style={styles.nameIconContainer}>
-            <View>
+            <TouchableOpacity onPress={() => navigation.goBack()}>
               <LeftArrow />
-            </View>
+            </TouchableOpacity>
 
             <View style={styles.nameContainer}>
               <Text style={styles.name} numberOfLines={1} ellipsizeMode="tail">
@@ -264,6 +267,14 @@ const Schedule = () => {
             style={styles.inputBox}
           />
         </View>
+
+        <View style={styles.btn}>
+          <ButtonComp
+            width={'80%'}
+            text={'Book Appointment'}
+            onPress={() => navigation.navigate('Details', {})}
+          />
+        </View>
       </ScrollView>
     </View>
   );
@@ -351,7 +362,7 @@ const styles = StyleSheet.create({
   },
 
   dayCard: {
-    width: 48,
+    width: 40,
     height: 64,
     borderRadius: 18,
     backgroundColor: '#fff',
@@ -382,7 +393,9 @@ const styles = StyleSheet.create({
   activeWeekText: {
     color: '#fff',
   },
-  rightArrow: {},
+  rightArrow: {
+    transform: [{ rotate: '180deg' }],
+  },
   timeContainer: {
     marginTop: 18,
     paddingHorizontal: Screen_SIZES_Scale.thirty,
@@ -515,5 +528,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.secondary,
     borderRadius: 18,
+  },
+  btn: {
+    marginVertical: 20,
   },
 });

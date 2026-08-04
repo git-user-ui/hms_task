@@ -1,4 +1,4 @@
-import { ScrollView, View } from 'react-native';
+import { ScrollView } from 'react-native';
 import React from 'react';
 import ProfileHeader from '../../components/Profile/components/ProfileHeader';
 import ProfileImage from '../../components/Profile/components/ProfileImage';

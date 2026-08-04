@@ -50,15 +50,15 @@ const ScheduleHeader = ({ isFavorite, onToggleFavorite, onHelpPress }) => {
       </TouchableOpacity>
 
       <View style={styles.rightIcons}>
-        <TouchableOpacity onPress={onHelpPress}>
-          <CircleHelp size={20} color={colors.primary} />
+        <TouchableOpacity style={styles.help} onPress={onHelpPress}>
+          <CircleHelp size={16} color={colors.primary} />
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={onToggleFavorite}>
+        <TouchableOpacity style={styles.help} onPress={onToggleFavorite}>
           <Heart
-            size={20}
-            color={isFavorite ? '#FF4D67' : colors.primary}
-            fill={isFavorite ? '#FF4D67' : 'none'}
+            size={16}
+            color={isFavorite ? colors.primary : colors.primary}
+            fill={isFavorite ? colors.primary : 'none'}
           />
         </TouchableOpacity>
       </View>
@@ -72,17 +72,15 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#EEF1FF',
     paddingHorizontal: Screen_SIZES_Scale.twenty,
-    paddingVertical: Screen_SIZES_VerticalScale.fourteen,
-    gap: Screen_SIZES_Scale.ten,
+    paddingVertical: Screen_SIZES_VerticalScale.ten,
+    gap: Screen_SIZES_Scale.four,
   },
 
   iconCircle: {
-    width: ms(34),
-    height: ms(34),
+    width: ms(22),
+    height: ms(22),
     borderRadius: ms(17),
-    backgroundColor: colors.white,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -115,6 +113,11 @@ const styles = StyleSheet.create({
   rightIcons: {
     marginLeft: 'auto',
     flexDirection: 'row',
-    gap: Screen_SIZES_Scale.fourteen,
+    gap: Screen_SIZES_Scale.six,
+  },
+  help: {
+    backgroundColor: colors.secondary,
+    padding: Screen_SIZES_ModerateScale.six,
+    borderRadius: Screen_SIZES_ModerateScale.twenty,
   },
 });

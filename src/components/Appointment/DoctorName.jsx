@@ -102,8 +102,8 @@ const DoctorName = ({ selected }) => {
               <View style={styles.rightContainer}>
                 {selected === 'Complete' && (
                   <View style={styles.completeSection}>
-                    <TouchableOpacity style={styles.rebookBtn}>
-                      <Text style={styles.addReviewText}>Re-Book</Text>
+                    <TouchableOpacity style={styles.rebookBtn1}>
+                      <Text style={styles.addReviewText1}>Re-Book</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                       style={styles.rebookBtn}
@@ -174,7 +174,7 @@ export default DoctorName;
 const styles = StyleSheet.create({
   container: {
     marginTop: Screen_SIZES_VerticalScale.eight,
-    paddingBottom: vs(240),
+    paddingBottom: vs(150),
     gap: Screen_SIZES_VerticalScale.twelve,
   },
   actionContainer: {
@@ -217,8 +217,8 @@ const styles = StyleSheet.create({
   },
 
   image: {
-    width: ms(60),
-    height: ms(60),
+    width: ms(90),
+    height: ms(90),
     borderRadius: Screen_SIZES_ModerateScale.hundered,
   },
   imageContainer: {
@@ -236,19 +236,18 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    gap: Screen_SIZES_ModerateScale.two,
   },
 
   infoCardClock: {
-    gap: ms(8),
+    gap: Screen_SIZES_ModerateScale.six,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-
     backgroundColor: '#FFFFFF',
-
     borderRadius: 30,
     paddingVertical: vs(8),
-    paddingHorizontal: sc(14),
+    paddingHorizontal: sc(10),
   },
 
   infoText: {
@@ -326,6 +325,15 @@ const styles = StyleSheet.create({
     borderRadius: Screen_SIZES_ModerateScale.eighteen,
     paddingHorizontal: Screen_SIZES_ModerateScale.eighteen,
   },
+  rebookBtn1: {
+    flex: 1,
+    backgroundColor: colors.white,
+    paddingVertical: Screen_SIZES_VerticalScale.six,
+    alignItems: 'center',
+    borderRadius: Screen_SIZES_ModerateScale.eighteen,
+    paddingHorizontal: Screen_SIZES_ModerateScale.eighteen,
+    marginHorizontal: ms(5),
+  },
   rebookBtn: {
     flex: 1,
     backgroundColor: colors.primary,
@@ -344,5 +352,8 @@ const styles = StyleSheet.create({
   },
   addReviewText: {
     color: colors.white,
+  },
+  addReviewText1: {
+    color: colors.primary,
   },
 });

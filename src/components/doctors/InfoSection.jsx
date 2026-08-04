@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { sc } from '../../utils/responsive';
 import { colors } from '../../themes/colors';
 import { Screen_SIZES_Scale } from '../../constants/screen';
 

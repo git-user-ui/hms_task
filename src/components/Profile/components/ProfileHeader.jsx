@@ -5,12 +5,10 @@ import React from 'react';
 import ArrowWhite from '../../../assets/svg/arrow_left.svg';
 
 import { colors } from '../../../themes/colors';
-import { ms, vs } from '../../../utils/responsive';
 import { Fonts } from '../../../themes/font';
 import {
   Screen_SIZES_ModerateScale,
   Screen_SIZES_VerticalScale,
-  Screen_SIZES_Scale,
 } from '../../../constants/screen';
 
 const ProfileHeader = ({ header, whiteArrow = false }) => {

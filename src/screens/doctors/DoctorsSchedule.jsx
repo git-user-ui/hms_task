@@ -5,7 +5,7 @@ import { useRoute } from '@react-navigation/native';
 import ProfileCard from '../../components/doctors/ProfileCard';
 import InfoSection from '../../components/doctors/InfoSection';
 
-import { sc, vs } from '../../utils/responsive';
+import { vs } from '../../utils/responsive';
 import { ROUTE_PARAMS } from '../../constants/routes';
 import ScheduleHeader from '../../components/doctors/ScheduleHeader';
 import ScheduleCalendar from '../../components/doctors/ScheduleCalender';
@@ -56,8 +56,8 @@ export default ScheduleScreen;
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: Screen_SIZES_Scale.twenty,
-    paddingVertical: Screen_SIZES_VerticalScale.ten,
-    paddingBottom: vs(50),
+    paddingVertical: Screen_SIZES_VerticalScale.four,
+    paddingBottom: vs(30),
   },
 
   calendarSpacing: {

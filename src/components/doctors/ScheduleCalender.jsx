@@ -3,12 +3,13 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { ChevronLeft, ChevronRight } from 'lucide-react-native';
 
 import { colors } from '../../themes/colors';
-import { ms, sc, vs } from '../../utils/responsive';
+import { ms, vs } from '../../utils/responsive';
 import {
   Screen_SIZES_ModerateScale,
   Screen_SIZES_Scale,
   Screen_SIZES_VerticalScale,
 } from '../../constants/screen';
+import { useNavigation } from '@react-navigation/native';
 
 const WEEKDAYS = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
 
@@ -71,6 +72,7 @@ const buildMonthGrid = (year, month) => {
 };
 
 const ScheduleCalendar = ({ selectedDate, onSelectDate }) => {
+  const navigation = useNavigation();
   const today = useMemo(() => startOfDay(new Date()), []);
 
   const [visibleMonth, setVisibleMonth] = useState(
@@ -105,6 +107,7 @@ const ScheduleCalendar = ({ selectedDate, onSelectDate }) => {
     if (startOfDay(date) < today) return;
 
     onSelectDate(date);
+    navigation.navigate('Schedule', {});
   };
 
   return (
@@ -191,7 +194,7 @@ export default ScheduleCalendar;
 
 const styles = StyleSheet.create({
   wrapper: {
-    backgroundColor: '#DCE4FF',
+    backgroundColor: colors.secondary,
     borderRadius: Screen_SIZES_ModerateScale.twentyTwo,
     padding: Screen_SIZES_ModerateScale.sixteen,
   },
@@ -259,6 +262,7 @@ const styles = StyleSheet.create({
 
   dayCircleSelected: {
     backgroundColor: colors.primary,
+    borderRadius: Screen_SIZES_ModerateScale.eighteen,
   },
 
   dayText: {

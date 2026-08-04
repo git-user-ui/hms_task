@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ms, sc, vs } from '../../utils/responsive';
 import { useNavigation } from '@react-navigation/native';
 import { colors } from '../../themes/colors';
@@ -27,9 +27,22 @@ import {
   Screen_SIZES_Scale,
   Screen_SIZES_VerticalScale,
 } from '../../constants/screen';
+import { getUser } from '../../utils/storage';
 
 const HomeHeader = ({ search, onSearch }) => {
   const navigation = useNavigation();
+  const [userName, setUserName] = useState('');
+
+  useEffect(() => {
+    const loadUser = async () => {
+      const user = await getUser();
+      if (user?.name) {
+        setUserName(user.name);
+      }
+    };
+
+    loadUser();
+  }, []);
 
   const handleFavourite = () => {
     navigation.navigate('Doctors', {
@@ -49,7 +62,7 @@ const HomeHeader = ({ search, onSearch }) => {
 
           <View>
             <Text style={styles.welcomeText}>{HomeStrings.WelcomeText}</Text>
-            <Text style={styles.nameText}>John Doe</Text>
+            <Text style={styles.nameText}>{userName}</Text>
           </View>
         </View>
 

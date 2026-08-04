@@ -47,8 +47,8 @@ export default function CustomTabBar({ state, navigation }) {
               <Icon
                 width={24}
                 height={24}
-                color={focused ? colors.blue : 'rgba(255,255,255,.55)'}
-                stroke={focused ? colors.blue : 'rgba(255,255,255,.55)'}
+                color={focused ? colors.blue : colors.white}
+                stroke={focused ? colors.blue : colors.white}
               />
             </TouchableOpacity>
           );

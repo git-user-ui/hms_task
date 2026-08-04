@@ -41,17 +41,17 @@ const Rating = ({ item }) => {
   const actions = [
     {
       id: 1,
-      icon: <CalendarRangeIcon size={18} />,
+      icon: <CalendarRangeIcon size={18} color={colors.primary} />,
       onPress: undefined,
     },
     {
       id: 2,
-      icon: <Info size={18} />,
+      icon: <Info size={18} color={colors.primary} />,
       onPress: handleInfo,
     },
     {
       id: 3,
-      icon: <CircleQuestionMark size={18} />,
+      icon: <CircleQuestionMark size={18} color={colors.primary} />,
       onPress: undefined,
     },
     {
@@ -59,8 +59,8 @@ const Rating = ({ item }) => {
       icon: (
         <Heart
           size={18}
-          color={item.isFavorite ? '#FF4D67' : colors.primary}
-          fill={item.isFavorite ? '#FF4D67' : 'none'}
+          color={item.isFavorite ? colors.primary : colors.primary}
+          fill={item.isFavorite ? colors.primary : 'none'}
         />
       ),
       onPress: handleToggleFavorite,
@@ -92,7 +92,7 @@ const Rating = ({ item }) => {
           </View>
 
           <View style={styles.rating}>
-            <Star size={16} fill="#F6B800" color="#F6B800" />
+            <Star size={16} color={colors.primary} />
 
             <Text style={styles.ratingText}>{item.rating}</Text>
           </View>

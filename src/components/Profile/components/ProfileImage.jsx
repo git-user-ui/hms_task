@@ -1,9 +1,20 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
-import React from 'react';
-
-const fullName = 'John Doe';
+import React, { useEffect, useState } from 'react';
+import { getUser } from '../../../utils/storage';
 
 const ProfileImage = () => {
+  const [userName, setUserName] = useState('');
+
+  useEffect(() => {
+    const loadUser = async () => {
+      const user = await getUser();
+      if (user?.name) {
+        setUserName(user.name);
+      }
+    };
+
+    loadUser();
+  }, []);
   return (
     <View>
       <View style={styles.profileSection}>
@@ -18,9 +29,8 @@ const ProfileImage = () => {
             style={styles.editIcon}
           />
         </View>
-        <Text style={styles.profileName}>{fullName}</Text>
+        <Text style={styles.profileName}>{userName}</Text>
       </View>
-      <View></View>
     </View>
   );
 };

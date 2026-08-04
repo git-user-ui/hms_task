@@ -6,7 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 
 import PaymentCompleteImage from '../../assets/svg/payment/payment_complete.svg';
 import { Fonts } from '../../themes/font';
-import { ms, sc, vs } from '../../utils/responsive';
+import { ms, vs } from '../../utils/responsive';
 
 import Calender from '../../assets/svg/payment/white_calender.svg';
 import Alarm from '../../assets/svg/payment/white_alarm.svg';
@@ -84,13 +84,13 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: colors.white,
     fontSize: Screen_SIZES_ModerateScale.twentyFour,
-    paddingTop: Screen_SIZES_VerticalScale.fourteen,
+    paddingTop: Screen_SIZES_VerticalScale.ten,
   },
   card: {
     borderWidth: 1,
     borderColor: colors.white,
     padding: Screen_SIZES_ModerateScale.twentyFour,
-    marginTop: vs(60),
+    marginTop: vs(34),
     marginHorizontal: Screen_SIZES_Scale.thirty,
     borderRadius: Screen_SIZES_ModerateScale.twenty,
   },

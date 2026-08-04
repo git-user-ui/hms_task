@@ -17,7 +17,7 @@ import ServicesList from '../../components/doctors/favorite/ServiceList';
 import DoctorsProfile from '../../components/doctors/DoctorsProfile';
 import DoctorsHeading from '../../components/doctors/DoctorsHeading';
 
-import { vs, sc } from '../../utils/responsive';
+import { vs } from '../../utils/responsive';
 import { colors } from '../../themes/colors';
 import { DOCTOR_FILTERS, GENDER } from '../../constants/filters';
 import { EMPTY_STATE_MESSAGES } from '../../constants/messages';
@@ -95,10 +95,13 @@ const DoctorsScreen = () => {
     }
   };
 
+  const headerTitle =
+    selectedFilter === DOCTOR_FILTERS.AZ ? 'Doctors' : selectedFilter;
+
   return (
     <View style={styles.container}>
       <DoctorsHeading
-        heading={selectedFilter}
+        heading={headerTitle}
         selectedFilter={selectedFilter}
         onFilterChange={setSelectedFilter}
       />
@@ -151,10 +154,11 @@ export default DoctorsScreen;
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: vs(110),
+    marginBottom: vs(40),
   },
 
   loader: {
+    height: vs(100),
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',

@@ -1,8 +1,7 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import React, { useState } from 'react';
 import PaymentInput from '../../components/common/PaymentInput';
 import ProfileHeader from '../../components/Profile/components/ProfileHeader';
-import { ms, sc, vs } from '../../utils/responsive';
 import { Fonts } from '../../themes/font';
 
 import { useNavigation } from '@react-navigation/native';

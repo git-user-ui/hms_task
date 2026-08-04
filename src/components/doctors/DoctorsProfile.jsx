@@ -17,6 +17,7 @@ import {
   Screen_SIZES_Scale,
   Screen_SIZES_VerticalScale,
 } from '../../constants/screen';
+import { InfoIcon } from 'lucide-react-native';
 
 const DoctorsProfile = ({ item }) => {
   const navigation = useNavigation();
@@ -47,7 +48,7 @@ const DoctorsProfile = ({ item }) => {
     },
     {
       id: 2,
-      icon: <QuestionIcon />,
+      icon: <InfoIcon color={colors.primary} size={14} />,
       onPress: undefined,
     },
     {
@@ -61,7 +62,7 @@ const DoctorsProfile = ({ item }) => {
       icon: item.isFavorite ? (
         <FavoriteHeartIcon width={14} height={14} />
       ) : (
-        <HeartIcon width={14} height={14} />
+        <HeartIcon width={14} height={14} style={styles.heartIcon} />
       ),
       onPress: handleToggleFavorite,
     },
@@ -210,4 +211,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginLeft: Screen_SIZES_Scale.four,
   },
+  heartIcon: { color: colors.primary },
 });
