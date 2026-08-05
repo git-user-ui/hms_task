@@ -5,6 +5,7 @@ import { ms, sc, vs } from '../../../utils/responsive';
 import {
   Screen_SIZES_ModerateScale,
   Screen_SIZES_Scale,
+  Screen_SIZES_VerticalScale,
 } from '../../../constants/screen';
 
 const FavoriteTabs = ({ selectedTab, onChange }) => {
@@ -46,7 +47,7 @@ const styles = StyleSheet.create({
     padding: 4,
     gap: Screen_SIZES_ModerateScale.four,
     marginHorizontal: Screen_SIZES_Scale.thirty,
-    marginVertical: vs(18),
+    marginVertical: Screen_SIZES_VerticalScale.eighteen,
   },
 
   button: {

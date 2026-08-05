@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
   profile: {
     width: ms(50),
     height: ms(50),
-    borderRadius: ms(24),
+    borderRadius: Screen_SIZES_VerticalScale.twentyFour,
   },
 
   welcomeText: {

@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     color: colors.black,
     width: '100%',
     height: sc(40),
-    borderRadius: sc(13),
+    borderRadius: Screen_SIZES_Scale.fourteen,
     marginTop: Screen_SIZES_VerticalScale.four,
     backgroundColor: colors.lightblue,
     paddingHorizontal: Screen_SIZES_Scale.twenty,

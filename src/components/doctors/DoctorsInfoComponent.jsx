@@ -3,7 +3,10 @@ import React from 'react';
 import { colors } from '../../themes/colors';
 import { ms, sc, vs } from '../../utils/responsive';
 import ProfileCard from './ProfileCard';
-import { Screen_SIZES_Scale } from '../../constants/screen';
+import {
+  Screen_SIZES_ModerateScale,
+  Screen_SIZES_Scale,
+} from '../../constants/screen';
 
 const DoctorsInfoComponent = () => {
   return (
@@ -52,10 +55,10 @@ export default DoctorsInfoComponent;
 const styles = StyleSheet.create({
   cardProfile: {
     backgroundColor: colors.secondary,
-    borderRadius: sc(17),
+    borderRadius: Screen_SIZES_ModerateScale.eighteen,
   },
   infoContainer: {
-    gap: sc(15),
+    gap: Screen_SIZES_ModerateScale.fourteen,
   },
   infoHeadings: {
     fontSize: Screen_SIZES_Scale.fourteen,

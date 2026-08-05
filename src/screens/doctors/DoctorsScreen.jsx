@@ -154,17 +154,17 @@ export default DoctorsScreen;
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: vs(40),
+    marginBottom: Screen_SIZES_VerticalScale.fourty,
   },
 
   loader: {
-    height: vs(100),
+    height: Screen_SIZES_VerticalScale.eighteen,
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: Screen_SIZES_Scale.thirty,
     gap: Screen_SIZES_VerticalScale.twelve,
-    paddingTop: vs(40),
+    paddingTop: Screen_SIZES_VerticalScale.fourty,
   },
 
   errorText: {

@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
 
   tab: {
     flex: 1,
-    height: vs(41),
+    paddingVertical: Screen_SIZES_VerticalScale.ten,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: colors.secondary,
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
   },
 
   tabText: {
-    fontSize: ms(15),
+    fontSize: Screen_SIZES_ModerateScale.fourteen,
     fontWeight: '600',
     color: colors.primary,
   },

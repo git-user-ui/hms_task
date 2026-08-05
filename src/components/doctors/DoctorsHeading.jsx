@@ -164,7 +164,7 @@ const styles = StyleSheet.create({
   iconButton: {
     width: Screen_SIZES_Scale.twentyTwo,
     height: Screen_SIZES_Scale.twentyTwo,
-    borderRadius: sc(17),
+    borderRadius: Screen_SIZES_ModerateScale.eighteen,
     backgroundColor: colors.secondary,
     color: colors.white,
     justifyContent: 'center',
@@ -175,16 +175,16 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginTop: Screen_SIZES_VerticalScale.twenty,
-    gap: sc(5),
+    gap: Screen_SIZES_ModerateScale.six,
   },
 
   sortByText: {
-    fontSize: ms(13),
+    fontSize: Screen_SIZES_ModerateScale.twelve,
   },
 
   charFilter: {
-    minWidth: sc(47),
-    height: vs(21),
+    minWidth: sc(46),
+    height: Screen_SIZES_VerticalScale.twenty,
     borderRadius: Screen_SIZES_Scale.twenty,
     justifyContent: 'center',
     alignItems: 'center',
@@ -194,7 +194,7 @@ const styles = StyleSheet.create({
 
   char: {
     color: colors.white,
-    fontSize: ms(11),
+    fontSize: Screen_SIZES_ModerateScale.ten,
     fontFamily: Fonts.SemiBold,
   },
 
@@ -204,8 +204,8 @@ const styles = StyleSheet.create({
 
   sortIconButton: {
     width: Screen_SIZES_Scale.twentyTwo,
-    height: sc(21),
-    borderRadius: sc(17),
+    height: Screen_SIZES_ModerateScale.twentyFour,
+    borderRadius: Screen_SIZES_ModerateScale.sixteen,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: colors.secondary,

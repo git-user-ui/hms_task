@@ -20,10 +20,12 @@ import { colors } from '../../themes/colors';
 import {
   Screen_SIZES_ModerateScale,
   Screen_SIZES_Scale,
+  Screen_SIZES_VerticalScale,
 } from '../../constants/screen';
 import ButtonComp from '../../components/common/Button';
 
 import { useNavigation, useRoute } from '@react-navigation/native';
+import { vs } from '../../utils/responsive';
 
 const timeSlots = [
   '9:00 AM',
@@ -48,7 +50,6 @@ const Schedule = () => {
   const route = useRoute();
 
   const doctors = route.params?.doctors;
-  console.log('schedule doctors', doctors);
 
   const [selectedTime, setSelectedTime] = useState('10:00 AM');
   const [patientType, setPatientType] = useState('another');
@@ -357,7 +358,7 @@ const styles = StyleSheet.create({
   },
   dateContainer: {},
   dateSection: {
-    backgroundColor: '#DCE4FF',
+    backgroundColor: colors.secondary,
     marginTop: Screen_SIZES_ModerateScale.twenty,
     paddingHorizontal: Screen_SIZES_Scale.thirty,
     paddingVertical: Screen_SIZES_ModerateScale.eighteen,
@@ -373,7 +374,7 @@ const styles = StyleSheet.create({
     color: colors.primary,
     fontSize: Screen_SIZES_ModerateScale.sixteen,
     fontWeight: '600',
-    marginRight: 6,
+    marginRight: Screen_SIZES_Scale.four,
   },
 
   daysRow: {
@@ -383,9 +384,9 @@ const styles = StyleSheet.create({
   },
 
   dayCard: {
-    width: 40,
-    height: 64,
-    borderRadius: 18,
+    width: Screen_SIZES_ModerateScale.fourty,
+    height: Screen_SIZES_VerticalScale.fifty,
+    borderRadius: Screen_SIZES_ModerateScale.eighteen,
     backgroundColor: colors.white,
     justifyContent: 'center',
     alignItems: 'center',
@@ -396,7 +397,7 @@ const styles = StyleSheet.create({
   },
 
   dayNumber: {
-    fontSize: 24,
+    fontSize: Screen_SIZES_ModerateScale.twentyFour,
     fontWeight: '700',
     color: colors.primary,
   },
@@ -406,9 +407,9 @@ const styles = StyleSheet.create({
   },
 
   weekText: {
-    fontSize: 11,
-    color: '#8E9AC8',
-    marginTop: 4,
+    fontSize: Screen_SIZES_ModerateScale.ten,
+    color: colors.secondary,
+    marginTop: Screen_SIZES_VerticalScale.four,
   },
 
   activeWeekText: {
@@ -418,15 +419,15 @@ const styles = StyleSheet.create({
     transform: [{ rotate: '180deg' }],
   },
   timeContainer: {
-    marginTop: 18,
+    marginTop: Screen_SIZES_VerticalScale.eighteen,
     paddingHorizontal: Screen_SIZES_Scale.thirty,
   },
 
   sectionTitle: {
-    fontSize: 16,
+    fontSize: Screen_SIZES_ModerateScale.sixteen,
     fontWeight: '700',
     color: colors.primary,
-    marginBottom: 14,
+    marginBottom: Screen_SIZES_VerticalScale.fourteen,
   },
 
   timeGrid: {
@@ -437,10 +438,10 @@ const styles = StyleSheet.create({
 
   timeChip: {
     width: '18%',
-    height: 34,
-    marginBottom: 10,
-    borderRadius: 17,
-    backgroundColor: '#EEF2FF',
+    height: Screen_SIZES_VerticalScale.twentyFour,
+    marginBottom: Screen_SIZES_ModerateScale.ten,
+    borderRadius: Screen_SIZES_ModerateScale.eighteen,
+    backgroundColor: colors.secondary,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -450,8 +451,8 @@ const styles = StyleSheet.create({
   },
 
   timeText: {
-    fontSize: 11,
-    color: '#8A97C9',
+    fontSize: Screen_SIZES_ModerateScale.ten,
+    color: colors.blue,
     fontWeight: '500',
   },
 
@@ -459,25 +460,25 @@ const styles = StyleSheet.create({
     color: colors.white,
   },
   patientContainer: {
-    marginTop: 20,
+    marginTop: Screen_SIZES_VerticalScale.twenty,
     paddingHorizontal: Screen_SIZES_Scale.thirty,
   },
 
   segmentContainer: {
     flexDirection: 'row',
-    marginTop: 12,
-    marginBottom: 18,
+    marginTop: Screen_SIZES_VerticalScale.twelve,
+    marginBottom: Screen_SIZES_VerticalScale.eighteen,
   },
 
   segmentButton: {
     borderWidth: 1,
-    borderColor: '#A8B8FF',
-    borderRadius: 20,
-    paddingHorizontal: 16,
+    borderColor: colors.secondary,
+    borderRadius: Screen_SIZES_ModerateScale.twenty,
+    paddingHorizontal: Screen_SIZES_ModerateScale.sixteen,
     height: 30,
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: 8,
+    marginRight: Screen_SIZES_ModerateScale.eight,
   },
 
   segmentActive: {
@@ -487,7 +488,7 @@ const styles = StyleSheet.create({
 
   segmentText: {
     color: colors.primary,
-    fontSize: 13,
+    fontSize: Screen_SIZES_ModerateScale.twelve,
   },
 
   segmentActiveText: {
@@ -495,18 +496,18 @@ const styles = StyleSheet.create({
   },
 
   label: {
-    fontSize: 14,
-    color: '#333',
-    marginBottom: 8,
+    fontSize: Screen_SIZES_ModerateScale.fourteen,
+    color: colors.black,
+    marginBottom: Screen_SIZES_VerticalScale.eight,
   },
 
   input: {
     height: 48,
-    backgroundColor: '#EEF2FF',
-    borderRadius: 14,
-    paddingHorizontal: 18,
+    backgroundColor: colors.lightblue,
+    borderRadius: Screen_SIZES_ModerateScale.fourteen,
+    paddingHorizontal: Screen_SIZES_ModerateScale.eighteen,
     color: colors.primary,
-    marginBottom: 16,
+    marginBottom: Screen_SIZES_VerticalScale.sixteen,
   },
 
   genderRow: {
@@ -515,13 +516,13 @@ const styles = StyleSheet.create({
 
   genderChip: {
     borderWidth: 1,
-    borderColor: '#A8B8FF',
-    borderRadius: 18,
-    paddingHorizontal: 18,
+    borderColor: colors.secondary,
+    borderRadius: Screen_SIZES_ModerateScale.eighteen,
+    paddingHorizontal: Screen_SIZES_ModerateScale.eighteen,
     height: 30,
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: 10,
+    marginRight: Screen_SIZES_ModerateScale.ten,
   },
 
   genderActive: {
@@ -531,7 +532,7 @@ const styles = StyleSheet.create({
 
   genderText: {
     color: colors.primary,
-    fontSize: 13,
+    fontSize: Screen_SIZES_ModerateScale.twelve,
   },
 
   genderActiveText: {
@@ -539,17 +540,17 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     paddingHorizontal: Screen_SIZES_Scale.thirty,
-    marginTop: 10,
-    gap: 10,
+    marginTop: Screen_SIZES_VerticalScale.ten,
+    gap: Screen_SIZES_ModerateScale.ten,
   },
   inputBox: {
-    paddingHorizontal: 10,
+    paddingHorizontal: Screen_SIZES_ModerateScale.ten,
     height: 140,
     borderWidth: 1,
     borderColor: colors.secondary,
-    borderRadius: 18,
+    borderRadius: Screen_SIZES_ModerateScale.eighteen,
   },
   btn: {
-    marginVertical: 20,
+    marginVertical: Screen_SIZES_VerticalScale.twenty,
   },
 });

@@ -26,6 +26,7 @@ import StarIcon from '../../assets/svg/starunfilled.svg';
 const Review = () => {
   const route = useRoute();
   const [rating, setRating] = useState(4);
+
   const item = route.params?.doctor;
 
   return (
@@ -119,32 +120,32 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     alignSelf: 'center',
     borderRadius: ms(50),
-    paddingHorizontal: sc(10),
-    paddingVertical: vs(8),
+    paddingHorizontal: Screen_SIZES_Scale.ten,
+    paddingVertical: Screen_SIZES_VerticalScale.eight,
   },
 
   heartContainer: {
     width: ms(40),
     height: ms(40),
-    borderRadius: ms(20),
+    borderRadius: Screen_SIZES_VerticalScale.twenty,
     backgroundColor: colors.secondary,
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: sc(12),
+    marginRight: Screen_SIZES_Scale.twelve,
   },
 
   starContainer: {
-    borderRadius: ms(20),
-    paddingVertical: vs(8),
+    borderRadius: Screen_SIZES_VerticalScale.twenty,
+    paddingVertical: Screen_SIZES_VerticalScale.eight,
     backgroundColor: colors.secondary,
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: sc(12),
+    marginRight: Screen_SIZES_Scale.twelve,
     flexDirection: 'row',
   },
 
   star: {
-    marginHorizontal: sc(6),
+    marginHorizontal: Screen_SIZES_Scale.six,
   },
   input: {
     marginTop: Screen_SIZES_VerticalScale.twenty,

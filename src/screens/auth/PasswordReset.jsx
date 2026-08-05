@@ -63,6 +63,6 @@ const styles = StyleSheet.create({
     gap: Screen_SIZES_Scale.eighteen,
   },
   btn: {
-    marginTop: vs(18),
+    marginTop: Screen_SIZES_VerticalScale.eighteen,
   },
 });

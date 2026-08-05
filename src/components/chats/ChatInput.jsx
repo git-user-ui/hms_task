@@ -22,9 +22,9 @@ const ChatInput = () => {
   return (
     <View style={styles.container}>
       <View style={styles.innerContainer}>
-        <Pressable style={styles.pinIcon}>
+        <TouchableOpacity style={styles.pinIcon}>
           <PinIcon />
-        </Pressable>
+        </TouchableOpacity>
         <View style={styles.inputContainer}>
           <TextInput placeholder="Write here...." style={styles.input} />
           <MicIcon style={styles.mic} />

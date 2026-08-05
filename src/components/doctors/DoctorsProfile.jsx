@@ -14,6 +14,7 @@ import FavoriteHeartIcon from '../../assets/svg/favorite_heart.svg';
 import { ROUTES, ROUTE_PARAMS } from '../../constants/routes';
 import { toggleFavoriteDoctor } from '../../redux/slices/doctorsSlice';
 import {
+  Screen_SIZES_ModerateScale,
   Screen_SIZES_Scale,
   Screen_SIZES_VerticalScale,
 } from '../../constants/screen';
@@ -136,8 +137,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: colors.secondary,
     marginHorizontal: Screen_SIZES_Scale.thirty,
-    marginBottom: sc(15),
-    borderRadius: sc(17),
+    marginBottom: Screen_SIZES_VerticalScale.fourteen,
+    borderRadius: Screen_SIZES_ModerateScale.sixteen,
     alignItems: 'center',
     paddingHorizontal: Screen_SIZES_Scale.ten,
     paddingVertical: Screen_SIZES_Scale.ten,
@@ -157,15 +158,15 @@ const styles = StyleSheet.create({
   },
 
   dName: {
-    fontSize: sc(15),
+    fontSize: Screen_SIZES_ModerateScale.fourteen,
     color: colors.primary,
     fontWeight: '700',
     maxWidth: '90%',
   },
 
   desc: {
-    marginTop: vs(3),
-    fontSize: sc(13),
+    marginTop: Screen_SIZES_VerticalScale.four,
+    fontSize: Screen_SIZES_ModerateScale.twelve,
   },
 
   qualification: {

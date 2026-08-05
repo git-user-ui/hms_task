@@ -1,13 +1,12 @@
 import { FlatList, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import { chatData } from '../../constants/chatData';
-import { ms, vs } from '../../utils/responsive';
+
 import { colors } from '../../themes/colors';
 import { Fonts } from '../../themes/font';
 import {
   Screen_SIZES_ModerateScale,
   Screen_SIZES_VerticalScale,
-  
 } from '../../constants/screen';
 
 const ChatContainer = () => {
@@ -85,6 +84,6 @@ const styles = StyleSheet.create({
   time: {
     fontFamily: Fonts.Light,
     fontWeight: '300',
-    fontSize: 12,
+    fontSize: Screen_SIZES_VerticalScale.ten,
   },
 });

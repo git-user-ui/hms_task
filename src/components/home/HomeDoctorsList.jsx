@@ -121,7 +121,7 @@ export default HomeDoctorsList;
 const styles = StyleSheet.create({
   container: {
     marginTop: Screen_SIZES_VerticalScale.two,
-    paddingBottom: vs(130),
+    paddingBottom: Screen_SIZES_VerticalScale.oneThirty,
     gap: Screen_SIZES_VerticalScale.twelve,
   },
   loader: {
@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
 
   name: {
     color: colors.primary,
-    fontSize: ms(15),
+    fontSize: Screen_SIZES_ModerateScale.sixteen,
     fontWeight: '500',
     fontFamily: Fonts.Medium,
   },
@@ -195,7 +195,7 @@ const styles = StyleSheet.create({
 
   badgeText: {
     marginLeft: Screen_SIZES_Scale.four,
-    fontSize: ms(11),
+    fontSize: Screen_SIZES_ModerateScale.twelve,
     color: colors.primary,
     fontWeight: '600',
   },
@@ -209,7 +209,7 @@ const styles = StyleSheet.create({
   iconCircle: {
     width: Screen_SIZES_ModerateScale.twentyTwo,
     height: Screen_SIZES_ModerateScale.twentyTwo,
-    borderRadius: ms(11),
+    borderRadius: Screen_SIZES_ModerateScale.twelve,
     backgroundColor: colors.white,
     justifyContent: 'center',
     alignItems: 'center',

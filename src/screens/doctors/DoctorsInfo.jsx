@@ -9,6 +9,7 @@ import InfoSection from '../../components/doctors/InfoSection';
 import { ms, sc, vs } from '../../utils/responsive';
 import { ROUTE_PARAMS } from '../../constants/routes';
 import {
+  Screen_SIZES_ModerateScale,
   Screen_SIZES_Scale,
   Screen_SIZES_VerticalScale,
 } from '../../constants/screen';
@@ -62,6 +63,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: Screen_SIZES_Scale.thirty,
     paddingVertical: Screen_SIZES_VerticalScale.ten,
     paddingBottom: vs(50),
-    gap: ms(10),
+    gap: Screen_SIZES_ModerateScale.ten,
   },
 });

@@ -45,8 +45,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingVertical: Screen_SIZES_VerticalScale.twelve,
-    marginBottom: Screen_SIZES_VerticalScale.ten,
+    paddingVertical: Screen_SIZES_VerticalScale.six,
+    marginBottom: Screen_SIZES_VerticalScale.six,
   },
 
   leftContainer: {
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
   iconContainer: {
     width: sc(46),
     height: sc(46),
-    borderRadius: sc(23),
+    borderRadius: Screen_SIZES_ModerateScale.twentyFour,
     backgroundColor: '#E8EEFF',
     justifyContent: 'center',
     alignItems: 'center',

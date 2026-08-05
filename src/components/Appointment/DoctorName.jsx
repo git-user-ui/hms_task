@@ -195,7 +195,7 @@ export default DoctorName;
 const styles = StyleSheet.create({
   container: {
     marginTop: Screen_SIZES_VerticalScale.eight,
-    paddingBottom: vs(150),
+    paddingBottom: Screen_SIZES_VerticalScale.oneFifty,
     gap: Screen_SIZES_VerticalScale.twelve,
   },
   actionContainer: {
@@ -237,8 +237,8 @@ const styles = StyleSheet.create({
   },
 
   image: {
-    width: ms(90),
-    height: ms(90),
+    width: ms(80),
+    height: ms(80),
     borderRadius: Screen_SIZES_ModerateScale.hundered,
   },
   imageContainer: {
@@ -264,21 +264,21 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.white,
     borderRadius: 30,
-    paddingVertical: vs(8),
-    paddingHorizontal: sc(10),
+    paddingVertical: Screen_SIZES_VerticalScale.eight,
+    paddingHorizontal: Screen_SIZES_Scale.ten,
   },
 
   infoText: {
-    color: '#2F63FF',
+    color: colors.primary,
     fontSize: 12,
     fontWeight: '500',
   },
 
   name: {
     color: colors.primary,
-    fontSize: ms(14),
+    fontSize: Screen_SIZES_ModerateScale.fourteen,
     fontWeight: '500',
     fontFamily: Fonts.Medium,
   },
@@ -286,7 +286,7 @@ const styles = StyleSheet.create({
   specialization: {
     marginTop: 2,
     fontSize: Screen_SIZES_ModerateScale.twelve,
-    color: '#555',
+    color: colors.black,
   },
 
   optionContainer: {
@@ -314,7 +314,7 @@ const styles = StyleSheet.create({
 
   badgeText: {
     marginLeft: Screen_SIZES_Scale.four,
-    fontSize: ms(12),
+    fontSize: Screen_SIZES_ModerateScale.twelve,
     color: colors.primary,
     fontWeight: '600',
   },
@@ -328,7 +328,7 @@ const styles = StyleSheet.create({
   iconCircle: {
     width: Screen_SIZES_ModerateScale.twentyTwo,
     height: Screen_SIZES_ModerateScale.twentyTwo,
-    borderRadius: ms(12),
+    borderRadius: Screen_SIZES_ModerateScale.twelve,
     backgroundColor: colors.white,
     justifyContent: 'center',
     alignItems: 'center',

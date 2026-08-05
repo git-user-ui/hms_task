@@ -239,7 +239,7 @@ const styles = StyleSheet.create({
     marginHorizontal: Screen_SIZES_Scale.thirty,
     marginTop: Screen_SIZES_VerticalScale.twenty,
     borderRadius: Screen_SIZES_ModerateScale.eighteen,
-    height: vs(160),
+    height: Screen_SIZES_VerticalScale.oneFifty,
     backgroundColor: colors.primary,
   },
   cardNumberContainer: {

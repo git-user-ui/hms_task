@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
   },
 
   time: {
-    fontSize: ms(11),
+    fontSize: Screen_SIZES_ModerateScale.twelve,
     color: colors.primary,
     marginBottom: Screen_SIZES_VerticalScale.eight,
   },
@@ -196,7 +196,7 @@ const styles = StyleSheet.create({
   },
 
   doctor: {
-    fontSize: ms(13),
+    fontSize: Screen_SIZES_ModerateScale.fourteen,
     fontFamily: Fonts.Medium,
     fontWeight: '700',
     color: colors.primary,

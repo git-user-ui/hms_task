@@ -229,7 +229,7 @@ const styles = StyleSheet.create({
   socialButton: {
     width: sc(40),
     height: sc(40),
-    borderRadius: sc(25),
+    borderRadius: Screen_SIZES_ModerateScale.twentySix,
     backgroundColor: colors.secondary,
     justifyContent: 'center',
     alignItems: 'center',
@@ -252,14 +252,14 @@ const styles = StyleSheet.create({
   accountText: {
     fontFamily: Fonts.Thin,
     fontWeight: '300',
-    fontSize: ms(13),
+    fontSize: Screen_SIZES_ModerateScale.twelve,
     color: colors.designBlack,
   },
 
   signupText: {
     fontFamily: Fonts.Medium,
     fontWeight: '500',
-    fontSize: ms(13),
+    fontSize: Screen_SIZES_ModerateScale.twelve,
     color: colors.primary,
   },
 });

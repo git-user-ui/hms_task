@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     width: '100%',
     marginTop: Screen_SIZES_VerticalScale.four,
     height: sc(40),
-    borderRadius: sc(13),
+    borderRadius: Screen_SIZES_Scale.fourteen,
     backgroundColor: colors.lightblue,
     paddingHorizontal: Screen_SIZES_Scale.twenty,
   },

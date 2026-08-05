@@ -84,13 +84,13 @@ const styles = StyleSheet.create({
   },
 
   answerContainer: {
-    paddingHorizontal: sc(15),
+    paddingHorizontal: Screen_SIZES_Scale.sixteen,
     paddingTop: Screen_SIZES_VerticalScale.ten,
   },
 
   answer: {
     color: '#808080',
-    fontSize: ms(13),
+    fontSize: Screen_SIZES_ModerateScale.twelve,
     lineHeight: Screen_SIZES_ModerateScale.twenty,
   },
 

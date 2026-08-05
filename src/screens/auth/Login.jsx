@@ -176,7 +176,7 @@ const styles = StyleSheet.create({
 
   inputContainer: {
     marginTop: Screen_SIZES_VerticalScale.thirty,
-    gap: vs(18),
+    gap: Screen_SIZES_VerticalScale.eighteen,
   },
 
   forgotContainer: {
@@ -219,7 +219,7 @@ const styles = StyleSheet.create({
   socialButton: {
     width: sc(40),
     height: sc(40),
-    borderRadius: sc(25),
+    borderRadius: Screen_SIZES_ModerateScale.twentySix,
     backgroundColor: colors.secondary,
     justifyContent: 'center',
     alignItems: 'center',
