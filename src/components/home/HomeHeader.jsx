@@ -95,7 +95,7 @@ const HomeHeader = ({ search, onSearch }) => {
         </Pressable>
 
         <Pressable style={styles.actionButton} onPress={handleFavourite}>
-          <Heart style={styles.heartIcon} />
+          <Heart style={styles.heartIcon} color={colors.primary} />
           <Text style={styles.doctorsText}>{HomeStrings.favouriteText}</Text>
         </Pressable>
 
@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
   },
 
   nameText: {
-    color: colors.black,
+    color: colors.primary,
     fontSize: Screen_SIZES_ModerateScale.sixteen,
     fontFamily: Fonts.Regular,
     fontWeight: '400',

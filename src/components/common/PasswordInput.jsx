@@ -14,6 +14,7 @@ import { Fonts } from '../../themes/font';
 import EyeClose from '../../assets/svg/eye_close.svg';
 import { Eye } from 'lucide-react-native';
 import {
+  Screen_SIZES_ModerateScale,
   Screen_SIZES_Scale,
   Screen_SIZES_VerticalScale,
 } from '../../constants/screen';
@@ -36,8 +37,8 @@ const PasswordInput = ({ label, value, onChangeText }) => {
         style={styles.inputContainer}
         secureTextEntry={visible ? false : true}
       />
-      <TouchableOpacity style={styles.btn} onPress={handleClick}>
-        {visible ? <Eye size={20} /> : <EyeClose />}
+      <TouchableOpacity style={styles.btn} onPress={handleClick} hitSlop={2}>
+        {visible ? <Eye height={20} width={22} /> : <EyeClose />}
       </TouchableOpacity>
     </View>
   );
@@ -52,6 +53,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
   inputContainer: {
+    color: colors.black,
     width: '100%',
     height: sc(40),
     borderRadius: sc(13),
@@ -60,8 +62,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: Screen_SIZES_Scale.twenty,
   },
   btn: {
+    padding: Screen_SIZES_ModerateScale.six,
     position: 'absolute',
-    top: vs(40),
+    top: vs(36),
     right: Screen_SIZES_Scale.ten,
   },
 });

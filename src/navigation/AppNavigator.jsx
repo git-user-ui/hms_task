@@ -1,14 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { ActivityIndicator, StyleSheet, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
+import { useDispatch, useSelector } from 'react-redux';
 
 import AuthStack from './AuthStack';
 import AppStack from './AppStack';
-import { AuthContext } from '../configs/context';
+
 import { isLoggedIn as checkIsLoggedIn } from '../utils/storage';
+import { setLoading, setLoggedIn } from '../redux/slices/authSlice';
 
 const AppNavigator = () => {
-  const [loggedIn, setLoggedIn] = useState(null);
+  const dispatch = useDispatch();
+
+  const { isLoggedIn, isLoading } = useSelector(state => state.auth);
 
   useEffect(() => {
     checkLogin();
@@ -17,14 +21,17 @@ const AppNavigator = () => {
   const checkLogin = async () => {
     try {
       const value = await checkIsLoggedIn();
-      setLoggedIn(value);
+
+      dispatch(setLoggedIn(value));
     } catch (error) {
       console.log(error);
-      setLoggedIn(false);
+      dispatch(setLoggedIn(false));
+    } finally {
+      dispatch(setLoading(false));
     }
   };
 
-  if (loggedIn === null) {
+  if (isLoading) {
     return (
       <View style={styles.loader}>
         <ActivityIndicator size="large" />
@@ -33,11 +40,9 @@ const AppNavigator = () => {
   }
 
   return (
-    <AuthContext.Provider value={{ loggedIn, setLoggedIn }}>
-      <NavigationContainer>
-        {loggedIn ? <AppStack /> : <AuthStack />}
-      </NavigationContainer>
-    </AuthContext.Provider>
+    <NavigationContainer>
+      {isLoggedIn ? <AppStack /> : <AuthStack />}
+    </NavigationContainer>
   );
 };
 

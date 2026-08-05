@@ -196,6 +196,9 @@ const styles = StyleSheet.create({
 
   normalText: {
     color: colors.designBlack,
+    fontFamily: Fonts.Light,
+    fontSize: Screen_SIZES_ModerateScale.twelve,
+    fontWeight: '300',
   },
 
   buttonContainer: {

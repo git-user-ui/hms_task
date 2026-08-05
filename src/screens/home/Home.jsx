@@ -1,12 +1,6 @@
 // React Imports
 import React, { useEffect, useState } from 'react';
-import {
-  ActivityIndicator,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 // Redux Imports
 import { useDispatch, useSelector } from 'react-redux';
@@ -37,7 +31,6 @@ const Home = () => {
   const dispatch = useDispatch();
 
   const doctors = useSelector(selectDoctors);
-  const loading = useSelector(selectDoctorsLoading);
   const error = useSelector(selectDoctorsError);
 
   const [search, setSearch] = useState('');
@@ -76,14 +69,6 @@ const Home = () => {
     dispatch(fetchDoctors());
   };
 
-  if (loading) {
-    return (
-      <View style={styles.loader}>
-        <ActivityIndicator size="large" color={colors.primary} />
-      </View>
-    );
-  }
-
   if (error) {
     return (
       <View style={styles.loader}>
@@ -101,7 +86,6 @@ const Home = () => {
       <View style={styles.container}>
         <HomeHeader search={search} onSearch={handleSearch} />
       </View>
-      {/* <HomeAppointment /> */}
 
       {filteredDoctors().length === 0 ? (
         <View style={styles.loader}>
@@ -122,14 +106,6 @@ const styles = StyleSheet.create({
   container: {
     paddingHorizontal: Screen_SIZES_Scale.thirty,
     paddingTop: Screen_SIZES_VerticalScale.ten,
-  },
-
-  loader: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingHorizontal: Screen_SIZES_Scale.thirty,
-    gap: Screen_SIZES_ModerateScale.twelve,
   },
 
   errorText: {

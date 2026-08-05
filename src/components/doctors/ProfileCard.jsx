@@ -14,10 +14,11 @@ import {
 import Professional from '../../assets/professional.svg';
 
 import { colors } from '../../themes/colors';
-import { ms, sc } from '../../utils/responsive';
+import { ms } from '../../utils/responsive';
 import {
   Screen_SIZES_ModerateScale,
   Screen_SIZES_Scale,
+  Screen_SIZES_VerticalScale,
 } from '../../constants/screen';
 import { toggleFavoriteDoctor } from '../../redux/slices/doctorsSlice';
 
@@ -111,8 +112,9 @@ export default ProfileCard;
 const styles = StyleSheet.create({
   card: {
     backgroundColor: '#DCE4FF',
-    borderRadius: 22,
+    borderRadius: Screen_SIZES_ModerateScale.twentyTwo,
     padding: Screen_SIZES_ModerateScale.sixteen,
+    marginBottom: Screen_SIZES_VerticalScale.ten,
   },
 
   top: {
@@ -120,9 +122,9 @@ const styles = StyleSheet.create({
   },
 
   image: {
-    width: ms(140),
-    height: ms(140),
-    borderRadius: 100,
+    width: Screen_SIZES_ModerateScale.oneFifty,
+    height: Screen_SIZES_ModerateScale.oneFifty,
+    borderRadius: Screen_SIZES_ModerateScale.hundered,
   },
 
   right: {
@@ -132,55 +134,55 @@ const styles = StyleSheet.create({
 
   badge: {
     backgroundColor: colors.primary,
-    borderRadius: 20,
-    padding: 8,
+    borderRadius: Screen_SIZES_ModerateScale.twenty,
+    padding: Screen_SIZES_ModerateScale.eight,
     flexDirection: 'row',
     alignItems: 'center',
   },
 
   badgeText: {
     color: colors.white,
-    fontSize: 12,
-    marginLeft: 6,
+    fontSize: Screen_SIZES_ModerateScale.twelve,
+    marginLeft: Screen_SIZES_ModerateScale.six,
   },
 
   focusCard: {
     backgroundColor: colors.primary,
-    borderRadius: 18,
-    padding: 10,
-    marginTop: 10,
+    borderRadius: Screen_SIZES_ModerateScale.eighteen,
+    padding: Screen_SIZES_ModerateScale.ten,
+    marginTop: Screen_SIZES_ModerateScale.ten,
   },
 
   focusText: {
     color: colors.white,
-    fontSize: 11,
+    fontSize: Screen_SIZES_ModerateScale.twelve,
     lineHeight: 16,
   },
 
   nameCard: {
     backgroundColor: colors.white,
-    marginTop: 14,
-    borderRadius: 16,
+    marginTop: Screen_SIZES_VerticalScale.fourteen,
+    borderRadius: Screen_SIZES_ModerateScale.sixteen,
     alignItems: 'center',
-    paddingVertical: 8,
+    paddingVertical: Screen_SIZES_VerticalScale.eight,
   },
 
   name: {
     color: colors.primary,
-    fontSize: 16,
+    fontSize: Screen_SIZES_ModerateScale.sixteen,
     fontWeight: '700',
   },
 
   speciality: {
     color: '#666',
-    fontSize: 12,
-    marginTop: 2,
+    fontSize: Screen_SIZES_ModerateScale.twelve,
+    marginTop: Screen_SIZES_VerticalScale.two,
   },
 
   stats: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: 12,
+    marginTop: Screen_SIZES_ModerateScale.twelve,
     alignItems: 'center',
   },
 
@@ -188,24 +190,24 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: colors.white,
-    borderRadius: 20,
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    gap: 4,
+    borderRadius: Screen_SIZES_ModerateScale.twenty,
+    paddingHorizontal: Screen_SIZES_ModerateScale.ten,
+    paddingVertical: Screen_SIZES_ModerateScale.five,
+    gap: Screen_SIZES_ModerateScale.four,
   },
 
   timeChip: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: colors.white,
-    borderRadius: 20,
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    gap: 4,
+    borderRadius: Screen_SIZES_ModerateScale.twenty,
+    paddingHorizontal: Screen_SIZES_ModerateScale.ten,
+    paddingVertical: Screen_SIZES_ModerateScale.six,
+    gap: Screen_SIZES_ModerateScale.four,
   },
 
   bottom: {
-    marginTop: 14,
+    marginTop: Screen_SIZES_ModerateScale.fourteen,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -213,21 +215,21 @@ const styles = StyleSheet.create({
 
   button: {
     backgroundColor: colors.primary,
-    borderRadius: 20,
+    borderRadius: Screen_SIZES_ModerateScale.twenty,
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 18,
-    paddingVertical: 8,
+    paddingHorizontal: Screen_SIZES_ModerateScale.eighteen,
+    paddingVertical: Screen_SIZES_ModerateScale.eight,
   },
 
   buttonText: {
     color: colors.white,
     fontWeight: '600',
-    marginHorizontal: 6,
+    marginHorizontal: Screen_SIZES_ModerateScale.six,
   },
 
   icons: {
     flexDirection: 'row',
-    gap: 12,
+    gap: Screen_SIZES_ModerateScale.twelve,
   },
 });

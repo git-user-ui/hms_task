@@ -20,7 +20,7 @@ import { colors } from '../../themes/colors';
 import { Screen_SIZES_Scale } from '../../constants/screen';
 import ButtonComp from '../../components/common/Button';
 
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 
 const timeSlots = [
   '9:00 AM',
@@ -42,6 +42,11 @@ const timeSlots = [
 
 const Schedule = () => {
   const navigation = useNavigation();
+  const route = useRoute();
+
+  const doctors = route.params?.doctors;
+  console.log('schedule doctors', doctors);
+
   const [selectedTime, setSelectedTime] = useState('10:00 AM');
   const [patientType, setPatientType] = useState('another');
   const [gender, setGender] = useState('female');
@@ -272,7 +277,11 @@ const Schedule = () => {
           <ButtonComp
             width={'80%'}
             text={'Book Appointment'}
-            onPress={() => navigation.navigate('Details', {})}
+            onPress={() =>
+              navigation.navigate('Details', {
+                doctor: doctors,
+              })
+            }
           />
         </View>
       </ScrollView>
@@ -365,7 +374,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 64,
     borderRadius: 18,
-    backgroundColor: '#fff',
+    backgroundColor: colors.white,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -381,7 +390,7 @@ const styles = StyleSheet.create({
   },
 
   activeDayText: {
-    color: '#fff',
+    color: colors.white,
   },
 
   weekText: {
@@ -391,7 +400,7 @@ const styles = StyleSheet.create({
   },
 
   activeWeekText: {
-    color: '#fff',
+    color: colors.white,
   },
   rightArrow: {
     transform: [{ rotate: '180deg' }],
@@ -435,7 +444,7 @@ const styles = StyleSheet.create({
   },
 
   selectedTimeText: {
-    color: '#fff',
+    color: colors.white,
   },
   patientContainer: {
     marginTop: 20,
@@ -470,7 +479,7 @@ const styles = StyleSheet.create({
   },
 
   segmentActiveText: {
-    color: '#fff',
+    color: colors.white,
   },
 
   label: {
@@ -514,7 +523,7 @@ const styles = StyleSheet.create({
   },
 
   genderActiveText: {
-    color: '#fff',
+    color: colors.white,
   },
   inputContainer: {
     paddingHorizontal: Screen_SIZES_Scale.thirty,

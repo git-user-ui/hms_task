@@ -13,8 +13,7 @@ import { Fonts } from '../../themes/font';
 import ProfileHeader from '../../components/Profile/components/ProfileHeader';
 
 import CrossIocn from '../../assets/svg/cross_icon.svg';
-import CorrectIcon from '../../assets/svg/correct_icon.svg';
-import { ROUTE_PARAMS } from '../../constants/routes';
+import CorrectIcon from '../../assets/svg/white_correct_icon.svg';
 import {
   Screen_SIZES_ModerateScale,
   Screen_SIZES_Scale,
@@ -24,15 +23,15 @@ import {
 const Details = () => {
   const route = useRoute();
 
-  const item = route.params?.[ROUTE_PARAMS.DOCTORS];
-
+  const item = route.params?.doctor;
+  console.log();
   if (!item) {
     return null;
   }
 
   return (
     <>
-      <ProfileHeader header={'All Appointment'} />
+      <ProfileHeader header={'Your Appointment'} />
       <View style={styles.container}>
         <View key={item.id} style={styles.card}>
           <Image source={{ uri: item.avatar }} style={styles.image} />
@@ -67,7 +66,7 @@ const Details = () => {
                 </View>
 
                 <View style={styles.iconCircle}>
-                  <HeartIcon width={11} height={11} />
+                  <HeartIcon width={11} height={11} color={colors.primary} />
                 </View>
               </View>
             </View>
@@ -78,48 +77,36 @@ const Details = () => {
 
         <View style={styles.dateContainer}>
           <View style={styles.date}>
-            <Text>Month 24, Year</Text>
+            <Text style={styles.monthText}>Month 24, Year</Text>
           </View>
 
           <View style={styles.dateIconContainer}>
             <TouchableOpacity style={styles.dateIconCircle}>
-              <CorrectIcon width={10} height={10} />
+              <CorrectIcon width={10} height={10} s />
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.dateIconCircle}>
-              <CrossIocn width={11} height={11} />
+              <CrossIocn width={11} height={11} color={colors.white} />
             </TouchableOpacity>
           </View>
         </View>
-        <View>
-          <Text>WED, 10:00 AM</Text>
+        <View style={styles.timeContainer}>
+          <Text style={styles.timeText}>WED, 10:00 AM</Text>
         </View>
         <View style={styles.line} />
 
         <View style={styles.details}>
           <View style={styles.nameDetails}>
-            <Text>Booking For </Text>
-            <Text>Another Person</Text>
-          </View>
-          <View style={styles.nameDetails}>
-            <Text>Booking For </Text>
-            <Text>Another Person</Text>
-          </View>
-          <View style={styles.nameDetails}>
-            <Text>Booking For </Text>
-            <Text>Another Person</Text>
-          </View>
-          <View style={styles.nameDetails}>
-            <Text>Booking For </Text>
-            <Text>Another Person</Text>
+            <Text style={styles.booking}>Booking For </Text>
+            <Text style={styles.bookingText}>Another Person</Text>
           </View>
         </View>
 
         <View style={styles.line} />
 
-        <View>
-          <Text>Problem</Text>
-          <Text>
+        <View style={styles.descContainer}>
+          <Text style={styles.problemDesc}>Problem</Text>
+          <Text style={styles.problemDesc}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -137,7 +124,6 @@ const styles = StyleSheet.create({
   container: {
     marginHorizontal: Screen_SIZES_Scale.thirty,
     marginTop: Screen_SIZES_VerticalScale.eight,
-    paddingBottom: vs(330),
     gap: Screen_SIZES_VerticalScale.twelve,
   },
 
@@ -151,8 +137,8 @@ const styles = StyleSheet.create({
   },
 
   image: {
-    width: ms(80),
-    height: ms(80),
+    width: Screen_SIZES_ModerateScale.eighty,
+    height: Screen_SIZES_ModerateScale.eighty,
     borderRadius: Screen_SIZES_ModerateScale.hundered,
   },
 
@@ -170,13 +156,13 @@ const styles = StyleSheet.create({
 
   name: {
     color: colors.primary,
-    fontSize: ms(15),
+    fontSize: Screen_SIZES_ModerateScale.fourteen,
     fontWeight: '500',
     fontFamily: Fonts.Medium,
   },
 
   specialization: {
-    marginTop: 2,
+    marginTop: Screen_SIZES_VerticalScale.two,
     fontSize: Screen_SIZES_ModerateScale.twelve,
     color: '#555',
   },
@@ -201,12 +187,12 @@ const styles = StyleSheet.create({
     borderRadius: Screen_SIZES_Scale.twenty,
     paddingHorizontal: Screen_SIZES_Scale.eight,
     height: Screen_SIZES_VerticalScale.twentyTwo,
-    width: sc(50),
+    width: Screen_SIZES_Scale.fifty,
   },
 
   badgeText: {
     marginLeft: Screen_SIZES_Scale.four,
-    fontSize: ms(11),
+    fontSize: Screen_SIZES_ModerateScale.twelve,
     color: colors.primary,
     fontWeight: '600',
   },
@@ -220,15 +206,16 @@ const styles = StyleSheet.create({
   iconCircle: {
     width: Screen_SIZES_ModerateScale.twentyTwo,
     height: Screen_SIZES_ModerateScale.twentyTwo,
-    borderRadius: ms(11),
-    backgroundColor: colors.primary,
+    borderRadius: Screen_SIZES_ModerateScale.twelve,
+    backgroundColor: colors.white,
     justifyContent: 'center',
     alignItems: 'center',
   },
   line: {
-    borderWidth: 1,
+    height: 1,
     backgroundColor: colors.primary,
     borderRadius: Screen_SIZES_ModerateScale.eighteen,
+    marginVertical: Screen_SIZES_VerticalScale.sixteen,
   },
   dateContainer: {
     flexDirection: 'row',
@@ -237,8 +224,11 @@ const styles = StyleSheet.create({
   date: {
     backgroundColor: colors.primary,
     paddingVertical: Screen_SIZES_ModerateScale.four,
-    paddingHorizontal: Screen_SIZES_ModerateScale.fourteen,
+    paddingHorizontal: Screen_SIZES_ModerateScale.twenty,
     borderRadius: Screen_SIZES_ModerateScale.eighteen,
+  },
+  monthText: {
+    color: colors.white,
   },
 
   dateIconContainer: {
@@ -250,16 +240,43 @@ const styles = StyleSheet.create({
   dateIconCircle: {
     width: Screen_SIZES_ModerateScale.twentyTwo,
     height: Screen_SIZES_ModerateScale.twentyTwo,
-    borderRadius: ms(11),
-    backgroundColor: colors.white,
+    borderRadius: Screen_SIZES_ModerateScale.twelve,
+    backgroundColor: colors.primary,
     justifyContent: 'center',
     alignItems: 'center',
   },
+  timeContainer: {
+    paddingHorizontal: Screen_SIZES_Scale.ten,
+  },
   details: {
     gap: Screen_SIZES_ModerateScale.ten,
+    paddingHorizontal: Screen_SIZES_Scale.ten,
   },
   nameDetails: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+  },
+  booking: {
+    fontWeight: '300',
+    fontFamily: Fonts.Light,
+    fontSize: Screen_SIZES_ModerateScale.twelve,
+    color: colors.black,
+  },
+  bookingText: {
+    fontWeight: '500',
+    fontFamily: Fonts.Medium,
+    fontSize: Screen_SIZES_ModerateScale.twelve,
+    color: colors.black,
+  },
+  descContainer: {
+    paddingHorizontal: Screen_SIZES_Scale.ten,
+
+    gap: Screen_SIZES_ModerateScale.ten,
+  },
+  problemDesc: {
+    fontWeight: '300',
+    fontFamily: Fonts.Light,
+    fontSize: Screen_SIZES_ModerateScale.twelve,
+    color: colors.black,
   },
 });

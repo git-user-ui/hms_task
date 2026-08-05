@@ -42,6 +42,7 @@ const ScheduleScreen = () => {
 
         <View style={styles.calendarSpacing}>
           <ScheduleCalendar
+            doctorsData={doctor}
             selectedDate={selectedDate}
             onSelectDate={setSelectedDate}
           />
@@ -57,10 +58,10 @@ const styles = StyleSheet.create({
   container: {
     paddingHorizontal: Screen_SIZES_Scale.twenty,
     paddingVertical: Screen_SIZES_VerticalScale.four,
-    paddingBottom: vs(30),
+    paddingBottom: Screen_SIZES_VerticalScale.thirty,
   },
 
   calendarSpacing: {
-    marginTop: vs(18),
+    marginTop: Screen_SIZES_VerticalScale.eighteen,
   },
 });

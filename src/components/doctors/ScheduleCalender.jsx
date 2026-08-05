@@ -71,7 +71,8 @@ const buildMonthGrid = (year, month) => {
   return weeks;
 };
 
-const ScheduleCalendar = ({ selectedDate, onSelectDate }) => {
+const ScheduleCalendar = ({ selectedDate, onSelectDate, doctorsData }) => {
+  console.log(doctorsData);
   const navigation = useNavigation();
   const today = useMemo(() => startOfDay(new Date()), []);
 
@@ -107,7 +108,9 @@ const ScheduleCalendar = ({ selectedDate, onSelectDate }) => {
     if (startOfDay(date) < today) return;
 
     onSelectDate(date);
-    navigation.navigate('Schedule', {});
+    navigation.navigate('Schedule', {
+      doctors: doctorsData,
+    });
   };
 
   return (
@@ -255,7 +258,7 @@ const styles = StyleSheet.create({
   dayCircle: {
     width: Screen_SIZES_ModerateScale.thirty,
     height: Screen_SIZES_ModerateScale.thirty,
-    borderRadius: ms(15),
+    borderRadius: Screen_SIZES_ModerateScale.sixteen,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -266,13 +269,13 @@ const styles = StyleSheet.create({
   },
 
   dayText: {
-    fontSize: ms(13),
+    fontSize: Screen_SIZES_ModerateScale.twelve,
     color: '#222',
     fontWeight: '500',
   },
 
   dayTextDisabled: {
-    color: '#C2CAF0',
+    color: '#A9BCFE',
   },
 
   dayTextSelected: {

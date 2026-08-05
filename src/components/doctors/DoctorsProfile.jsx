@@ -34,7 +34,10 @@ const DoctorsProfile = ({ item }) => {
     });
   };
   const handleSchedule = () => {
-    navigation.navigate(ROUTES.SCHEDULE);
+    navigation.navigate(ROUTES.SCHEDULE),
+      {
+        [ROUTE_PARAMS.DOCTORS]: item,
+      };
   };
   const handleToggleFavorite = () => {
     dispatch(toggleFavoriteDoctor(item.id));

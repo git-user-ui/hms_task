@@ -16,10 +16,9 @@ import PasswordInput from '../../components/common/PasswordInput';
 import ButtonComp from '../../components/common/Button';
 
 import { colors } from '../../themes/colors';
-import { ms, sc, vs } from '../../utils/responsive';
+import { sc, vs } from '../../utils/responsive';
 import { Fonts } from '../../themes/font';
 
-import { useAuth } from '../../configs/context';
 import { getUser, loginUser } from '../../utils/storage';
 import { ERROR_MESSAGES, SUCCESS_MESSAGES } from '../../constants/messages';
 import { ROUTES } from '../../constants/routes';
@@ -29,12 +28,15 @@ import {
   Screen_SIZES_VerticalScale,
 } from '../../constants/screen';
 
+import { useDispatch } from 'react-redux';
+import { setLoggedIn } from '../../redux/slices/authSlice';
+
 const Login = () => {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  const { setLoggedIn } = useAuth();
 
   const handleLogin = async () => {
     if (!email || !password) {
@@ -52,7 +54,7 @@ const Login = () => {
 
       if (userData.email === email && userData.password === password) {
         await loginUser();
-        setLoggedIn(true);
+        dispatch(setLoggedIn(true));
         Alert.alert('Success', SUCCESS_MESSAGES.LOGIN_SUCCESS);
       } else {
         Alert.alert('Error', ERROR_MESSAGES.INVALID_CREDENTIALS);

@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { colors } from '../../themes/colors';
 import { Screen_SIZES_Scale } from '../../constants/screen';
+import { Fonts } from '../../themes/font';
 
 const InfoSection = ({ title, description }) => {
   return (
@@ -22,7 +23,9 @@ const styles = StyleSheet.create({
   },
 
   desc: {
-    color: '#5C5C5C',
+    color: colors.black,
+    fontFamily: Fonts.Light,
+    fontWeight: '300',
     fontSize: Screen_SIZES_Scale.twelve,
   },
 });

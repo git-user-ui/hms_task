@@ -15,13 +15,15 @@ import { colors } from '../../../themes/colors';
 import { useNavigation } from '@react-navigation/native';
 import { profileScreenOptions } from '../../../constants/profileOptions';
 import { Fonts } from '../../../themes/font';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useAuth } from '../../../configs/context';
+
+import { useDispatch } from 'react-redux';
+import { logoutUser } from '../../../utils/storage';
+import { logout } from '../../../redux/slices/authSlice';
 
 const ProfileOptions = () => {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
   const [modalVisible, setModalVisible] = useState(false);
-  const { setLoggedIn } = useAuth();
 
   const handleLogout = () => {
     setModalVisible(!modalVisible);
@@ -32,8 +34,8 @@ const ProfileOptions = () => {
 
   const confirmLogout = async () => {
     setModalVisible(false);
-    AsyncStorage.setItem('LOGIN', 'false');
-    setLoggedIn(false);
+    await logoutUser();
+    dispatch(logout());
 
     Alert.alert('Logged out');
   };

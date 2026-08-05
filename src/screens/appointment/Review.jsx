@@ -46,7 +46,7 @@ const Review = () => {
 
         <View style={styles.ratingContainer}>
           <View style={styles.heartContainer}>
-            <HeartIcon width={20} height={20} />
+            <HeartIcon width={20} height={20} color={colors.primary} />
           </View>
 
           <View style={styles.starContainer}>
@@ -86,6 +86,9 @@ const styles = StyleSheet.create({
 
   text: {
     paddingTop: Screen_SIZES_VerticalScale.eighteen,
+    fontWeight: '300',
+    fontSize: Screen_SIZES_ModerateScale.fourteen,
+    fontFamily: Fonts.Light,
   },
   image: {
     width: Screen_SIZES_ModerateScale.oneThirty,

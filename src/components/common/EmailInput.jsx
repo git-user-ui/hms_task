@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
     fontSize: Screen_SIZES_Scale.twenty,
   },
   inputContainer: {
+    color: colors.black,
     width: '100%',
     marginTop: Screen_SIZES_VerticalScale.four,
     height: sc(40),

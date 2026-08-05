@@ -92,7 +92,11 @@ const DoctorName = ({ selected }) => {
                       </TouchableOpacity>
 
                       <TouchableOpacity style={styles.favoriteBtn}>
-                        <HeartIcon width={18} height={18} />
+                        <HeartIcon
+                          width={12}
+                          height={12}
+                          color={colors.primary}
+                        />
                       </TouchableOpacity>
                     </View>
                   )}
@@ -199,8 +203,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#FFFFFF',
     borderRadius: 30,
-    paddingVertical: ms(4),
-    paddingHorizontal: sc(4),
+    padding: ms(6),
   },
 
   card: {

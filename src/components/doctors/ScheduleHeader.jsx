@@ -29,7 +29,7 @@ const ScheduleHeader = ({ isFavorite, onToggleFavorite, onHelpPress }) => {
         onPress={() => navigation.goBack()}
         style={styles.iconCircle}
       >
-        <ChevronLeft size={20} color={colors.primary} />
+        <ChevronLeft size={24} color={colors.primary} />
       </TouchableOpacity>
 
       <View style={styles.pill}>
