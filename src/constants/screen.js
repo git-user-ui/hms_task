@@ -72,6 +72,7 @@ const Screen_SIZES_VerticalScale = {
   hundered: vs(100),
   oneThirty: vs(130),
   oneFifty: vs(150),
+  twoFifty: vs(250),
 };
 
 export {

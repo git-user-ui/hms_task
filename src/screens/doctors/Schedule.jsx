@@ -17,7 +17,10 @@ import FavouriteHeart from '../../assets/svg/favorite_heart.svg';
 import QuestionIcon from '../../assets/svg/question_icon.svg';
 
 import { colors } from '../../themes/colors';
-import { Screen_SIZES_Scale } from '../../constants/screen';
+import {
+  Screen_SIZES_ModerateScale,
+  Screen_SIZES_Scale,
+} from '../../constants/screen';
 import ButtonComp from '../../components/common/Button';
 
 import { useNavigation, useRoute } from '@react-navigation/native';
@@ -53,6 +56,9 @@ const Schedule = () => {
 
   const [fullName, setFullName] = useState('Jane Doe');
   const [age, setAge] = useState('30');
+  const [problem, setProblem] = useState(
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+  );
 
   return (
     <View style={styles}>
@@ -65,7 +71,7 @@ const Schedule = () => {
 
             <View style={styles.nameContainer}>
               <Text style={styles.name} numberOfLines={1} ellipsizeMode="tail">
-                Dr. Olivia Turner, M.D. Dr. Olivia Turner, M.D.
+                {doctors.name}
               </Text>
             </View>
             <View style={styles.iconContainer}>
@@ -265,6 +271,8 @@ const Schedule = () => {
         <View style={styles.inputContainer}>
           <Text>Describe your Problem</Text>
           <TextInput
+            value={problem}
+            onChangeText={setProblem}
             textAlignVertical="top"
             multiline
             numberOfLines={4}
@@ -280,6 +288,12 @@ const Schedule = () => {
             onPress={() =>
               navigation.navigate('Details', {
                 doctor: doctors,
+                selectedTime,
+                patientType,
+                gender,
+                fullName,
+                age,
+                problem,
               })
             }
           />
@@ -297,69 +311,67 @@ const styles = StyleSheet.create({
   },
   mainContainer: {
     paddingHorizontal: Screen_SIZES_Scale.thirty,
-    marginTop: 10,
+    marginTop: Screen_SIZES_ModerateScale.ten,
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 8,
+    gap: Screen_SIZES_ModerateScale.eight,
     justifyContent: 'space-between',
   },
   nameIconContainer: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 6,
+    gap: Screen_SIZES_ModerateScale.six,
   },
   nameContainer: {
-    flex: 1,
-    minWidth: 0,
     backgroundColor: colors.primary,
-    paddingHorizontal: 8,
-    paddingVertical: 6,
-    borderRadius: 24,
+    paddingHorizontal: Screen_SIZES_ModerateScale.eight,
+    paddingVertical: Screen_SIZES_ModerateScale.six,
+    borderRadius: Screen_SIZES_ModerateScale.twentyFour,
   },
   name: {
     color: colors.white,
   },
   iconContainer: {
     flexDirection: 'row',
-    gap: 2,
+    gap: Screen_SIZES_ModerateScale.two,
     alignItems: 'center',
   },
   callIcon: {
-    width: 28,
-    height: 28,
+    width: Screen_SIZES_ModerateScale.twentyEight,
+    height: Screen_SIZES_ModerateScale.twentyEight,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: colors.primary,
-    padding: 8,
-    borderRadius: 18,
+    padding: Screen_SIZES_ModerateScale.eight,
+    borderRadius: Screen_SIZES_ModerateScale.eighteen,
   },
   reviewsIcon: {
-    width: 28,
-    height: 28,
+    width: Screen_SIZES_ModerateScale.twentyEight,
+    height: Screen_SIZES_ModerateScale.twentyEight,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: colors.secondary,
-    padding: 8,
-    borderRadius: 18,
+    padding: Screen_SIZES_ModerateScale.eight,
+    borderRadius: Screen_SIZES_ModerateScale.eighteen,
   },
   dateContainer: {},
   dateSection: {
     backgroundColor: '#DCE4FF',
-    marginTop: 20,
+    marginTop: Screen_SIZES_ModerateScale.twenty,
     paddingHorizontal: Screen_SIZES_Scale.thirty,
-    paddingVertical: 18,
+    paddingVertical: Screen_SIZES_ModerateScale.eighteen,
   },
 
   monthRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 15,
+    marginBottom: Screen_SIZES_ModerateScale.twelve,
   },
 
   monthText: {
     color: colors.primary,
-    fontSize: 16,
+    fontSize: Screen_SIZES_ModerateScale.sixteen,
     fontWeight: '600',
     marginRight: 6,
   },
@@ -527,7 +539,6 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     paddingHorizontal: Screen_SIZES_Scale.thirty,
-
     marginTop: 10,
     gap: 10,
   },

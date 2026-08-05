@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
   },
 
   star: {
-    marginHorizontal: sc(5),
+    marginHorizontal: sc(6),
   },
   input: {
     marginTop: Screen_SIZES_VerticalScale.twenty,

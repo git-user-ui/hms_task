@@ -36,16 +36,8 @@ const HomeDoctorsList = ({ doctors }) => {
   const dispatch = useDispatch();
   const loading = useSelector(selectDoctorsLoading);
 
-  const navigation = useNavigation();
-
   const handleToggleFavorite = item => {
     dispatch(toggleFavoriteDoctor(item.id));
-  };
-
-  const handleInfo = item => {
-    navigation.navigate(ROUTES.DOCTOR_INFO, {
-      [ROUTE_PARAMS.DOCTORS]: item,
-    });
   };
 
   return (
@@ -133,7 +125,7 @@ const styles = StyleSheet.create({
     gap: Screen_SIZES_VerticalScale.twelve,
   },
   loader: {
-    height: Screen_SIZES_VerticalScale.oneFifty,
+    height: Screen_SIZES_VerticalScale.twoFifty,
     justifyContent: 'center',
     alignItems: 'center',
   },

@@ -5,6 +5,7 @@ import { colors } from '../themes/colors';
 import ChatScreen from '../screens/chat/ChatScreen';
 import CustomTabBar from '../components/CustomTabbar';
 import AppointmentStack from './AppointMentStack';
+
 const Tab = createBottomTabNavigator();
 
 export default function BottomTab() {

@@ -28,10 +28,15 @@ const ProfileOptions = () => {
   const handleLogout = () => {
     setModalVisible(!modalVisible);
   };
-  const handleFavourite = () => {
-    navigation.navigate('Doctors');
-  };
 
+  const handleFavourite = () => {
+    navigation.navigate('Home', {
+      screen: 'Doctors',
+      params: {
+        initialFilter: 'Favorite',
+      },
+    });
+  };
   const confirmLogout = async () => {
     setModalVisible(false);
     await logoutUser();

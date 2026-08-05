@@ -24,6 +24,8 @@ const Details = () => {
   const route = useRoute();
 
   const item = route.params?.doctor;
+  const { selectedTime, patientType, gender, fullName, age, problem } =
+    route.params;
   console.log();
   if (!item) {
     return null;
@@ -82,7 +84,7 @@ const Details = () => {
 
           <View style={styles.dateIconContainer}>
             <TouchableOpacity style={styles.dateIconCircle}>
-              <CorrectIcon width={10} height={10} s />
+              <CorrectIcon width={10} height={10} />
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.dateIconCircle}>
@@ -91,14 +93,26 @@ const Details = () => {
           </View>
         </View>
         <View style={styles.timeContainer}>
-          <Text style={styles.timeText}>WED, 10:00 AM</Text>
+          <Text style={styles.timeText}>{selectedTime}</Text>
         </View>
         <View style={styles.line} />
 
         <View style={styles.details}>
           <View style={styles.nameDetails}>
             <Text style={styles.booking}>Booking For </Text>
-            <Text style={styles.bookingText}>Another Person</Text>
+            <Text style={styles.bookingText}>{patientType}</Text>
+          </View>
+          <View style={styles.nameDetails}>
+            <Text style={styles.booking}>Name</Text>
+            <Text style={styles.bookingText}>{fullName}</Text>
+          </View>
+          <View style={styles.nameDetails}>
+            <Text style={styles.booking}>Age</Text>
+            <Text style={styles.bookingText}>{age}</Text>
+          </View>
+          <View style={styles.nameDetails}>
+            <Text style={styles.booking}>Gender</Text>
+            <Text style={styles.bookingText}>{gender}</Text>
           </View>
         </View>
 
@@ -106,12 +120,7 @@ const Details = () => {
 
         <View style={styles.descContainer}>
           <Text style={styles.problemDesc}>Problem</Text>
-          <Text style={styles.problemDesc}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </Text>
+          <Text style={styles.problemDesc}>{problem}</Text>
         </View>
       </View>
     </>
@@ -124,7 +133,6 @@ const styles = StyleSheet.create({
   container: {
     marginHorizontal: Screen_SIZES_Scale.thirty,
     marginTop: Screen_SIZES_VerticalScale.eight,
-    gap: Screen_SIZES_VerticalScale.twelve,
   },
 
   card: {
@@ -247,6 +255,12 @@ const styles = StyleSheet.create({
   },
   timeContainer: {
     paddingHorizontal: Screen_SIZES_Scale.ten,
+  },
+  timeText: {
+    color: colors.primary,
+    fontWeight: '400',
+    fontFamily: Fonts.Regular,
+    fontSize: Screen_SIZES_ModerateScale.twelve,
   },
   details: {
     gap: Screen_SIZES_ModerateScale.ten,

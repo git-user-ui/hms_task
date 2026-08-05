@@ -9,7 +9,6 @@ import {
 } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { colors } from '../../themes/colors';
-import api from '../../services/api';
 
 import CrossIocn from '../../assets/svg/cross_icon.svg';
 import CorrectIcon from '../../assets/svg/correct_icon.svg';
@@ -21,33 +20,32 @@ import StarIconFilled from '../../assets/svg/filled_star.svg';
 import { ms, sc, vs } from '../../utils/responsive';
 import { Fonts } from '../../themes/font';
 import { useNavigation } from '@react-navigation/native';
+
+import FavoriteHeartIcon from '../../assets/svg/favorite_heart.svg';
+
 import {
   Screen_SIZES_ModerateScale,
   Screen_SIZES_Scale,
   Screen_SIZES_VerticalScale,
 } from '../../constants/screen';
+import {
+  fetchDoctors,
+  selectDoctors,
+  selectDoctorsLoading,
+  toggleFavoriteDoctor,
+} from '../../redux/slices/doctorsSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
 const DoctorName = ({ selected }) => {
-  const [doctors, setDoctors] = useState([]);
-  const [loading, setLoading] = useState(true);
-
   const navigation = useNavigation();
+  const dispatch = useDispatch();
+
+  const doctors = useSelector(selectDoctors);
+  const loading = useSelector(selectDoctorsLoading);
 
   useEffect(() => {
-    const fetchDoctors = async () => {
-      try {
-        setLoading(true);
-        const { data } = await api.get('/');
-        setDoctors(data);
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchDoctors();
-  }, []);
+    dispatch(fetchDoctors());
+  }, [dispatch]);
 
   const handleAddReview = doctor => {
     navigation.navigate('Review', {
@@ -58,6 +56,10 @@ const DoctorName = ({ selected }) => {
     navigation.navigate('CancelAppointment', {
       doctor,
     });
+  };
+
+  const handleFavoriteToggle = item => {
+    dispatch(toggleFavoriteDoctor(item.id));
   };
 
   return (
@@ -91,12 +93,23 @@ const DoctorName = ({ selected }) => {
                         <Text style={styles.ratingText}>5</Text>
                       </TouchableOpacity>
 
-                      <TouchableOpacity style={styles.favoriteBtn}>
-                        <HeartIcon
-                          width={12}
-                          height={12}
-                          color={colors.primary}
-                        />
+                      <TouchableOpacity
+                        style={styles.favoriteBtn}
+                        onPress={() => handleFavoriteToggle(item)}
+                      >
+                        {item.isFavorite ? (
+                          <FavoriteHeartIcon
+                            width={11}
+                            height={11}
+                            color={colors.primary}
+                          />
+                        ) : (
+                          <HeartIcon
+                            width={11}
+                            height={11}
+                            color={colors.primary}
+                          />
+                        )}
                       </TouchableOpacity>
                     </View>
                   )}
@@ -146,7 +159,11 @@ const DoctorName = ({ selected }) => {
                           style={styles.iconCircle}
                           onPress={() => handleCancel(item)}
                         >
-                          <CrossIocn width={11} height={11} />
+                          <CrossIocn
+                            width={11}
+                            height={11}
+                            color={colors.primary}
+                          />
                         </TouchableOpacity>
                       </View>
                     </View>
@@ -184,8 +201,8 @@ const styles = StyleSheet.create({
   actionContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: vs(4),
-    gap: ms(6),
+    paddingVertical: Screen_SIZES_VerticalScale.four,
+    gap: Screen_SIZES_ModerateScale.six,
   },
 
   ratingBtn: {
@@ -194,7 +211,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#FFFFFF',
     borderRadius: 30,
-    paddingVertical: ms(4),
+    paddingVertical: Screen_SIZES_ModerateScale.four,
     paddingHorizontal: 18,
   },
   favoriteBtn: {
@@ -261,7 +278,7 @@ const styles = StyleSheet.create({
 
   name: {
     color: colors.primary,
-    fontSize: ms(15),
+    fontSize: ms(14),
     fontWeight: '500',
     fontFamily: Fonts.Medium,
   },
@@ -297,7 +314,7 @@ const styles = StyleSheet.create({
 
   badgeText: {
     marginLeft: Screen_SIZES_Scale.four,
-    fontSize: ms(11),
+    fontSize: ms(12),
     color: colors.primary,
     fontWeight: '600',
   },
@@ -311,7 +328,7 @@ const styles = StyleSheet.create({
   iconCircle: {
     width: Screen_SIZES_ModerateScale.twentyTwo,
     height: Screen_SIZES_ModerateScale.twentyTwo,
-    borderRadius: ms(11),
+    borderRadius: ms(12),
     backgroundColor: colors.white,
     justifyContent: 'center',
     alignItems: 'center',
@@ -335,7 +352,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: Screen_SIZES_ModerateScale.eighteen,
     paddingHorizontal: Screen_SIZES_ModerateScale.eighteen,
-    marginHorizontal: ms(5),
+    marginHorizontal: ms(6),
   },
   rebookBtn: {
     flex: 1,
@@ -344,7 +361,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: Screen_SIZES_ModerateScale.eighteen,
     paddingHorizontal: Screen_SIZES_ModerateScale.eighteen,
-    marginHorizontal: ms(5),
+    marginHorizontal: ms(6),
   },
   addReviewBtn: {
     backgroundColor: colors.primary,

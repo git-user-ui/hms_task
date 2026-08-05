@@ -11,7 +11,6 @@ import { setLoading, setLoggedIn } from '../redux/slices/authSlice';
 
 const AppNavigator = () => {
   const dispatch = useDispatch();
-
   const { isLoggedIn, isLoading } = useSelector(state => state.auth);
 
   useEffect(() => {

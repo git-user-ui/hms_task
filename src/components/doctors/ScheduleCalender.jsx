@@ -124,7 +124,9 @@ const ScheduleCalendar = ({ selectedDate, onSelectDate, doctorsData }) => {
         >
           <ChevronLeft
             size={20}
-            color={isCurrentMonthVisible ? '#AEB9EE' : colors.primary}
+            color={
+              isCurrentMonthVisible ? colors.lightbluetext : colors.primary
+            }
           />
         </TouchableOpacity>
 

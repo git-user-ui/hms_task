@@ -86,18 +86,18 @@ const HomeHeader = ({ search, onSearch }) => {
 
       {/* Quick Actions */}
       <View style={styles.quickActions}>
-        <Pressable
+        <TouchableOpacity
           style={styles.actionButton}
           onPress={() => navigation.navigate('Doctors')}
         >
           <DoctorHome style={styles.doctorIcon} />
           <Text style={styles.doctorsText}>{HomeStrings.doctorstext}</Text>
-        </Pressable>
+        </TouchableOpacity>
 
-        <Pressable style={styles.actionButton} onPress={handleFavourite}>
+        <TouchableOpacity style={styles.actionButton} onPress={handleFavourite}>
           <Heart style={styles.heartIcon} color={colors.primary} />
           <Text style={styles.doctorsText}>{HomeStrings.favouriteText}</Text>
-        </Pressable>
+        </TouchableOpacity>
 
         {/* Search */}
         <View style={styles.searchContainer}>
@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
   profile: {
     width: ms(50),
     height: ms(50),
-    borderRadius: ms(25),
+    borderRadius: ms(24),
   },
 
   welcomeText: {
@@ -190,21 +190,12 @@ const styles = StyleSheet.create({
   actionButton: {
     alignItems: 'center',
     justifyContent: 'space-between',
-    gap: Screen_SIZES_ModerateScale.eight,
   },
 
-  doctorIcon: {
-    width: Screen_SIZES_ModerateScale.twenty,
-    height: Screen_SIZES_ModerateScale.twenty,
-  },
   doctorsText: {
     fontFamily: Fonts.Light,
     fontWeight: '300',
     color: colors.primary,
-  },
-  heartIcon: {
-    width: Screen_SIZES_ModerateScale.twenty,
-    height: Screen_SIZES_ModerateScale.twenty,
   },
 
   searchContainer: {

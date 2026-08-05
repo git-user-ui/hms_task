@@ -6,10 +6,8 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   fetchDoctors,
-  loadFavorites,
   selectDoctors,
   selectDoctorsError,
-  selectDoctorsLoading,
 } from '../../redux/slices/doctorsSlice';
 
 //Components Import
@@ -22,7 +20,6 @@ import { colors } from '../../themes/colors';
 // Constants
 import { EMPTY_STATE_MESSAGES } from '../../constants/messages';
 import {
-  Screen_SIZES_ModerateScale,
   Screen_SIZES_Scale,
   Screen_SIZES_VerticalScale,
 } from '../../constants/screen';
@@ -38,7 +35,6 @@ const Home = () => {
 
   useEffect(() => {
     (async () => {
-      dispatch(loadFavorites());
       dispatch(fetchDoctors());
     })();
   }, [dispatch]);
@@ -87,15 +83,7 @@ const Home = () => {
         <HomeHeader search={search} onSearch={handleSearch} />
       </View>
 
-      {filteredDoctors().length === 0 ? (
-        <View style={styles.loader}>
-          <Text style={styles.emptyText}>
-            {EMPTY_STATE_MESSAGES.NO_DOCTORS}
-          </Text>
-        </View>
-      ) : (
-        <HomeDoctorsList doctors={filteredDoctors()} />
-      )}
+      <HomeDoctorsList doctors={filteredDoctors()} />
     </View>
   );
 };

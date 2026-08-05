@@ -112,13 +112,13 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     fontSize: Screen_SIZES_ModerateScale.twenty,
     backgroundColor: colors.secondary,
-    borderRadius: ms(23),
+    borderRadius: Screen_SIZES_ModerateScale.twentyFour,
     paddingHorizontal: Screen_SIZES_ModerateScale.eighteen,
     paddingVertical: Screen_SIZES_VerticalScale.four,
     textAlign: 'center',
   },
   title: {
-    fontSize: 24,
+    fontSize: Screen_SIZES_ModerateScale.twentyFour,
   },
   mark: {
     fontFamily: Fonts.SemiBold,

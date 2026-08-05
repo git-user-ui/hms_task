@@ -231,7 +231,7 @@ const styles = StyleSheet.create({
 
   qualification: {
     marginTop: 2,
-    fontSize: ms(11),
+    fontSize: Screen_SIZES_ModerateScale.twelve,
     color: '#666',
   },
 
@@ -261,7 +261,7 @@ const styles = StyleSheet.create({
   },
 
   icon: {
-    borderRadius: sc(13),
+    borderRadius: Screen_SIZES_ModerateScale.fourteen,
     backgroundColor: colors.white,
     padding: Screen_SIZES_Scale.four,
   },

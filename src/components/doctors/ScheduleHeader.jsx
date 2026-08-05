@@ -78,9 +78,9 @@ const styles = StyleSheet.create({
   },
 
   iconCircle: {
-    width: ms(22),
-    height: ms(22),
-    borderRadius: ms(17),
+    width: Screen_SIZES_ModerateScale.twentyTwo,
+    height: Screen_SIZES_ModerateScale.twentyTwo,
+    borderRadius: Screen_SIZES_ModerateScale.eighteen,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
   iconCircleFilled: {
     width: Screen_SIZES_ModerateScale.thirty,
     height: Screen_SIZES_ModerateScale.thirty,
-    borderRadius: ms(15),
+    borderRadius: Screen_SIZES_ModerateScale.sixteen,
     backgroundColor: colors.primary,
     alignItems: 'center',
     justifyContent: 'center',

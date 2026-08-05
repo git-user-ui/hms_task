@@ -30,7 +30,6 @@ const HomeStack = () => {
       <Stack.Screen name="Doctors" component={DoctorsScreen} />
       <Stack.Screen name="Info" component={DoctorsInfo} />
       <Stack.Screen name="Rating" component={Rating} />
-      <Stack.Screen name="Favorite" component={Favorite} />
 
       <Stack.Screen name="ScheduleScreen" component={ScheduleScreen} />
       <Stack.Screen name="Schedule" component={Schedule} />

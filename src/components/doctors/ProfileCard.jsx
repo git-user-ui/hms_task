@@ -36,7 +36,9 @@ const ProfileCard = ({ doctorsData, onSchedulePress, showActions = true }) => {
 
         <View style={styles.right}>
           <View style={styles.badge}>
-            <Professional width={16} height={16} />
+            <View style={styles.badgeImage}>
+              <Professional width={16} height={16} />
+            </View>
 
             <Text style={styles.badgeText}>
               {doctorsData.experience} Years{'\n'}Experience
@@ -138,6 +140,11 @@ const styles = StyleSheet.create({
     padding: Screen_SIZES_ModerateScale.eight,
     flexDirection: 'row',
     alignItems: 'center',
+  },
+  badgeImage: {
+    backgroundColor: colors.secondary,
+    padding: Screen_SIZES_ModerateScale.four,
+    borderRadius: Screen_SIZES_ModerateScale.twenty,
   },
 
   badgeText: {

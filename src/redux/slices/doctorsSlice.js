@@ -12,11 +12,9 @@ export const fetchDoctors = createAsyncThunk(
     try {
       const { data } = await api.get(ENDPOINTS.DOCTORS);
 
-      const favoriteIds = getState().doctors.favoriteIds;
-
       return data.map(doctor => ({
         ...doctor,
-        isFavorite: favoriteIds.includes(String(doctor.id)),
+        isFavorite: getState().doctors.favoriteIds.includes(String(doctor.id)),
       }));
     } catch (error) {
       return rejectWithValue(normalizeError(error));
@@ -31,6 +29,7 @@ export const loadFavorites = createAsyncThunk(
       const stored = await AsyncStorage.getItem(
         STORAGE_KEYS.FAVORITE_DOCTOR_IDS,
       );
+
       return stored ? JSON.parse(stored) : [];
     } catch (error) {
       return rejectWithValue(normalizeError(error));
@@ -56,7 +55,7 @@ export const toggleFavoriteDoctor = createAsyncThunk(
     const { favoriteIds } = getState().doctors;
 
     const nextFavoriteIds = favoriteIds.includes(id)
-      ? favoriteIds.filter(favoriteId => favoriteId !== id)
+      ? favoriteIds.filter(item => item !== id)
       : [...favoriteIds, id];
 
     await persistFavorites(nextFavoriteIds);
@@ -83,7 +82,6 @@ const doctorsSlice = createSlice({
   },
   extraReducers: builder => {
     builder
-      // fetchDoctors
       .addCase(fetchDoctors.pending, state => {
         state.loading = true;
         state.error = null;
@@ -94,10 +92,9 @@ const doctorsSlice = createSlice({
       })
       .addCase(fetchDoctors.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.payload?.message ?? 'Something went wrong';
+        state.error = action.payload?.message || 'Something went wrong';
       })
 
-      // loadFavorites
       .addCase(loadFavorites.fulfilled, (state, action) => {
         state.favoriteIds = action.payload;
         state.favoritesLoaded = true;
@@ -108,10 +105,10 @@ const doctorsSlice = createSlice({
 
       .addCase(toggleFavoriteDoctor.fulfilled, (state, action) => {
         state.favoriteIds = action.payload;
-        state.list = state.list.map(doctor => ({
-          ...doctor,
-          isFavorite: state.favoriteIds.includes(String(doctor.id)),
-        }));
+
+        state.list.forEach(doctor => {
+          doctor.isFavorite = state.favoriteIds.includes(String(doctor.id));
+        });
       });
   },
 });
@@ -121,6 +118,7 @@ export const { clearDoctorsError } = doctorsSlice.actions;
 export const selectDoctors = state => state.doctors.list;
 export const selectDoctorsLoading = state => state.doctors.loading;
 export const selectDoctorsError = state => state.doctors.error;
+
 export const selectFavoriteDoctors = state =>
   state.doctors.list.filter(doctor => doctor.isFavorite);
 
