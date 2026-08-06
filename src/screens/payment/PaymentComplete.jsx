@@ -1,21 +1,25 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
-import { colors } from '../../themes/colors';
-
 import { useNavigation } from '@react-navigation/native';
 
-import PaymentCompleteImage from '../../assets/svg/payment/payment_complete.svg';
+// Themes
+import { colors } from '../../themes/colors';
 import { Fonts } from '../../themes/font';
-import { ms, vs } from '../../utils/responsive';
 
+// Assets
+import PaymentCompleteImage from '../../assets/svg/payment/payment_complete.svg';
 import Calender from '../../assets/svg/payment/white_calender.svg';
 import Alarm from '../../assets/svg/payment/white_alarm.svg';
 import LeftArrow from '../../assets/svg/arrow_left.svg';
+
+// Constants
 import {
+  flexOne,
   Screen_SIZES_ModerateScale,
   Screen_SIZES_Scale,
   Screen_SIZES_VerticalScale,
 } from '../../constants/screen';
+import { paymentStrings } from '../../constants/strings';
 
 const PaymentComplete = () => {
   const navigation = useNavigation();
@@ -30,13 +34,13 @@ const PaymentComplete = () => {
         </TouchableOpacity>
         <View style={styles.mainContainer}>
           <PaymentCompleteImage />
-          <Text style={styles.congratText}>Congratulations</Text>
-          <Text style={styles.successfull}>Payment is Successfull.</Text>
+          <Text style={styles.congratText}>
+            {paymentStrings.Congratulations}
+          </Text>
+          <Text style={styles.successfull}>{paymentStrings.success}</Text>
 
           <View style={styles.card}>
-            <Text style={styles.info}>
-              You have successfully booked an appointment with
-            </Text>
+            <Text style={styles.info}>{paymentStrings.bookedAppointment}</Text>
             <Text style={styles.name}>Dr. Olivia Turner, M.D.</Text>
             <View style={styles.sheduleContainer}>
               <View style={styles.date}>
@@ -59,7 +63,7 @@ export default PaymentComplete;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: flexOne.one,
     backgroundColor: colors.primary,
   },
   arrow: {
@@ -67,7 +71,7 @@ const styles = StyleSheet.create({
     paddingTop: Screen_SIZES_ModerateScale.twenty,
   },
   mainContainer: {
-    flex: 1,
+    flex: flexOne.one,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -75,7 +79,7 @@ const styles = StyleSheet.create({
     fontFamily: Fonts.SemiBold,
     fontWeight: '500',
     color: colors.white,
-    fontSize: ms(40),
+    fontSize: Screen_SIZES_ModerateScale.fourty,
     paddingTop: Screen_SIZES_VerticalScale.twentyFour,
   },
   successfull: {
@@ -90,13 +94,13 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.white,
     padding: Screen_SIZES_ModerateScale.twentyFour,
-    marginTop: vs(34),
+    marginTop: Screen_SIZES_VerticalScale.thirty,
     marginHorizontal: Screen_SIZES_Scale.thirty,
     borderRadius: Screen_SIZES_ModerateScale.twenty,
   },
   info: {
     fontFamily: Fonts.Light,
-    fontSize: 16,
+    fontSize: Screen_SIZES_ModerateScale.sixteen,
     fontWeight: '300',
     textAlign: 'center',
     color: colors.white,
@@ -121,7 +125,7 @@ const styles = StyleSheet.create({
   },
   dateText: {
     fontFamily: Fonts.Medium,
-    fontSize: 13,
+    fontSize: Screen_SIZES_ModerateScale.twelve,
     fontWeight: '500',
     color: colors.white,
   },

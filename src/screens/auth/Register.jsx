@@ -1,3 +1,4 @@
+//React PAckages
 import React, { useState } from 'react';
 import {
   Alert,
@@ -10,23 +11,27 @@ import {
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
+// Components
 import ProfileHeader from '../../components/Profile/components/ProfileHeader';
 import EmailInput from '../../components/common/EmailInput';
 import PasswordInput from '../../components/common/PasswordInput';
 import ButtonComp from '../../components/common/Button';
 
+//Themes
 import { colors } from '../../themes/colors';
-import { ms, sc, vs } from '../../utils/responsive';
 import { Fonts } from '../../themes/font';
 
-import { saveUser } from '../../utils/storage';
+// Constants
+import { getUser, saveUser } from '../../utils/storage';
 import { ERROR_MESSAGES, SUCCESS_MESSAGES } from '../../constants/messages';
 import { ROUTES } from '../../constants/routes';
 import {
+  flexOne,
   Screen_SIZES_ModerateScale,
   Screen_SIZES_Scale,
   Screen_SIZES_VerticalScale,
 } from '../../constants/screen';
+import { AuthStrings } from '../../constants/strings';
 
 const Register = () => {
   const navigation = useNavigation();
@@ -47,6 +52,14 @@ const Register = () => {
 
     if (!name || !email || !password || !mNumber || !dob) {
       Alert.alert('Error', ERROR_MESSAGES.MISSING_REGISTER_FIELDS);
+      return;
+    }
+
+    const existingUser = await getUser();
+
+    if (existingUser) {
+      Alert.alert('Error', ERROR_MESSAGES.REGISTERED_USER);
+      navigation.navigate('Login');
       return;
     }
 
@@ -112,11 +125,12 @@ const Register = () => {
 
           {/* Terms */}
           <View style={styles.termsView}>
-            <Text style={styles.termsText}>By continuing, you agree to</Text>
+            <Text style={styles.termsText}>{AuthStrings.agreeTo}</Text>
 
             <Text style={styles.termsOfUse}>
-              Terms of Use <Text style={styles.normalText}>and </Text>
-              <Text style={styles.termsOfUse}>Privacy Policy</Text>
+              {AuthStrings.terms}
+              <Text style={styles.normalText}>{AuthStrings.and} </Text>
+              <Text style={styles.termsOfUse}>{AuthStrings.privacy}</Text>
             </Text>
           </View>
 
@@ -127,7 +141,7 @@ const Register = () => {
 
           {/* Divider */}
           <View style={styles.socialSection}>
-            <Text style={styles.orText}>or Signup with</Text>
+            <Text style={styles.orText}>{AuthStrings.signupWith}</Text>
 
             <View style={styles.socialContainer}>
               <TouchableOpacity style={styles.socialButton}>
@@ -148,10 +162,12 @@ const Register = () => {
 
           {/* Login */}
           <View style={styles.createAcc}>
-            <Text style={styles.accountText}>Already have an account?</Text>
+            <Text style={styles.accountText}>
+              {AuthStrings.dontHaveAccount}
+            </Text>
 
             <TouchableOpacity onPress={() => navigation.navigate(ROUTES.LOGIN)}>
-              <Text style={styles.signupText}> Log In</Text>
+              <Text style={styles.signupText}>{AuthStrings.login}</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -164,7 +180,7 @@ export default Register;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: flexOne.one,
     paddingHorizontal: Screen_SIZES_Scale.thirty,
     marginTop: Screen_SIZES_VerticalScale.eight,
   },
@@ -227,8 +243,8 @@ const styles = StyleSheet.create({
   },
 
   socialButton: {
-    width: sc(40),
-    height: sc(40),
+    width: Screen_SIZES_Scale.fourty,
+    height: Screen_SIZES_Scale.fourty,
     borderRadius: Screen_SIZES_ModerateScale.twentySix,
     backgroundColor: colors.secondary,
     justifyContent: 'center',

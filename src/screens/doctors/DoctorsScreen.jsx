@@ -17,7 +17,6 @@ import ServicesList from '../../components/doctors/favorite/ServiceList';
 import DoctorsProfile from '../../components/doctors/DoctorsProfile';
 import DoctorsHeading from '../../components/doctors/DoctorsHeading';
 
-import { vs } from '../../utils/responsive';
 import { colors } from '../../themes/colors';
 import { DOCTOR_FILTERS, GENDER } from '../../constants/filters';
 import { EMPTY_STATE_MESSAGES } from '../../constants/messages';
@@ -28,6 +27,7 @@ import {
   selectDoctorsLoading,
 } from '../../redux/slices/doctorsSlice';
 import {
+  flexOne,
   Screen_SIZES_Scale,
   Screen_SIZES_VerticalScale,
 } from '../../constants/screen';
@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
 
   loader: {
     height: Screen_SIZES_VerticalScale.eighteen,
-    flex: 1,
+    flex: flexOne.one,
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: Screen_SIZES_Scale.thirty,
@@ -174,7 +174,7 @@ const styles = StyleSheet.create({
 
   emptyText: {
     textAlign: 'center',
-    color: '#666',
+    color: colors.black,
   },
 
   retryButton: {
@@ -190,7 +190,7 @@ const styles = StyleSheet.create({
   },
 
   listContainer: {
-    paddingTop: 12,
-    paddingBottom: 100,
+    paddingTop: Screen_SIZES_VerticalScale.ten,
+    paddingBottom: Screen_SIZES_VerticalScale.hundered,
   },
 });

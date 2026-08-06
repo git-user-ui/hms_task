@@ -1,11 +1,16 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+
+//Themes
 import { colors } from '../../themes/colors';
-import { ms, sc, vs } from '../../utils/responsive';
 import { Fonts } from '../../themes/font';
+import { ms, sc, vs } from '../../utils/responsive';
+
+// Assets
 import RightIcon from '../../assets/svg/right_icon.svg';
 import WrongIcon from '../../assets/svg/wrong_icon.svg';
 
+// Constants
 import { useNavigation } from '@react-navigation/native';
 import {
   Screen_SIZES_ModerateScale,
@@ -21,6 +26,15 @@ const dates = [
   { id: 5, day: '25', week: 'FRI' },
   { id: 6, day: '26', week: 'SAT' },
 ];
+
+const today = new Date();
+const day = today.getDay();
+
+const diff = day === 0 ? -6 : 1 - day;
+const monday = new Date(today.getDate() + diff);
+console.log('====================================');
+console.log(monday, 'monday');
+console.log('====================================');
 
 const HomeAppointment = () => {
   const navigation = useNavigation();

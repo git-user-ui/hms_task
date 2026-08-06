@@ -1,3 +1,4 @@
+//React
 import React, { useState } from 'react';
 import {
   Alert,
@@ -10,16 +11,19 @@ import {
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
+// Components
 import ProfileHeader from '../../components/Profile/components/ProfileHeader';
 import EmailInput from '../../components/common/EmailInput';
 import PasswordInput from '../../components/common/PasswordInput';
 import ButtonComp from '../../components/common/Button';
 
+// Themes
 import { colors } from '../../themes/colors';
-import { sc, vs } from '../../utils/responsive';
 import { Fonts } from '../../themes/font';
 
 import { getUser, loginUser } from '../../utils/storage';
+
+//Constants
 import { ERROR_MESSAGES, SUCCESS_MESSAGES } from '../../constants/messages';
 import { ROUTES } from '../../constants/routes';
 import {
@@ -28,8 +32,10 @@ import {
   Screen_SIZES_VerticalScale,
 } from '../../constants/screen';
 
+// Redux
 import { useDispatch } from 'react-redux';
 import { setLoggedIn } from '../../redux/slices/authSlice';
+import { AuthStrings } from '../../constants/strings';
 
 const Login = () => {
   const navigation = useNavigation();
@@ -72,12 +78,9 @@ const Login = () => {
         <View style={styles.container}>
           {/* Header */}
           <View style={styles.topSection}>
-            <Text style={styles.title}>Welcome</Text>
+            <Text style={styles.title}>{AuthStrings.welcome}</Text>
 
-            <Text style={styles.description}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </Text>
+            <Text style={styles.description}>{AuthStrings.loginText}</Text>
           </View>
 
           {/* Form */}
@@ -102,7 +105,7 @@ const Login = () => {
             style={styles.forgotContainer}
             onPress={() => navigation.navigate(ROUTES.SET_PASSWORD)}
           >
-            <Text style={styles.forgotPass}>Forgot Password?</Text>
+            <Text style={styles.forgotPass}>{AuthStrings.forgotpass}</Text>
           </TouchableOpacity>
 
           {/* Login Button */}
@@ -112,7 +115,7 @@ const Login = () => {
 
           {/* Social Login */}
           <View style={styles.socialSection}>
-            <Text style={styles.orText}>or sign up with</Text>
+            <Text style={styles.orText}>{AuthStrings.signupWith}</Text>
 
             <View style={styles.socialContainer}>
               <TouchableOpacity style={styles.socialButton}>
@@ -133,12 +136,12 @@ const Login = () => {
 
           {/* Footer */}
           <View style={styles.footer}>
-            <Text style={styles.footerText}>Don't have an account?</Text>
+            <Text style={styles.footerText}>{AuthStrings.haveAccont}</Text>
 
             <TouchableOpacity
               onPress={() => navigation.navigate(ROUTES.REGISTER)}
             >
-              <Text style={styles.signupText}> Sign Up</Text>
+              <Text style={styles.signupText}>{AuthStrings.signup}</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -217,8 +220,8 @@ const styles = StyleSheet.create({
   },
 
   socialButton: {
-    width: sc(40),
-    height: sc(40),
+    width: Screen_SIZES_Scale.fourty,
+    height: Screen_SIZES_Scale.fourty,
     borderRadius: Screen_SIZES_ModerateScale.twentySix,
     backgroundColor: colors.secondary,
     justifyContent: 'center',

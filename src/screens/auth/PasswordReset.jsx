@@ -1,17 +1,23 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import { useNavigation } from '@react-navigation/native';
+
+// Components
 import ProfileHeader from '../../components/Profile/components/ProfileHeader';
-import { ms, sc, vs } from '../../utils/responsive';
 import PasswordInput from '../../components/common/PasswordInput';
 import ButtonComp from '../../components/common/Button';
+
+// Themes
 import { Fonts } from '../../themes/font';
 import { colors } from '../../themes/colors';
+
+// Constants
 import {
+  flexOne,
   Screen_SIZES_ModerateScale,
   Screen_SIZES_Scale,
   Screen_SIZES_VerticalScale,
 } from '../../constants/screen';
+import { AuthStrings } from '../../constants/strings';
 
 const SetPassword = () => {
   return (
@@ -19,10 +25,7 @@ const SetPassword = () => {
       <ProfileHeader header={'Set Password'} />
       <View style={styles.container}>
         <View>
-          <Text style={styles.desc}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </Text>
+          <Text style={styles.desc}>{AuthStrings.loginText}</Text>
         </View>
 
         <View style={styles.inputContainer}>
@@ -45,8 +48,8 @@ export default SetPassword;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    marginHorizontal: 30,
+    flex: flexOne.one,
+    marginHorizontal: Screen_SIZES_ModerateScale.thirty,
     marginTop: Screen_SIZES_VerticalScale.sixteen,
   },
   desc: {
@@ -55,9 +58,7 @@ const styles = StyleSheet.create({
     fontSize: Screen_SIZES_ModerateScale.twelve,
     color: colors.designBlack,
   },
-  input: {
-    backgroundColor: '#ECF1FF',
-  },
+
   inputContainer: {
     marginTop: Screen_SIZES_VerticalScale.twentyFour,
     gap: Screen_SIZES_Scale.eighteen,

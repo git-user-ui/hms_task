@@ -1,7 +1,11 @@
 import { StyleSheet } from 'react-native';
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+// Tabs
 import BottomTab from './BottomTab';
+
+// Screens
 import UpdateProfile from '../screens/profile/UpdateProfile';
 import PrivacyPolicy from '../screens/profile/privacy/PrivacyPolicy';
 import Settings from '../screens/profile/settings/Settings';
@@ -9,11 +13,13 @@ import HelpCenter from '../screens/profile/contact/HelpCenter';
 import NotificationSetting from '../screens/profile/settings/NotificationSetting';
 import PasswordManager from '../screens/profile/settings/PasswordManager';
 import DeleteAccount from '../screens/profile/settings/DeleteAccount';
-import { colors } from '../themes/colors';
 import PaymentMethod from '../screens/payment/PaymentMethod';
 import PaymentComplete from '../screens/payment/PaymentComplete';
 import PaymentScreen from '../screens/payment/PaymentScreen';
 import Payment from '../screens/payment/Payment';
+
+//themes
+import { colors } from '../themes/colors';
 
 const Stack = createNativeStackNavigator();
 

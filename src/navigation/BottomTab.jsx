@@ -1,10 +1,18 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import HomeStack from './HomeStack';
+
+// Screens
 import Profile from '../screens/profile/Profile';
-import { colors } from '../themes/colors';
 import ChatScreen from '../screens/chat/ChatScreen';
+
+// Components
 import CustomTabBar from '../components/CustomTabbar';
+
+// Stacks
 import AppointmentStack from './AppointMentStack';
+import HomeStack from './HomeStack';
+
+//themes
+import { colors } from '../themes/colors';
 
 const Tab = createBottomTabNavigator();
 

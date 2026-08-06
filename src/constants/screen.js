@@ -17,6 +17,7 @@ const Screen_SIZES_Scale = {
   twentyEight: sc(28),
   thirty: sc(30),
   fourty: sc(40),
+  fourtyEight: sc(48),
   fifty: sc(50),
   eighty: sc(80),
   hundered: sc(100),
@@ -41,8 +42,8 @@ const Screen_SIZES_ModerateScale = {
   twentyEight: ms(28),
   thirty: ms(30),
   fourty: ms(40),
+  fourtyEight: ms(48),
   fifty: ms(50),
-
   eighty: ms(80),
   hundered: ms(100),
   oneThirty: ms(130),
@@ -66,6 +67,7 @@ const Screen_SIZES_VerticalScale = {
   twentyEight: vs(28),
   thirty: vs(30),
   fourty: vs(40),
+  fourtyEight: vs(48),
   fifty: vs(50),
 
   eighty: vs(80),
@@ -79,4 +81,8 @@ export {
   Screen_SIZES_ModerateScale,
   Screen_SIZES_Scale,
   Screen_SIZES_VerticalScale,
+};
+
+export const flexOne = {
+  one: 1,
 };

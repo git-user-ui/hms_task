@@ -7,6 +7,7 @@ export const ERROR_MESSAGES = {
   FETCH_DOCTORS_FAILED: 'Unable to load doctors right now.',
   INVALID_CREDENTIALS: 'Invalid email or password.',
   NO_REGISTERED_USER: 'No registered user found. Please sign up first.',
+  REGISTERED_USER: 'User Already Registered. Please Login',
   MISSING_FIELDS: 'Please enter both email and password.',
   MISSING_REGISTER_FIELDS: 'Please fill all fields.',
 };

@@ -1,15 +1,22 @@
 export const AuthStrings = {
+  Dermatology: 'Dermatology center',
   welcome: 'Welcome',
   hello: 'Hello!',
-  forgotpass: 'Forgot Password',
+  forgotpass: 'Forgot Password?',
   login: 'Log In',
   signup: 'Sign Up',
   newAccount: 'New Account',
   setPass: 'Set Password',
-  haveAccont: "Don't have an account",
-  dontHaveAccount: 'Already have an account',
+  haveAccont: "Don't have an account?",
+  dontHaveAccount: 'Already have an account?',
   createNewPass: 'Create New Password',
   signupWith: 'or Sign up with',
+  agreeTo: 'By continuing, you agree to',
+  terms: ' Terms of Use ',
+  and: 'and',
+  privacy: 'Privacy Policy',
+  loginText:
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
 };
 
 export const HomeStrings = {
@@ -49,4 +56,10 @@ export const NotificationStrings = {
   payments: 'Payments',
   promo: 'Promo and Discount',
   cashack: 'Cashback ',
+};
+
+export const paymentStrings = {
+  Congratulations: 'Congratulations',
+  success: 'Payment is Successfull',
+  bookedAppointment: ' You have successfully booked an appointment with',
 };
