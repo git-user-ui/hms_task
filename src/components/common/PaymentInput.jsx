@@ -1,38 +1,35 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
-import { colors } from '../../themes/colors';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import BigCircle from '../../assets/svg/payment/circle_big.svg';
 import SmallCircle from '../../assets/svg/payment/circle_small.svg';
 
-import { sc, vs } from '../../utils/responsive';
+import { colors } from '../../themes/colors';
 import { Fonts } from '../../themes/font';
-import { useNavigation } from '@react-navigation/native';
+
+import { sc, vs } from '../../utils/responsive';
+
 import {
   Screen_SIZES_ModerateScale,
   Screen_SIZES_Scale,
   Screen_SIZES_VerticalScale,
 } from '../../constants/screen';
 
-const PaymentInput = ({ text, icon, selected, setSelected, value }) => {
-  const navigation = useNavigation();
-
+const PaymentInput = ({ value, text, icon, selected, onPress }) => {
   return (
     <TouchableOpacity
+      activeOpacity={0.7}
       style={styles.container}
-      onPress={() => {
-        setSelected(value);
-        setTimeout(() => {
-          navigation.navigate(value);
-        }, 500);
-      }}
+      onPress={() => onPress(value)}
     >
       <View style={styles.textContainer}>
         {icon}
         <Text style={styles.textName}>{text}</Text>
       </View>
+
       <View style={styles.iconContainer}>
         <BigCircle />
+
         <SmallCircle
           style={[
             styles.smallCircle,
@@ -44,7 +41,7 @@ const PaymentInput = ({ text, icon, selected, setSelected, value }) => {
   );
 };
 
-export default PaymentInput;
+export default React.memo(PaymentInput);
 
 const styles = StyleSheet.create({
   container: {

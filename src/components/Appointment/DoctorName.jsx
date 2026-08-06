@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   ActivityIndicator,
   FlatList,
@@ -6,191 +7,176 @@ import {
   Text,
   TouchableOpacity,
   View,
+  RefreshControl,
 } from 'react-native';
-import React, { useEffect, useState } from 'react';
+
 import { colors } from '../../themes/colors';
+import { Fonts } from '../../themes/font';
 
-import CrossIocn from '../../assets/svg/cross_icon.svg';
+import CrossIcon from '../../assets/svg/cross_icon.svg';
 import CorrectIcon from '../../assets/svg/correct_icon.svg';
-
 import CalenderIcon from '../../assets/svg/calendar_icon.svg';
 import ClockIcon from '../../assets/svg/clock.svg';
 import HeartIcon from '../../assets/svg/heart.svg';
-import StarIconFilled from '../../assets/svg/filled_star.svg';
-import { ms, sc, vs } from '../../utils/responsive';
-import { Fonts } from '../../themes/font';
-import { useNavigation } from '@react-navigation/native';
-
 import FavoriteHeartIcon from '../../assets/svg/favorite_heart.svg';
+import StarIconFilled from '../../assets/svg/filled_star.svg';
+
+import { ms, vs } from '../../utils/responsive';
 
 import {
   Screen_SIZES_ModerateScale,
   Screen_SIZES_Scale,
   Screen_SIZES_VerticalScale,
 } from '../../constants/screen';
-import {
-  fetchDoctors,
-  selectDoctors,
-  selectDoctorsLoading,
-  toggleFavoriteDoctor,
-} from '../../redux/slices/doctorsSlice';
-import { useDispatch, useSelector } from 'react-redux';
 
-const DoctorName = ({ selected }) => {
-  const navigation = useNavigation();
-  const dispatch = useDispatch();
-
-  const doctors = useSelector(selectDoctors);
-  const loading = useSelector(selectDoctorsLoading);
-
-  useEffect(() => {
-    dispatch(fetchDoctors());
-  }, [dispatch]);
-
-  const handleAddReview = doctor => {
-    navigation.navigate('Review', {
-      doctor,
-    });
-  };
-  const handleCancel = doctor => {
-    navigation.navigate('CancelAppointment', {
-      doctor,
-    });
-  };
-
-  const handleFavoriteToggle = item => {
-    dispatch(toggleFavoriteDoctor(item.id));
-  };
+const AppointmentList = ({
+  loading,
+  data,
+  selected,
+  onReview,
+  refreshing,
+  onRefresh,
+  onCancel,
+  onFavorite,
+  onRebook,
+  onDetails,
+}) => {
+  if (loading && !refreshing) {
+    return (
+      <View style={styles.loader}>
+        <ActivityIndicator />
+      </View>
+    );
+  }
 
   return (
-    <>
-      {loading ? (
-        <View style={styles.loader}>
-          <ActivityIndicator />
-        </View>
-      ) : (
-        <FlatList
-          showsVerticalScrollIndicator={false}
-          contentContainerStyle={styles.container}
-          data={doctors}
-          keyExtractor={item => item.id}
-          renderItem={({ item }) => (
-            <View key={item.id} style={styles.card}>
-              <View style={styles.imageContainer}>
-                <Image source={{ uri: item.avatar }} style={styles.image} />
+    <FlatList
+      data={data}
+      refreshControl={
+        <RefreshControl
+          progressViewOffset={60}
+          refreshing={refreshing}
+          onRefresh={onRefresh}
+          colors={[colors.primary]}
+          tintColor={colors.primary}
+        />
+      }
+      keyExtractor={item => item.id.toString()}
+      showsVerticalScrollIndicator={false}
+      contentContainerStyle={styles.container}
+      renderItem={({ item }) => (
+        <View style={styles.card}>
+          <View style={styles.imageContainer}>
+            <Image source={{ uri: item.avatar }} style={styles.image} />
 
-                <View style={styles.infoCard}>
-                  <Text numberOfLines={1} style={styles.name}>
-                    {item.name}
-                  </Text>
+            <View style={styles.infoCard}>
+              <Text numberOfLines={1} style={styles.name}>
+                {item.name}
+              </Text>
 
-                  <Text style={styles.specialization}>{item.speciality}</Text>
+              <Text style={styles.specialization}>{item.speciality}</Text>
 
-                  {selected === 'Complete' && (
-                    <View style={styles.actionContainer}>
-                      <TouchableOpacity style={styles.ratingBtn}>
-                        <StarIconFilled width={18} height={18} />
-                        <Text style={styles.ratingText}>5</Text>
-                      </TouchableOpacity>
-
-                      <TouchableOpacity
-                        style={styles.favoriteBtn}
-                        onPress={() => handleFavoriteToggle(item)}
-                      >
-                        {item.isFavorite ? (
-                          <FavoriteHeartIcon
-                            width={11}
-                            height={11}
-                            color={colors.primary}
-                          />
-                        ) : (
-                          <HeartIcon
-                            width={11}
-                            height={11}
-                            color={colors.primary}
-                          />
-                        )}
-                      </TouchableOpacity>
-                    </View>
-                  )}
-                </View>
-              </View>
-
-              <View style={styles.rightContainer}>
-                {selected === 'Complete' && (
-                  <View style={styles.completeSection}>
-                    <TouchableOpacity style={styles.rebookBtn1}>
-                      <Text style={styles.addReviewText1}>Re-Book</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                      style={styles.rebookBtn}
-                      onPress={() => handleAddReview(item)}
-                    >
-                      <Text style={styles.addReviewText}>Add Review</Text>
-                    </TouchableOpacity>
+              {selected === 'Complete' && (
+                <View style={styles.actionContainer}>
+                  <View style={styles.ratingBtn}>
+                    <StarIconFilled width={18} height={18} />
+                    <Text style={styles.ratingText}>5</Text>
                   </View>
-                )}
 
-                {selected === 'Upcoming' && (
-                  <View>
-                    <View style={styles.infoRow}>
-                      <View style={styles.infoCardClock}>
-                        <CalenderIcon width={12} height={12} />
-                        <Text style={styles.infoText}>Sunday, 12 June</Text>
-                      </View>
-
-                      <View style={styles.infoCardClock}>
-                        <ClockIcon width={12} height={12} />
-                        <Text style={styles.infoText}>9:30 AM - 10:00 AM</Text>
-                      </View>
-                    </View>
-                    <View style={styles.optionContainer}>
-                      <View style={styles.reviewContainer}>
-                        <TouchableOpacity style={styles.detailsBtn}>
-                          <Text style={styles.addReviewText}>Deatails</Text>
-                        </TouchableOpacity>
-                      </View>
-                      <View style={styles.iconContainer}>
-                        <View style={styles.iconCircle}>
-                          <CorrectIcon width={10} height={10} />
-                        </View>
-
-                        <TouchableOpacity
-                          style={styles.iconCircle}
-                          onPress={() => handleCancel(item)}
-                        >
-                          <CrossIocn
-                            width={11}
-                            height={11}
-                            color={colors.primary}
-                          />
-                        </TouchableOpacity>
-                      </View>
-                    </View>
-                  </View>
-                )}
-                <View>
-                  {selected === 'Cancelled' && (
-                    <>
-                      <TouchableOpacity
-                        style={styles.addReviewBtn}
-                        onPress={() => handleAddReview(item)}
-                      >
-                        <Text style={styles.addReviewText}>Add Review</Text>
-                      </TouchableOpacity>
-                    </>
-                  )}
+                  <TouchableOpacity
+                    style={styles.favoriteBtn}
+                    onPress={() => onFavorite(item)}
+                  >
+                    {item.isFavorite ? (
+                      <FavoriteHeartIcon
+                        width={11}
+                        height={11}
+                        color={colors.primary}
+                      />
+                    ) : (
+                      <HeartIcon
+                        width={11}
+                        height={11}
+                        color={colors.primary}
+                      />
+                    )}
+                  </TouchableOpacity>
                 </View>
-              </View>
+              )}
+            </View>
+          </View>
+
+          {selected === 'Complete' && (
+            <View style={styles.completeSection}>
+              <TouchableOpacity
+                style={styles.rebookBtn1}
+                onPress={() => onRebook(item)}
+              >
+                <Text style={styles.addReviewText1}>Re-Book</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                style={styles.rebookBtn}
+                onPress={() => onReview(item)}
+              >
+                <Text style={styles.addReviewText}>Add Review</Text>
+              </TouchableOpacity>
             </View>
           )}
-        />
+
+          {selected === 'Upcoming' && (
+            <>
+              <View style={styles.infoRow}>
+                <View style={styles.infoCardClock}>
+                  <CalenderIcon width={12} height={12} />
+                  <Text style={styles.infoText}>Sunday, 12 June</Text>
+                </View>
+
+                <View style={styles.infoCardClock}>
+                  <ClockIcon width={12} height={12} />
+                  <Text style={styles.infoText}>9:30 AM - 10:00 AM</Text>
+                </View>
+              </View>
+
+              <View style={styles.optionContainer}>
+                <TouchableOpacity
+                  style={styles.detailsBtn}
+                  onPress={() => onDetails(item)}
+                >
+                  <Text style={styles.addReviewText}>Details</Text>
+                </TouchableOpacity>
+
+                <View style={styles.iconContainer}>
+                  <View style={styles.iconCircle}>
+                    <CorrectIcon width={10} height={10} />
+                  </View>
+
+                  <TouchableOpacity
+                    style={styles.iconCircle}
+                    onPress={() => onCancel(item)}
+                  >
+                    <CrossIcon width={11} height={11} color={colors.primary} />
+                  </TouchableOpacity>
+                </View>
+              </View>
+            </>
+          )}
+
+          {selected === 'Cancelled' && (
+            <TouchableOpacity
+              style={styles.addReviewBtn}
+              onPress={() => onReview(item)}
+            >
+              <Text style={styles.addReviewText}>Add Review</Text>
+            </TouchableOpacity>
+          )}
+        </View>
       )}
-    </>
+    />
   );
 };
 
-export default DoctorName;
+export default AppointmentList;
 
 const styles = StyleSheet.create({
   container: {
@@ -198,29 +184,11 @@ const styles = StyleSheet.create({
     paddingBottom: Screen_SIZES_VerticalScale.oneFifty,
     gap: Screen_SIZES_VerticalScale.twelve,
   },
-  actionContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingVertical: Screen_SIZES_VerticalScale.four,
-    gap: Screen_SIZES_ModerateScale.six,
-  },
 
-  ratingBtn: {
-    flexDirection: 'row',
-    alignItems: 'center',
+  loader: {
+    height: vs(400),
     justifyContent: 'center',
-    backgroundColor: '#FFFFFF',
-    borderRadius: 30,
-    paddingVertical: Screen_SIZES_ModerateScale.four,
-    paddingHorizontal: 18,
-  },
-  favoriteBtn: {
-    flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#FFFFFF',
-    borderRadius: 30,
-    padding: ms(6),
   },
 
   card: {
@@ -229,58 +197,28 @@ const styles = StyleSheet.create({
     paddingVertical: Screen_SIZES_VerticalScale.eight,
     paddingHorizontal: Screen_SIZES_Scale.twelve,
   },
-  loader: {
-    height: vs(400),
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'transparent',
-  },
 
-  image: {
-    width: ms(80),
-    height: ms(80),
-    borderRadius: Screen_SIZES_ModerateScale.hundered,
-  },
   imageContainer: {
     flexDirection: 'row',
     marginBottom: Screen_SIZES_VerticalScale.fourteen,
   },
 
+  image: {
+    width: ms(80),
+    height: ms(80),
+    borderRadius: 100,
+  },
+
   infoCard: {
-    borderRadius: Screen_SIZES_Scale.fourteen,
     paddingHorizontal: Screen_SIZES_Scale.twelve,
     paddingVertical: Screen_SIZES_VerticalScale.four,
-  },
-
-  infoRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    gap: Screen_SIZES_ModerateScale.two,
-  },
-
-  infoCardClock: {
-    gap: Screen_SIZES_ModerateScale.six,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: colors.white,
-    borderRadius: 30,
-    paddingVertical: Screen_SIZES_VerticalScale.eight,
-    paddingHorizontal: Screen_SIZES_Scale.ten,
-  },
-
-  infoText: {
-    color: colors.primary,
-    fontSize: 12,
-    fontWeight: '500',
   },
 
   name: {
     color: colors.primary,
     fontSize: Screen_SIZES_ModerateScale.fourteen,
-    fontWeight: '500',
     fontFamily: Fonts.Medium,
+    fontWeight: '500',
   },
 
   specialization: {
@@ -289,91 +227,116 @@ const styles = StyleSheet.create({
     color: colors.black,
   },
 
+  actionContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: Screen_SIZES_ModerateScale.six,
+    marginTop: 8,
+  },
+
+  ratingBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: colors.white,
+    borderRadius: 30,
+    paddingVertical: 4,
+    paddingHorizontal: 18,
+  },
+
+  ratingText: {
+    marginLeft: 5,
+    color: colors.primary,
+  },
+
+  favoriteBtn: {
+    backgroundColor: colors.white,
+    borderRadius: 30,
+    padding: 6,
+  },
+
+  infoRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 10,
+  },
+
+  infoCardClock: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: colors.white,
+    borderRadius: 30,
+    paddingVertical: 8,
+    paddingHorizontal: 10,
+  },
+
+  infoText: {
+    marginLeft: 5,
+    fontSize: 12,
+    color: colors.primary,
+  },
+
   optionContainer: {
-    marginTop: Screen_SIZES_VerticalScale.eight,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
   },
 
-  reviewContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: Screen_SIZES_Scale.six,
+  detailsBtn: {
+    backgroundColor: colors.primary,
+    paddingHorizontal: 20,
+    paddingVertical: 8,
+    borderRadius: 20,
   },
 
-  badge: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: colors.white,
-    borderRadius: Screen_SIZES_Scale.twenty,
-    paddingHorizontal: Screen_SIZES_Scale.eight,
-    height: Screen_SIZES_VerticalScale.twentyTwo,
-    width: sc(50),
-  },
-
-  badgeText: {
-    marginLeft: Screen_SIZES_Scale.four,
-    fontSize: Screen_SIZES_ModerateScale.twelve,
-    color: colors.primary,
-    fontWeight: '600',
-  },
-
-  iconContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: Screen_SIZES_Scale.six,
-  },
-
-  iconCircle: {
-    width: Screen_SIZES_ModerateScale.twentyTwo,
-    height: Screen_SIZES_ModerateScale.twentyTwo,
-    borderRadius: Screen_SIZES_ModerateScale.twelve,
-    backgroundColor: colors.white,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
   completeSection: {
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  detailsBtn: {
-    width: '80%',
-    alignItems: 'center',
-    backgroundColor: colors.primary,
-    paddingVertical: Screen_SIZES_VerticalScale.six,
-    borderRadius: Screen_SIZES_ModerateScale.eighteen,
-    paddingHorizontal: Screen_SIZES_ModerateScale.eighteen,
-  },
-  rebookBtn1: {
-    flex: 1,
-    backgroundColor: colors.white,
-    paddingVertical: Screen_SIZES_VerticalScale.six,
-    alignItems: 'center',
-    borderRadius: Screen_SIZES_ModerateScale.eighteen,
-    paddingHorizontal: Screen_SIZES_ModerateScale.eighteen,
-    marginHorizontal: ms(6),
-  },
+
   rebookBtn: {
     flex: 1,
     backgroundColor: colors.primary,
-    paddingVertical: Screen_SIZES_VerticalScale.six,
+    paddingVertical: 8,
+    borderRadius: 20,
     alignItems: 'center',
-    borderRadius: Screen_SIZES_ModerateScale.eighteen,
-    paddingHorizontal: Screen_SIZES_ModerateScale.eighteen,
-    marginHorizontal: ms(6),
+    marginLeft: 8,
   },
+
+  rebookBtn1: {
+    flex: 1,
+    backgroundColor: colors.white,
+    paddingVertical: 8,
+    borderRadius: 20,
+    alignItems: 'center',
+    marginRight: 8,
+  },
+
   addReviewBtn: {
     backgroundColor: colors.primary,
-    paddingVertical: Screen_SIZES_VerticalScale.six,
+    paddingVertical: 8,
+    borderRadius: 20,
     alignItems: 'center',
-    borderRadius: Screen_SIZES_ModerateScale.eighteen,
-    paddingHorizontal: Screen_SIZES_ModerateScale.eighteen,
   },
+
   addReviewText: {
     color: colors.white,
   },
+
   addReviewText1: {
     color: colors.primary,
+  },
+
+  iconContainer: {
+    flexDirection: 'row',
+    gap: 8,
+  },
+
+  iconCircle: {
+    width: 22,
+    height: 22,
+    borderRadius: 11,
+    backgroundColor: colors.white,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

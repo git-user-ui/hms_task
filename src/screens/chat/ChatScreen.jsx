@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, useColorScheme, View } from 'react-native';
 import React from 'react';
 import ChatInput from '../../components/chats/ChatInput';
 import ChatHeader from '../../components/chats/ChatHeader';
@@ -6,6 +6,8 @@ import ChatContainer from '../../components/chats/ChatContainer';
 import { Screen_SIZES_Scale } from '../../constants/screen';
 
 const ChatScreen = () => {
+  const isDarkMode = useColorScheme() === 'dark';
+
   return (
     <>
       <ChatHeader />

@@ -1,15 +1,17 @@
+import React, { useCallback, useRef, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import React, { useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
+
 import PaymentInput from '../../components/common/PaymentInput';
 import ProfileHeader from '../../components/Profile/components/ProfileHeader';
-import { Fonts } from '../../themes/font';
-
-import { useNavigation } from '@react-navigation/native';
 
 import Debit from '../../assets/svg/payment/debit_card.svg';
 import GooglePlay from '../../assets/svg/payment/google_play_logo.svg';
 import PayPal from '../../assets/svg/payment/paypal_logo.svg';
 import Apple from '../../assets/svg/payment/apple_logo.svg';
+
+import { Fonts } from '../../themes/font';
+
 import {
   Screen_SIZES_ModerateScale,
   Screen_SIZES_Scale,
@@ -17,43 +19,61 @@ import {
 } from '../../constants/screen';
 
 const PaymentScreen = () => {
-  const [selected, setSelected] = useState('');
-
   const navigation = useNavigation();
+
+  const [selected, setSelected] = useState('');
+  const isNavigating = useRef(false);
+
+  const handlePaymentPress = useCallback(
+    value => {
+      if (isNavigating.current) return;
+      isNavigating.current = true;
+      setSelected(value);
+      navigation.navigate(value);
+
+      setTimeout(() => {
+        isNavigating.current = false;
+      }, 600);
+    },
+    [navigation],
+  );
 
   return (
     <View>
-      <ProfileHeader header={'Payment Method'} />
+      <ProfileHeader header="Payment Method" />
+
       <Text style={styles.selectedText}>Credit & Debit Card</Text>
+
       <PaymentInput
-        value={'Debit'}
+        value="Debit"
+        text="Add New Card"
         icon={<Debit />}
-        text={'Add New Card'}
         selected={selected}
-        setSelected={setSelected}
+        onPress={handlePaymentPress}
       />
+
       <View style={styles.optionContainer}>
-        <Text style={styles.selectedText}>More Payment Options</Text>
+        <Text style={styles.selectedText}>More Payment Options</Text>ent Opt
         <PaymentInput
-          value={'ApplePlay'}
+          value="ApplePlay"
+          text="Apple Pay"
           icon={<Apple />}
-          text={'Apple Play'}
           selected={selected}
-          setSelected={setSelected}
+          onPress={handlePaymentPress}
         />
         <PaymentInput
           value="PayPal"
+          text="PayPal"
           icon={<PayPal />}
-          text={'PayPal'}
           selected={selected}
-          setSelected={setSelected}
+          onPress={handlePaymentPress}
         />
         <PaymentInput
           value="GooglePlay"
+          text="Google Play"
           icon={<GooglePlay />}
-          text={'Google Play'}
           selected={selected}
-          setSelected={setSelected}
+          onPress={handlePaymentPress}
         />
       </View>
     </View>
