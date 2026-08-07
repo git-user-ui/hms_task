@@ -130,7 +130,7 @@ const PaymentMethod = () => {
       });
 
       showToast({
-        type: 'suceess',
+        type: 'success',
         message: 'Card Saved Successfully.',
       });
       navigation.navigate('Payment');

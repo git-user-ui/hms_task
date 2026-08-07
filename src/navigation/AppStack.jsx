@@ -37,9 +37,6 @@ const AppStack = () => {
       {/* Bottom Screens */}
       <Stack.Screen name="Tabs" component={BottomTab} />
 
-      {/* notification */}
-      <Stack.Screen name="Notifications" component={Notifications} />
-
       {/* Profile Screens */}
       <Stack.Screen name="UpdateProfile" component={UpdateProfile} />
       <Stack.Screen name="PrivacyPolicy" component={PrivacyPolicy} />

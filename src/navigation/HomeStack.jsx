@@ -38,7 +38,7 @@ const HomeStack = () => {
       <Stack.Screen name="Details" component={Details} />
 
       {/* Notification */}
-      {/* <Stack.Screen name="Notifications" component={Notifications} /> */}
+      <Stack.Screen name="Notifications" component={Notifications} />
 
       {/* AppointMent */}
       <Stack.Screen name="AppointmentScreens" component={AppointmentStack} />
