@@ -3,6 +3,7 @@
 import { StatusBar, StyleSheet, useColorScheme } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import AppNavigator from './src/navigation/AppNavigator';
+import Toast from 'react-native-toast-message';
 
 // Redux
 import { store } from './src/redux/store';
@@ -23,6 +24,7 @@ function App() {
         <SafeAreaView style={styles.container}>
           <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
           <AppNavigator />
+          <Toast />
         </SafeAreaView>
       </SafeAreaProvider>
     </Provider>

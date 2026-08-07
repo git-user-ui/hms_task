@@ -20,6 +20,7 @@ import Payment from '../screens/payment/Payment';
 
 //themes
 import { colors } from '../themes/colors';
+import Notifications from '../screens/Notifications';
 
 const Stack = createNativeStackNavigator();
 
@@ -35,6 +36,9 @@ const AppStack = () => {
     >
       {/* Bottom Screens */}
       <Stack.Screen name="Tabs" component={BottomTab} />
+
+      {/* notification */}
+      <Stack.Screen name="Notifications" component={Notifications} />
 
       {/* Profile Screens */}
       <Stack.Screen name="UpdateProfile" component={UpdateProfile} />

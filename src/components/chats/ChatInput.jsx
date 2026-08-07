@@ -1,4 +1,5 @@
 import {
+  KeyboardAvoidingView,
   Pressable,
   StyleSheet,
   Text,
@@ -20,20 +21,26 @@ import {
 
 const ChatInput = () => {
   return (
-    <View style={styles.container}>
-      <View style={styles.innerContainer}>
-        <TouchableOpacity style={styles.pinIcon}>
-          <PinIcon />
-        </TouchableOpacity>
-        <View style={styles.inputContainer}>
-          <TextInput placeholder="Write here...." style={styles.input} />
-          <MicIcon style={styles.mic} />
+    <KeyboardAvoidingView>
+      <View style={styles.container}>
+        <View style={styles.innerContainer}>
+          <TouchableOpacity style={styles.pinIcon}>
+            <PinIcon />
+          </TouchableOpacity>
+          <View style={styles.inputContainer}>
+            <TextInput
+              placeholder="Write here...."
+              style={styles.input}
+              placeholderTextColor={colors.designBlack}
+            />
+            <MicIcon style={styles.mic} />
+          </View>
+          <TouchableOpacity style={styles.sendBtn}>
+            <MessageSend />
+          </TouchableOpacity>
         </View>
-        <TouchableOpacity style={styles.sendBtn}>
-          <MessageSend />
-        </TouchableOpacity>
       </View>
-    </View>
+    </KeyboardAvoidingView>
   );
 };
 
@@ -67,6 +74,7 @@ const styles = StyleSheet.create({
   },
   input: {
     width: sc(150),
+    color: colors.black,
   },
   mic: {},
   sendBtn: {

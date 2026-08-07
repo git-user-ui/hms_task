@@ -122,11 +122,11 @@ export default ProfileOptions;
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 20,
+    marginTop: 10,
     marginHorizontal: 30,
   },
   subContainer: {
-    marginTop: 20,
+    marginTop: 16,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -162,7 +162,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     borderTopLeftRadius: 26,
     borderTopRightRadius: 26,
-
     paddingHorizontal: 24,
     paddingTop: 22,
     paddingBottom: 36,

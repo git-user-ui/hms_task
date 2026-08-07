@@ -1,7 +1,6 @@
 //React
 import React, { useState } from 'react';
 import {
-  Alert,
   Image,
   ScrollView,
   StyleSheet,
@@ -37,6 +36,9 @@ import { useDispatch } from 'react-redux';
 import { setLoggedIn } from '../../redux/slices/authSlice';
 import { AuthStrings } from '../../constants/strings';
 
+// Helper
+import { showToast } from '../../utils/showToast';
+
 const Login = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
@@ -46,7 +48,10 @@ const Login = () => {
 
   const handleLogin = async () => {
     if (!email || !password) {
-      Alert.alert('Error', ERROR_MESSAGES.MISSING_FIELDS);
+      showToast({
+        type: 'error',
+        message: ERROR_MESSAGES.MISSING_FIELDS,
+      });
       return;
     }
 
@@ -54,20 +59,32 @@ const Login = () => {
       const userData = await getUser();
 
       if (!userData) {
-        Alert.alert('Error', ERROR_MESSAGES.NO_REGISTERED_USER);
+        showToast({
+          type: 'error',
+          message: ERROR_MESSAGES.NO_REGISTERED_USER,
+        });
         return;
       }
 
       if (userData.email === email && userData.password === password) {
         await loginUser();
         dispatch(setLoggedIn(true));
-        Alert.alert('Success', SUCCESS_MESSAGES.LOGIN_SUCCESS);
+        showToast({
+          type: 'success',
+          message: SUCCESS_MESSAGES.LOGIN_SUCCESS,
+        });
       } else {
-        Alert.alert('Error', ERROR_MESSAGES.INVALID_CREDENTIALS);
+        showToast({
+          type: 'error',
+          message: ERROR_MESSAGES.INVALID_CREDENTIALS,
+        });
       }
     } catch (error) {
       console.log(error);
-      Alert.alert('Error', ERROR_MESSAGES.UNKNOWN_ERROR);
+      showToast({
+        type: 'error',
+        message: ERROR_MESSAGES.UNKNOWN_ERROR,
+      });
     }
   };
 

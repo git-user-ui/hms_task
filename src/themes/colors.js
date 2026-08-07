@@ -7,4 +7,7 @@ export const colors = {
   white: '#fff',
   black: '#000000',
   designBlack: '#070707',
+  green: '#238019',
+  red: 'red',
+  orange: '#ab5a03',
 };

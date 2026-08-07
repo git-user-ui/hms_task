@@ -27,7 +27,11 @@ export default function BottomTab() {
         },
       }}
     >
-      <Tab.Screen name="Home" component={HomeStack} />
+      <Tab.Screen
+        name="Home"
+        component={HomeStack}
+        options={{ popToTopOnBlur: true }}
+      />
       <Tab.Screen name="Chats" component={ChatScreen} />
       <Tab.Screen name="Profile" component={Profile} />
       <Tab.Screen name="Appointment" component={AppointmentStack} />

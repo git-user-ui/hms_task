@@ -1,18 +1,20 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+// Screens
 import DoctorsScreen from '../screens/doctors/DoctorsScreen';
 import Home from '../screens/home/Home';
-import { colors } from '../themes/colors';
 import DoctorsInfo from '../screens/doctors/DoctorsInfo';
-import Rating from '../components/doctors/Rating';
-import Favorite from '../components/doctors/favorite/Favorite';
 import Notifications from '../screens/Notifications';
-
-import AppointmentStack from './AppointMentStack';
 import Details from '../screens/doctors/Details';
 import Schedule from '../screens/doctors/Schedule';
 import ScheduleScreen from '../screens/doctors/DoctorsSchedule';
+
+// Stacks
+import AppointmentStack from './AppointMentStack';
+
+// Themes
+import { colors } from '../themes/colors';
 
 const Stack = createNativeStackNavigator();
 
@@ -29,7 +31,6 @@ const HomeStack = () => {
       <Stack.Screen name="HomeScreen" component={Home} />
       <Stack.Screen name="Doctors" component={DoctorsScreen} />
       <Stack.Screen name="Info" component={DoctorsInfo} />
-      <Stack.Screen name="Rating" component={Rating} />
 
       <Stack.Screen name="ScheduleScreen" component={ScheduleScreen} />
       <Stack.Screen name="Schedule" component={Schedule} />
@@ -37,7 +38,7 @@ const HomeStack = () => {
       <Stack.Screen name="Details" component={Details} />
 
       {/* Notification */}
-      <Stack.Screen name="Notifications" component={Notifications} />
+      {/* <Stack.Screen name="Notifications" component={Notifications} /> */}
 
       {/* AppointMent */}
       <Stack.Screen name="AppointmentScreens" component={AppointmentStack} />

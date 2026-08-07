@@ -1,6 +1,12 @@
-import { StyleSheet, Text, TextInput, View } from 'react-native';
+import {
+  KeyboardAvoidingView,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from 'react-native';
 import React from 'react';
-import { sc, vs } from '../../utils/responsive';
+import { sc } from '../../utils/responsive';
 import { colors } from '../../themes/colors';
 import { Fonts } from '../../themes/font';
 import {
@@ -10,7 +16,7 @@ import {
 
 const EmailInput = ({ label, placeholderName, value, onChangeText, style }) => {
   return (
-    <View style={style}>
+    <KeyboardAvoidingView style={style}>
       <Text style={styles.labelName}>{label}</Text>
       <TextInput
         value={value}
@@ -19,7 +25,7 @@ const EmailInput = ({ label, placeholderName, value, onChangeText, style }) => {
         style={styles.inputContainer}
         placeholderTextColor={'#809CFF'}
       />
-    </View>
+    </KeyboardAvoidingView>
   );
 };
 
@@ -35,7 +41,7 @@ const styles = StyleSheet.create({
     color: colors.black,
     width: '100%',
     marginTop: Screen_SIZES_VerticalScale.four,
-    height: sc(40),
+    height: Screen_SIZES_Scale.fourty,
     borderRadius: Screen_SIZES_Scale.fourteen,
     backgroundColor: colors.lightblue,
     paddingHorizontal: Screen_SIZES_Scale.twenty,

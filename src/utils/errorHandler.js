@@ -5,12 +5,10 @@ export const getErrorMessage = error => {
     return ERROR_MESSAGES.UNKNOWN_ERROR;
   }
 
-  // Axios timeout
   if (error.code === 'ECONNABORTED') {
     return ERROR_MESSAGES.TIMEOUT_ERROR;
   }
 
-  // No response received at all -> network / connectivity issue
   if (error.request && !error.response) {
     return ERROR_MESSAGES.NETWORK_ERROR;
   }

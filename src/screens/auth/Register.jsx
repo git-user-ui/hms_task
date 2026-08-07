@@ -32,6 +32,7 @@ import {
   Screen_SIZES_VerticalScale,
 } from '../../constants/screen';
 import { AuthStrings } from '../../constants/strings';
+import { showToast } from '../../utils/showToast';
 
 const Register = () => {
   const navigation = useNavigation();
@@ -47,18 +48,25 @@ const Register = () => {
   const handleChange = (key, value) => {
     setFormData(prev => ({ ...prev, [key]: value }));
   };
+
   const handleRegister = async () => {
     const { name, email, password, mNumber, dob } = formData;
 
     if (!name || !email || !password || !mNumber || !dob) {
-      Alert.alert('Error', ERROR_MESSAGES.MISSING_REGISTER_FIELDS);
+      showToast({
+        type: 'error',
+        message: ERROR_MESSAGES.MISSING_REGISTER_FIELDS,
+      });
       return;
     }
 
     const existingUser = await getUser();
 
     if (existingUser) {
-      Alert.alert('Error', ERROR_MESSAGES.REGISTERED_USER);
+      showToast({
+        type: 'error',
+        message: ERROR_MESSAGES.REGISTERED_USER,
+      });
       navigation.navigate('Login');
       return;
     }
@@ -74,12 +82,18 @@ const Register = () => {
 
       await saveUser(user);
 
-      Alert.alert('Success', SUCCESS_MESSAGES.REGISTER_SUCCESS);
+      showToast({
+        type: 'success',
+        message: SUCCESS_MESSAGES.REGISTER_SUCCESS,
+      });
 
       navigation.navigate(ROUTES.LOGIN);
     } catch (error) {
       console.log(error);
-      Alert.alert('Error', ERROR_MESSAGES.UNKNOWN_ERROR);
+      showToast({
+        type: 'error',
+        message: ERROR_MESSAGES.UNKNOWN_ERROR,
+      });
     }
   };
 

@@ -53,7 +53,7 @@ const PaymentScreen = () => {
       />
 
       <View style={styles.optionContainer}>
-        <Text style={styles.selectedText}>More Payment Options</Text>ent Opt
+        <Text style={styles.selectedText}>More Payment Options</Text>
         <PaymentInput
           value="ApplePlay"
           text="Apple Pay"

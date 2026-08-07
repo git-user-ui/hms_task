@@ -20,6 +20,7 @@ import {
   Screen_SIZES_Scale,
   Screen_SIZES_VerticalScale,
 } from '../../constants/screen';
+import { showToast } from '../../utils/showToast';
 
 const DEFAULT_CARD = {
   cardHolderName: 'JOHN DOE',
@@ -128,7 +129,10 @@ const PaymentMethod = () => {
         cvv: '',
       });
 
-      Alert.alert('Success', 'Card saved successfully.');
+      showToast({
+        type: 'suceess',
+        message: 'Card Saved Successfully.',
+      });
       navigation.navigate('Payment');
     } catch (error) {
       console.log(error);

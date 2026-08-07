@@ -15,6 +15,7 @@ export const ERROR_MESSAGES = {
 export const SUCCESS_MESSAGES = {
   LOGIN_SUCCESS: 'Login Successful',
   REGISTER_SUCCESS: 'Registration Successful',
+  UPDATE_SUCCESS: 'Profile Updated Successful',
 };
 
 export const EMPTY_STATE_MESSAGES = {
