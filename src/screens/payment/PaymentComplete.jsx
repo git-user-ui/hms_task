@@ -1,6 +1,6 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 
 // Themes
 import { colors } from '../../themes/colors';
@@ -23,6 +23,12 @@ import { paymentStrings } from '../../constants/strings';
 
 const PaymentComplete = () => {
   const navigation = useNavigation();
+  const route = useRoute();
+
+  // Params
+  const item = route.params?.doctor;
+  const { formattedDate, selectedTime } = route.params;
+
   return (
     <>
       <View style={styles.container}>
@@ -41,15 +47,15 @@ const PaymentComplete = () => {
 
           <View style={styles.card}>
             <Text style={styles.info}>{paymentStrings.bookedAppointment}</Text>
-            <Text style={styles.name}>Dr. Olivia Turner, M.D.</Text>
+            <Text style={styles.name}>{item.name}</Text>
             <View style={styles.sheduleContainer}>
               <View style={styles.date}>
                 <Calender />
-                <Text style={styles.dateText}>Month 24, Year</Text>
+                <Text style={styles.dateText}>{formattedDate}</Text>
               </View>
               <View style={styles.date}>
                 <Alarm />
-                <Text style={styles.dateText}>10:00 AM</Text>
+                <Text style={styles.dateText}>{selectedTime}</Text>
               </View>
             </View>
           </View>

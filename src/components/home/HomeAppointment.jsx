@@ -32,9 +32,9 @@ const day = today.getDay();
 
 const diff = day === 0 ? -6 : 1 - day;
 const monday = new Date(today.getDate() + diff);
-console.log('====================================');
-console.log(monday, 'monday');
-console.log('====================================');
+// console.log('====================================');
+// console.log(monday.toString(), 'monday');
+// console.log('====================================');
 
 const HomeAppointment = () => {
   const navigation = useNavigation();

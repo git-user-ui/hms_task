@@ -133,7 +133,7 @@ const PaymentMethod = () => {
         type: 'success',
         message: 'Card Saved Successfully.',
       });
-      navigation.navigate('Payment');
+      navigation.navigate('PaymentScreen');
     } catch (error) {
       console.log(error);
     }

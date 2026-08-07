@@ -25,7 +25,6 @@ import {
 import ButtonComp from '../../components/common/Button';
 
 import { useNavigation, useRoute } from '@react-navigation/native';
-import { vs } from '../../utils/responsive';
 
 const timeSlots = [
   '9:00 AM',
@@ -50,16 +49,23 @@ const Schedule = () => {
   const route = useRoute();
 
   const doctors = route.params?.doctors;
+  const date = new Date(route.params?.selectedDate);
+
+  const formattedDate = date.toLocaleDateString('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+  });
+  console.log('====================================');
+  console.log(formattedDate, 'formatted');
+  console.log('====================================');
 
   const [selectedTime, setSelectedTime] = useState('10:00 AM');
   const [patientType, setPatientType] = useState('another');
   const [gender, setGender] = useState('female');
-
   const [fullName, setFullName] = useState('Jane Doe');
   const [age, setAge] = useState('30');
-  const [problem, setProblem] = useState(
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-  );
+  const [problem, setProblem] = useState('');
 
   return (
     <View style={styles}>
@@ -295,6 +301,7 @@ const Schedule = () => {
                 fullName,
                 age,
                 problem,
+                formattedDate,
               })
             }
           />

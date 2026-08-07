@@ -13,12 +13,37 @@ import BadgeIcon from '../../assets/svg/badge.svg';
 import ChatIcon from '../../assets/svg/chat_payment.svg';
 import StarIcon from '../../assets/svg/filled_star.svg';
 import ArrowLeft from '../../assets/svg/blue_left_arrow.svg';
-
-import { useNavigation } from '@react-navigation/native';
+import Toast from 'react-native-toast-message';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { Screen_SIZES_VerticalScale } from '../../constants/screen';
+import { showToast } from '../../utils/showToast';
 
 const Payment = () => {
   const navigation = useNavigation();
+  const route = useRoute();
+
+  // Params
+  const item = route.params?.doctor;
+  const { selectedTime, patientType, formattedDate } = route.params;
+
+  const handlePayment = () => {
+    try {
+      if (selectedTime) {
+      }
+
+      navigation.navigate('PaymentComplete', {
+        doctor: item,
+        formattedDate,
+        selectedTime,
+      });
+    } catch (error) {
+      console.log(error);
+      showToast({
+        message: 'Something Went Wrong',
+      });
+    }
+  };
+
   return (
     <ScrollView style={styles.container}>
       {/* Header */}
@@ -38,25 +63,25 @@ const Payment = () => {
         <View style={styles.doctorRow}>
           <Image
             source={{
-              uri: 'https://i.pravatar.cc/200?img=44',
+              uri: item.avatar,
             }}
             style={styles.avatar}
           />
 
           <View style={{ flex: 1 }}>
-            <Text style={styles.doctorName}>Dr. Olivia Turner, M.D.</Text>
+            <Text style={styles.doctorName}>{item.name}</Text>
 
-            <Text style={styles.speciality}>DermaeOncology</Text>
+            <Text style={styles.speciality}>{item.speciality}</Text>
 
             <View style={styles.ratingRow}>
               <View style={styles.badge}>
                 <StarIcon />
-                <Text style={styles.badgeText}>5</Text>
+                <Text style={styles.badgeText}>{item.rating}</Text>
               </View>
 
               <View style={styles.badge}>
                 <ChatIcon />
-                <Text style={styles.badgeText}>60</Text>
+                <Text style={styles.badgeText}>{item.reviews}</Text>
               </View>
             </View>
           </View>
@@ -71,7 +96,9 @@ const Payment = () => {
         {/* Appointment */}
         <View style={styles.infoRow}>
           <Text style={styles.label}>Date / Hour</Text>
-          <Text style={styles.value}>Month 24, Year / 10:00 AM</Text>
+          <Text style={styles.value}>
+            {formattedDate} / {selectedTime}
+          </Text>
         </View>
 
         <View style={styles.infoRow}>
@@ -81,7 +108,7 @@ const Payment = () => {
 
         <View style={styles.infoRow}>
           <Text style={styles.label}>Booking for</Text>
-          <Text style={styles.value}>Another Person</Text>
+          <Text style={styles.value}>{patientType}</Text>
         </View>
 
         <View style={styles.divider} />
@@ -119,10 +146,7 @@ const Payment = () => {
           </View>
         </View>
 
-        <TouchableOpacity
-          style={styles.payButton}
-          onPress={() => navigation.navigate('PaymentComplete')}
-        >
+        <TouchableOpacity style={styles.payButton} onPress={handlePayment}>
           <Text style={styles.payText}>Pay Now</Text>
         </TouchableOpacity>
       </View>

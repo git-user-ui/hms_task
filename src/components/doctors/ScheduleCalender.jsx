@@ -110,6 +110,7 @@ const ScheduleCalendar = ({ selectedDate, onSelectDate, doctorsData }) => {
     onSelectDate(date);
     navigation.navigate('Schedule', {
       doctors: doctorsData,
+      selectedDate: date.toISOString(),
     });
   };
 

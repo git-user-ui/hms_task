@@ -1,13 +1,12 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 
-import { useRoute } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 
 import StarIcon from '../../assets/svg/star_icon.svg';
 import ChatIcon from '../../assets/svg/chat_home_icon.svg';
 import QuestionIcon from '../../assets/svg/question_icon.svg';
 import HeartIcon from '../../assets/svg/heart.svg';
-import { ms, sc, vs } from '../../utils/responsive';
 import { colors } from '../../themes/colors';
 import { Fonts } from '../../themes/font';
 import ProfileHeader from '../../components/Profile/components/ProfileHeader';
@@ -22,14 +21,32 @@ import {
 
 const Details = () => {
   const route = useRoute();
+  const navigation = useNavigation();
 
   const item = route.params?.doctor;
-  const { selectedTime, patientType, gender, fullName, age, problem } =
-    route.params;
-  console.log();
+  const {
+    selectedTime,
+    patientType,
+    gender,
+    fullName,
+    age,
+    problem,
+    formattedDate,
+  } = route.params;
+
   if (!item) {
     return null;
   }
+
+  const handleAppointment = () => {
+    navigation.navigate('Payment', {
+      selectedTime,
+      doctor: item,
+      patientType,
+      formattedDate,
+      selectedTime,
+    });
+  };
 
   return (
     <>
@@ -79,11 +96,14 @@ const Details = () => {
 
         <View style={styles.dateContainer}>
           <View style={styles.date}>
-            <Text style={styles.monthText}>Month 24, Year</Text>
+            <Text style={styles.monthText}>{formattedDate}</Text>
           </View>
 
           <View style={styles.dateIconContainer}>
-            <TouchableOpacity style={styles.dateIconCircle}>
+            <TouchableOpacity
+              style={styles.dateIconCircle}
+              onPress={handleAppointment}
+            >
               <CorrectIcon width={10} height={10} />
             </TouchableOpacity>
 
@@ -92,9 +112,11 @@ const Details = () => {
             </TouchableOpacity>
           </View>
         </View>
+
         <View style={styles.timeContainer}>
           <Text style={styles.timeText}>{selectedTime}</Text>
         </View>
+
         <View style={styles.line} />
 
         <View style={styles.details}>
